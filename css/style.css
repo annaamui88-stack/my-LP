@@ -578,6 +578,7 @@ img { max-width: 100%; height: auto; display: block; }
 /* ==========================================================================
    SCROLL ANIMATIONS (CUSTOM AOS LIGHTWEIGHT)
    ========================================================================== */
+
 [data-aos] {
     opacity: 0;
     transform: translateY(30px);
@@ -611,4 +612,38 @@ img { max-width: 100%; height: auto; display: block; }
     .hamburger { display: none; }
     .nav-drawer { position: static; transform: none; box-shadow: none; padding: 0; width: auto; background: transparent; }
     .nav-menu { flex-direction: row; }
+   
+}
+.shipping-countdown{
+
+    text-align:center;
+
+}
+
+#shippingTimer{
+
+    font-size:2rem;
+
+    font-weight:800;
+
+    color:#2e7d32;
+
+    line-height:1.4;
+
+}
+
+#shippingTimer span{
+
+    font-size:2.5rem;
+
+}
+
+#shippingDate{
+
+    margin-top:15px;
+
+    color:#666;
+
+    font-size:1rem;
+
 }
