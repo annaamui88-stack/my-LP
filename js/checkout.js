@@ -202,47 +202,44 @@ Terima kasih.`;
 
 });
 // =========================
-// KIRIM ORDER
+// KIRIM ORDER (FORM POST)
 // =========================
 
 function kirimOrder(data){
 
-    fetch(API_URL,{
-        method:"POST",
-        headers:{
-            "Content-Type":"application/json"
-        },
-        body:JSON.stringify(data)
-    })
+    const form = document.createElement("form");
 
-    .then(response=>{
+    form.method = "POST";
+    form.action = API_URL;
+    form.target = "_blank";
 
-        if(!response.ok){
-            throw new Error("Gagal menghubungi server.");
-        }
+    for(const key in data){
 
-        return response.text();
+        if(key === "pesan") continue;
 
-    })
+        const input = document.createElement("input");
 
-    .then(result=>{
+        input.type = "hidden";
+        input.name = key;
+        input.value = data[key];
 
-        const url =
-        `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(data.pesan)}`;
+        form.appendChild(input);
+
+    }
+
+    document.body.appendChild(form);
+
+    form.submit();
+
+    document.body.removeChild(form);
+
+    const url =
+    `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(data.pesan)}`;
+
+    setTimeout(function(){
 
         window.location.href = url;
 
-    })
+    },1000);
 
-    .catch(error=>{
-
-        console.error(error);
-
-        alert(
-            "Data gagal disimpan ke Google Sheets.\n\n" +
-            "Periksa koneksi internet atau Apps Script."
-        );
-
-    });
-
-        }
+}
