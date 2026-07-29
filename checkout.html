@@ -1,250 +1,333 @@
-/*==================================================
-CHECKOUT.JS V2
-Anna Amui Shop
-==================================================*/
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-// =========================
-// CONFIG
-// =========================
+    <title>Checkout | Anna Amui</title>
 
-const API_URL = "https://script.google.com/macros/s/AKfycbx4I5aN54TNXEY0hXPc88xJpiRpoPAwUMufmdQbmF6UnFBv6ZQ4JNOBvpUi0SOdpYSk/exec";
+    <link rel="stylesheet" href="css/checkout.css">
 
-const WA_NUMBER = "6287862201153";
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-// =========================
-// DATA
-// =========================
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-let original = 0;
-let pedas = 0;
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-// =========================
-// ELEMENT
-// =========================
+</head>
 
-const qtyOriginal = document.getElementById("qty-original");
-const qtyPedas = document.getElementById("qty-pedas");
+<body>
 
-const sumOriginal = document.getElementById("sum-original");
-const sumPedas = document.getElementById("sum-pedas");
+<header class="topbar">
 
-const totalPack = document.getElementById("total-pack");
-const hargaPack = document.getElementById("harga-pack");
-const totalHarga = document.getElementById("total-harga");
-const bottomTotal = document.getElementById("bottom-total");
+    <a href="index.html" class="back-btn">
+        <i class="fa-solid fa-arrow-left"></i>
+    </a>
 
-// =========================
-// UPDATE TOTAL
-// =========================
+    <h1>Checkout</h1>
 
-function updateSummary(){
+</header>
 
-    const total = original + pedas;
 
-    let harga = 13;
+<div class="container">
 
-    if(total >= 3){
-        harga = 12;
-    }
+<!-- ===========================
+Produk
+=========================== -->
 
-    const bayar = total * harga;
+<div class="card product-card">
 
-    qtyOriginal.textContent = original;
-    qtyPedas.textContent = pedas;
+<div class="product-image">
 
-    sumOriginal.textContent = original + " Pack";
-    sumPedas.textContent = pedas + " Pack";
+<img src="image/p1.png" alt="Manisan Mangga">
 
-    totalPack.textContent = total;
-    hargaPack.textContent = "HK$" + harga;
-    totalHarga.textContent = "HK$" + bayar;
-    bottomTotal.textContent = "HK$" + bayar;
+</div>
 
-}
+<div class="product-info">
 
-// =========================
-// BUTTON ORIGINAL
-// =========================
+<h2>Manisan Mangga</h2>
 
-document.getElementById("plus-original").addEventListener("click",function(){
+<p>Anna Amui</p>
 
-    original++;
+</div>
 
-    updateSummary();
+</div>
 
-});
 
-document.getElementById("minus-original").addEventListener("click",function(){
+<!-- ===========================
+Pilih Rasa
+=========================== -->
 
-    if(original>0){
+<div class="card">
 
-        original--;
+<h3>Pilih Jumlah</h3>
 
-        updateSummary();
 
-    }
+<!-- ORIGINAL -->
 
-});
+<div class="variant">
 
-// =========================
-// BUTTON PEDAS
-// =========================
+<div class="variant-name">
 
-document.getElementById("plus-pedas").addEventListener("click",function(){
+<span class="dot green"></span>
 
-    pedas++;
+<div>
 
-    updateSummary();
+<h4>Original</h4>
 
-});
+<small>HK$13 / HK$12</small>
 
-document.getElementById("minus-pedas").addEventListener("click",function(){
+</div>
 
-    if(pedas>0){
+</div>
 
-        pedas--;
+<div class="qty-box">
 
-        updateSummary();
+<button id="minus-original">
 
-    }
+<i class="fa-solid fa-minus"></i>
 
-});
+</button>
 
-// =========================
-// LOAD PERTAMA
-// =========================
+<span id="qty-original">0</span>
 
-updateSummary();
+<button id="plus-original">
 
-// =========================
-// CHECKOUT
-// =========================
+<i class="fa-solid fa-plus"></i>
 
-document.getElementById("checkoutBtn").addEventListener("click", function () {
+</button>
 
-    const nama = document.getElementById("nama").value.trim();
-    const nomor = document.getElementById("nomor").value.trim();
-    const lokasi = document.getElementById("pickup").value;
-    const catatan = document.getElementById("catatan").value.trim();
+</div>
 
-    const total = original + pedas;
+</div>
 
-    if (total === 0) {
-        alert("Silakan pilih minimal 1 pack.");
-        return;
-    }
 
-    if (nama === "") {
-        alert("Nama penerima belum diisi.");
-        document.getElementById("nama").focus();
-        return;
-    }
+<!-- PEDAS -->
 
-    if (nomor === "") {
-        alert("Nomor WhatsApp belum diisi.");
-        document.getElementById("nomor").focus();
-        return;
-    }
+<div class="variant">
 
-    if (lokasi === "") {
-        alert("Silakan pilih tempat pengambilan.");
-        document.getElementById("pickup").focus();
-        return;
-    }
+<div class="variant-name">
 
-    let harga = 13;
+<span class="dot red"></span>
 
-    if (total >= 3) {
-        harga = 12;
-    }
+<div>
 
-    const totalBayar = total * harga;
+<h4>Pedas</h4>
 
-    const pesan = `Halo Anna Amui,
+<small>HK$13 / HK$12</small>
 
-Saya ingin memesan Manisan Mangga.
+</div>
 
---------------------------------
+</div>
 
-Original : ${original} Pack
-Pedas : ${pedas} Pack
+<div class="qty-box">
 
---------------------------------
+<button id="minus-pedas">
 
-Total : ${total} Pack
-Harga : HK$${harga}/Pack
-Total Bayar : HK$${totalBayar}
+<i class="fa-solid fa-minus"></i>
 
---------------------------------
+</button>
 
-Nama : ${nama}
-Nomor WhatsApp : ${nomor}
-Tempat Pengambilan : ${lokasi}
+<span id="qty-pedas">0</span>
 
-Catatan :
-${catatan || "-"}
+<button id="plus-pedas">
 
-Terima kasih.`;
+<i class="fa-solid fa-plus"></i>
 
-    const orderData = {
-        nama: nama,
-        nomor: nomor,
-        original: original,
-        pedas: pedas,
-        totalPack: total,
-        harga: harga,
-        totalBayar: totalBayar,
-        lokasi: lokasi,
-        catatan: catatan,
-        pesan: pesan
-    };
+</button>
 
-    kirimOrder(orderData);
+</div>
 
-});
-// =========================
-// KIRIM ORDER
-// =========================
+</div>
 
-function kirimOrder(data){
+<div class="promo">
 
-    fetch(API_URL,{
-        method:"POST",
-        headers:{
-            "Content-Type":"application/json"
-        },
-        body:JSON.stringify(data)
-    })
+🔥 Beli minimal <b>3 Pack</b>
 
-    .then(response=>{
+Harga otomatis menjadi
 
-        if(!response.ok){
-            throw new Error("Gagal menghubungi server.");
-        }
+<b>HK$12 / Pack</b>
 
-        return response.text();
+</div>
+<div class="promo">
 
-    })
+🔥 Beli <b>5 Pack</b>
+Pas untuk mencapai berat kirim <b>±1 Kg </b> ongkir lebih efisien.
 
-    .then(result=>{
+</div>
 
-        const url =
-        `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(data.pesan)}`;
+</div>
 
-        window.location.href = url;
 
-    })
+<!-- ===========================
+Data Pembeli
+=========================== -->
 
-    .catch(error=>{
+<div class="card">
 
-        console.error(error);
+<h3>Informasi Penerima</h3>
 
-        alert(
-            "Data gagal disimpan ke Google Sheets.\n\n" +
-            "Periksa koneksi internet atau Apps Script."
-        );
+<div class="form-group">
 
-    });
+<label>Nama Lengkap</label>
 
-}
+<input
+type="text"
+id="nama"
+placeholder="Masukkan nama">
 
+</div>
+
+
+<div class="form-group">
+
+<label>Nomor WhatsApp Hongkong</label>
+
+<input
+type="tel"
+id="nomor"
+placeholder="Contoh : 61234567">
+
+</div>
+
+<div class="form-group">
+    <label>Tempat Pengambilan</label>
+
+    <select id="pickup">
+        <option value="">-- Pilih Lokasi --</option>
+
+        <option>Causeway Bay</option>
+        <option>Sham Shui Po</option>
+        <option>Yuen Long</option>
+        <option>Chai Wan</option>
+        <option>Tsuen Wan</option>
+        <option>Tuen Mun</option>
+        <option>Tai Po</option>
+        <option>Sai Ying Pun</option>
+        <option>Choi Hung</option>
+        <option>Tsing Yi</option>
+        <option>Tsz Wan Shan</option>
+        <option>Tsim Sha Tsui</option>
+        <option>North Point</option>
+        <option>Ngau Tau Kok</option>
+        <option>Hang Hau</option>
+        <option>Jordan</option>
+        <option>Kwun Tong</option>
+        <option>Lok Fu</option>
+        <option>Hung Hom</option>
+        <option>Yau Tong</option>
+        <option>To Kwa Wan</option>
+        <option>Tseung Kwan O</option>
+        <option>Mei Foo</option>
+        <option>Lam Tin</option>
+        <option>Mong Kok</option>
+        <option>Po Lam</option>
+        <option>Ma On Shan</option>
+        <option>Tai Wai</option>
+        <option>Wong Tai Sin</option>
+
+    </select>
+</div>
+
+<div class="form-group">
+
+<label>Catatan (Opsional)</label>
+
+<textarea
+id="catatan"
+rows="3"
+placeholder="Tambahkan catatan..."></textarea>
+
+</div>
+
+</div>
+
+
+<!-- ===========================
+Ringkasan
+=========================== -->
+
+<div class="card">
+
+<h3>Ringkasan Pesanan</h3>
+
+<div class="summary-row">
+
+<span>Original</span>
+
+<b id="sum-original">0 Pack</b>
+
+</div>
+
+<div class="summary-row">
+
+<span>Pedas</span>
+
+<b id="sum-pedas">0 Pack</b>
+
+</div>
+
+<hr>
+
+<div class="summary-row">
+
+<span>Total Pack</span>
+
+<b id="total-pack">0</b>
+
+</div>
+
+<div class="summary-row">
+
+<span>Harga / Pack</span>
+
+<b id="harga-pack">HK$13</b>
+
+</div>
+
+<div class="summary-row total">
+
+<span>Total Bayar</span>
+
+<b id="total-harga">HK$0</b>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ===========================
+Bottom Checkout
+=========================== -->
+
+<div class="bottom-bar">
+
+<div>
+
+<p>Total</p>
+
+<h2 id="bottom-total">HK$0</h2>
+
+</div>
+
+<button id="checkoutBtn">
+
+<i class="fa-brands fa-whatsapp"></i>
+
+Lanjutkan ke WhatsApp
+
+</button>
+
+</div>
+
+
+<script src="js/checkout.js"></script>
+
+</body>
+</html>
