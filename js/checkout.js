@@ -213,7 +213,7 @@ function kirimOrder(data){
     form.action = API_URL;
     form.target = "hidden_iframe";
 
-    for(const key in data){
+    for (const key in data){
 
         if(key === "pesan") continue;
 
@@ -224,16 +224,19 @@ function kirimOrder(data){
         input.value = data[key];
 
         form.appendChild(input);
-
     }
 
-    
+    document.body.appendChild(form);
 
     form.submit();
 
-setTimeout(function(){
+    setTimeout(function(){
 
-    window.location.href =
-    `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(data.pesan)}`;
+        window.location.href =
+        `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(data.pesan)}`;
 
-},1500);
+        document.body.removeChild(form);
+
+    },1500);
+
+}
