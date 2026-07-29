@@ -178,14 +178,33 @@ document.getElementById("checkoutBtn").addEventListener("click", function(){
 // =======================
 
 function kirimOrder(data){
+    const btnCheckout = document.getElementById("checkoutBtn");
+    const originalText = btnCheckout.textContent;
 
-    // 1. Draf Pesan WhatsApp
-    const pesanWA = `Halo Anna Amui,
+    btnCheckout.textContent = "Memproses...";
+    btnCheckout.disabled = true;
+
+    const formData = new FormData();
+    for (const key in data) {
+        formData.append(key, data[key]);
+    }
+
+    // Mengirim ke Google Sheets & Menerima Order ID yang Berurutan
+    fetch(API_URL, {
+        method: "POST",
+        body: formData
+    })
+    .then(res => res.json())
+    .then(res => {
+        if(res.status === "success"){
+            const orderId = res.orderId; // Order ID berurutan dari Apps Script
+
+            const pesanWA = `Halo Anna Amui,
 
 Saya ingin memesan Manisan Mangga.
 
 --------------------------------
-*ORDER ID: ${data.orderId}*
+*ORDER ID: ${orderId}*
 --------------------------------
 
 Original : ${data.original} Pack
@@ -208,23 +227,18 @@ ${data.catatan || "-"}
 
 Terima kasih.`;
 
-    // 2. Format data dengan URLSearchParams (Format paling pas untuk Apps Script)
-    const params = new URLSearchParams();
-    for (const key in data) {
-        params.append(key, data[key]);
-    }
-
-    // 3. Kirim ke Google Sheets di background
-    fetch(API_URL, {
-        method: "POST",
-        mode: "no-cors",
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-        },
-        body: params.toString()
-    }).catch(err => console.log("Background log:", err));
-
-    // 4. Langsung Arahkan ke WhatsApp
-    const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(pesanWA)}`;
-    window.location.href = url;
+            const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(pesanWA)}`;
+            window.location.href = url;
+        } else {
+            alert("Gagal memproses pesanan: " + res.message);
+            btnCheckout.textContent = originalText;
+            btnCheckout.disabled = false;
+        }
+    })
+    .catch(err => {
+        console.error(err);
+        alert("Terjadi kesalahan koneksi. Silakan coba lagi.");
+        btnCheckout.textContent = originalText;
+        btnCheckout.disabled = false;
+    });
 }
