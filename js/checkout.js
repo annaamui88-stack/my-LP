@@ -38,21 +38,15 @@ const bottomTotal = document.getElementById("bottom-total");
 // =======================
 
 function getHarga(total){
-
     if(total >= 3){
         return 12;
     }
-
     return 13;
-
 }
 
 function updateSummary(){
-
     const total = original + pedas;
-
     const harga = getHarga(total);
-
     const bayar = total * harga;
 
     qtyOriginal.textContent = original;
@@ -62,61 +56,41 @@ function updateSummary(){
     sumPedas.textContent = pedas + " Pack";
 
     totalPack.textContent = total;
-
     hargaPack.textContent = "HK$" + harga;
-
     totalHarga.textContent = "HK$" + bayar;
-
     bottomTotal.textContent = "HK$" + bayar;
-
 }
 
 // =======================
 // BUTTON ORIGINAL
 // =======================
 
-document.getElementById("plus-original").addEventListener("click",function(){
-
+document.getElementById("plus-original").addEventListener("click", function(){
     original++;
-
     updateSummary();
-
 });
 
-document.getElementById("minus-original").addEventListener("click",function(){
-
-    if(original>0){
-
+document.getElementById("minus-original").addEventListener("click", function(){
+    if(original > 0){
         original--;
-
         updateSummary();
-
     }
-
 });
 
 // =======================
 // BUTTON PEDAS
 // =======================
 
-document.getElementById("plus-pedas").addEventListener("click",function(){
-
+document.getElementById("plus-pedas").addEventListener("click", function(){
     pedas++;
-
     updateSummary();
-
 });
 
-document.getElementById("minus-pedas").addEventListener("click",function(){
-
-    if(pedas>0){
-
+document.getElementById("minus-pedas").addEventListener("click", function(){
+    if(pedas > 0){
         pedas--;
-
         updateSummary();
-
     }
-
 });
 
 // =======================
@@ -124,6 +98,7 @@ document.getElementById("minus-pedas").addEventListener("click",function(){
 // =======================
 
 updateSummary();
+
 // =======================
 // CHECKOUT
 // =======================
@@ -131,157 +106,126 @@ updateSummary();
 document.getElementById("checkoutBtn").addEventListener("click", function(){
 
     const nama = document.getElementById("nama").value.trim();
-
     const nomor = document.getElementById("nomor").value.trim();
-
     const lokasi = document.getElementById("pickup").value;
-
     const catatan = document.getElementById("catatan").value.trim();
 
     const total = original + pedas;
 
     if(total === 0){
-
         alert("Silakan pilih minimal 1 Pack.");
-
         return;
-
     }
 
     if(nama === ""){
-
         alert("Nama penerima belum diisi.");
-
         document.getElementById("nama").focus();
-
         return;
-
     }
 
     if(nomor === ""){
-
         alert("Nomor WhatsApp belum diisi.");
-
         document.getElementById("nomor").focus();
-
         return;
-
     }
 
     if(lokasi === ""){
-
         alert("Silakan pilih tempat pengambilan.");
-
         document.getElementById("pickup").focus();
-
         return;
-
     }
 
     const harga = getHarga(total);
-
     const totalBayar = total * harga;
 
-    const pesan = `Halo Anna Amui,
-
-Saya ingin memesan Manisan Mangga.
-
---------------------------------
-
-Original : ${original} Pack
-Pedas : ${pedas} Pack
-
---------------------------------
-
-Total : ${total} Pack
-Harga : HK$${harga}/Pack
-Total Bayar : HK$${totalBayar}
-
---------------------------------
-
-Nama : ${nama}
-Nomor WhatsApp : ${nomor}
-Tempat Pengambilan : ${lokasi}
-
-Catatan :
-${catatan || "-"}
-
-Terima kasih.`;
-
     const data = {
-
         nama: nama,
-
         nomor: nomor,
-
         original: original,
-
         pedas: pedas,
-
         totalPack: total,
-
         harga: harga,
-
         totalBayar: totalBayar,
-
         lokasi: lokasi,
-
-        catatan: catatan,
-
-        pesan: pesan
-
+        catatan: catatan
     };
 
     kirimOrder(data);
-
 });
+
 // =======================
-// KIRIM ORDER
+// KIRIM ORDER & AMBIL ORDER ID
 // =======================
 
 function kirimOrder(data){
 
-    const form = document.createElement("form");
+    const btnCheckout = document.getElementById("checkoutBtn");
+    const originalText = btnCheckout.textContent;
 
-    form.method = "POST";
-    form.action = API_URL;
-    form.target = "hidden_iframe";
+    // Ubah status tombol agar user tahu proses sedang berjalan
+    btnCheckout.textContent = "Memproses...";
+    btnCheckout.disabled = true;
 
-    // membuat input hidden
+    // Menyiapkan Form Data untuk dikirim ke Google Apps Script
+    const formData = new FormData();
     for(const key in data){
-
-        if(key === "pesan") continue;
-
-        const input = document.createElement("input");
-
-        input.type = "hidden";
-        input.name = key;
-        input.value = data[key];
-
-        form.appendChild(input);
-
+        formData.append(key, data[key]);
     }
 
-    document.body.appendChild(form);
+    // Kirim data menggunakan Fetch API
+    fetch(API_URL, {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.json())
+    .then(res => {
+        if(res.status === "success"){
+            
+            const orderId = res.orderId;
 
-    // kirim ke Google Sheets
-    form.submit();
+            // Buat draf pesan WhatsApp lengkap dengan ORDER ID
+            const pesanWA = `Halo Anna Amui,
 
-    // hapus form setelah terkirim
-    setTimeout(function(){
+Saya ingin memesan Manisan Mangga.
 
-        document.body.removeChild(form);
+--------------------------------
+*ORDER ID: ${orderId}*
+--------------------------------
 
-    },500);
+Original : ${data.original} Pack
+Pedas : ${data.pedas} Pack
 
-    // buka WhatsApp
-    setTimeout(function(){
+--------------------------------
 
-        const url =
-        `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(data.pesan)}`;
+Total : ${data.totalPack} Pack
+Harga : HK$${data.harga}/Pack
+Total Bayar : HK$${data.totalBayar}
 
-        window.location.href = url;
+--------------------------------
 
-    },1200);
+Nama : ${data.nama}
+Nomor WhatsApp : ${data.nomor}
+Tempat Pengambilan : ${data.lokasi}
 
+Catatan :
+${data.catatan || "-"}
+
+Terima kasih.`;
+
+            // Buka WhatsApp
+            const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(pesanWA)}`;
+            window.location.href = url;
+
+        } else {
+            alert("Gagal memproses pesanan: " + res.message);
+            btnCheckout.textContent = originalText;
+            btnCheckout.disabled = false;
+        }
+    })
+    .catch(error => {
+        console.error("Error:", error);
+        alert("Terjadi masalah koneksi. Silakan coba lagi.");
+        btnCheckout.textContent = originalText;
+        btnCheckout.disabled = false;
+    });
 }
