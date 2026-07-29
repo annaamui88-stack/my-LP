@@ -100,7 +100,7 @@ document.getElementById("minus-pedas").addEventListener("click", function(){
 updateSummary();
 
 // =======================
-// FUNGSI BUAT ORDER ID UNIK
+// FUNGSI GENERATE ORDER ID
 // =======================
 function generateOrderIdJS() {
     const now = new Date();
@@ -111,7 +111,6 @@ function generateOrderIdJS() {
     // Angka acak 4 digit
     const randomNum = Math.floor(1000 + Math.random() * 9000);
     
-    // Format: AA-YYYYMMDD-1234
     return `AA-${year}${month}${day}-${randomNum}`;
 }
 
@@ -154,7 +153,7 @@ document.getElementById("checkoutBtn").addEventListener("click", function(){
     const harga = getHarga(total);
     const totalBayar = total * harga;
 
-    // Generate Order ID
+    // 1. Generate Order ID Tunggal
     const orderId = generateOrderIdJS();
 
     const data = {
@@ -174,37 +173,52 @@ document.getElementById("checkoutBtn").addEventListener("click", function(){
 });
 
 // =======================
-// KIRIM ORDER (Stabil & Bebas CORS Error)
+// KIRIM ORDER (Metode Hidden Form & Target Iframe)
 // =======================
 
 function kirimOrder(data){
-    const btnCheckout = document.getElementById("checkoutBtn");
-    const originalText = btnCheckout.textContent;
 
-    btnCheckout.textContent = "Memproses...";
-    btnCheckout.disabled = true;
-
-    const formData = new FormData();
-    for (const key in data) {
-        formData.append(key, data[key]);
+    // 1. Buat iframe rahasia agar browser tidak merestart/reload halaman
+    let iframe = document.getElementById("hidden_iframe");
+    if (!iframe) {
+        iframe = document.createElement("iframe");
+        iframe.name = "hidden_iframe";
+        iframe.id = "hidden_iframe";
+        iframe.style.display = "none";
+        document.body.appendChild(iframe);
     }
 
-    // Mengirim ke Google Sheets & Menerima Order ID yang Berurutan
-    fetch(API_URL, {
-        method: "POST",
-        body: formData
-    })
-    .then(res => res.json())
-    .then(res => {
-        if(res.status === "success"){
-            const orderId = res.orderId; // Order ID berurutan dari Apps Script
+    // 2. Buat Form Tersembunyi
+    const form = document.createElement("form");
+    form.method = "POST";
+    form.action = API_URL;
+    form.target = "hidden_iframe";
 
-            const pesanWA = `Halo Anna Amui,
+    for (const key in data) {
+        const input = document.createElement("input");
+        input.type = "hidden";
+        input.name = key;
+        input.value = data[key];
+        form.appendChild(input);
+    }
+
+    document.body.appendChild(form);
+
+    // 3. Kirim Form ke Google Sheets (Tidak terkena blokir CORS)
+    form.submit();
+
+    // Hapus form setelah terkirim
+    setTimeout(function(){
+        document.body.removeChild(form);
+    }, 500);
+
+    // 4. Format Pesan WhatsApp dengan Order ID yang SAMA PERSIS
+    const pesanWA = `Halo Anna Amui,
 
 Saya ingin memesan Manisan Mangga.
 
 --------------------------------
-*ORDER ID: ${orderId}*
+*ORDER ID: ${data.orderId}*
 --------------------------------
 
 Original : ${data.original} Pack
@@ -227,18 +241,7 @@ ${data.catatan || "-"}
 
 Terima kasih.`;
 
-            const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(pesanWA)}`;
-            window.location.href = url;
-        } else {
-            alert("Gagal memproses pesanan: " + res.message);
-            btnCheckout.textContent = originalText;
-            btnCheckout.disabled = false;
-        }
-    })
-    .catch(err => {
-        console.error(err);
-        alert("Terjadi kesalahan koneksi. Silakan coba lagi.");
-        btnCheckout.textContent = originalText;
-        btnCheckout.disabled = false;
-    });
+    // 5. Buka WhatsApp
+    const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(pesanWA)}`;
+    window.location.href = url;
 }
