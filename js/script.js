@@ -71,13 +71,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 /*==================================================
-    SHIPPING COUNTDOWN
+/*==================================================
+    SHIPPING DATE
 ==================================================*/
 
-const timerElement = document.getElementById("shippingTimer");
 const dateElement = document.getElementById("shippingDate");
 
-if (timerElement && dateElement) {
+if (dateElement) {
 
     const hari = [
         "Minggu",
@@ -100,13 +100,13 @@ if (timerElement && dateElement) {
 
         let target = new Date(now);
 
-        // Cari Kamis minggu ini
+        // Hari Kamis
         let diff = (4 - now.getDay() + 7) % 7;
 
         target.setDate(now.getDate() + diff);
         target.setHours(0,0,0,0);
 
-        // Batas order
+        // Batas order Rabu jam 20:00
         const cutoff = new Date(now);
 
         let diffCutoff = (3 - now.getDay() + 7) % 7;
@@ -114,47 +114,16 @@ if (timerElement && dateElement) {
         cutoff.setDate(now.getDate() + diffCutoff);
         cutoff.setHours(20,0,0,0);
 
-        // Jika sudah lewat Rabu 20.00
-        if (now > cutoff) {
-
+        if(now > cutoff){
             target.setDate(target.getDate() + 7);
-
         }
 
         return target;
-
     }
 
-    function updateShippingCountdown() {
+    const target = getNextShipping();
 
-        const target = getNextShipping();
-
-        const now = new Date();
-
-        const distance = target - now;
-
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        timerElement.innerHTML = `
-            <span>${days}</span> Hari
-            <span>${hours}</span> Jam
-            <span>${minutes}</span> Menit
-            <span>${seconds}</span> Detik
-        `;
-
-        dateElement.innerHTML =
-            `Pengiriman: ${hari[target.getDay()]}, ${target.getDate()} ${bulan[target.getMonth()]} ${target.getFullYear()}`;
-
-    }
-
-    updateShippingCountdown();
-
-    setInterval(updateShippingCountdown,1000);
+    dateElement.innerHTML =
+        `Pengiriman berikutnya: <strong>${hari[target.getDay()]}, ${target.getDate()} ${bulan[target.getMonth()]} ${target.getFullYear()}</strong>`;
 
 }
