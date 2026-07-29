@@ -94,7 +94,7 @@ a{
     gap:10px;
     font-size:18px;
     font-weight:700;
-    color:#ee4d2d;
+    color:#16a34a;
     margin-bottom:18px;
 }
 
@@ -203,7 +203,7 @@ textarea{
     height:38px;
     border:none;
     border-radius:10px;
-    background:#ee4d2d;
+    background:#16a34a;
     color:#fff;
     font-size:20px;
     font-weight:bold;
@@ -286,14 +286,14 @@ textarea{
 }
 
 .checkout-bar h3{
-    color:#ee4d2d;
+    color:#16a34a;
     margin-top:4px;
     font-size:24px;
 }
 
 #checkoutBtn{
     border:none;
-    background:#ee4d2d;
+    background:#16a34a;
     color:#fff;
     padding:14px 28px;
     border-radius:12px;
