@@ -1,26 +1,26 @@
 /*==================================================
-CHECKOUT.JS V2
+CHECKOUT.JS
 Anna Amui Shop
 ==================================================*/
 
-// =========================
-// CONFIG
-// =========================
+// =======================
+// KONFIGURASI
+// =======================
 
 const API_URL = "https://script.google.com/macros/s/AKfycbx4I5aN54TNXEY0hXPc88xJpiRpoPAwUMufmdQbmF6UnFBv6ZQ4JNOBvpUi0SOdpYSk/exec";
 
 const WA_NUMBER = "6287862201153";
 
-// =========================
+// =======================
 // DATA
-// =========================
+// =======================
 
 let original = 0;
 let pedas = 0;
 
-// =========================
+// =======================
 // ELEMENT
-// =========================
+// =======================
 
 const qtyOriginal = document.getElementById("qty-original");
 const qtyPedas = document.getElementById("qty-pedas");
@@ -33,19 +33,25 @@ const hargaPack = document.getElementById("harga-pack");
 const totalHarga = document.getElementById("total-harga");
 const bottomTotal = document.getElementById("bottom-total");
 
-// =========================
-// UPDATE TOTAL
-// =========================
+// =======================
+// HITUNG TOTAL
+// =======================
+
+function getHarga(total){
+
+    if(total >= 3){
+        return 12;
+    }
+
+    return 13;
+
+}
 
 function updateSummary(){
 
     const total = original + pedas;
 
-    let harga = 13;
-
-    if(total >= 3){
-        harga = 12;
-    }
+    const harga = getHarga(total);
 
     const bayar = total * harga;
 
@@ -56,15 +62,18 @@ function updateSummary(){
     sumPedas.textContent = pedas + " Pack";
 
     totalPack.textContent = total;
+
     hargaPack.textContent = "HK$" + harga;
+
     totalHarga.textContent = "HK$" + bayar;
+
     bottomTotal.textContent = "HK$" + bayar;
 
 }
 
-// =========================
+// =======================
 // BUTTON ORIGINAL
-// =========================
+// =======================
 
 document.getElementById("plus-original").addEventListener("click",function(){
 
@@ -86,9 +95,9 @@ document.getElementById("minus-original").addEventListener("click",function(){
 
 });
 
-// =========================
+// =======================
 // BUTTON PEDAS
-// =========================
+// =======================
 
 document.getElementById("plus-pedas").addEventListener("click",function(){
 
@@ -110,52 +119,66 @@ document.getElementById("minus-pedas").addEventListener("click",function(){
 
 });
 
-// =========================
+// =======================
 // LOAD PERTAMA
-// =========================
+// =======================
 
 updateSummary();
-// =========================
+// =======================
 // CHECKOUT
-// =========================
+// =======================
 
-document.getElementById("checkoutBtn").addEventListener("click", function () {
+document.getElementById("checkoutBtn").addEventListener("click", function(){
 
     const nama = document.getElementById("nama").value.trim();
+
     const nomor = document.getElementById("nomor").value.trim();
+
     const lokasi = document.getElementById("pickup").value;
+
     const catatan = document.getElementById("catatan").value.trim();
 
     const total = original + pedas;
 
-    if (total === 0) {
-        alert("Silakan pilih minimal 1 pack.");
+    if(total === 0){
+
+        alert("Silakan pilih minimal 1 Pack.");
+
         return;
+
     }
 
-    if (nama === "") {
+    if(nama === ""){
+
         alert("Nama penerima belum diisi.");
+
         document.getElementById("nama").focus();
+
         return;
+
     }
 
-    if (nomor === "") {
+    if(nomor === ""){
+
         alert("Nomor WhatsApp belum diisi.");
+
         document.getElementById("nomor").focus();
+
         return;
+
     }
 
-    if (lokasi === "") {
+    if(lokasi === ""){
+
         alert("Silakan pilih tempat pengambilan.");
+
         document.getElementById("pickup").focus();
+
         return;
+
     }
 
-    let harga = 13;
-
-    if (total >= 3) {
-        harga = 12;
-    }
+    const harga = getHarga(total);
 
     const totalBayar = total * harga;
 
@@ -185,25 +208,36 @@ ${catatan || "-"}
 
 Terima kasih.`;
 
-    const orderData = {
+    const data = {
+
         nama: nama,
+
         nomor: nomor,
+
         original: original,
+
         pedas: pedas,
+
         totalPack: total,
+
         harga: harga,
+
         totalBayar: totalBayar,
+
         lokasi: lokasi,
+
         catatan: catatan,
+
         pesan: pesan
+
     };
 
-    kirimOrder(orderData);
+    kirimOrder(data);
 
 });
-// =========================
-// KIRIM ORDER (FORM POST)
-// =========================
+// =======================
+// KIRIM ORDER
+// =======================
 
 function kirimOrder(data){
 
@@ -213,7 +247,8 @@ function kirimOrder(data){
     form.action = API_URL;
     form.target = "hidden_iframe";
 
-    for (const key in data){
+    // membuat input hidden
+    for(const key in data){
 
         if(key === "pesan") continue;
 
@@ -224,19 +259,29 @@ function kirimOrder(data){
         input.value = data[key];
 
         form.appendChild(input);
+
     }
 
     document.body.appendChild(form);
 
+    // kirim ke Google Sheets
     form.submit();
 
+    // hapus form setelah terkirim
     setTimeout(function(){
-
-        window.location.href =
-        `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(data.pesan)}`;
 
         document.body.removeChild(form);
 
-    },1500);
+    },500);
+
+    // buka WhatsApp
+    setTimeout(function(){
+
+        const url =
+        `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(data.pesan)}`;
+
+        window.location.href = url;
+
+    },1200);
 
 }
