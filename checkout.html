@@ -115,3 +115,136 @@ document.getElementById("minus-pedas").addEventListener("click",function(){
 // =========================
 
 updateSummary();
+
+// =========================
+// CHECKOUT
+// =========================
+
+document.getElementById("checkoutBtn").addEventListener("click", function () {
+
+    const nama = document.getElementById("nama").value.trim();
+    const nomor = document.getElementById("nomor").value.trim();
+    const lokasi = document.getElementById("pickup").value;
+    const catatan = document.getElementById("catatan").value.trim();
+
+    const total = original + pedas;
+
+    if (total === 0) {
+        alert("Silakan pilih minimal 1 pack.");
+        return;
+    }
+
+    if (nama === "") {
+        alert("Nama penerima belum diisi.");
+        document.getElementById("nama").focus();
+        return;
+    }
+
+    if (nomor === "") {
+        alert("Nomor WhatsApp belum diisi.");
+        document.getElementById("nomor").focus();
+        return;
+    }
+
+    if (lokasi === "") {
+        alert("Silakan pilih tempat pengambilan.");
+        document.getElementById("pickup").focus();
+        return;
+    }
+
+    let harga = 13;
+
+    if (total >= 3) {
+        harga = 12;
+    }
+
+    const totalBayar = total * harga;
+
+    const pesan = `Halo Anna Amui,
+
+Saya ingin memesan Manisan Mangga.
+
+--------------------------------
+
+Original : ${original} Pack
+Pedas : ${pedas} Pack
+
+--------------------------------
+
+Total : ${total} Pack
+Harga : HK$${harga}/Pack
+Total Bayar : HK$${totalBayar}
+
+--------------------------------
+
+Nama : ${nama}
+Nomor WhatsApp : ${nomor}
+Tempat Pengambilan : ${lokasi}
+
+Catatan :
+${catatan || "-"}
+
+Terima kasih.`;
+
+    const orderData = {
+        nama: nama,
+        nomor: nomor,
+        original: original,
+        pedas: pedas,
+        totalPack: total,
+        harga: harga,
+        totalBayar: totalBayar,
+        lokasi: lokasi,
+        catatan: catatan,
+        pesan: pesan
+    };
+
+    kirimOrder(orderData);
+
+});
+// =========================
+// KIRIM ORDER
+// =========================
+
+function kirimOrder(data){
+
+    fetch(API_URL,{
+        method:"POST",
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body:JSON.stringify(data)
+    })
+
+    .then(response=>{
+
+        if(!response.ok){
+            throw new Error("Gagal menghubungi server.");
+        }
+
+        return response.text();
+
+    })
+
+    .then(result=>{
+
+        const url =
+        `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(data.pesan)}`;
+
+        window.location.href = url;
+
+    })
+
+    .catch(error=>{
+
+        console.error(error);
+
+        alert(
+            "Data gagal disimpan ke Google Sheets.\n\n" +
+            "Periksa koneksi internet atau Apps Script."
+        );
+
+    });
+
+}
+
