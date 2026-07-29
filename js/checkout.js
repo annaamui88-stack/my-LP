@@ -162,20 +162,24 @@ function kirimOrder(data){
     const btnCheckout = document.getElementById("checkoutBtn");
     const originalText = btnCheckout.textContent;
 
-    // Ubah status tombol agar user tahu proses sedang berjalan
+    // Ubah status tombol
     btnCheckout.textContent = "Memproses...";
     btnCheckout.disabled = true;
 
-    // Menyiapkan Form Data untuk dikirim ke Google Apps Script
-    const formData = new FormData();
+    // Menggunakan URLSearchParams agar aman dari isu CORS
+    const params = new URLSearchParams();
     for(const key in data){
-        formData.append(key, data[key]);
+        params.append(key, data[key]);
     }
 
-    // Kirim data menggunakan Fetch API
+    // Kirim data menggunakan Fetch dengan mode cors
     fetch(API_URL, {
         method: "POST",
-        body: formData
+        mode: "cors",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: params.toString()
     })
     .then(response => response.json())
     .then(res => {
