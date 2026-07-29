@@ -108,10 +108,10 @@ function generateOrderIdJS() {
     const month = String(now.getMonth() + 1).padStart(2, '0');
     const day = String(now.getDate()).padStart(2, '0');
     
-    // Menggunakan acak 4 digit angka unik
+    // Angka acak 4 digit
     const randomNum = Math.floor(1000 + Math.random() * 9000);
     
-    // Hasil contoh: AA-20260730-8492
+    // Format: AA-YYYYMMDD-1234
     return `AA-${year}${month}${day}-${randomNum}`;
 }
 
@@ -154,11 +154,11 @@ document.getElementById("checkoutBtn").addEventListener("click", function(){
     const harga = getHarga(total);
     const totalBayar = total * harga;
 
-    // Generate Order ID secara instan di JavaScript
+    // Generate Order ID
     const orderId = generateOrderIdJS();
 
     const data = {
-        orderId: orderId, // Order ID ikut dikirim
+        orderId: orderId,
         nama: nama,
         nomor: nomor,
         original: original,
@@ -174,12 +174,12 @@ document.getElementById("checkoutBtn").addEventListener("click", function(){
 });
 
 // =======================
-// KIRIM ORDER (Ternavigasi Lancar Tanpa CORS Error)
+// KIRIM ORDER (Stabil & Bebas CORS Error)
 // =======================
 
 function kirimOrder(data){
 
-    // 1. Buat pesan WhatsApp dengan Order ID yang baru saja dibuat
+    // 1. Draf Pesan WhatsApp
     const pesanWA = `Halo Anna Amui,
 
 Saya ingin memesan Manisan Mangga.
@@ -208,19 +208,23 @@ ${data.catatan || "-"}
 
 Terima kasih.`;
 
-    // 2. Kirim data ke Google Sheets menggunakan mode 'no-cors' (Pasti Berhasil & Tidak Error)
-    const formData = new FormData();
-    for(const key in data){
-        formData.append(key, data[key]);
+    // 2. Format data dengan URLSearchParams (Format paling pas untuk Apps Script)
+    const params = new URLSearchParams();
+    for (const key in data) {
+        params.append(key, data[key]);
     }
 
+    // 3. Kirim ke Google Sheets di background
     fetch(API_URL, {
         method: "POST",
-        mode: "no-cors", // Mengabaikan pemblokiran CORS dari browser
-        body: formData
+        mode: "no-cors",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: params.toString()
     }).catch(err => console.log("Background log:", err));
 
-    // 3. Langsung buka WhatsApp
+    // 4. Langsung Arahkan ke WhatsApp
     const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(pesanWA)}`;
     window.location.href = url;
 }
