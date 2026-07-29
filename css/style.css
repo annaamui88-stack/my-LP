@@ -55,7 +55,7 @@ img { max-width: 100%; height: auto; display: block; }
     padding: 0 20px;
 }
 
-.section { padding: 4.5rem 0; }
+.section { padding: 1.5rem 0; }
 .text-center { text-align: center; }
 .text-white { color: var(--bg-white); }
 
@@ -238,8 +238,8 @@ img { max-width: 100%; height: auto; display: block; }
    HERO SECTION
    ========================================================================== */
 .hero {
-    padding-top: 7rem;
-    padding-bottom: 3.5rem;
+    padding-top: 4rem;
+    padding-bottom: 6rem;
 }
 
 .hero-container {
