@@ -1,11 +1,61 @@
-// =======================
-// CHECKOUT (LENGKAP DENGAN PROTEKSI & RESET FORM)
-// =======================
+/*==================================================
+CHECKOUT.JS - Anna Amui Shop
+==================================================*/
+
+const API_URL = "https://script.google.com/macros/s/AKfycbx4I5aN54TNXEY0hXPc88xJpiRpoPAwUMufmdQbmF6UnFBv6ZQ4JNOBvpUi0SOdpYSk/exec";
+const WA_NUMBER = "6287862201153";
+
+let original = 0;
+let pedas = 0;
+
+const qtyOriginal = document.getElementById("qty-original");
+const qtyPedas = document.getElementById("qty-pedas");
+const sumOriginal = document.getElementById("sum-original");
+const sumPedas = document.getElementById("sum-pedas");
+const totalPack = document.getElementById("total-pack");
+const hargaPack = document.getElementById("harga-pack");
+const totalHarga = document.getElementById("total-harga");
+const bottomTotal = document.getElementById("bottom-total");
+
+function getHarga(total){
+    return total >= 3 ? 12 : 13;
+}
+
+function updateSummary(){
+    const total = original + pedas;
+    const harga = getHarga(total);
+    const bayar = total * harga;
+
+    qtyOriginal.textContent = original;
+    qtyPedas.textContent = pedas;
+
+    sumOriginal.textContent = original + " Pack";
+    sumPedas.textContent = pedas + " Pack";
+
+    totalPack.textContent = total;
+    hargaPack.textContent = "HK$" + harga;
+    totalHarga.textContent = "HK$" + bayar;
+    bottomTotal.textContent = "HK$" + bayar;
+}
+
+document.getElementById("plus-original").addEventListener("click", function(){ original++; updateSummary(); });
+document.getElementById("minus-original").addEventListener("click", function(){ if(original > 0){ original--; updateSummary(); } });
+document.getElementById("plus-pedas").addEventListener("click", function(){ pedas++; updateSummary(); });
+document.getElementById("minus-pedas").addEventListener("click", function(){ if(pedas > 0){ pedas--; updateSummary(); } });
+
+updateSummary();
+
+function generateWAOrderId() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    const randomNum = Math.floor(1000 + Math.random() * 9000);
+    return `AA-${year}${month}${day}-${randomNum}`;
+}
 
 document.getElementById("checkoutBtn").addEventListener("click", function(){
-
     const btnCheckout = document.getElementById("checkoutBtn");
-
     const namaInput = document.getElementById("nama");
     const nomorInput = document.getElementById("nomor");
     const lokasiInput = document.getElementById("pickup");
@@ -18,30 +68,11 @@ document.getElementById("checkoutBtn").addEventListener("click", function(){
 
     const total = original + pedas;
 
-    if(total === 0){
-        alert("Silakan pilih minimal 1 Pack.");
-        return;
-    }
+    if(total === 0){ alert("Silakan pilih minimal 1 Pack."); return; }
+    if(nama === ""){ alert("Nama penerima belum diisi."); namaInput.focus(); return; }
+    if(nomor === ""){ alert("Nomor WhatsApp belum diisi."); nomorInput.focus(); return; }
+    if(lokasi === ""){ alert("Silakan pilih tempat pengambilan."); lokasiInput.focus(); return; }
 
-    if(nama === ""){
-        alert("Nama penerima belum diisi.");
-        namaInput.focus();
-        return;
-    }
-
-    if(nomor === ""){
-        alert("Nomor WhatsApp belum diisi.");
-        nomorInput.focus();
-        return;
-    }
-
-    if(lokasi === ""){
-        alert("Silakan pilih tempat pengambilan.");
-        lokasiInput.focus();
-        return;
-    }
-
-    // 1. MATIKAN TOMBOL AGAR TIDAK BISA DIKLIK 2 KALI
     btnCheckout.disabled = true;
     btnCheckout.textContent = "Memproses...";
 
@@ -60,28 +91,19 @@ document.getElementById("checkoutBtn").addEventListener("click", function(){
         catatan: catatan
     };
 
-    // 2. BERSIHKAN FORMULIR INPUT
+    // Reset Form
     namaInput.value = "";
     nomorInput.value = "";
-    lokasiInput.selectedIndex = 0; // Kembalikan opsi pilihan ke default
+    lokasiInput.selectedIndex = 0;
     catatanInput.value = "";
-
-    // 3. BERSIHKAN HITUNGAN PACK & HITUNG ULANG TOTAL (BERSIH TOTAL)
     original = 0;
     pedas = 0;
     updateSummary();
 
-    // 4. KIRIM ORDER KE GOOGLE SHEETS & WA
     kirimOrder(data);
 });
 
-// =======================
-// KIRIM ORDER
-// =======================
-
 function kirimOrder(data){
-
-    // Kirim data ke Google Sheets di background (via Hidden Form)
     let iframe = document.getElementById("hidden_iframe");
     if (!iframe) {
         iframe = document.createElement("iframe");
@@ -111,10 +133,8 @@ function kirimOrder(data){
         document.body.removeChild(form);
     }, 500);
 
-    // Buat Order ID khusus WhatsApp
     const orderIdWA = generateWAOrderId();
 
-    // Buat Format Pesan WhatsApp
     const pesanWA = `Halo Anna Amui,
 
 Saya ingin memesan Manisan Mangga.
@@ -143,10 +163,8 @@ ${data.catatan || "-"}
 
 Terima kasih.`;
 
-    // Buka WhatsApp
     const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(pesanWA)}`;
     
-    // Beri jeda sedikit lalu buka WA agar tombol kembali aktif jika pengguna menekan tombol Back
     setTimeout(function(){
         const btnCheckout = document.getElementById("checkoutBtn");
         if(btnCheckout) {
