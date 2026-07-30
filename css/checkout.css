@@ -65,17 +65,6 @@ a{
     height:42px;
     border-radius:50%;
 }
-
-/* =========================
-   CONTAINER
-========================= */
-
-.container{
-    max-width:650px;
-    margin:18px auto;
-    padding:0 14px;
-}
-
 /* =========================
    CARD
 ========================= */
@@ -187,7 +176,6 @@ textarea{
 .pedas{
     background:#ff3b30;
 }
-
 /* =========================
    QTY BUTTON
 ========================= */
@@ -261,7 +249,6 @@ textarea{
     color:#ee4d2d;
     margin-top:15px;
 }
-
 /* =========================
    STICKY CHECKOUT
 ========================= */
@@ -310,7 +297,6 @@ textarea{
 #checkoutBtn:active{
     transform:scale(.98);
 }
-
 /* =========================
    MOBILE
 ========================= */
