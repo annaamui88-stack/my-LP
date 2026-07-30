@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Checkout | Anna Amui Shop</title>
+
+<link rel="stylesheet" href="css/checkout.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header class="topbar">
+
+<div class="topbar-left">
+
+<a href="index.html" class="back-btn">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+</a>
+
+<h2>Checkout</h2>
+
+</div>
+
+<div class="logo">
+
+
+
+</div>
+
+</header>
+
+<!-- CONTENT -->
+
+<div class="container">
+
+<!-- INFORMASI -->
+
+<div class="card">
+
+<div class="card-title">
+
+<i class="fa-solid fa-circle-info"></i>
+
+<span>Informasi Penerima</span>
+
+</div>
+
+<div class="form-group">
+
+<label>Nama Penerima</label>
+
+<input
+type="text"
+id="nama"
+placeholder="Masukkan nama penerima">
+
+</div>
+
+<div class="form-group">
+
+<label>Nomor WhatsApp Hong Kong</label>
+
+<input
+type="tel"
+id="nomor"
+placeholder="Contoh : 8525589312">
+
+</div>
+
+<div class="form-group">
+
+<label>Tempat Pengambilan Paket</label>
+
+<select id="pickup">
+
+<option value="">Pilih Lokasi</option>
+
+<option>Tsim Sha Tsui</option>
+
+<option>Mong Kok</option>
+
+<option>Central</option>
+
+<option>Causeway Bay</option>
+
+<option>Yuen Long</option>
+
+<option>Tuen Mun</option>
+
+<option>Tsuen Wan</option>
+
+<option>Sha Tin</option>
+
+<option>Fanling</option>
+
+<option>Sheung Shui</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+
+<label>Catatan (Opsional)</label>
+
+<textarea
+id="catatan"
+rows="3"
+placeholder="Contoh : Hubungi sebelum pengantaran"></textarea>
+
+</div>
+
+</div>
+  
+<!-- PRODUK -->
+
+<div class="card">
+
+<div class="card-title">
+
+<i class="fa-solid fa-box"></i>
+
+<span>Pesanan Anda</span>
+
+</div>
+
+<!-- ORIGINAL -->
+
+<div class="variant">
+
+<div class="variant-info">
+
+<div class="variant-name">
+
+<div class="dot original"></div>
+
+<div>
+
+<h4>Original</h4>
+
+<p>HK$13 / HK$12</p>
+
+</div>
+
+</div>
+
+<div class="qty-box">
+
+<button id="minus-original" type="button">−</button>
+
+<span id="qty-original">0</span>
+
+<button id="plus-original" type="button">+</button>
+
+</div>
+
+</div>
+
+</div>
+<!-- PEDAS -->
+<div class="variant">
+  <div class="variant-info">
+    <div class="variant-name">
+      <div class="dot pedas"></div>
+      <div>
+        <h4>Pedas</h4>
+        <p>HK$13 / HK$12</p>
+      </div>
+    </div>
+    <div class="qty-box">
+      <button id="minus-pedas" type="button">−</button>
+      <span id="qty-pedas">0</span>
+      <button id="plus-pedas" type="button">+</button>
+    </div>
+  </div>
+</div>
+
+<!-- PROMO BOXES -->
+<div class="promo-box">
+  <i class="fa-solid fa-tags"></i>
+  <b>Promo:</b> Beli <b>3 Pack</b> atau lebih, harga otomatis menjadi <b>HK$12 / Pack</b>
+</div>
+
+<div class="promo-box">
+  <i class="fa-solid fa-tags"></i>
+  <b>Pilih Paket Favorit:</b> Beli <b>5 Pack</b> pas untuk mencapai berat kirim <b>1 Kg, ongkir jadi lebih efisien!</b>
+</div>
+
+<!-- RINGKASAN -->
+<div class="card">
+  <div class="card-title">
+    <i class="fa-solid fa-receipt"></i>
+    <span>Ringkasan Pesanan</span>
+  </div>
+
+  <div class="summary-row">
+    <span>Original</span>
+    <span id="sum-original">0 Pack</span>
+  </div>
+
+  <div class="summary-row">
+    <span>Pedas</span>
+    <span id="sum-pedas">0 Pack</span>
+  </div>
+
+  <div class="summary-row">
+    <span>Total Pack</span>
+    <b id="total-pack">0</b>
+  </div>
+
+  <div class="summary-row">
+    <span>Harga / Pack</span>
+    <b id="harga-pack">HK$13</b>
+  </div>
+
+  <hr>
+
+  <div class="summary-total">
+    <span>Total Bayar</span>
+    <b id="total-harga">HK$0</b>
+  </div>
+</div>
+
+<!-- FOOTER / CHECKOUT BAR -->
+<div class="checkout-bar">
+  <div>
+    <small>Total Pembayaran</small>
+    <h3 id="bottom-total">HK$0</h3>
+  </div>
+
+  <button id="checkoutBtn" type="button">
+    <i class="fa-brands fa-whatsapp"></i>
+    Lanjutkan ke WhatsApp
+  </button>
+</div>
+
+<!-- IFRAME RAHASIA UNTUK PROSES KE GOOGLE SHEETS -->
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+<!-- JAVASCRIPT CHECKOUT DENGAN VERSIONING CACHE -->
+<script src="js/checkout.js?v=2"></script>
+
+</body>
+</html>
