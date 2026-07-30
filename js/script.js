@@ -70,60 +70,56 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
-/*==================================================
-/*==================================================
-    SHIPPING DATE
-==================================================*/
-
-const dateElement = document.getElementById("shippingDate");
-
-if (dateElement) {
-
-    const hari = [
-        "Minggu",
-        "Senin",
-        "Selasa",
-        "Rabu",
-        "Kamis",
-        "Jumat",
-        "Sabtu"
-    ];
-
-    const bulan = [
-        "Januari","Februari","Maret","April","Mei","Juni",
-        "Juli","Agustus","September","Oktober","November","Desember"
-    ];
-
-    function getNextShipping() {
-
+/* ==========================================
+   COUNTDOWN TIMER SCRIPT (AAN EXPRESS)
+   ========================================== */
+document.addEventListener('DOMContentLoaded', () => {
+    function getNextDeadline() {
         const now = new Date();
-
-        let target = new Date(now);
-
-        // Hari Kamis
-        let diff = (4 - now.getDay() + 7) % 7;
-
-        target.setDate(now.getDate() + diff);
-        target.setHours(0,0,0,0);
-
-        // Batas order Rabu jam 20:00
-        const cutoff = new Date(now);
-
-        let diffCutoff = (3 - now.getDay() + 7) % 7;
-
-        cutoff.setDate(now.getDate() + diffCutoff);
-        cutoff.setHours(20,0,0,0);
-
-        if(now > cutoff){
-            target.setDate(target.getDate() + 7);
+        const currentDay = now.getDay(); // 0: Minggu, 1: Senin, ..., 3: Rabu
+        
+        let daysUntilWednesday = (3 - currentDay + 7) % 7;
+        
+        if (daysUntilWednesday === 0 && (now.getHours() > 23 || (now.getHours() === 23 && now.getMinutes() >= 59))) {
+            daysUntilWednesday = 7;
         }
 
-        return target;
+        const nextWednesday = new Date(now);
+        nextWednesday.setDate(now.getDate() + daysUntilWednesday);
+        nextWednesday.setHours(23, 59, 59, 999);
+
+        return nextWednesday;
     }
 
-    const target = getNextShipping();
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const deadline = getNextDeadline().getTime();
+        const diff = deadline - now;
 
-    dateElement.innerHTML =
-        `Pengiriman berikutnya: <strong>${hari[target.getDay()]}, ${target.getDate()} ${bulan[target.getMonth()]} ${target.getFullYear()}</strong>`;
+        if (diff <= 0) {
+            document.getElementById('days').textContent = '0';
+            document.getElementById('hours').textContent = '00';
+            document.getElementById('minutes').textContent = '00';
+            document.getElementById('seconds').textContent = '00';
+            return;
+        }
 
-}
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        const daysEl = document.getElementById('days');
+        const hoursEl = document.getElementById('hours');
+        const minutesEl = document.getElementById('minutes');
+        const secondsEl = document.getElementById('seconds');
+
+        if (daysEl) daysEl.textContent = days;
+        if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
+        if (minutesEl) minutesEl.textContent = String(minutes).padStart(2, '0');
+        if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+});
