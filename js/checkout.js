@@ -2,7 +2,7 @@
 CHECKOUT.JS - Anna Amui Shop (Updated with ID Order)
 ==================================================*/
 
-const API_URL = "https://script.google.com/macros/s/AKfycbx4I5aN54TNXEY0hXPc88xJpiRpoPAwUMufmdQbmF6UnFBv6ZQ4JNOBvpUi0SOdpYSk/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbxaL7XqgyEWnqr9VxsoHS4-gr3pLEssFxeiDl0MSJyqKUbk3sfiR0u1OYPBc9y15VMh/exec";
 const WA_NUMBER = "6287862201153";
 
 let original = 0;
