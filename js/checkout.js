@@ -1,129 +1,20 @@
-/*==================================================
-CHECKOUT.JS
-Anna Amui Shop
-==================================================*/
-
 // =======================
-// KONFIGURASI
-// =======================
-
-const API_URL = "https://script.google.com/macros/s/AKfycbx4I5aN54TNXEY0hXPc88xJpiRpoPAwUMufmdQbmF6UnFBv6ZQ4JNOBvpUi0SOdpYSk/exec";
-
-const WA_NUMBER = "6287862201153";
-
-// =======================
-// DATA
-// =======================
-
-let original = 0;
-let pedas = 0;
-
-// =======================
-// ELEMENT
-// =======================
-
-const qtyOriginal = document.getElementById("qty-original");
-const qtyPedas = document.getElementById("qty-pedas");
-
-const sumOriginal = document.getElementById("sum-original");
-const sumPedas = document.getElementById("sum-pedas");
-
-const totalPack = document.getElementById("total-pack");
-const hargaPack = document.getElementById("harga-pack");
-const totalHarga = document.getElementById("total-harga");
-const bottomTotal = document.getElementById("bottom-total");
-
-// =======================
-// HITUNG TOTAL
-// =======================
-
-function getHarga(total){
-    if(total >= 3){
-        return 12;
-    }
-    return 13;
-}
-
-function updateSummary(){
-    const total = original + pedas;
-    const harga = getHarga(total);
-    const bayar = total * harga;
-
-    qtyOriginal.textContent = original;
-    qtyPedas.textContent = pedas;
-
-    sumOriginal.textContent = original + " Pack";
-    sumPedas.textContent = pedas + " Pack";
-
-    totalPack.textContent = total;
-    hargaPack.textContent = "HK$" + harga;
-    totalHarga.textContent = "HK$" + bayar;
-    bottomTotal.textContent = "HK$" + bayar;
-}
-
-// =======================
-// BUTTON ORIGINAL
-// =======================
-
-document.getElementById("plus-original").addEventListener("click", function(){
-    original++;
-    updateSummary();
-});
-
-document.getElementById("minus-original").addEventListener("click", function(){
-    if(original > 0){
-        original--;
-        updateSummary();
-    }
-});
-
-// =======================
-// BUTTON PEDAS
-// =======================
-
-document.getElementById("plus-pedas").addEventListener("click", function(){
-    pedas++;
-    updateSummary();
-});
-
-document.getElementById("minus-pedas").addEventListener("click", function(){
-    if(pedas > 0){
-        pedas--;
-        updateSummary();
-    }
-});
-
-// =======================
-// LOAD PERTAMA
-// =======================
-
-updateSummary();
-
-// =======================
-// FUNGSI GENERATE ORDER ID
-// =======================
-function generateOrderIdJS() {
-    const now = new Date();
-    const year = now.getFullYear();
-    const month = String(now.getMonth() + 1).padStart(2, '0');
-    const day = String(now.getDate()).padStart(2, '0');
-    
-    // Angka acak 4 digit
-    const randomNum = Math.floor(1000 + Math.random() * 9000);
-    
-    return `AA-${year}${month}${day}-${randomNum}`;
-}
-
-// =======================
-// CHECKOUT
+// CHECKOUT (LENGKAP DENGAN PROTEKSI & RESET FORM)
 // =======================
 
 document.getElementById("checkoutBtn").addEventListener("click", function(){
 
-    const nama = document.getElementById("nama").value.trim();
-    const nomor = document.getElementById("nomor").value.trim();
-    const lokasi = document.getElementById("pickup").value;
-    const catatan = document.getElementById("catatan").value.trim();
+    const btnCheckout = document.getElementById("checkoutBtn");
+
+    const namaInput = document.getElementById("nama");
+    const nomorInput = document.getElementById("nomor");
+    const lokasiInput = document.getElementById("pickup");
+    const catatanInput = document.getElementById("catatan");
+
+    const nama = namaInput.value.trim();
+    const nomor = nomorInput.value.trim();
+    const lokasi = lokasiInput.value;
+    const catatan = catatanInput.value.trim();
 
     const total = original + pedas;
 
@@ -134,30 +25,30 @@ document.getElementById("checkoutBtn").addEventListener("click", function(){
 
     if(nama === ""){
         alert("Nama penerima belum diisi.");
-        document.getElementById("nama").focus();
+        namaInput.focus();
         return;
     }
 
     if(nomor === ""){
         alert("Nomor WhatsApp belum diisi.");
-        document.getElementById("nomor").focus();
+        nomorInput.focus();
         return;
     }
 
     if(lokasi === ""){
         alert("Silakan pilih tempat pengambilan.");
-        document.getElementById("pickup").focus();
+        lokasiInput.focus();
         return;
     }
+
+    // 1. MATIKAN TOMBOL AGAR TIDAK BISA DIKLIK 2 KALI
+    btnCheckout.disabled = true;
+    btnCheckout.textContent = "Memproses...";
 
     const harga = getHarga(total);
     const totalBayar = total * harga;
 
-    // 1. Generate Order ID Tunggal
-    const orderId = generateOrderIdJS();
-
     const data = {
-        orderId: orderId,
         nama: nama,
         nomor: nomor,
         original: original,
@@ -169,16 +60,28 @@ document.getElementById("checkoutBtn").addEventListener("click", function(){
         catatan: catatan
     };
 
+    // 2. BERSIHKAN FORMULIR INPUT
+    namaInput.value = "";
+    nomorInput.value = "";
+    lokasiInput.selectedIndex = 0; // Kembalikan opsi pilihan ke default
+    catatanInput.value = "";
+
+    // 3. BERSIHKAN HITUNGAN PACK & HITUNG ULANG TOTAL (BERSIH TOTAL)
+    original = 0;
+    pedas = 0;
+    updateSummary();
+
+    // 4. KIRIM ORDER KE GOOGLE SHEETS & WA
     kirimOrder(data);
 });
 
 // =======================
-// KIRIM ORDER (Metode Hidden Form & Target Iframe)
+// KIRIM ORDER
 // =======================
 
 function kirimOrder(data){
 
-    // 1. Buat iframe rahasia agar browser tidak merestart/reload halaman
+    // Kirim data ke Google Sheets di background (via Hidden Form)
     let iframe = document.getElementById("hidden_iframe");
     if (!iframe) {
         iframe = document.createElement("iframe");
@@ -188,7 +91,6 @@ function kirimOrder(data){
         document.body.appendChild(iframe);
     }
 
-    // 2. Buat Form Tersembunyi
     const form = document.createElement("form");
     form.method = "POST";
     form.action = API_URL;
@@ -203,22 +105,22 @@ function kirimOrder(data){
     }
 
     document.body.appendChild(form);
-
-    // 3. Kirim Form ke Google Sheets (Tidak terkena blokir CORS)
     form.submit();
 
-    // Hapus form setelah terkirim
     setTimeout(function(){
         document.body.removeChild(form);
     }, 500);
 
-    // 4. Format Pesan WhatsApp dengan Order ID yang SAMA PERSIS
+    // Buat Order ID khusus WhatsApp
+    const orderIdWA = generateWAOrderId();
+
+    // Buat Format Pesan WhatsApp
     const pesanWA = `Halo Anna Amui,
 
 Saya ingin memesan Manisan Mangga.
 
 --------------------------------
-*ORDER ID: ${data.orderId}*
+*ORDER ID: ${orderIdWA}*
 --------------------------------
 
 Original : ${data.original} Pack
@@ -241,7 +143,16 @@ ${data.catatan || "-"}
 
 Terima kasih.`;
 
-    // 5. Buka WhatsApp
+    // Buka WhatsApp
     const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(pesanWA)}`;
-    window.location.href = url;
+    
+    // Beri jeda sedikit lalu buka WA agar tombol kembali aktif jika pengguna menekan tombol Back
+    setTimeout(function(){
+        const btnCheckout = document.getElementById("checkoutBtn");
+        if(btnCheckout) {
+            btnCheckout.disabled = false;
+            btnCheckout.textContent = "Kirim Order via WhatsApp";
+        }
+        window.location.href = url;
+    }, 300);
 }
