@@ -170,140 +170,88 @@ placeholder="Contoh : Hubungi sebelum pengantaran"></textarea>
 </div>
 
 </div>
-
 <!-- PEDAS -->
-
 <div class="variant">
-
-<div class="variant-info">
-
-<div class="variant-name">
-
-<div class="dot pedas"></div>
-
-<div>
-
-<h4>Pedas</h4>
-
-<p>HK$13 / HK$12</p>
-
+  <div class="variant-info">
+    <div class="variant-name">
+      <div class="dot pedas"></div>
+      <div>
+        <h4>Pedas</h4>
+        <p>HK$13 / HK$12</p>
+      </div>
+    </div>
+    <div class="qty-box">
+      <button id="minus-pedas" type="button">−</button>
+      <span id="qty-pedas">0</span>
+      <button id="plus-pedas" type="button">+</button>
+    </div>
+  </div>
 </div>
 
-</div>
-
-<div class="qty-box">
-
-<button id="minus-pedas" type="button">−</button>
-
-<span id="qty-pedas">0</span>
-
-<button id="plus-pedas" type="button">+</button>
-
-</div>
-
-</div>
-
+<!-- PROMO BOXES -->
+<div class="promo-box">
+  <i class="fa-solid fa-tags"></i>
+  <b>Promo:</b> Beli <b>3 Pack</b> atau lebih, harga otomatis menjadi <b>HK$12 / Pack</b>
 </div>
 
 <div class="promo-box">
-
-<i class="fa-solid fa-tags"></i>
-
-<b>Promo:</b> Beli <b>3 Pack</b> atau lebih, harga otomatis menjadi <b>HK$12 / Pack</b>
-
-</div>
-  <div class="promo-box">
-
-<i class="fa-solid fa-tags"></i>
-
-<b>Pilih Paket Favorit</b> Beli <b>5 Pack</b> pas untuk mencapai berat kitim <b>1 Kg Ongkir jadi lebih efesien</b> 
-
-  </div>
-
+  <i class="fa-solid fa-tags"></i>
+  <b>Pilih Paket Favorit:</b> Beli <b>5 Pack</b> pas untuk mencapai berat kirim <b>1 Kg, ongkir jadi lebih efisien!</b>
 </div>
 
 <!-- RINGKASAN -->
-
 <div class="card">
+  <div class="card-title">
+    <i class="fa-solid fa-receipt"></i>
+    <span>Ringkasan Pesanan</span>
+  </div>
 
-<div class="card-title">
+  <div class="summary-row">
+    <span>Original</span>
+    <span id="sum-original">0 Pack</span>
+  </div>
 
-<i class="fa-solid fa-receipt"></i>
+  <div class="summary-row">
+    <span>Pedas</span>
+    <span id="sum-pedas">0 Pack</span>
+  </div>
 
-<span>Ringkasan Pesanan</span>
+  <div class="summary-row">
+    <span>Total Pack</span>
+    <b id="total-pack">0</b>
+  </div>
 
+  <div class="summary-row">
+    <span>Harga / Pack</span>
+    <b id="harga-pack">HK$13</b>
+  </div>
+
+  <hr>
+
+  <div class="summary-total">
+    <span>Total Bayar</span>
+    <b id="total-harga">HK$0</b>
+  </div>
 </div>
 
-<div class="summary-row">
-
-<span>Original</span>
-
-<span id="sum-original">0 Pack</span>
-
-</div>
-
-<div class="summary-row">
-
-<span>Pedas</span>
-
-<span id="sum-pedas">0 Pack</span>
-
-</div>
-
-<div class="summary-row">
-
-<span>Total Pack</span>
-
-<b id="total-pack">0</b>
-
-</div>
-
-<div class="summary-row">
-
-<span>Harga / Pack</span>
-
-<b id="harga-pack">HK$13</b>
-
-</div>
-
-<hr>
-
-<div class="summary-total">
-
-<span>Total Bayar</span>
-
-<b id="total-harga">HK$0</b>
-
-</div>
-
-</div>
-
-<!-- FOOTER -->
-
+<!-- FOOTER / CHECKOUT BAR -->
 <div class="checkout-bar">
+  <div>
+    <small>Total Pembayaran</small>
+    <h3 id="bottom-total">HK$0</h3>
+  </div>
 
-<div>
-
-<small>Total Pembayaran</small>
-
-<h3 id="bottom-total">HK$0</h3>
-
+  <button id="checkoutBtn" type="button">
+    <i class="fa-brands fa-whatsapp"></i>
+    Lanjutkan ke WhatsApp
+  </button>
 </div>
 
-<button id="checkoutBtn">
+<!-- IFRAME RAHASIA UNTUK PROSES KE GOOGLE SHEETS -->
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
 
-<i class="fa-brands fa-whatsapp"></i>
-
-Lanjutkan ke WhatsApp
-
-</button>
-
-</div>
-
-<iframe name="hidden_iframe" style="display:none;"></iframe>
-
-<script src="js/checkout.js"></script>
+<!-- JAVASCRIPT CHECKOUT DENGAN VERSIONING CACHE -->
+<script src="js/checkout.js?v=2"></script>
 
 </body>
-
 </html>
