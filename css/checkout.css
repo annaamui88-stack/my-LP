@@ -249,6 +249,30 @@ textarea{
     color:#ee4d2d;
     margin-top:15px;
 }
+
+.summary-note{
+    margin-top:12px;
+    padding:10px 12px;
+    background:#f8fafc;
+    border-left:4px solid #16a34a;
+    border-radius:8px;
+    font-size:13px;
+    line-height:1.5;
+    color:#666;
+}
+
+#estimasi-berat,
+#estimasi-ongkir{
+    font-weight:700;
+    color:#16a34a;
+}
+
+.card hr{
+    border:none;
+    border-top:1px solid #ececec;
+    margin:16px 0;
+}
+
 /* =========================
    STICKY CHECKOUT
 ========================= */
@@ -297,6 +321,18 @@ textarea{
 #checkoutBtn:active{
     transform:scale(.98);
 }
+
+.shipping-tips{
+    margin-top:12px;
+    padding:12px;
+    background:#ecfdf5;
+    border:1px solid #bbf7d0;
+    border-radius:10px;
+    color:#166534;
+    font-size:14px;
+    line-height:1.5;
+}
+
 /* =========================
    MOBILE
 ========================= */
