@@ -266,16 +266,29 @@ placeholder="Contoh : Hubungi sebelum pengantaran"></textarea>
 
   <hr>
 
-  <div class="summary-total">
-    <span>Total Bayar</span>
+  <div class="summary-row">
+    <span>Subtotal Barang</span>
     <b id="total-harga">HK$0</b>
   </div>
+
+  <div class="summary-row">
+    <span>📦 Estimasi Berat</span>
+    <b id="estimasi-berat">0 Kg</b>
+  </div>
+
+  <div class="summary-row">
+    <span>🚚 Estimasi Ongkir</span>
+    <b id="estimasi-ongkir">HK$0</b>
+  </div>
+  
+  <div id="shipping-tips" class="shipping-tips"></div>
+
 </div>
 
 <!-- FOOTER / CHECKOUT BAR -->
 <div class="checkout-bar">
   <div>
-    <small>Total Pembayaran</small>
+    <small>Subtotal Barang</small>
     <h3 id="bottom-total">HK$0</h3>
   </div>
 
@@ -290,6 +303,8 @@ placeholder="Contoh : Hubungi sebelum pengantaran"></textarea>
 
 <!-- JAVASCRIPT CHECKOUT DENGAN VERSIONING CACHE -->
 <script src="js/checkout.js?v=2"></script>
+
+<script src="js/shipping.js"></script>
 
 </body>
 </html>
