@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Cerita Perantau di Hongkong: Temukan Landing Page Ini, Langsung Check Out Manisan Mangga Buat Obat Kangen!</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <!-- Google Fonts: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Bootstrap 4 CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <style>
+      :root {
+          --primary-color: #ff9800;
+          --primary-gradient: linear-gradient(135deg, #ff9800, #ff5722);
+          --text-main: #2d3748;
+          --bg-light: #f4f6f8;
+      }
+      
+      html, body {
+          margin: 0;
+          padding: 0;
+          font-family: 'Inter', sans-serif;
+          background-color: var(--bg-light);
+          color: var(--text-main);
+          -webkit-font-smoothing: antialiased;
+      }
+
+      * {
+          box-sizing: border-box;
+      }
+
+      img {
+          max-width: 100%;
+          vertical-align: middle;
+      }
+
+      .wrapper {
+          max-width: 600px;
+          min-width: 320px;
+          margin: 0 auto;
+          background-color: #fff;
+          box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+          min-height: 100vh;
+          position: relative;
+          padding-bottom: 80px;
+      }
+
+      header {
+          padding: 12px 20px;
+          border-bottom: 1px solid #edf2f7;
+          background: #fff;
+          position: sticky;
+          top: 0;
+          z-index: 100;
+      }
+
+      /* CSS Pure Blog Logo Styling: Ceritaku */
+      .css-logo {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          text-decoration: none !important;
+      }
+
+      .logo-icon {
+          width: 36px;
+          height: 36px;
+          background: var(--primary-gradient);
+          border-radius: 8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 16px;
+          box-shadow: 0 4px 10px rgba(255, 152, 0, 0.3);
+      }
+
+      .logo-text {
+          font-size: 23px;
+          font-weight: 800;
+          color: #094ce8;
+          letter-spacing: -0.5px;
+          line-height: 1.1;
+      }
+      
+      .logo-text span {
+          display: block;
+          font-size: 11px;
+          font-weight: 500;
+          color: #718096;
+          letter-spacing: 0.5px;
+          text-transform: uppercase;
+          color: #e8091c;
+      }
+
+      section {
+          position: relative;
+          padding: 20px 24px;
+          
+      }
+
+      h1 {
+          color: #1a202c;
+          font-size: 32px;
+          font-weight: 800;
+          line-height: 1.3;
+          margin-bottom: 15px;
+      }
+
+      h2 {
+          font-size: 18px;
+          color: #4a5568;
+          line-height: 1.5;
+          margin-top: 15px;
+          margin-bottom: 20px;
+          font-weight: 500;
+      }
+
+      .yellow {
+          background-color: #fff9c4;
+          color: #f57f17;
+          padding: 2px 6px;
+          border-radius: 4px;
+          font-weight: 600;
+      }
+
+      .date_wrapper {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 12px 0;
+          margin-bottom: 20px;
+          border-top: solid 1px #edf2f7;
+          border-bottom: solid 1px #edf2f7;
+          font-size: 13px;
+      }
+
+      .date_wrapper .date {
+          color: #718096;
+      }
+
+      .date_wrapper .views {
+          color: #e53e3e;
+          font-weight: 600;
+      }
+
+      .author_wrapper {
+          float: right;
+          margin: 0 0 15px 15px;
+      }
+
+      .author_wrapper .author {
+          width: 150px;
+          height: 150px;
+          object-fit: cover;
+          border-radius: 10%;
+          border: 2px solid #fff;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      }
+
+      p {
+          font-size: 17px;
+          line-height: 1.7;
+          color: #4a5568;
+          margin-bottom: 20px;
+      }
+
+      a {
+          color: #3182ce;
+          text-decoration: underline;
+          transition: color 0.2s;
+      }
+
+      a:hover {
+          color: #2b6cb0;
+      }
+
+      .img_wrapper {
+          margin: 25px 0;
+          border-radius: 12px;
+          overflow: hidden;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      }
+
+      .img_wrapper img {
+          display: block;
+          width: 100%;
+      }
+
+      h3 {
+          color: #e65100;
+          font-size: 18px;
+          font-weight: 700;
+          margin-top: 30px;
+          margin-bottom: 15px;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+      }
+
+      ol {
+          padding-left: 20px;
+          margin-bottom: 25px;
+      }
+
+      ol li {
+          font-size: 16px;
+          line-height: 1.6;
+          color: #4a5568;
+          margin-bottom: 10px;
+      }
+
+      .text_center {
+          text-align: center;
+      }
+
+      .order_btn, .bottom_btn {
+          background: var(--primary-gradient) !important;
+          color: #fff !important;
+          font-weight: 700;
+          font-size: 18px !important;
+          text-align: center;
+          text-decoration: none !important;
+          padding: 16px 24px;
+          border-radius: 50px;
+          display: block;
+          box-shadow: 0 6px 20px rgba(255, 152, 0, 0.35);
+          transition: transform 0.2s, box-shadow 0.2s;
+          margin: 30px 0;
+      }
+
+      .order_btn:hover, .bottom_btn:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 25px rgba(255, 152, 0, 0.45);
+          color: #fff !important;
+      }
+
+      .comments {
+          width: 100%;
+          background: #fff;
+          margin-top: 40px;
+          border-top: 2px solid #edf2f7;
+          padding-top: 20px;
+      }
+
+      .comment_header {
+          font-size: 18px;
+          font-weight: 700;
+          color: #1a202c;
+          margin-bottom: 20px;
+          padding-bottom: 10px;
+          border-bottom: 1px solid #edf2f7;
+      }
+
+      .comment {
+          background: #f8fafc;
+          border: 1px solid #e2e8f0 !important;
+          border-radius: 12px;
+          margin-bottom: 15px;
+          padding: 16px;
+      }
+
+      .comment .avatar {
+          float: left;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          object-fit: cover;
+      }
+
+      .comment .text {
+          margin-left: 52px;
+          font-size: 14px;
+          color: #4a5568;
+      }
+
+      .comment .text .login {
+          color: #2b6cb0;
+          font-weight: 600;
+      }
+
+      .comment .text .data {
+          display: block;
+          margin-top: 4px;
+          color: #2d3748;
+      }
+
+      .comment .text .data img {
+          border-radius: 8px;
+          margin-top: 10px;
+          max-height: 200px;
+          object-fit: cover;
+      }
+
+      .comment_footer {
+          margin-top: 8px;
+          font-size: 12px;
+          color: #718096;
+      }
+
+      .comment_footer .ft {
+          color: #3182ce;
+          font-weight: 600;
+          cursor: pointer;
+      }
+
+      .comment_footer .dot {
+          margin: 0 4px;
+      }
+
+      .sticky_cta {
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          background: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(10px);
+          padding: 12px 20px;
+          box-shadow: 0 -4px 15px rgba(0,0,0,0.08);
+          z-index: 999;
+          display: flex;
+          justify-content: center;
+      }
+
+      .sticky_cta a {
+          width: 100%;
+          max-width: 560px;
+          background: var(--primary-gradient);
+          color: #fff;
+          text-align: center;
+          padding: 12px;
+          border-radius: 50px;
+          font-weight: 700;
+          font-size: 16px;
+          text-decoration: none;
+          box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+      }
+
+      .popMeUpGC {
+          padding: 12px 16px;
+          position: fixed;
+          right: 15px;
+          bottom: 80px;
+          background: #1a202c;
+          border-radius: 8px;
+          color: #fff;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+          z-index: 998;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+      }
+
+      .closeit {
+          font-weight: 700;
+          cursor: pointer;
+          color: #a0aec0;
+          font-size: 16px;
+      }
+
+      .popMeUpGC p {
+          font-size: 13px;
+          margin: 0;
+          color: #edf2f7;
+      }
+
+      @media screen and (max-width: 480px) {
+          h1 { font-size: 26px; }
+          section { padding: 15px 16px; }
+      }
+  </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <!-- Logo Blog: Ceritaku -->
+          
+            <a href="#" class="css-logo">
+                
+                <div class="logo-text">
+                    CritaKU 
+                    <span>Blog Perantau & Kuliner</span>
+                </div>
+            </a>
+        </header>
+
+        <section>
+            <h1>
+    Cerita Hari Ini: Lagi Kangen Indonesia, Nggak Sengaja Nemu Web Ini... Akhirnya Langsung Check Out Manisan Mangga!
+</h1>
+
+<h2>
+    Pengalaman pertama mencoba <span class="yellow">Manisan Mangga Khas Indramayu</span> yang rasanya segar, manis, sedikit asam, dan berhasil mengobati rasa kangen kampung halaman.
+</h2>
+
+            <div class="date_wrapper">
+                <span class="date">
+                    <b id="currentDate"></b>
+                </span>
+                <span class="views">
+                    🔥🔥🔥 842,109 Pembaca
+                </span>
+            </div>
+
+            <div class="author_wrapper">
+                <img class="author" src="image/aku.jpg" alt="Penulis" />
+            </div>
+
+            <p> 
+            <b>
+                Halo teman-teman! Buat kalian yang lagi merantau di Hong Kong, pasti paham banget rasanya tiba-tiba kangen makanan khas Indonesia. Minggu lalu, pas lagi istirahat malam, saya iseng cari jajanan Nusantara di internet. Nggak sengaja saya nemu <a href="https://annaamui.shop" target="_blank" rel="noopener noreferrer">website pemesanan Manisan Mangga Khas Indramayu</a>. Awalnya cuma penasaran, tapi setelah lihat foto produknya dan baca informasi yang ada di sana, saya jadi makin tertarik. Akhirnya saya langsung isi formulir pemesanan saat itu juga. Dalam hati saya berharap, semoga rasanya benar-benar bisa sedikit mengobati rasa kangen kampung halaman.
+            </b>
+            </p> 
+            <p>
+                Kenalin, saya Clara, usia 28 tahun, seorang pekerja migran Indonesia yang bekerja sebagai asisten rumah tangga di Hong Kong. Rutinitas setiap hari cukup padat, jadi waktu istirahat atau hari libur adalah momen yang paling saya tunggu. Di saat-saat seperti itulah biasanya rasa kangen sama makanan dan camilan khas Indonesia tiba-tiba muncul. 
+             </p> 
+             <p> 
+                 Jujur, awalnya saya sempat ragu karena belum pernah pesan manisan mangga secara online dari Indonesia. Saya kepikiran, apa nanti rasanya benar-benar enak? Apa kemasannya aman sampai tujuan? Dan apakah proses pemesanannya bakal mudah? 
+               </p> 
+               <p> 
+                   Tapi setelah membaca informasi produk dan melihat beberapa testimoni pembeli di <a href="https://annaamui.shop" target="_blank" rel="noopener noreferrer">halaman pemesanan Anna Amui</a>, saya mulai merasa lebih yakin. Cara pesannya juga ternyata simpel, cukup isi formulir lalu admin menghubungi lewat WhatsApp. Karena lagi benar-benar kangen jajanan Indonesia, akhirnya saya memutuskan untuk mencoba pesan beberapa bungkus. 
+                </p> 
+                <p> 
+                <b>Bagaimana Hasilnya Setelah Paket Sampai di Hong Kong?</b> 
+                </p> 
+                <p>
+                    Beberapa hari kemudian, paket pesanan saya akhirnya sampai. Kemasannya rapi dan produk diterima dalam kondisi baik. Begitu dibuka, aroma mangga segarnya langsung terasa. Saat gigitan pertama, perpaduan rasa manis, asam, dan segarnya langsung mengingatkan saya pada jajanan mangga yang sering saya beli waktu masih di Indonesia. Rasanya benar-benar bikin senyum sendiri karena sedikit mengobati rasa kangen kampung halaman. 
+                  </p> 
+                  <div class="img_wrapper"> <img src="image/p1.png" alt="Manisan Mangga Pesanan Anna Amui" /> </div> 
+                  <p>
+                      Beberapa hari kemudian, saat hari libur, saya sempat membawa manisan mangga ini untuk dinikmati bersama teman-teman sesama pekerja migran Indonesia. Kami makan sambil mengobrol dan saling bercerita tentang kampung halaman. Ternyata mereka juga suka. Ada yang bilang rasanya pas, ada juga yang langsung bertanya saya belinya di mana.
+                    </p> 
+                    <p> 
+                       Kalau kamu juga lagi kangen camilan khas Indonesia, kamu bisa lihat informasi lengkap dan melakukan pemesanan melalui <a href="https://annaamui.shop" target="_blank" rel="noopener noreferrer">website resmi Anna Amui</a>. Menurut saya, proses pemesanannya mudah dan produknya layak dicoba, terutama buat yang sedang merantau dan ingin menikmati cita rasa khas Indonesia. 
+                    </p> 
+                    <h3>Kenapa Saya Memutuskan Mencobanya?</h3>
+                     <ol>
+         <li>Proses pemesanannya mudah dan tidak ribet.</li> 
+         <li>Foto produk dan informasi yang ditampilkan cukup jelas.</li>
+          <li>Tersedia pilihan rasa Original dan Pedas sesuai selera.</li>
+          <li>Cocok dinikmati saat waktu santai atau ketika sedang kangen camilan khas Indonesia.</li>
+           </ol> <p class="text_center"> <b>Kalau kamu penasaran, coba lihat dulu produknya. Siapa tahu bisa jadi camilan favoritmu saat melepas rindu pada kampung halaman.</b> 
+           </p> 
+
+            <div class="img_wrapper">
+                <img src="image/Gambar1.jpg" alt="Produk Manisan Mangga" />
+            </div>
+
+            <a class="order_btn" href="https://annaamui.shop" target="_blank">
+                Klik Di Sini untuk Pesan Manisan Mangga Sekarang!
+            </a>
+
+            <!-- Komentar Pengguna -->
+            <div class="comments">
+                <div class="comment_header">
+                    <span>12 Komentar Terbaru</span>
+                </div>
+    
+                <div class="comment">
+                    <img src="image/1.jpeg" class="avatar" alt="Avatar" />
+                    <div class="text">
+                        <span class="login">Siska_Lestari</span>
+                        <span class="data">
+                            Eh Mbak Clara, saya juga kemarin tak sengaja nemu landing page-nya terus ikutan order tiga bungkus. Sumpah, pas nyampe rasanya emang seenak itu! Mantap banget buat obat kangen rumah.
+                            <br />
+                            <img src="image/testi.jpg" alt="Bukti Testimoni" />
+                        </span>
+                        <div class="comment_footer">
+                            <span class="ft">Suka</span><span class="dot">·</span><span class="ft">Balas</span><span class="dot">·</span><span>88</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comment">
+                    <img src="image/1.jpeg" class="avatar" alt="Avatar" />
+                    <div class="text">
+                        <span class="login">Dimas_Pratama</span>
+                        <span class="data">Bener banget kak! Awalnya ragu mau order via web-nya, tapi pas dateng ternyata pelayanannya ramah dan rasanya juara. Recommended!</span>
+                        <div class="comment_footer">
+                            <span class="ft">Suka</span><span class="dot">·</span><span class="ft">Balas</span><span class="dot">·</span><span>64</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comment">
+                    <img src="image/1.jpeg" class="avatar" alt="Avatar" />
+                    <div class="text">
+                        <span class="login">Rina_Wahyuni</span>
+                        <span class="data">Makasih infonya kak, saya barusan udah klik link pemesanannya dan chekout buat stok camilan di rumah. Semoga cepet nyampe!</span>
+                        <div class="comment_footer">
+                            <span class="ft">Suka</span><span class="dot">·</span><span class="ft">Balas</span><span class="dot">·</span><span>42</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text_center" style="margin-top: 30px;">
+                    <a class="bottom_btn" href="https://annaamui.shop" target="_blank">
+                        KLIK DISINI UNTUK PESAN MANISAN MANGGA
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Sticky Bottom CTA for Mobile -->
+    <div class="sticky_cta">
+        <a href="https://annaamui.shop" target="_blank">KLIK DISINI UNTUK PESAN MANISAN MANGGA</a>
+    </div>
+
+    <!-- Popup Notifikasi Kecil -->
+    <div class="popMeUpGC" id="popMeUPGC">
+        <p>🔥 142 orang sedang membuka halaman pemesanan ini.</p>
+        <span class="closeit" onclick="hidetext()">&times;</span>
+    </div>
+
+    <!-- JavaScript Pendukung -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript">
+        // Tanggal otomatis format Indonesia
+        var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        var dateEl = document.getElementById("currentDate");
+        if(dateEl) {
+            dateEl.innerText = new Date().toLocaleDateString("id-ID", options);
+        }
+
+        // Fungsi tutup popup
+        function hidetext() {
+            var popup = document.getElementById("popMeUPGC");
+            if(popup) {
+                popup.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
