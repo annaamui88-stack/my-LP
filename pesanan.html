@@ -207,13 +207,12 @@
   </div>
 
   <script>
-    // 1. Ambil ID dari URL (contoh: namewebanda.com/pesanan.html?id=ORD12345)
+    // Ambil ID dari URL
     const urlParams = new URLSearchParams(window.location.search);
     const orderId = urlParams.get('id');
 
-    // 2. MASUKKAN URL WEB APP GOOGLE APPS SCRIPT ANDA DI SINI (berakhiran /exec)
-    const scriptURL = 'const scriptURL = 'https://script.google.com/macros/s/AKfycbxaL7XqgyEWnqr9VxsoHS4-gr3pLEssFxeiDl0MSJyqKUbk3sfiR0u1OYPBc9y15VMh/exec';
-';
+    // URL Web App Google Apps Script Anda yang sudah aktif
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxaL7XqgyEWnqr9VxsoHS4-gr3pLEssFxeiDl0MSJyqKUbk3sfiR0u1OYPBc9y15VMh/exec';
 
     if (!orderId) {
       document.getElementById('txtIdOrder').innerText = 'Kesalahan';
@@ -224,8 +223,8 @@
         </div>
       `;
     } else {
-      // 3. Ambil data dari Google Apps Script
-      fetch(scriptURL + '?id=' + orderId)
+      // Ambil data dari Google Apps Script
+      fetch(scriptURL + '?id=' + orderId, { method: 'GET', redirect: 'follow' })
         .then(response => response.json())
         .then(res => {
           if (res.status === 'success') {
@@ -322,7 +321,7 @@
           document.getElementById('txtBannerSub').innerHTML = 'Koneksi error';
           document.getElementById('contentBody').innerHTML = `
             <div style="text-align: center; padding: 20px; color: #dc2626; font-size: 14px;">
-              Gagal terhubung ke sistem server. Silakan coba beberapa saat lagi.
+              Gagal terhubung ke sistem server. Detail error: ${err.toString()}
             </div>
           `;
         });
