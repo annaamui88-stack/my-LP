@@ -19,7 +19,6 @@
       min-height: 100vh;
       color: #1f2937;
     }
-
     .container {
       width: 100%;
       max-width: 420px;
@@ -30,7 +29,6 @@
       border: 1px solid #e2e8f0;
       margin-bottom: 20px;
     }
-
     .site-header {
       background: #ffffff;
       padding: 16px 20px;
@@ -57,7 +55,6 @@
       border-radius: 20px;
       border: 1px solid #ffedd5;
     }
-
     .order-banner {
       background: linear-gradient(135deg, #166534 0%, #14532d 100%);
       color: white;
@@ -75,11 +72,9 @@
       font-size: 12px;
       opacity: 0.85;
     }
-
     .content-body {
       padding: 20px;
     }
-
     .section-title {
       font-size: 13px;
       font-weight: 700;
@@ -89,7 +84,6 @@
       align-items: center;
       gap: 8px;
     }
-
     .info-card {
       background: #f9fafb;
       border: 1px solid #e5e7eb;
@@ -126,7 +120,6 @@
       font-weight: 600;
       word-break: break-word;
     }
-
     .wa-button {
       display: flex;
       align-items: center;
@@ -142,7 +135,6 @@
       margin-top: 12px;
       box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
     }
-
     .summary-box {
       background: #ffffff;
       border: 1px solid #e5e7eb;
@@ -168,7 +160,6 @@
       color: #166534;
       font-size: 15px;
     }
-
     .site-footer {
       background: #f9fafb;
       padding: 14px 20px;
@@ -207,124 +198,74 @@
   </div>
 
   <script>
-    // Ambil ID dari URL
     const urlParams = new URLSearchParams(window.location.search);
     const orderId = urlParams.get('id');
-
-    // URL Web App Google Apps Script Anda yang sudah aktif
     const scriptURL = 'https://script.google.com/macros/s/AKfycbxaL7XqgyEWnqr9VxsoHS4-gr3pLEssFxeiDl0MSJyqKUbk3sfiR0u1OYPBc9y15VMh/exec';
 
     if (!orderId) {
       document.getElementById('txtIdOrder').innerText = 'Kesalahan';
       document.getElementById('txtBannerSub').innerHTML = 'ID Order tidak ditemukan';
-      document.getElementById('contentBody').innerHTML = `
-        <div style="text-align: center; padding: 20px; color: #dc2626; font-size: 14px;">
-          Tautan tidak valid. Pastikan Anda mengakses halaman ini melalui link pesanan yang benar.
-        </div>
-      `;
+      document.getElementById('contentBody').innerHTML = `<div style="text-align: center; padding: 20px; color: #dc2626; font-size: 14px;">Tautan tidak valid. Pastikan Anda mengakses halaman ini melalui link pesanan yang benar.</div>`;
     } else {
-      // Ambil data dari Google Apps Script
-      fetch(scriptURL + '?id=' + orderId, { method: 'GET', redirect: 'follow' })
-        .then(response => response.json())
-        .then(res => {
-          if (res.status === 'success') {
-            const d = res.data;
-
-            // Format nomor WhatsApp
-            let rawPhone = String(d.nomor).replace(/\D/g, '');
-            if (rawPhone.startsWith('0')) {
-              rawPhone = '852' + rawPhone.slice(1);
-            }
-            const waMessage = encodeURIComponent(`Halo Kak ${d.nama}, terkait pesanan AnnaAmui dengan ID ${d.idOrder}...`);
-            const waLink = `https://wa.me/${rawPhone}?text=${waMessage}`;
-
-            // Tampilkan data ke elemen HTML
-            document.getElementById('txtIdOrder').innerText = 'ID: ' + d.idOrder;
-            document.getElementById('txtBannerSub').innerHTML = '<i class="fa-solid fa-circle-check" style="color: #4ade80;"></i> Status Pesanan Terverifikasi';
-            document.getElementById('txtTanggal').innerText = d.tanggal;
-
-            document.getElementById('contentBody').innerHTML = `
-              <div class="section-title"><i class="fa-solid fa-user-check"></i> Informasi Penerima</div>
-
-              <div class="info-card">
-                <div class="info-icon"><i class="fa-solid fa-user"></i></div>
-                <div class="info-detail">
-                  <div class="label">Nama Penerima</div>
-                  <div class="value">${d.nama}</div>
-                </div>
-              </div>
-
-              <div class="info-card">
-                <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
-                <div class="info-detail">
-                  <div class="label">No WhatsApp</div>
-                  <div class="value">${d.nomor}</div>
-                </div>
-              </div>
-
-              <a href="${waLink}" target="_blank" class="wa-button">
-                <i class="fa-brands fa-whatsapp" style="font-size: 18px;"></i> Chat WhatsApp Penerima
-              </a>
-
-              <div class="info-card" style="margin-top: 12px;">
-                <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
-                <div class="info-detail">
-                  <div class="label">Tempat Pengambilan / Lokasi</div>
-                  <div class="value">${d.lokasi}</div>
-                </div>
-              </div>
-
-              <div class="summary-box">
-                <div class="section-title" style="font-size: 13px; margin-bottom: 12px;">
-                  <i class="fa-solid fa-receipt"></i> Ringkasan Pesanan
-                </div>
-                <div class="summary-row">
-                  <span>Original</span>
-                  <strong>${d.original} Pack</strong>
-                </div>
-                <div class="summary-row">
-                  <span>Pedas</span>
-                  <strong>${d.pedas} Pack</strong>
-                </div>
-                <div class="summary-row">
-                  <span>Total Pack</span>
-                  <strong>${d.totalPack} Pack</strong>
-                </div>
-                <div class="summary-row">
-                  <span>Harga / Pack</span>
-                  <strong>HK$ ${d.harga}</strong>
-                </div>
-                <div class="summary-row total">
-                  <span>Subtotal Barang</span>
-                  <span>HK$ ${Number(d.total || 0).toLocaleString('id-ID')}</span>
-                </div>
-              </div>
-
-              ${d.catatan ? `
-                <div style="margin-top: 12px; font-size: 12px; color: #4b5563; background: #f3f4f6; padding: 10px 14px; border-radius: 8px; word-break: break-word;">
-                  <b>Catatan:</b> ${d.catatan}
-                </div>
-              ` : ''}
-            `;
-          } else {
-            document.getElementById('txtIdOrder').innerText = 'Tidak Ditemukan';
-            document.getElementById('txtBannerSub').innerHTML = 'Data tidak terdaftar';
-            document.getElementById('contentBody').innerHTML = `
-              <div style="text-align: center; padding: 20px; color: #dc2626; font-size: 14px;">
-                ${res.message}
-              </div>
-            `;
+      // Menggunakan tag <script> dinamis (JSONP trick) untuk menembus proteksi CORS browser
+      const callbackName = 'processOrderData';
+      window[callbackName] = function(res) {
+        if (res.status === 'success') {
+          const d = res.data;
+          let rawPhone = String(d.nomor).replace(/\D/g, '');
+          if (rawPhone.startsWith('0')) {
+            rawPhone = '852' + rawPhone.slice(1);
           }
-        })
-        .catch(err => {
-          document.getElementById('txtIdOrder').innerText = 'Gagal';
-          document.getElementById('txtBannerSub').innerHTML = 'Koneksi error';
+          const waMessage = encodeURIComponent(`Halo Kak ${d.nama}, terkait pesanan AnnaAmui dengan ID ${d.idOrder}...`);
+          const waLink = `https://wa.me/${rawPhone}?text=${waMessage}`;
+
+          document.getElementById('txtIdOrder').innerText = 'ID: ' + d.idOrder;
+          document.getElementById('txtBannerSub').innerHTML = '<i class="fa-solid fa-circle-check" style="color: #4ade80;"></i> Status Pesanan Terverifikasi';
+          document.getElementById('txtTanggal').innerText = d.tanggal;
+
           document.getElementById('contentBody').innerHTML = `
-            <div style="text-align: center; padding: 20px; color: #dc2626; font-size: 14px;">
-              Gagal terhubung ke sistem server. Detail error: ${err.toString()}
+            <div class="section-title"><i class="fa-solid fa-user-check"></i> Informasi Penerima</div>
+            <div class="info-card">
+              <div class="info-icon"><i class="fa-solid fa-user"></i></div>
+              <div class="info-detail"><div class="label">Nama Penerima</div><div class="value">${d.nama}</div></div>
             </div>
+            <div class="info-card">
+              <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+              <div class="info-detail"><div class="label">No WhatsApp</div><div class="value">${d.nomor}</div></div>
+            </div>
+            <a href="${waLink}" target="_blank" class="wa-button">
+              <i class="fa-brands fa-whatsapp" style="font-size: 18px;"></i> Chat WhatsApp Penerima
+            </a>
+            <div class="info-card" style="margin-top: 12px;">
+              <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div class="info-detail"><div class="label">Tempat Pengambilan / Lokasi</div><div class="value">${d.lokasi}</div></div>
+            </div>
+            <div class="summary-box">
+              <div class="section-title" style="font-size: 13px; margin-bottom: 12px;"><i class="fa-solid fa-receipt"></i> Ringkasan Pesanan</div>
+              <div class="summary-row"><span>Original</span><strong>${d.original} Pack</strong></div>
+              <div class="summary-row"><span>Pedas</span><strong>${d.pedas} Pack</strong></div>
+              <div class="summary-row"><span>Total Pack</span><strong>${d.totalPack} Pack</strong></div>
+              <div class="summary-row"><span>Harga / Pack</span><strong>HK$ ${d.harga}</strong></div>
+              <div class="summary-row total"><span>Subtotal Barang</span><span>HK$ ${Number(d.total || 0).toLocaleString('id-ID')}</span></div>
+            </div>
+            ${d.catatan ? `<div style="margin-top: 12px; font-size: 12px; color: #4b5563; background: #f3f4f6; padding: 10px 14px; border-radius: 8px; word-break: break-word;"><b>Catatan:</b> ${d.catatan}</div>` : ''}
           `;
-        });
+        } else {
+          document.getElementById('txtIdOrder').innerText = 'Tidak Ditemukan';
+          document.getElementById('txtBannerSub').innerHTML = 'Data tidak terdaftar';
+          document.getElementById('contentBody').innerHTML = `<div style="text-align: center; padding: 20px; color: #dc2626; font-size: 14px;">${res.message}</div>`;
+        }
+      };
+
+      // Tembak server menggunakan script dinamis agar tembus CORS
+      const scriptTag = document.createElement('script');
+      scriptTag.src = `${scriptURL}?id=${orderId}&callback=${callbackName}`;
+      scriptTag.onerror = function() {
+        document.getElementById('txtIdOrder').innerText = 'Gagal';
+        document.getElementById('txtBannerSub').innerHTML = 'Koneksi error';
+        document.getElementById('contentBody').innerHTML = `<div style="text-align: center; padding: 20px; color: #dc2626; font-size: 14px;">Gagal terhubung ke sistem server.</div>`;
+      };
+      document.body.appendChild(scriptTag);
     }
   </script>
 </body>
