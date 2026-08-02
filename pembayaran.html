@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Panduan Pembayaran Alipay - Anna Amui Shop</title>
+<title>Panduan Pembayaran Alipay - AnnaAmui</title>
 
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root {
-    --primary: #1677ff;
-    --primary-dark: #0958d9;
+    --primary: #165b33; /* Hijau Tua AnnaAmui */
+    --accent: #d97706;  /* Kuning/Oranye Amui */
     --bg-color: #f8fafc;
     --card-bg: #ffffff;
     --text-main: #1e293b;
@@ -34,21 +34,27 @@ body {
 }
 
 header {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    background: linear-gradient(135deg, #165b33 0%, #09381e 100%);
     color: white;
-    padding: 50px 20px;
+    padding: 45px 20px;
     text-align: center;
-    box-shadow: 0 4px 20px rgba(22, 119, 255, 0.15);
+    box-shadow: 0 4px 20px rgba(22, 91, 51, 0.15);
 }
 
-header h1 {
-    font-size: 28px;
-    font-weight: 700;
-    margin-bottom: 8px;
+/* Logo AnnaAmui Selaras */
+.brand-logo {
+    font-size: 32px;
+    font-weight: 800;
+    text-decoration: none;
+    letter-spacing: -0.5px;
+    display: inline-block;
+    margin-bottom: 6px;
 }
+.brand-anna { color: #ffffff; } 
+.brand-amui { color: #f59e0b; } 
 
 header p {
-    font-size: 15px;
+    font-size: 14px;
     opacity: 0.9;
 }
 
@@ -68,7 +74,7 @@ header p {
     padding: 20px;
     border-radius: 12px;
     margin-bottom: 24px;
-    display: none; /* Sembunyikan secara default */
+    display: none; 
 }
 
 .alert-box h3 {
@@ -147,9 +153,10 @@ header p {
     margin-bottom: 20px;
 }
 
+/* Kotak Nomor Tujuan dengan Tombol Salin */
 .phone-box {
-    background: #f0f7ff;
-    border: 2px dashed #bae0ff;
+    background: #f0fdf4;
+    border: 2px dashed #bbf7d0;
     border-radius: 14px;
     padding: 16px;
     text-align: center;
@@ -162,11 +169,43 @@ header p {
     margin-bottom: 4px;
 }
 
+.phone-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
 .phone {
     font-size: 22px;
     font-weight: 700;
-    color: var(--primary);
+    color: #165b33;
     letter-spacing: 1px;
+}
+
+/* Tombol Salin */
+.btn-copy {
+    background: #165b33;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-copy:hover {
+    background: #09381e;
+}
+
+.btn-copy:active {
+    transform: scale(0.95);
 }
 
 .step-list {
@@ -184,8 +223,8 @@ header p {
 .number {
     width: 28px;
     height: 28px;
-    background: #e6f4ff;
-    color: var(--primary);
+    background: #f0fdf4;
+    color: #165b33;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -289,10 +328,7 @@ header p {
 
 @media (max-width: 600px) {
     header {
-        padding: 40px 20px 50px 20px;
-    }
-    header h1 {
-        font-size: 22px;
+        padding: 35px 20px 45px 20px;
     }
     .invoice-card {
         flex-direction: column;
@@ -310,8 +346,10 @@ header p {
 <body>
 
 <header>
-    <h1>Panduan Pembayaran Alipay</h1>
-    <p>Silakan selesaikan pembayaran untuk pesanan Anda.</p>
+    <div class="brand-logo">
+        <span class="brand-anna">Anna</span><span class="brand-amui">Amui</span>
+    </div>
+    <p>Panduan Pembayaran Alipay & Pesanan</p>
 </header>
 
 <div class="container">
@@ -341,7 +379,10 @@ header p {
 
         <div class="phone-box">
             <div class="phone-label">Nomor HP Alipay Tujuan</div>
-            <div class="phone">+852 5589 5797</div>
+            <div class="phone-wrapper">
+                <span id="target-phone" class="phone">+852 5589 5797</span>
+                <button class="btn-copy" onclick="copyPhoneNumber()">📋 Salin Nomor</button>
+            </div>
         </div>
 
         <div class="step-list">
@@ -355,7 +396,7 @@ header p {
             </div>
             <div class="step">
                 <div class="number">3</div>
-                <div class="step-text">Masukkan nomor HP Alipay yang tertera di atas.</div>
+                <div class="step-text">Tempelkan <i>(paste)</i> nomor HP Alipay yang sudah disalin di atas.</div>
             </div>
             <div class="step">
                 <div class="number">4</div>
@@ -437,11 +478,27 @@ header p {
 </div>
 
 <div class="footer">
-    &copy; 2026 Anna Amui Shop. All rights reserved.
+    &copy; 2026 AnnaAmui. All rights reserved.
 </div>
 
-<!-- JavaScript Validasi Pengaman -->
+<!-- JavaScript Fitur Salin & Validasi -->
 <script>
+    // Fungsi untuk menyalin nomor HP
+    function copyPhoneNumber() {
+        const phoneText = "+852 5589 5797";
+        navigator.clipboard.writeText(phoneText).then(() => {
+            const btn = document.querySelector('.btn-copy');
+            btn.innerText = "✅ Berhasil Disalin!";
+            btn.style.background = "#22c55e";
+            setTimeout(() => {
+                btn.innerText = "📋 Salin Nomor";
+                btn.style.background = "#165b33";
+            }, 2000);
+        }).catch(err => {
+            alert("Gagal menyalin nomor.");
+        });
+    }
+
     const urlParams = new URLSearchParams(window.location.search);
     const orderId = urlParams.get('id');
     const totalAmount = urlParams.get('total');
@@ -455,16 +512,13 @@ header p {
 
     // Cek apakah parameter ID atau Total kosong / terhapus
     if (!orderId || !totalAmount) {
-        // Jika kosong, tampilkan peringatan merah
         document.getElementById('alert-error').style.display = 'block';
         document.getElementById('display-id').innerText = 'TIDAK VALID';
         document.getElementById('display-total').innerText = 'HK$ 0.00';
         
-        // Atur tombol WhatsApp agar mengarah ke chat bantuan umum
         const fallbackMsg = `Halo Admin, saya membuka halaman pembayaran tetapi informasi tagihannya tidak muncul. Mohon bantuannya.`;
         document.getElementById('wa-link').href = `https://wa.me/${adminPhone}?text=${encodeURIComponent(fallbackMsg)}`;
     } else {
-        // Jika parameter lengkap, jalankan seperti biasa
         document.getElementById('display-id').innerText = orderId;
         document.getElementById('display-total').innerText = formatHKD(totalAmount);
 
