@@ -18,7 +18,7 @@ const totalHarga = document.getElementById("total-harga");
 const bottomTotal = document.getElementById("bottom-total");
 
 function getHarga(total){
-    return total >= 3 ? 12 : 13;
+    return total >= 3 ? 10 : 12;
 }
 
 function updateSummary(){
