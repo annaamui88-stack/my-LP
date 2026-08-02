@@ -121,12 +121,11 @@ body { background: var(--bg-color); color: var(--text-main); line-height: 1.6; p
 </div>
 
 <script>
-    // Membaca data parameter penerima dari URL QR Code
     const params = new URLSearchParams(window.location.search);
     
     const orderId = params.get('id') || 'Tidak Diketahui';
     const penerima = params.get('nama') || '-';
-    const telpPenerima = params.get('telp') || '';
+    let telpPenerima = params.get('telp') || '';
     const lokasi = params.get('lokasi') || '-';
 
     document.getElementById('val-id').innerText = orderId;
@@ -134,18 +133,28 @@ body { background: var(--bg-color); color: var(--text-main); line-height: 1.6; p
     document.getElementById('val-telp').innerText = telpPenerima || '-';
     document.getElementById('val-lokasi').innerText = lokasi;
 
-    // Mengaktifkan tombol Telepon langsung (Format tel:...)
     if (telpPenerima) {
-        document.getElementById('btn-call-penerima').href = `tel:${telpPenerima}`;
+        // Membersihkan karakter selain angka (jika ada spasi atau tanda plus di URL)
+        let cleanPhone = telpPenerima.replace(/\D/g, '');
+
+        // Logika Otomatisasi Format Nomor (Indo vs Hongkong)
+        // Jika diawali angka 08 (Contoh: 08123456789), ubah ke kode internasional Indonesia (628...)
+        if (cleanPhone.startsWith('08')) {
+            cleanPhone = '62' + cleanPhone.substring(1);
+        }
+        // Jika nomor lokal Hongkong 8 digit (Contoh: 55895797 atau 91234567), otomatis tambahkan 852
+        else if (cleanPhone.length === 8) {
+            cleanPhone = '852' + cleanPhone;
+        }
+
+        // Mengaktifkan Tombol Telepon (Memakai tanda tambah + di depannya)
+        document.getElementById('btn-call-penerima').href = `tel:+${cleanPhone}`;
+
+        // Mengaktifkan Tombol WhatsApp dengan pesan otomatis
+        const textWp = `Halo Kak ${penerima}, saya kurir pengantar paket AnnaAmui dengan ID Order ${orderId}. Paket Anda sudah berada di lokasi ${lokasi}.`;
+        document.getElementById('btn-wa-penerima').href = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(textWp)}`;
     } else {
         document.getElementById('btn-call-penerima').style.display = 'none';
-    }
-
-    // Mengaktifkan tombol WhatsApp ke penerima dengan teks otomatis
-    if (telpPenerima) {
-        const textWp = `Halo Kak ${penerima}, saya kurir pengantar paket AnnaAmui dengan ID Order ${orderId}. Paket Anda sudah berada di lokasi ${lokasi}.`;
-        document.getElementById('btn-wa-penerima').href = `https://wa.me/${telpPenerima}?text=${encodeURIComponent(textWp)}`;
-    } else {
         document.getElementById('btn-wa-penerima').style.display = 'none';
     }
 </script>
