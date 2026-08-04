@@ -98,7 +98,7 @@ SECTION & CONTENT LEBIH PADAT
 .order-row{
     display:flex;
     justify-content:space-between;
-    align-items:baseline;
+    align-items:flex-start;
     margin-top:2px;
 }
 
@@ -109,6 +109,8 @@ SECTION & CONTENT LEBIH PADAT
 
 .order-date{
     font-size:11px;
+    font-weight:600;
+    text-align:right;
 }
 
 .receiver{
@@ -227,17 +229,24 @@ PRINT
     <!-- Header -->
     <div class="header">
         <div class="store-name">ANNAAMUI.SHOP</div>
-        <div class="store-info">Cikedung, Indramayu | WA: +62 878-6220-1153</div>
+        <div class="store-info">Desa Amis Cikedung, Indramayu</div>
+        <div class="store-info">WA: +62 878-6220-1153</div>
+   
     </div>
 
     <div class="line"></div>
 
-    <!-- Order ID & Tanggal -->
+    <!-- Order ID & Tanggal Order -->
     <div class="section">
-        <div class="title">ORDER ID</div>
         <div class="order-row">
-            <div class="order-id" id="lbl-id">AA-20260803-5456</div>
-            <div class="order-date" id="lbl-date">04 Agustus 2026</div>
+            <div>
+                <div class="title">ORDER ID</div>
+                <div class="order-id" id="lbl-id">AA-20260803-5456</div>
+            </div>
+            <div style="text-align:right;">
+                <div class="title">TANGGAL ORDER</div>
+                <div class="order-date" id="lbl-date">04 Agustus 2026</div>
+            </div>
         </div>
     </div>
 
@@ -259,9 +268,9 @@ PRINT
 
     <!-- QR Code -->
     <div class="qr-section">
-        <div class="qr-title">SCAN QR SAAT PENGAMBILAN</div>
+        <div class="qr-title">SCAN QR UNTUK MELIHAT DETAIL PENERIMA</div>
         <div id="qrcode"></div>
-        <div class="qr-info">Tunjukkan QR ini saat mengambil pesanan.</div>
+        <div class="qr-info">Bila Data Penerima Kurang Jelas Scan QR ini</div>
     </div>
 
     <div class="line"></div>
