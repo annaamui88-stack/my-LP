@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Label Pengiriman - ANNAAMUI.SHOP</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#ececec;
+    font-family:'Inter',sans-serif;
+    display:flex;
+    justify-content:center;
+    padding:15px;
+}
+
+.no-print{
+    position:fixed;
+    top:15px;
+    right:15px;
+    z-index:999;
+}
+
+.btn-print{
+    background:#111;
+    color:#fff;
+    border:none;
+    padding:10px 18px;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:13px;
+    font-weight:700;
+}
+
+.btn-print:hover{
+    background:#333;
+}
+
+.label{
+    width:80mm;
+    background:#fff;
+    color:#000;
+    border:2px solid #000;
+    border-radius:6px;
+    overflow:hidden;
+    box-shadow:0 4px 12px rgba(0,0,0,.1);
+}
+
+/* ===========================
+HEADER RINGKAS
+=========================== */
+.header{
+    padding:10px 12px;
+    text-align:center;
+}
+
+.store-name{
+    font-size:18px;
+    font-weight:800;
+    letter-spacing:.5px;
+}
+
+.store-info{
+    margin-top:2px;
+    font-size:10px;
+}
+
+.line{
+    width:100%;
+    border-top:1.5px solid #000;
+}
+
+/* ===========================
+SECTION & CONTENT LEBIH PADAT
+=========================== */
+.section{
+    padding:8px 12px;
+}
+
+.title{
+    font-size:9px;
+    font-weight:700;
+    letter-spacing:.5px;
+    color:#333;
+}
+
+.order-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    margin-top:2px;
+}
+
+.order-id{
+    font-size:15px;
+    font-weight:800;
+}
+
+.order-date{
+    font-size:11px;
+}
+
+.receiver{
+    font-size:18px;
+    font-weight:800;
+    margin-top:2px;
+}
+
+.phone{
+    font-size:13px;
+    margin-top:1px;
+}
+
+.pickup-box{
+    margin-top:6px;
+    background:#f4f4f4;
+    border:1px solid #ccc;
+    padding:6px;
+    text-align:center;
+    border-radius:4px;
+}
+
+.pickup-title{
+    font-size:9px;
+    font-weight:700;
+    letter-spacing:.5px;
+}
+
+.pickup{
+    font-size:24px;
+    font-weight:800;
+    letter-spacing:.5px;
+    margin-top:2px;
+}
+
+/* ===========================
+QR CODE LEBIH RINGKAS
+=========================== */
+.qr-section{
+    text-align:center;
+    padding:8px 12px;
+}
+
+.qr-title{
+    font-size:9px;
+    font-weight:700;
+    margin-bottom:4px;
+}
+
+#qrcode img{
+    width:120px !important;
+    height:120px !important;
+    margin:0 auto;
+}
+
+.qr-info{
+    margin-top:4px;
+    font-size:9.5px;
+}
+
+/* ===========================
+SENDER & FOOTER
+=========================== */
+.sender{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:8px 12px;
+    font-size:11px;
+}
+
+.sender-name{
+    font-weight:700;
+}
+
+.footer{
+    border-top:1px solid #000;
+    text-align:center;
+    padding:5px;
+    font-size:9px;
+    background:#fafafa;
+}
+
+/* ===========================
+PRINT
+=========================== */
+@page{
+    size:80mm auto;
+    margin:0;
+}
+
+@media print{
+    body{
+        background:#fff;
+        padding:0;
+    }
+    .no-print{
+        display:none;
+    }
+    .label{
+        width:80mm;
+        border:2px solid #000;
+        box-shadow:none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="no-print">
+    <button class="btn-print" onclick="window.print()">Cetak Label</button>
+</div>
+
+<div class="label">
+    <!-- Header -->
+    <div class="header">
+        <div class="store-name">ANNAAMUI.SHOP</div>
+        <div class="store-info">Cikedung, Indramayu | WA: +62 878-6220-1153</div>
+    </div>
+
+    <div class="line"></div>
+
+    <!-- Order ID & Tanggal -->
+    <div class="section">
+        <div class="title">ORDER ID</div>
+        <div class="order-row">
+            <div class="order-id" id="lbl-id">AA-20260803-5456</div>
+            <div class="order-date" id="lbl-date">04 Agustus 2026</div>
+        </div>
+    </div>
+
+    <div class="line"></div>
+
+    <!-- Penerima & Lokasi -->
+    <div class="section">
+        <div class="title">PENERIMA</div>
+        <div class="receiver" id="lbl-nama">Sri Endar Yati</div>
+        <div class="phone">No. HP: <span id="lbl-hp">85294320184</span></div>
+
+        <div class="pickup-box">
+            <div class="pickup-title">LOKASI PENGAMBILAN</div>
+            <div class="pickup" id="lbl-lokasi">MEI FOO</div>
+        </div>
+    </div>
+
+    <div class="line"></div>
+
+    <!-- QR Code -->
+    <div class="qr-section">
+        <div class="qr-title">SCAN QR SAAT PENGAMBILAN</div>
+        <div id="qrcode"></div>
+        <div class="qr-info">Tunjukkan QR ini saat mengambil pesanan.</div>
+    </div>
+
+    <div class="line"></div>
+
+    <!-- Pengirim -->
+    <div class="sender">
+        <div>
+            <span class="title" style="display:block;">PENGIRIM:</span>
+            <span class="sender-name">ANNAAMUI.SHOP</span>
+        </div>
+        <div style="text-align:right;">
+            <span style="font-size:10px;" id="lbl-sender-phone">+62 878-6220-1153</span>
+        </div>
+    </div>
+
+    <div class="footer">
+        Dicetak otomatis oleh ANNAAMUI.SHOP
+    </div>
+</div>
+
+<!-- QRCode Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<script>
+window.onload = function () {
+    const params = new URLSearchParams(window.location.search);
+
+    const orderId = params.get("id") || "";
+    const nama = params.get("nama") || "";
+    const telp = params.get("telp") || params.get("hp") || "";
+    const lokasi = params.get("lokasi") || "";
+    const tanggal = params.get("tanggal") || "";
+
+    document.getElementById("lbl-id").textContent = orderId;
+    document.getElementById("lbl-date").textContent = tanggal;
+    document.getElementById("lbl-nama").textContent = nama;
+    document.getElementById("lbl-hp").textContent = telp;
+    document.getElementById("lbl-lokasi").textContent = lokasi;
+
+    // Link QR Code
+    const qrLink =
+        "https://annaamui.shop/detail.html" +
+        "?id=" + encodeURIComponent(orderId) +
+        "&nama=" + encodeURIComponent(nama) +
+        "&telp=" + encodeURIComponent(telp) +
+        "&lokasi=" + encodeURIComponent(lokasi);
+
+    new QRCode(document.getElementById("qrcode"), {
+        text: qrLink,
+        width: 120,
+        height: 120,
+        correctLevel: QRCode.CorrectLevel.H
+    });
+};
+</script>
+
+</body>
+</html>
