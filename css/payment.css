@@ -1,0 +1,675 @@
+/* ==========================================================================
+   PAYMENT.CSS - Halaman Pembayaran Anna Amui
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   HALAMAN UTAMA
+   -------------------------------------------------------------------------- */
+
+.payment-page {
+    background: #f8fafc;
+    min-height: 100vh;
+    padding-bottom: 4rem;
+}
+
+
+/* --------------------------------------------------------------------------
+   HERO PEMBAYARAN
+   -------------------------------------------------------------------------- */
+
+.payment-hero {
+    background: linear-gradient(
+        135deg,
+        #165b33 0%,
+        #09381e 100%
+    );
+    color: #ffffff;
+    padding: 7rem 0 5rem;
+    text-align: center;
+}
+
+.payment-hero-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.payment-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(245, 158, 11, 0.15);
+    border: 1px solid rgba(245, 158, 11, 0.35);
+    color: #fbbf24;
+    padding: 0.45rem 1rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.payment-hero h1 {
+    color: #ffffff;
+    font-size: 2.2rem;
+    line-height: 1.25;
+    font-weight: 800;
+    margin-bottom: 0.8rem;
+}
+
+.payment-hero p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+
+/* --------------------------------------------------------------------------
+   CONTAINER
+   -------------------------------------------------------------------------- */
+
+.payment-container {
+    max-width: 800px;
+    margin: -2.5rem auto 0;
+    position: relative;
+    z-index: 5;
+}
+
+
+/* --------------------------------------------------------------------------
+   ALERT
+   -------------------------------------------------------------------------- */
+
+.payment-alert {
+    display: none;
+    align-items: flex-start;
+    gap: 14px;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-left: 4px solid #ef4444;
+    padding: 18px 20px;
+    border-radius: 14px;
+    margin-bottom: 24px;
+}
+
+.payment-alert-icon {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    background: #fee2e2;
+    color: #dc2626;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.payment-alert h3 {
+    color: #991b1b;
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.payment-alert p {
+    color: #b91c1c;
+    font-size: 0.82rem;
+    line-height: 1.6;
+}
+
+
+/* --------------------------------------------------------------------------
+   RINGKASAN PESANAN / INVOICE
+   -------------------------------------------------------------------------- */
+
+.invoice-card {
+    background: linear-gradient(
+        135deg,
+        #1e293b 0%,
+        #0f172a 100%
+    );
+    color: #ffffff;
+    border-radius: 20px;
+    padding: 25px 30px;
+    margin-bottom: 24px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+
+    box-shadow:
+        0 15px 35px rgba(15, 23, 42, 0.18);
+
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.invoice-info span,
+.invoice-total span {
+    display: block;
+    font-size: 0.75rem;
+    color: #94a3b8;
+    margin-bottom: 4px;
+}
+
+.invoice-info h2 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #f8fafc;
+    word-break: break-word;
+}
+
+.invoice-total {
+    text-align: right;
+}
+
+.invoice-total strong {
+    display: block;
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: #f59e0b;
+}
+
+
+/* --------------------------------------------------------------------------
+   PAYMENT CARD
+   -------------------------------------------------------------------------- */
+
+.payment-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 24px;
+
+    border: 1px solid rgba(226, 232, 240, 0.8);
+
+    box-shadow:
+        0 10px 30px rgba(15, 23, 42, 0.05);
+}
+
+.payment-card-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.payment-icon {
+    width: 46px;
+    height: 46px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+    font-size: 1.15rem;
+}
+
+.payment-icon.green {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.payment-icon.orange {
+    background: #fef3c7;
+    color: #d97706;
+}
+
+.payment-icon.warning {
+    background: #e0f2fe;
+    color: #0284c7;
+}
+
+.payment-method {
+    display: block;
+    color: #64748b;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 2px;
+}
+
+.payment-card h2 {
+    color: #1e293b;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.payment-description {
+    color: #64748b;
+    font-size: 0.88rem;
+    line-height: 1.7;
+    margin-bottom: 22px;
+}
+
+
+/* --------------------------------------------------------------------------
+   NOMOR ALIPAY
+   -------------------------------------------------------------------------- */
+
+.phone-box {
+    background: #f0fdf4;
+    border: 2px dashed #bbf7d0;
+    border-radius: 15px;
+
+    padding: 18px;
+    margin-bottom: 25px;
+
+    text-align: center;
+}
+
+.phone-label {
+    display: block;
+    color: #64748b;
+    font-size: 0.75rem;
+    margin-bottom: 6px;
+}
+
+.phone-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.phone-number {
+    color: #166534;
+    font-size: 1.35rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.btn-copy {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    background: #166534;
+    color: #ffffff;
+
+    border: none;
+    border-radius: 9px;
+
+    padding: 9px 14px;
+
+    font-family: inherit;
+    font-size: 0.78rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.15s ease;
+}
+
+.btn-copy:hover {
+    background: #14532d;
+}
+
+.btn-copy:active {
+    transform: scale(0.96);
+}
+
+.btn-copy.copied {
+    background: #22c55e;
+}
+
+
+/* --------------------------------------------------------------------------
+   LANGKAH PEMBAYARAN
+   -------------------------------------------------------------------------- */
+
+.step-list {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.step {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+}
+
+.step-number {
+    width: 29px;
+    height: 29px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f0fdf4;
+    color: #15803d;
+
+    border-radius: 50%;
+
+    font-size: 0.75rem;
+    font-weight: 800;
+
+    margin-top: 2px;
+}
+
+.step p {
+    color: #334155;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    margin: 0;
+}
+
+.step p strong {
+    color: #1e293b;
+}
+
+
+/* --------------------------------------------------------------------------
+   QR / BARCODE
+   -------------------------------------------------------------------------- */
+
+.qr {
+    text-align: center;
+    margin: 25px 0;
+}
+
+.qr-wrapper {
+    display: inline-block;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+
+    padding: 20px;
+
+    box-shadow:
+        0 5px 20px rgba(15, 23, 42, 0.04);
+}
+
+.qr img {
+    width: 200px;
+    max-width: 100%;
+    height: auto;
+
+    display: block;
+
+    margin: 0 auto;
+
+    border-radius: 8px;
+}
+
+.qr-caption {
+    display: block;
+
+    color: #64748b;
+
+    font-size: 0.75rem;
+    font-weight: 600;
+
+    margin-top: 10px;
+}
+
+
+/* --------------------------------------------------------------------------
+   CATATAN PENTING
+   -------------------------------------------------------------------------- */
+
+.payment-notes {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.payment-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+
+    background: #fffbeb;
+    border: 1px solid #fef3c7;
+
+    padding: 13px 15px;
+
+    border-radius: 11px;
+}
+
+.payment-note i {
+    color: #f59e0b;
+    font-size: 0.9rem;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.payment-note:last-child {
+    background: #f0fdf4;
+    border-color: #dcfce7;
+}
+
+.payment-note:last-child i {
+    color: #16a34a;
+}
+
+.payment-note p {
+    color: #92400e;
+    font-size: 0.82rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.payment-note:last-child p {
+    color: #166534;
+}
+
+
+/* --------------------------------------------------------------------------
+   KONFIRMASI WHATSAPP
+   -------------------------------------------------------------------------- */
+
+.payment-confirm {
+    background: #ffffff;
+
+    border-radius: 20px;
+
+    padding: 35px 25px;
+
+    text-align: center;
+
+    border: 1px solid rgba(226, 232, 240, 0.8);
+
+    box-shadow:
+        0 10px 30px rgba(15, 23, 42, 0.05);
+}
+
+.confirm-icon {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 15px;
+
+    border-radius: 50%;
+
+    background: rgba(37, 211, 102, 0.12);
+
+    color: #25d366;
+
+    font-size: 1.8rem;
+}
+
+.payment-confirm h2 {
+    color: #1e293b;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.payment-confirm p {
+    max-width: 550px;
+    margin: 0 auto 20px;
+
+    color: #64748b;
+
+    font-size: 0.85rem;
+    line-height: 1.7;
+}
+
+.payment-confirm .btn {
+    display: inline-flex;
+}
+
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE TABLET
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 768px) {
+
+    .payment-hero {
+        padding-top: 6.5rem;
+    }
+
+    .payment-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .payment-container {
+        margin-top: -2.8rem;
+    }
+
+}
+
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE MOBILE
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 600px) {
+
+    .payment-hero {
+        padding:
+            6rem
+            20px
+            4rem;
+    }
+
+    .payment-hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .payment-hero p {
+        font-size: 0.86rem;
+    }
+
+    .payment-container {
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-top: -2rem;
+    }
+
+    .invoice-card {
+        padding: 20px;
+
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .invoice-total {
+        text-align: left;
+    }
+
+    .invoice-total strong {
+        font-size: 1.5rem;
+    }
+
+    .payment-card {
+        padding: 22px 18px;
+        border-radius: 16px;
+    }
+
+    .payment-card-header {
+        align-items: flex-start;
+    }
+
+    .payment-icon {
+        width: 42px;
+        height: 42px;
+    }
+
+    .payment-card h2 {
+        font-size: 1.05rem;
+    }
+
+    .phone-number {
+        font-size: 1.15rem;
+    }
+
+    .phone-wrapper {
+        flex-direction: column;
+    }
+
+    .btn-copy {
+        width: 100%;
+        max-width: 180px;
+    }
+
+    .qr-wrapper {
+        padding: 15px;
+    }
+
+    .qr img {
+        width: 180px;
+    }
+
+    .payment-confirm {
+        padding: 30px 18px;
+    }
+
+}
+
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE EXTRA SMALL
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 360px) {
+
+    .payment-hero h1 {
+        font-size: 1.6rem;
+    }
+
+    .invoice-info h2 {
+        font-size: 1rem;
+    }
+
+    .invoice-total strong {
+        font-size: 1.35rem;
+    }
+
+    .payment-card {
+        padding: 18px 15px;
+    }
+
+    .payment-card-header {
+        gap: 10px;
+    }
+
+    .payment-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 1rem;
+    }
+
+    .phone-number {
+        font-size: 1rem;
+    }
+
+}
