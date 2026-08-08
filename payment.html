@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Panduan Pembayaran Alipay - Anna Amui</title>
+
+    <meta name="description"
+          content="Panduan pembayaran pesanan Anna Amui melalui Alipay atau pembayaran tunai di 7-Eleven dan Circle K Hong Kong.">
+
+    <meta name="theme-color" content="#16a34a">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS Utama -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- CSS Khusus Pembayaran -->
+    <link rel="stylesheet" href="css/payment.css">
+</head>
+
+<body>
+
+    <!-- HEADER MODULAR -->
+    <div data-include="components/header.html"></div>
+
+
+    <main class="payment-page">
+
+        <!-- Header Halaman -->
+        <section class="payment-hero">
+            <div class="container">
+
+                <div class="payment-hero-content">
+
+                    <span class="payment-badge">
+                        <i class="fa-solid fa-credit-card"></i>
+                        Pembayaran Pesanan
+                    </span>
+
+                    <h1>
+                        Panduan Pembayaran
+                    </h1>
+
+                    <p>
+                        Silakan pilih metode pembayaran yang paling mudah
+                        untuk menyelesaikan pesanan Anna Amui.
+                    </p>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <div class="container payment-container">
+
+            <!-- PERINGATAN -->
+            <div id="alert-error" class="payment-alert">
+                <div class="payment-alert-icon">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+
+                <div>
+                    <h3>
+                        Informasi Tagihan Tidak Ditemukan
+                    </h3>
+
+                    <p>
+                        Tautan pembayaran yang Anda buka tidak lengkap
+                        atau informasi tagihan tidak ditemukan.
+                        Silakan hubungi Admin untuk mendapatkan
+                        tautan pembayaran yang benar.
+                    </p>
+                </div>
+            </div>
+
+
+            <!-- RINGKASAN PESANAN -->
+            <div class="invoice-card">
+
+                <div class="invoice-info">
+
+                    <span>
+                        Nomor Pesanan
+                    </span>
+
+                    <h2 id="display-id">
+                        -
+                    </h2>
+
+                </div>
+
+
+                <div class="invoice-total">
+
+                    <span>
+                        Total Tagihan
+                    </span>
+
+                    <strong id="display-total">
+                        HK$ 0.00
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- METODE 1 -->
+            <section class="payment-card">
+
+                <div class="payment-card-header">
+
+                    <div class="payment-icon green">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                    </div>
+
+                    <div>
+                        <span class="payment-method">
+                            METODE 1
+                        </span>
+
+                        <h2>
+                            Transfer Alipay
+                        </h2>
+                    </div>
+
+                </div>
+
+
+                <p class="payment-description">
+                    Jika Anda memiliki akun Alipay, Anda dapat melakukan
+                    transfer langsung ke nomor Alipay tujuan berikut.
+                </p>
+
+
+                <!-- NOMOR ALIPAY -->
+                <div class="phone-box">
+
+                    <span class="phone-label">
+                        Nomor HP Alipay Tujuan
+                    </span>
+
+                    <div class="phone-wrapper">
+
+                        <strong id="target-phone" class="phone-number">
+                            +852 5589 5797
+                        </strong>
+
+                        <button
+                            type="button"
+                            class="btn-copy"
+                            onclick="copyPhoneNumber()">
+
+                            <i class="fa-regular fa-copy"></i>
+                            Salin Nomor
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- LANGKAH -->
+                <div class="step-list">
+
+                    <div class="step">
+
+                        <span class="step-number">1</span>
+
+                        <p>
+                            Buka aplikasi <strong>Alipay</strong>
+                            di perangkat Anda.
+                        </p>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <span class="step-number">2</span>
+
+                        <p>
+                            Pilih menu <strong>Transfer</strong>
+                            ke sesama akun Alipay.
+                        </p>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <span class="step-number">3</span>
+
+                        <p>
+                            Masukkan nomor HP Alipay tujuan yang
+                            tercantum di atas.
+                        </p>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <span class="step-number">4</span>
+
+                        <p>
+                            Masukkan nominal pembayaran sesuai
+                            <strong>total tagihan</strong>.
+                        </p>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <span class="step-number">5</span>
+
+                        <p>
+                            Periksa kembali informasi pembayaran,
+                            kemudian selesaikan transaksi.
+                        </p>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <span class="step-number">6</span>
+
+                        <p>
+                            Simpan screenshot atau bukti pembayaran
+                            yang berhasil.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- METODE 2 -->
+            <section class="payment-card">
+
+                <div class="payment-card-header">
+
+                    <div class="payment-icon orange">
+                        <i class="fa-solid fa-store"></i>
+                    </div>
+
+                    <div>
+                        <span class="payment-method">
+                            METODE 2
+                        </span>
+
+                        <h2>
+                            Bayar di 7-Eleven / Circle K
+                        </h2>
+                    </div>
+
+                </div>
+
+
+                <p class="payment-description">
+                    Jika Anda tidak memiliki akun Alipay, Anda dapat
+                    menggunakan barcode pembayaran dan melakukan
+                    pembayaran di gerai yang tersedia.
+                </p>
+
+
+                <!-- BARCODE -->
+                <div class="qr">
+
+                    <div class="qr-wrapper">
+
+                        <img
+                            src="assets/img/alipay.jpg"
+                            alt="Barcode pembayaran Anna Amui di 7-Eleven dan Circle K"
+                            loading="lazy">
+
+                        <span class="qr-caption">
+                            Barcode Pembayaran
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- LANGKAH -->
+                <div class="step-list">
+
+                    <div class="step">
+
+                        <span class="step-number">1</span>
+
+                        <p>
+                            Simpan atau screenshot barcode pembayaran
+                            di atas.
+                        </p>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <span class="step-number">2</span>
+
+                        <p>
+                            Datangi gerai <strong>7-Eleven</strong>
+                            atau <strong>Circle K</strong> terdekat.
+                        </p>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <span class="step-number">3</span>
+
+                        <p>
+                            Tunjukkan barcode kepada kasir
+                            untuk dipindai.
+                        </p>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <span class="step-number">4</span>
+
+                        <p>
+                            Lakukan pembayaran sesuai dengan
+                            <strong>total tagihan</strong>.
+                        </p>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <span class="step-number">5</span>
+
+                        <p>
+                            Simpan struk pembayaran sebagai
+                            bukti transaksi.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- CATATAN -->
+            <section class="payment-card">
+
+                <div class="payment-card-header">
+
+                    <div class="payment-icon warning">
+                        <i class="fa-solid fa-circle-info"></i>
+                    </div>
+
+                    <div>
+                        <span class="payment-method">
+                            INFORMASI
+                        </span>
+
+                        <h2>
+                            Catatan Penting
+                        </h2>
+                    </div>
+
+                </div>
+
+
+                <div class="payment-notes">
+
+                    <div class="payment-note">
+
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+
+                        <p>
+                            Barcode pembayaran hanya dapat digunakan
+                            sesuai ketentuan transaksi yang diberikan.
+                        </p>
+
+                    </div>
+
+
+                    <div class="payment-note">
+
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+
+                        <p>
+                            Pastikan nominal pembayaran sesuai dengan
+                            total tagihan yang tertera.
+                        </p>
+
+                    </div>
+
+
+                    <div class="payment-note">
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                        <p>
+                            Pesanan akan diproses setelah pembayaran
+                            berhasil diverifikasi.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- KONFIRMASI WHATSAPP -->
+            <section class="payment-confirm">
+
+                <div class="confirm-icon">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </div>
+
+                <h2>
+                    Sudah Melakukan Pembayaran?
+                </h2>
+
+                <p>
+                    Kirim bukti pembayaran kepada Admin melalui WhatsApp
+                    agar pembayaran dapat segera diperiksa.
+                </p>
+
+                <a
+                    id="wa-link"
+                    href="#"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn btn-primary btn-glow">
+
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Konfirmasi Pembayaran
+
+                </a>
+
+            </section>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER MODULAR -->
+    <div data-include="components/footer.html"></div>
+
+    <!-- FLOATING WHATSAPP -->
+    <div data-include="components/floating-wa.html"></div>
+
+
+    <!-- JAVASCRIPT MODULAR -->
+    <script src="js/include.js"></script>
+    <script src="js/main.js"></script>
+
+
+    <!-- JAVASCRIPT PEMBAYARAN -->
+    <script>
+
+        /*
+         * NOMOR ALIPAY
+         */
+        const alipayPhone = "+852 5589 5797";
+
+
+        /*
+         * NOMOR ADMIN WHATSAPP
+         */
+        const adminPhone = "6287862201153";
+
+
+        /*
+         * SALIN NOMOR ALIPAY
+         */
+        function copyPhoneNumber() {
+
+            const button = document.querySelector(".btn-copy");
+
+            navigator.clipboard.writeText(alipayPhone)
+                .then(() => {
+
+                    button.innerHTML =
+                        '<i class="fa-solid fa-check"></i> Berhasil Disalin!';
+
+                    button.classList.add("copied");
+
+                    setTimeout(() => {
+
+                        button.innerHTML =
+                            '<i class="fa-regular fa-copy"></i> Salin Nomor';
+
+                        button.classList.remove("copied");
+
+                    }, 2000);
+
+                })
+                .catch(() => {
+
+                    alert(
+                        "Nomor Alipay: " + alipayPhone
+                    );
+
+                });
+
+        }
+
+
+        /*
+         * AMBIL PARAMETER URL
+         *
+         * Contoh:
+         *
+         * payment.html?id=AA-20260808-1234&total=50
+         */
+        const urlParams =
+            new URLSearchParams(window.location.search);
+
+        const orderId =
+            urlParams.get("id");
+
+        const totalAmount =
+            urlParams.get("total");
+
+
+        /*
+         * FORMAT HKD
+         */
+        function formatHKD(amount) {
+
+            const number =
+                Number(amount);
+
+            if (isNaN(number)) {
+                return "HK$ 0.00";
+            }
+
+            return "HK$ " +
+                number.toLocaleString(
+                    "en-US",
+                    {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2
+                    }
+                );
+
+        }
+
+
+        /*
+         * VALIDASI TAGIHAN
+         */
+        const alertError =
+            document.getElementById("alert-error");
+
+        const displayId =
+            document.getElementById("display-id");
+
+        const displayTotal =
+            document.getElementById("display-total");
+
+        const waLink =
+            document.getElementById("wa-link");
+
+
+        if (!orderId || !totalAmount) {
+
+            alertError.style.display = "flex";
+
+            displayId.textContent =
+                "TIDAK VALID";
+
+            displayTotal.textContent =
+                "HK$ 0.00";
+
+
+            const fallbackMessage =
+                "Halo Admin, saya membuka halaman pembayaran Anna Amui tetapi informasi tagihannya tidak muncul. Mohon bantuannya.";
+
+
+            waLink.href =
+                "https://wa.me/" +
+                adminPhone +
+                "?text=" +
+                encodeURIComponent(
+                    fallbackMessage
+                );
+
+        }
+
+        else {
+
+            displayId.textContent =
+                orderId;
+
+            displayTotal.textContent =
+                formatHKD(totalAmount);
+
+
+            const message =
+                `Halo Admin, saya ingin konfirmasi pembayaran untuk:
+
+ID Order: ${orderId}
+Total: ${formatHKD(totalAmount)}
+
+Berikut saya kirimkan bukti pembayaran.`;
+
+
+            waLink.href =
+                "https://wa.me/" +
+                adminPhone +
+                "?text=" +
+                encodeURIComponent(
+                    message
+                );
+
+        }
+
+    </script>
+
+</body>
+</html>
