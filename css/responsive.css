@@ -1,0 +1,120 @@
+/* ==========================================================================
+   RESPONSIVE.CSS - Media Queries
+   ========================================================================== */
+
+[data-aos] {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+[data-aos].aos-animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 360px) {
+    .hero-title { font-size: 1.8rem; }
+    .hero-cta-group { flex-direction: column; width: 100%; }
+    .btn-lg { width: 100%; }
+    .features-grid { grid-template-columns: 1fr; }
+    .shipping-card { padding: 2.2rem 1rem; }
+    .shipping-title { font-size: 1.6rem; }
+    .timer-val { font-size: 2.2rem; }
+}
+
+@media (min-width: 768px) {
+
+    .hero-container {
+        flex-direction: row;
+        text-align: left;
+        justify-content: space-between;
+    }
+
+    .hero-cta-group {
+        justify-content: flex-start;
+    }
+
+    .paket-grid {
+        flex-direction: row;
+    }
+
+    .paket-card {
+        flex: 1;
+    }
+
+    .testi-grid {
+        flex-direction: row;
+    }
+
+    /* 4 kotak keunggulan */
+    .features-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Sembunyikan hamburger di desktop */
+    .menu-toggle {
+        display: none;
+    }
+
+    /* Menu desktop */
+    .nav-menu {
+        position: static;
+        width: auto;
+        
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+        
+        background: transparent;
+        box-shadow: none;
+        
+        padding: 0;
+        
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav-link {
+        width: auto;
+        padding: 8px 12px;
+        white-space: nowrap;
+    }
+
+    .nav-link.btn-nav-order {
+        margin-top: 0;
+        min-width: auto;
+        padding: 9px 18px;
+    }
+}
+@media (max-width: 767px) {
+
+    .blog-article-section {
+        padding-top: 60px;
+    }
+
+    .article-header h1 {
+        font-size: 1.65rem;
+    }
+
+    .blog-content {
+        font-size: 0.95rem;
+        line-height: 1.8;
+    }
+
+    .blog-content h2 {
+        font-size: 1.2rem;
+    }
+
+    .article-cta {
+        padding: 25px 18px;
+    }
+
+    .article-navigation {
+        flex-direction: column;
+        text-align: center;
+    }
+
+}
