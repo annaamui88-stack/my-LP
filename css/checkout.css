@@ -1,365 +1,358 @@
 /*==================================================
-CHECKOUT.CSS
-Anna Amui Shop
+CHECKOUT.CSS - Anna Amui Shop
 ==================================================*/
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+:root {
+    --primary-green: #25d366;
+    --navy-dark: #0f172a;
+    --bg-light: #f8fafc;
+    --text-dark: #1e293b;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    --white: #ffffff;
 }
 
-body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#f5f5f5;
-    color:#222;
-    padding-bottom:95px;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
 }
 
-a{
-    text-decoration:none;
-    color:inherit;
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    padding-bottom: 90px; /* Ruang untuk checkout-bar di bawah */
 }
 
-/* =========================
-   HEADER
-========================= */
-
-.topbar{
-    position:sticky;
-    top:0;
-    z-index:999;
-    height:60px;
-    background:#ffffff;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:0 18px;
-    border-bottom:1px solid #ececec;
+/* TOPBAR / HEADER */
+.topbar {
+    background: var(--white);
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-.topbar-left{
-    display:flex;
-    align-items:center;
-    gap:14px;
+.topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
-.back-btn{
-    width:38px;
-    height:38px;
-    border-radius:50%;
-    background:#f3f3f3;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:16px;
+.back-btn {
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    text-decoration: none;
 }
 
-.topbar h2{
-    font-size:20px;
-    font-weight:700;
+.topbar h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
 }
 
-.logo img{
-    width:42px;
-    height:42px;
-    border-radius:50%;
-}
-/* =========================
-   CARD
-========================= */
-
-.card{
-    background:#ffffff;
-    border-radius:16px;
-    padding:18px;
-    margin-bottom:16px;
-    box-shadow:0 3px 10px rgba(0,0,0,.05);
+/* CONTAINER */
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-.card-title{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    font-size:18px;
-    font-weight:700;
-    color:#16a34a;
-    margin-bottom:18px;
+/* CARD / BOX */
+.card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
-/* =========================
-   FORM
-========================= */
-
-.form-group{
-    margin-bottom:18px;
+.card-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--navy-dark);
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
 }
 
-.form-group label{
-    display:block;
-    font-size:14px;
-    font-weight:600;
-    margin-bottom:8px;
+.card-title i {
+    color: var(--primary-green);
+}
+
+/* FORM GROUP */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: var(--text-muted);
 }
 
 .form-group input,
 .form-group select,
-.form-group textarea{
-    width:100%;
-    border:1px solid #ddd;
-    border-radius:10px;
-    padding:12px 14px;
-    font-size:15px;
-    background:#fff;
-    transition:.25s;
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    background: var(--bg-light);
+    color: var(--text-dark);
+    outline: none;
+    transition: border-color 0.2s;
 }
 
 .form-group input:focus,
 .form-group select:focus,
-.form-group textarea:focus{
-    outline:none;
-    border-color:#ee4d2d;
-    box-shadow:0 0 0 3px rgba(238,77,45,.15);
+.form-group textarea:focus {
+    border-color: var(--primary-green);
+    background: var(--white);
 }
 
-textarea{
-    resize:none;
-}
-/* =========================
-   VARIANT PRODUK
-========================= */
-
-.variant{
-    border:1px solid #ececec;
-    border-radius:14px;
-    padding:15px;
-    margin-bottom:14px;
-    transition:.25s;
+/* VARIAN PRODUK */
+.variant {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px 0;
+    border-bottom: 1px dashed var(--border-color);
 }
 
-.variant:hover{
-    border-color:#ee4d2d;
+.variant:last-of-type {
+    border-bottom: none;
+    margin-bottom: 10px;
 }
 
-.variant-info{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+.variant-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.variant-name{
-    display:flex;
-    align-items:center;
-    gap:12px;
+.variant-name {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.variant-name h4{
-    font-size:17px;
-    margin-bottom:3px;
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
 }
 
-.variant-name p{
-    font-size:14px;
-    color:#777;
+.dot.original {
+    background-color: #f59e0b; /* Kuning Mangga */
 }
 
-.dot{
-    width:16px;
-    height:16px;
-    border-radius:50%;
+.dot.pedas {
+    background-color: #ef4444; /* Merah Pedas */
 }
 
-.original{
-    background:#34c759;
+.variant-name h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
 }
 
-.pedas{
-    background:#ff3b30;
-}
-/* =========================
-   QTY BUTTON
-========================= */
-
-.qty-box{
-    display:flex;
-    align-items:center;
-    gap:12px;
+.variant-name p {
+    font-size: 0.75rem;
+    color: var(--text-muted);
 }
 
-.qty-box button{
-    width:38px;
-    height:38px;
-    border:none;
-    border-radius:10px;
-    background:#16a34a;
-    color:#fff;
-    font-size:20px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:.2s;
+/* QTY BOX (TOMBOL + / -) */
+.qty-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--white);
 }
 
-.qty-box button:hover{
-    transform:scale(1.05);
+.qty-box button {
+    background: var(--bg-light);
+    border: none;
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--text-dark);
+    transition: background 0.2s;
 }
 
-.qty-box button:active{
-    transform:scale(.95);
+.qty-box button:active {
+    background: var(--border-color);
 }
 
-.qty-box span{
-    min-width:30px;
-    text-align:center;
-    font-size:18px;
-    font-weight:700;
+.qty-box span {
+    width: 36px;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 600;
 }
 
-/* =========================
-   PROMO
-========================= */
-
-.promo-box{
-    margin-top:15px;
-    background:#fff4ef;
-    border:1px solid #ffd8cb;
-    border-radius:12px;
-    padding:12px;
-    font-size:14px;
-    line-height:1.6;
-    color:#ee4d2d;
+/* Styling Rapi untuk Kotak Promo & Pilihan Paket */
+.promo-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 15px 0;
 }
 
-/* =========================
-   SUMMARY
-========================= */
-
-.summary-row{
-    display:flex;
-    justify-content:space-between;
-    margin-bottom:12px;
-    font-size:15px;
+.promo-box-item {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 12px;
+    padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-.summary-total{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    font-size:20px;
-    font-weight:700;
-    color:#ee4d2d;
-    margin-top:15px;
+.promo-box-item.paket-favorit {
+    background: #fdf8f6;
+    border-color: #fed7aa;
 }
 
-.summary-note{
-    margin-top:12px;
-    padding:10px 12px;
-    background:#f8fafc;
-    border-left:4px solid #16a34a;
-    border-radius:8px;
-    font-size:13px;
-    line-height:1.5;
-    color:#666;
+.promo-icon {
+    font-size: 18px;
+    flex-shrink: 0;
 }
 
-#estimasi-berat,
-#estimasi-ongkir{
-    font-weight:700;
-    color:#16a34a;
+.promo-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 6px;
 }
 
-.card hr{
-    border:none;
-    border-top:1px solid #ececec;
-    margin:16px 0;
+.promo-text {
+    font-size: 13px;
+    color: #166534;
+    line-height: 1.4;
+    flex: 1;
 }
 
-/* =========================
-   STICKY CHECKOUT
-========================= */
-
-.checkout-bar{
-    position:fixed;
-    left:0;
-    right:0;
-    bottom:0;
-    background:#fff;
-    border-top:1px solid #e5e5e5;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 18px;
-    box-shadow:0 -5px 15px rgba(0,0,0,.08);
-    z-index:999;
+.promo-box-item.paket-favorit .promo-text {
+    color: #9a3412;
 }
 
-.checkout-bar small{
-    color:#666;
+.promo-badge {
+    background: #dcfce7;
+    color: #166534;
+    font-weight: 700;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    white-space: nowrap;
 }
 
-.checkout-bar h3{
-    color:#16a34a;
-    margin-top:4px;
-    font-size:24px;
+.promo-box-item.paket-favorit .promo-badge {
+    background: #ffedd5;
+    color: #9a3412;
 }
 
-#checkoutBtn{
-    border:none;
-    background:#16a34a;
-    color:#fff;
-    padding:14px 28px;
-    border-radius:12px;
-    font-size:16px;
-    font-weight:700;
-    cursor:pointer;
-    transition:.25s;
+
+/* SHIPPING TIPS */
+.shipping-tips {
+    font-size: 0.8rem;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    color: #1e40af;
+    padding: 10px 12px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    line-height: 1.4;
 }
 
-#checkoutBtn:hover{
-    background:#d93f21;
+/* RINGKASAN */
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    color: var(--text-muted);
 }
 
-#checkoutBtn:active{
-    transform:scale(.98);
+.summary-row span:last-child,
+.summary-row b {
+    color: var(--text-dark);
 }
 
-.shipping-tips{
-    margin-bottom:12px;
-    margin-top:12px;
-    padding:12px;
-    background:#ecfdf5;
-    border:1px solid #bbf7d0;
-    border-radius:10px;
-    color:#166534;
-    font-size:14px;
-    line-height:1.5;
+hr {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 12px 0;
 }
 
-/* =========================
-   MOBILE
-========================= */
+.summary-note {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 10px;
+    font-style: italic;
+    line-height: 1.3;
+}
 
-@media(max-width:480px){
+/* CHECKOUT BAR BAWAH */
+.checkout-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.05);
+    z-index: 100;
+}
 
-    .topbar h2{
-        font-size:18px;
-    }
+.checkout-bar small {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    display: block;
+}
 
-    .card{
-        padding:15px;
-        border-radius:14px;
-    }
+.checkout-bar h3 {
+    font-size: 1.1rem;
+    color: var(--navy-dark);
+}
 
-    .variant-name h4{
-        font-size:16px;
-    }
+#checkoutBtn {
+    background-color: var(--primary-green);
+    color: var(--white);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+    transition: opacity 0.2s;
+}
 
-    .checkout-bar{
-        padding:12px 14px;
-    }
-
-    #checkoutBtn{
-        padding:13px 20px;
-        font-size:15px;
-    }
-
+#checkoutBtn:active {
+    opacity: 0.85;
 }
