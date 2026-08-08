@@ -151,7 +151,7 @@
 }
 
 .hero-title {
-    font-size: 2.2rem;
+    font-size: 2rem;
     line-height: 1.25;
     font-weight: 800;
     color: #2E7D32;
@@ -377,7 +377,7 @@
 .timer-segment {
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(245, 158, 11, 0.25);
-    padding: 1.2rem 0.4rem;
+    padding: 1rem 0.2rem;
     border-radius: 18px;
     backdrop-filter: blur(8px);
     display: flex;
