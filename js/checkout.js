@@ -83,7 +83,6 @@ if(checkoutBtn) {
         const harga = getHarga(total);
         const totalBayar = total * harga;
         
-        // Generate ID Order unik di sini agar sama antara yang masuk ke Sheet dan WhatsApp
         const currentOrderId = generateWAOrderId();
 
         const data = {
@@ -96,10 +95,9 @@ if(checkoutBtn) {
             totalBayar: totalBayar,
             lokasi: lokasi,
             catatan: catatan,
-            idOrder: currentOrderId // <-- Ditambahkan agar terkirim ke Google Apps Script
+            idOrder: currentOrderId
         };
 
-        // Reset Form
         namaInput.value = "";
         nomorInput.value = "";
         lokasiInput.selectedIndex = 0;
