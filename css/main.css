@@ -1,0 +1,209 @@
+/* ==========================================================================
+   MAIN.CSS - Design System & Variables
+   ========================================================================== */
+
+@import url('layout.css');
+@import url('responsive.css');
+
+:root {
+    --primary-green: #16a34a;
+    --primary-green-hover: #15803d;
+    --mango-orange: #f59e0b;
+    --mango-orange-dark: #d97706;
+    --navy-dark: #0f172a;
+    --navy-card: #1e293b;
+    --bg-white: #ffffff;
+    --text-dark: #0f172a;
+    --text-muted: #64748b;
+    --bg-gradient: linear-gradient(180deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
+    --radius-lg: 24px;
+    --radius-md: 16px;
+    --radius-sm: 8px;
+    --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.05);
+    --shadow-hover: 0 20px 40px rgba(15, 23, 42, 0.12);
+    --shadow-glow: 0 8px 25px rgba(22, 163, 74, 0.35);
+    --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    --font-main: 'Poppins', sans-serif;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--text-dark);
+    background: var(--bg-gradient);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+img { max-width: 100%; height: auto; display: block; }
+
+/* Utilities */
+.container {
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section { padding: 1rem 0; }
+.text-center { text-align: center; }
+.text-white { color: var(--bg-white); }
+
+/* --- CSS HEADER & NAVBAR MODULAR (FIXED) --- */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #16a34a;
+    text-decoration: none;
+}
+
+.menu-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+    z-index: 1001;
+    display: block;
+}
+
+/* Sembunyikan menu secara default dengan tingkat paksaan tinggi */
+.header .nav-menu {
+    display: none !important; 
+    flex-direction: column !important;
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    width: 100% !important;
+    background: #ffffff !important;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1) !important;
+    padding: 15px 0 !important;
+    text-align: center !important;
+}
+
+/* Hanya muncul saat class 'active' diberikan oleh JavaScript */
+.header .nav-menu.active {
+    display: flex !important;
+}
+
+.nav-link {
+    padding: 12px 20px;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    display: block;
+}
+
+.nav-link:hover, .btn-nav-order {
+    color: #16a34a;
+}
+
+main {
+    padding-top: 70px;
+}
+/* --- COUNTDOWN TIMER STYLING --- */
+.countdown-container {
+    background: #fdf2f8;
+    border: 1px solid #fbcfe8;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    max-width: 450px;
+    margin: 20px auto;
+    box-shadow: 0 4px 15px rgba(236, 72, 153, 0.08);
+}
+
+.countdown-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #db2777;
+    margin-bottom: 12px;
+}
+
+.countdown-boxes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.time-box {
+    background: #ffffff;
+    padding: 8px 12px;
+    border-radius: 10px;
+    min-width: 55px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.time-box span {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.time-box small {
+    display: block;
+    font-size: 0.7rem;
+    color: #6b7280;
+    text-transform: uppercase;
+}
+
+.separator {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #db2777;
+}
+
+/* Style dasar jawaban FAQ (tersembunyi) */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0 20px;
+}
+
+/* Ketika di-klik / aktif */
+.faq-item.active .faq-answer {
+    max-height: 200px; /* Sesuaikan tinggi konten */
+    padding: 15px 20px 20px 20px;
+}
+
+/* Mengubah ikon + menjadi - saat aktif */
+.faq-item.active .faq-icon {
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+}
+
+.faq-icon {
+    transition: transform 0.3s ease;
+}
