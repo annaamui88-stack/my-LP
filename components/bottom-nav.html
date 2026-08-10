@@ -1,158 +1,92 @@
-<!-- =========================================
-     MOBILE BOTTOM NAVIGATION
-     ANNA AMUI
-========================================= -->
+<!-- =========================================================
+     BOTTOM NAVIGATION - ANNA AMUI
+     ========================================================= -->
 
-<nav class="mobile-bottom-nav" aria-label="Navigasi utama">
+<nav class="bottom-nav" aria-label="Navigasi utama">
 
-    <!-- BERANDA -->
-    <a href="/"
-       class="mobile-nav-item"
-       data-page="home"
-       aria-label="Beranda">
+    <div class="bottom-nav-inner">
 
-        <span class="mobile-nav-icon">
+        <!-- BERANDA -->
+        <a href="index.html"
+           class="bottom-nav-item"
+           data-page="index"
+           aria-label="Beranda">
 
-            <!-- Home -->
-            <svg viewBox="0 0 24 24"
-                 fill="none"
-                 stroke="currentColor"
-                 stroke-width="1.8"
-                 stroke-linecap="round"
-                 stroke-linejoin="round"
-                 aria-hidden="true">
+            <img
+                src="assets/icons/home.png"
+                alt=""
+                class="bottom-nav-icon"
+            >
 
-                <path d="M3 10.5L12 3l9 7.5"></path>
-                <path d="M5 9.5V21h14V9.5"></path>
-                <path d="M9 21v-7h6v7"></path>
-
-            </svg>
-
-        </span>
-
-        <span>Beranda</span>
-
-    </a>
+            <span>Beranda</span>
+        </a>
 
 
-    <!-- PAKET -->
-    <a href="/#paket"
-       class="mobile-nav-item"
-       data-page="paket"
-       aria-label="Paket">
+        <!-- PAKET -->
+        <a href="index.html#paket"
+           class="bottom-nav-item"
+           data-page="paket"
+           aria-label="Paket">
 
-        <span class="mobile-nav-icon">
+            <img
+                src="assets/icons/paket.png"
+                alt=""
+                class="bottom-nav-icon"
+            >
 
-            <!-- Package -->
-            <svg viewBox="0 0 24 24"
-                 fill="none"
-                 stroke="currentColor"
-                 stroke-width="1.8"
-                 stroke-linecap="round"
-                 stroke-linejoin="round"
-                 aria-hidden="true">
-
-                <path d="M21 8.5L12 3 3 8.5"></path>
-                <path d="M3 8.5v7L12 21l9-5.5v-7"></path>
-                <path d="M12 21V10"></path>
-                <path d="M3.5 8.5L12 14l8.5-5.5"></path>
-
-            </svg>
-
-        </span>
-
-        <span>Paket</span>
-
-    </a>
+            <span>Paket</span>
+        </a>
 
 
-    <!-- PESAN SEKARANG -->
-    <a href="/checkout.html"
-       class="mobile-nav-item mobile-nav-order"
-       data-page="order"
-       aria-label="Pesan Sekarang">
+        <!-- PESAN SEKARANG - CTA UTAMA -->
+        <a href="checkout.html"
+           class="bottom-nav-item bottom-nav-order"
+           data-page="checkout"
+           aria-label="Pesan Sekarang">
 
-        <span class="mobile-nav-icon">
+            <span class="bottom-nav-order-icon">
+                <img
+                    src="assets/icons/pesan.png"
+                    alt=""
+                    class="bottom-nav-icon"
+                >
+            </span>
 
-            <!-- Shopping Bag -->
-            <svg viewBox="0 0 24 24"
-                 fill="none"
-                 stroke="currentColor"
-                 stroke-width="1.8"
-                 stroke-linecap="round"
-                 stroke-linejoin="round"
-                 aria-hidden="true">
-
-                <path d="M6 7h12l1 14H5L6 7z"></path>
-                <path d="M9 7a3 3 0 0 1 6 0"></path>
-
-            </svg>
-
-        </span>
-
-        <span>Pesan</span>
-
-    </a>
+            <span class="bottom-nav-order-text">Pesan</span>
+        </a>
 
 
-    <!-- TENTANG KAMI -->
-    <a href="/tentang.html"
-       class="mobile-nav-item"
-       data-page="about"
-       aria-label="Tentang Kami">
+        <!-- TENTANG -->
+        <a href="tentang.html"
+           class="bottom-nav-item"
+           data-page="tentang"
+           aria-label="Tentang Kami">
 
-        <span class="mobile-nav-icon">
+            <img
+                src="assets/icons/tentang.png"
+                alt=""
+                class="bottom-nav-icon"
+            >
 
-            <!-- Info -->
-            <svg viewBox="0 0 24 24"
-                 fill="none"
-                 stroke="currentColor"
-                 stroke-width="1.8"
-                 stroke-linecap="round"
-                 stroke-linejoin="round"
-                 aria-hidden="true">
-
-                <circle cx="12" cy="12" r="9"></circle>
-                <path d="M12 10v6"></path>
-                <path d="M12 7h.01"></path>
-
-            </svg>
-
-        </span>
-
-        <span>Tentang</span>
-
-    </a>
+            <span>Tentang</span>
+        </a>
 
 
-    <!-- BLOG -->
-    <a href="/blog.html"
-       class="mobile-nav-item"
-       data-page="blog"
-       aria-label="Blog">
+        <!-- BLOG -->
+        <a href="blog.html"
+           class="bottom-nav-item"
+           data-page="blog"
+           aria-label="Blog">
 
-        <span class="mobile-nav-icon">
+            <img
+                src="assets/icons/blog.png"
+                alt=""
+                class="bottom-nav-icon"
+            >
 
-            <!-- Book -->
-            <svg viewBox="0 0 24 24"
-                 fill="none"
-                 stroke="currentColor"
-                 stroke-width="1.8"
-                 stroke-linecap="round"
-                 stroke-linejoin="round"
-                 aria-hidden="true">
+            <span>Blog</span>
+        </a>
 
-                <path d="M4 4h12a3 3 0 0 1 3 3v13H7a3 3 0 0 1-3-3V4z"></path>
-                <path d="M7 4v16"></path>
-                <path d="M9 9h7"></path>
-                <path d="M9 13h7"></path>
-
-            </svg>
-
-        </span>
-
-        <span>Blog</span>
-
-    </a>
+    </div>
 
 </nav>
