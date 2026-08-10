@@ -118,3 +118,159 @@
     }
 
 }
+
+/* ==========================================================================
+   BOTTOM NAVIGATION - MOBILE
+   ========================================================================== */
+
+@media (max-width: 767px) {
+
+    .bottom-nav {
+        display: block;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 9999;
+
+        background: #ffffff;
+        border-top: 1px solid #e5e7eb;
+        box-shadow: 0 -4px 18px rgba(15, 23, 42, 0.08);
+
+        padding: 6px 5px;
+        padding-bottom: calc(6px + env(safe-area-inset-bottom));
+    }
+
+    .bottom-nav-inner {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        align-items: center;
+    }
+
+    .bottom-nav-item {
+        position: relative;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        min-height: 56px;
+        padding: 4px 2px;
+
+        color: #475569;
+        text-decoration: none;
+
+        font-size: 0.65rem;
+        font-weight: 600;
+
+        transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    /* UKURAN IKON */
+    .bottom-nav-icon {
+        width: 23px !important;
+        height: 23px !important;
+
+        max-width: 23px !important;
+        max-height: 23px !important;
+
+        object-fit: contain;
+        display: block;
+
+        margin: 0 0 4px 0;
+
+        flex-shrink: 0;
+    }
+
+    .bottom-nav-item span {
+        line-height: 1.2;
+        white-space: nowrap;
+    }
+
+    /* TOMBOL PESAN */
+    .bottom-nav-order {
+        color: #16a34a;
+        font-weight: 700;
+    }
+
+    .bottom-nav-order-icon {
+        width: 40px;
+        height: 40px;
+
+        margin-top: -18px;
+        margin-bottom: 3px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: #16a34a;
+        border: 4px solid #ffffff;
+        border-radius: 50%;
+
+        box-shadow: 0 4px 12px rgba(22, 163, 74, 0.30);
+
+        overflow: hidden;
+    }
+
+    .bottom-nav-order-icon .bottom-nav-icon {
+        width: 21px !important;
+        height: 21px !important;
+
+        max-width: 21px !important;
+        max-height: 21px !important;
+
+        margin: 0;
+    }
+
+    .bottom-nav-item:hover {
+        color: #16a34a;
+    }
+
+    .bottom-nav-item:active {
+        transform: scale(0.94);
+    }
+
+    .bottom-nav-item.active {
+        color: #16a34a;
+    }
+
+    .bottom-nav-item.active::after {
+        content: "";
+
+        position: absolute;
+        bottom: 1px;
+        left: 50%;
+
+        width: 22px;
+        height: 3px;
+
+        transform: translateX(-50%);
+
+        background: #16a34a;
+        border-radius: 10px;
+    }
+
+    /* Agar konten tidak tertutup navigasi bawah */
+    body {
+        padding-bottom: 76px;
+    }
+}
+
+
+/* ==========================================================================
+   BOTTOM NAVIGATION - DESKTOP
+   ========================================================================== */
+
+@media (min-width: 768px) {
+
+    .bottom-nav {
+        display: none;
+    }
+
+}
