@@ -1690,14 +1690,14 @@
     }
 
     .mobile-nav-order .mobile-nav-icon {
-        width: 40px;
-        height: 40px;
+        width: 60px;
+        height: 60px;
 
         margin-top: -13px;
 
         border-radius: 50%;
 
-        background: var(--primary-green);
+        background: #F59E0B;
 
         color: #ffffff;
 
