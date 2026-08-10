@@ -1860,3 +1860,168 @@
     }
 
 }
+/* =========================================================
+   BOTTOM NAVIGATION - ANNA AMUI
+   ========================================================= */
+
+.bottom-nav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+
+    background: rgba(255, 255, 255, 0.97);
+    border-top: 1px solid #e5e7eb;
+
+    box-shadow: 0 -4px 18px rgba(15, 23, 42, 0.08);
+
+    padding: 6px 8px calc(6px + env(safe-area-inset-bottom));
+}
+
+.bottom-nav-inner {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+    justify-content: center;
+}
+
+/* ITEM NAVIGASI */
+.bottom-nav-item {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 58px;
+    padding: 4px 2px;
+
+    color: #475569;
+    text-decoration: none;
+
+    font-size: 0.68rem;
+    font-weight: 600;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+/* =========================================================
+   IKON
+   ========================================================= */
+
+.bottom-nav-icon {
+    width: 25px !important;
+    height: 25px !important;
+
+    max-width: 25px !important;
+    max-height: 25px !important;
+
+    object-fit: contain;
+    object-position: center;
+
+    display: block;
+
+    margin: 0 0 4px 0;
+
+    /* Jangan sampai gambar 400x400 membesar */
+    flex-shrink: 0;
+}
+
+/* =========================================================
+   TEKS
+   ========================================================= */
+
+.bottom-nav-item span:not(.bottom-nav-order-icon) {
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+/* =========================================================
+   PESAN SEKARANG - CTA
+   ========================================================= */
+
+.bottom-nav-order {
+    color: #16a34a;
+    font-weight: 700;
+}
+
+.bottom-nav-order-icon {
+    width: 42px;
+    height: 42px;
+
+    margin-top: -20px;
+    margin-bottom: 3px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #16a34a;
+    border: 4px solid #ffffff;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 4px 12px rgba(22, 163, 74, 0.30);
+
+    overflow: hidden;
+}
+
+.bottom-nav-order-icon .bottom-nav-icon {
+    width: 23px !important;
+    height: 23px !important;
+
+    max-width: 23px !important;
+    max-height: 23px !important;
+
+    margin: 0;
+}
+
+/* =========================================================
+   HOVER / ACTIVE
+   ========================================================= */
+
+.bottom-nav-item:hover {
+    color: #16a34a;
+}
+
+.bottom-nav-item:active {
+    transform: scale(0.94);
+}
+
+.bottom-nav-item.active {
+    color: #16a34a;
+}
+
+/* Garis kecil indikator aktif */
+.bottom-nav-item.active::after {
+    content: "";
+
+    position: absolute;
+    bottom: 1px;
+    left: 50%;
+
+    width: 22px;
+    height: 3px;
+
+    transform: translateX(-50%);
+
+    background: #16a34a;
+    border-radius: 10px;
+}
+
+/* =========================================================
+   AGAR KONTEN TIDAK TERTUTUP BOTTOM NAV
+   ========================================================= */
+
+body {
+    padding-bottom: 76px;
+}
