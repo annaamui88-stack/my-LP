@@ -1061,45 +1061,6 @@
 
 
 /* ==========================================================================
-   FOOTER MOBILE
-   ========================================================================== */
-
-@media (max-width: 768px) {
-
-    .footer {
-        padding: 35px 0 25px;
-    }
-
-    .footer-container {
-        padding: 0 18px;
-    }
-
-    .footer-description {
-        font-size: 0.82rem;
-        max-width: 340px;
-    }
-
-    .footer-nav {
-        gap: 14px 18px;
-        font-size: 0.82rem;
-    }
-
-    .footer-bottom {
-        font-size: 0.72rem;
-    }
-
-}
-
-/* ==========================================================================
-   MOBILE BOTTOM NAVIGATION
-   ========================================================================== */
-
-.mobile-bottom-nav {
-    display: none;
-}
-
-
-/* ==========================================================================
    FLOATING WHATSAPP
    ========================================================================== */
 
@@ -1107,7 +1068,8 @@
     position: fixed;
 
     right: 18px;
-    bottom: 24px;
+    /* Berada di atas bottom navigation agar tidak bertabrakan */
+    bottom: 88px;
 
     width: 56px;
     height: 56px;
@@ -1138,8 +1100,8 @@
 }
 
 .floating-wa svg {
-    width: 31px;
-    height: 31px;
+    width: 30px;
+    height: 30px;
 
     fill: currentColor;
 
@@ -1212,7 +1174,7 @@
 
 
 /* ==========================================================================
-   BLOG
+   BLOG & ARTIKEL
    ========================================================================== */
 
 .blog-intro {
@@ -1328,11 +1290,6 @@
 
     margin-bottom: 15px;
 }
-
-
-/* ==========================================================================
-   BLOG ARTICLE
-   ========================================================================== */
 
 .blog-article-section {
     padding-top: 20px;
@@ -1530,339 +1487,8 @@
 
 
 /* ==========================================================================
-   MOBILE RESPONSIVE
+   BOTTOM NAVIGATION - ANNA AMUI (Khusus Ikon Gambar / <img>)
    ========================================================================== */
-
-@media (max-width: 768px) {
-
-    /* ----------------------------------------------------------------------
-       HEADER MOBILE
-       ---------------------------------------------------------------------- */
-
-    .header {
-        padding: 10px 0;
-
-        box-shadow:
-            0 1px 8px rgba(0, 0, 0, 0.06);
-    }
-
-    .header-container {
-        min-height: 42px;
-
-        padding-left: 18px;
-        padding-right: 18px;
-    }
-
-    .logo {
-        font-size: 1.2rem;
-    }
-
-    .logo-tagline {
-        font-size: 8.5px;
-    }
-
-
-    /* ----------------------------------------------------------------------
-       DESKTOP NAV HILANG DI MOBILE
-       ---------------------------------------------------------------------- */
-
-    .nav-menu {
-        display: none;
-    }
-
-
-    /* ----------------------------------------------------------------------
-       MOBILE BOTTOM NAVIGATION
-       ---------------------------------------------------------------------- */
-
-    .mobile-bottom-nav {
-        position: fixed;
-
-        left: 0;
-        right: 0;
-        bottom: 0;
-
-        height: 72px;
-
-        display: grid;
-
-        grid-template-columns:
-            repeat(5, 1fr);
-
-        align-items: stretch;
-
-        background: rgba(255, 255, 255, 0.97);
-
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-
-        border-top:
-            1px solid rgba(15, 23, 42, 0.08);
-
-        box-shadow:
-            0 -6px 20px rgba(15, 23, 42, 0.08);
-
-        z-index: 9999;
-
-        padding-bottom:
-            env(safe-area-inset-bottom);
-    }
-
-    .mobile-nav-item {
-        display: flex;
-
-        flex-direction: column;
-
-        align-items: center;
-        justify-content: center;
-
-        gap: 4px;
-
-        min-width: 0;
-
-        color: #64748b;
-
-        text-decoration: none;
-
-        font-size: 9px;
-
-        font-weight: 500;
-
-        transition:
-            color 0.2s ease,
-            transform 0.2s ease;
-    }
-
-    .mobile-nav-item:active {
-        transform: scale(0.92);
-    }
-
-
-    /* ----------------------------------------------------------------------
-       IKON
-       ---------------------------------------------------------------------- */
-
-    .mobile-nav-icon {
-        width: 28px;
-        height: 28px;
-
-        display: flex;
-
-        align-items: center;
-        justify-content: center;
-    }
-
-    .mobile-nav-icon svg {
-        width: 24px;
-        height: 24px;
-
-        display: block;
-
-        transition:
-            transform 0.2s ease,
-            stroke-width 0.2s ease;
-    }
-
-
-    /* ----------------------------------------------------------------------
-       MENU AKTIF
-       ---------------------------------------------------------------------- */
-
-    .mobile-nav-item.active {
-        color: var(--primary-green);
-
-        font-weight: 700;
-    }
-
-    .mobile-nav-item.active .mobile-nav-icon svg {
-        stroke-width: 2.2;
-    }
-
-
-    /* ----------------------------------------------------------------------
-       PESAN SEKARANG - CTA UTAMA
-       ---------------------------------------------------------------------- */
-
-    .mobile-nav-order {
-        color: var(--primary-green);
-
-        font-weight: 700;
-    }
-
-    .mobile-nav-order .mobile-nav-icon {
-        width: 60px;
-        height: 60px;
-
-        margin-top: -13px;
-
-        border-radius: 50%;
-
-        background: #F59E0B;
-
-        color: #ffffff;
-
-        border: 4px solid #ffffff;
-
-        box-shadow:
-            0 5px 14px rgba(22, 163, 74, 0.28);
-
-        transition:
-            transform 0.2s ease,
-            box-shadow 0.2s ease;
-    }
-
-    .mobile-nav-order .mobile-nav-icon svg {
-        width: 22px;
-        height: 22px;
-    }
-
-    .mobile-nav-order:active .mobile-nav-icon {
-        transform: scale(0.92);
-    }
-
-
-    /* ----------------------------------------------------------------------
-       RUANG UNTUK BOTTOM NAV
-       ---------------------------------------------------------------------- */
-
-    body {
-        padding-bottom: 82px;
-    }
-
-
-    /* ----------------------------------------------------------------------
-       FLOATING WHATSAPP MOBILE
-       ---------------------------------------------------------------------- */
-
-    .floating-wa {
-        right: 18px;
-
-        /*
-         * WhatsApp berada di atas bottom navigation
-         * agar tidak bertabrakan.
-         */
-        bottom: 88px;
-
-        width: 56px;
-        height: 56px;
-    }
-
-    .floating-wa svg {
-        width: 30px;
-        height: 30px;
-    }
-
-
-    /* ----------------------------------------------------------------------
-       HERO MOBILE
-       ---------------------------------------------------------------------- */
-
-    .hero {
-        padding-top: 1rem;
-    }
-
-    .hero-title {
-        font-size: 2rem;
-    }
-
-
-    /* ----------------------------------------------------------------------
-       TIMER MOBILE
-       ---------------------------------------------------------------------- */
-
-    .timer-box {
-        gap: 0.5rem;
-    }
-
-    .timer-segment {
-        padding: 1rem 0.3rem;
-    }
-
-    .timer-val {
-        font-size: 2rem;
-    }
-
-
-    /* ----------------------------------------------------------------------
-       ARTICLE MOBILE
-       ---------------------------------------------------------------------- */
-
-    .article-header h1 {
-        font-size: 1.7rem;
-    }
-
-    .article-navigation {
-        flex-direction: column;
-    }
-
-}
-
-
-/* ==========================================================================
-   DESKTOP / TABLET
-   ========================================================================== */
-
-@media (min-width: 769px) {
-
-    /*
-     * Bottom navigation hanya untuk mobile.
-     */
-    .mobile-bottom-nav {
-        display: none !important;
-    }
-
-    /*
-     * WhatsApp kembali ke posisi normal desktop.
-     */
-    .floating-wa {
-        bottom: 24px;
-    }
-
-    /*
-     * Tidak membutuhkan ruang tambahan untuk bottom navigation.
-     */
-    body {
-        padding-bottom: 0;
-    }
-
-}
-
-
-/* ==========================================================================
-   ACCESSIBILITY
-   ========================================================================== */
-
-.mobile-nav-item:focus-visible,
-.nav-link:focus-visible,
-.floating-wa:focus-visible {
-    outline: 3px solid rgba(22, 163, 74, 0.35);
-
-    outline-offset: 3px;
-}
-
-
-/* ==========================================================================
-   REDUCED MOTION
-   ========================================================================== */
-
-@media (prefers-reduced-motion: reduce) {
-
-    .floating-wa,
-    .wa-pulse {
-        animation: none;
-    }
-
-    .mobile-nav-item,
-    .mobile-nav-icon svg,
-    .floating-wa,
-    .nav-link {
-        transition: none;
-    }
-
-}
-/* =========================================================
-   BOTTOM NAVIGATION - ANNA AMUI
-   ========================================================= */
 
 .bottom-nav {
     position: fixed;
@@ -1872,9 +1498,11 @@
     z-index: 9999;
 
     background: rgba(255, 255, 255, 0.97);
-    border-top: 1px solid #e5e7eb;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 
-    box-shadow: 0 -4px 18px rgba(15, 23, 42, 0.08);
+    border-top: 1px solid rgba(15, 23, 42, 0.08);
+    box-shadow: 0 -6px 20px rgba(15, 23, 42, 0.08);
 
     padding: 6px 8px calc(6px + env(safe-area-inset-bottom));
 }
@@ -1890,7 +1518,7 @@
     justify-content: center;
 }
 
-/* ITEM NAVIGASI */
+/* Item Navigasi */
 .bottom-nav-item {
     position: relative;
 
@@ -1902,123 +1530,168 @@
     min-height: 58px;
     padding: 4px 2px;
 
-    color: #475569;
+    color: #64748b;
     text-decoration: none;
 
     font-size: 0.68rem;
-    font-weight: 600;
+    font-weight: 500;
 
-    transition:
-        color 0.2s ease,
-        transform 0.2s ease;
+    transition: color 0.2s ease, transform 0.2s ease;
 }
 
-/* =========================================================
-   IKON
-   ========================================================= */
+.bottom-nav-item:active {
+    transform: scale(0.92);
+}
 
+/* Pengaturan Ikon Gambar (<img>) */
 .bottom-nav-icon {
-    width: 25px !important;
-    height: 25px !important;
-
-    max-width: 25px !important;
-    max-height: 25px !important;
+    width: 24px;
+    height: 24px;
+    max-width: 24px;
+    max-height: 24px;
 
     object-fit: contain;
     object-position: center;
 
     display: block;
-
     margin: 0 0 4px 0;
-
-    /* Jangan sampai gambar 400x400 membesar */
     flex-shrink: 0;
+
+    transition: filter 0.2s ease, transform 0.2s ease;
+
+    /* Warna default ikon (Abu-abu: #64748b) */
+    filter: invert(45%) sepia(10%) saturate(628%) hue-rotate(180deg) brightness(93%) contrast(88%);
 }
 
-/* =========================================================
-   TEKS
-   ========================================================= */
-
+/* Teks Navigasi */
 .bottom-nav-item span:not(.bottom-nav-order-icon) {
     line-height: 1.2;
     white-space: nowrap;
 }
 
-/* =========================================================
-   PESAN SEKARANG - CTA
-   ========================================================= */
-
+/* Tombol Pesan Sekarang - CTA Utama (Tengah) */
 .bottom-nav-order {
-    color: #F59E0B;
+    color: #f59e0b;
     font-weight: 700;
 }
-.bottom-nav-order-icon {
-    width: 60px;
-    height: 60px;
 
-    margin-top: -18px;
+.bottom-nav-order-icon {
+    width: 58px;
+    height: 58px;
+
+    margin-top: -16px;
     margin-bottom: 3px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    background: #F59E0B;
+    background: #f59e0b;
     border: 4px solid #ffffff;
     border-radius: 50%;
 
-    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.30);
-
+    box-shadow: 0 5px 14px rgba(245, 158, 11, 0.35);
     overflow: hidden;
 }
 
+/* Ikon khusus tombol pesan di tengah (berwarna putih bersih) */
 .bottom-nav-order-icon .bottom-nav-icon {
-    width: 23px !important;
-    height: 23px !important;
-
-    max-width: 23px !important;
-    max-height: 23px !important;
-
+    width: 22px;
+    height: 22px;
+    max-width: 22px;
+    max-height: 22px;
     margin: 0;
+
+    filter: brightness(0) invert(1);
 }
 
-/* =========================================================
-   HOVER / ACTIVE
-   ========================================================= */
-
+/* Status Hover & Aktif */
 .bottom-nav-item:hover {
-    color: #16a34a;
+    color: var(--primary-green, #16a34a);
 }
 
-.bottom-nav-item:active {
-    transform: scale(0.94);
+.bottom-nav-item:hover .bottom-nav-icon {
+    /* Mengubah ikon menjadi warna hijau saat di-hover */
+    filter: invert(42%) sepia(93%) saturate(1352%) hue-rotate(102deg) brightness(94%) contrast(93%);
 }
 
 .bottom-nav-item.active {
-    color: #16a34a;
+    color: var(--primary-green, #16a34a);
+    font-weight: 700;
 }
 
-/* Garis kecil indikator aktif */
+.bottom-nav-item.active .bottom-nav-icon {
+    /* Mengubah ikon menjadi warna hijau saat menu aktif */
+    filter: invert(42%) sepia(93%) saturate(1352%) hue-rotate(102deg) brightness(94%) contrast(93%);
+}
+
+/* Garis indikator kecil di bawah menu aktif */
 .bottom-nav-item.active::after {
     content: "";
-
     position: absolute;
-    bottom: 1px;
+    bottom: 2px;
     left: 50%;
 
-    width: 22px;
+    width: 20px;
     height: 3px;
-
     transform: translateX(-50%);
 
-    background: #16a34a;
+    background: var(--primary-green, #16a34a);
     border-radius: 10px;
 }
 
-/* =========================================================
-   AGAR KONTEN TIDAK TERTUTUP BOTTOM NAV
-   ========================================================= */
+/* Pengecualian: Tombol Pesan Tengah tidak perlu garis indikator aktif */
+.bottom-nav-order.active::after {
+    display: none;
+}
 
+
+/* ==========================================================================
+   JARAK AMAN UNTUK KONTEN UTAMA & MEDIA QUERY
+   ========================================================================== */
+
+/* Jarak aman di mobile agar konten tidak tertutup bottom nav */
 body {
-    padding-bottom: 76px;
+    padding-bottom: 82px;
+}
+
+/* Deskop / Tablet (Layar > 768px): Sembunyikan bottom nav & reset body padding */
+@media (min-width: 769px) {
+    .bottom-nav {
+        display: none !important;
+    }
+
+    .floating-wa {
+        bottom: 24px;
+    }
+
+    body {
+        padding-bottom: 0 !important;
+    }
+}
+
+
+/* ==========================================================================
+   ACCESSIBILITY & REDUCED MOTION
+   ========================================================================== */
+
+.bottom-nav-item:focus-visible,
+.nav-link:focus-visible,
+.floating-wa:focus-visible {
+    outline: 3px solid rgba(22, 163, 74, 0.35);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .floating-wa,
+    .wa-pulse {
+        animation: none;
+    }
+
+    .bottom-nav-item,
+    .bottom-nav-icon,
+    .floating-wa,
+    .nav-link {
+        transition: none;
+    }
 }
