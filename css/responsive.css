@@ -1,11 +1,19 @@
 /* ==========================================================================
-   RESPONSIVE.CSS - Media Queries
+   RESPONSIVE.CSS
+   Responsive Layout ANNA AMUI
+   ========================================================================== */
+
+
+/* ==========================================================================
+   AOS / SCROLL ANIMATION
    ========================================================================== */
 
 [data-aos] {
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
 }
 
 [data-aos].aos-animate {
@@ -13,94 +21,282 @@
     transform: translateY(0);
 }
 
-@media (max-width: 360px) {
-    .hero-title { font-size: 1.8rem; }
-    .hero-cta-group { flex-direction: column; width: 100%; }
-    .btn-lg { width: 100%; }
-    .features-grid { grid-template-columns: 1fr; }
-    .shipping-card { padding: 2.2rem 1rem; }
-    .shipping-title { font-size: 1.6rem; }
-    .timer-val { font-size: 2.2rem; }
-}
 
-@media (min-width: 768px) {
+/* ==========================================================================
+   MOBILE
+   < 768px
+   ========================================================================== */
 
-    .hero-container {
-        flex-direction: row;
-        text-align: left;
-        justify-content: space-between;
+@media (max-width: 767px) {
+
+    /* ----------------------------------------------------------------------
+       GLOBAL
+       ---------------------------------------------------------------------- */
+
+    main {
+        padding-top: 105px;
     }
 
-    .hero-cta-group {
-        justify-content: flex-start;
+    body {
+        padding-bottom: 82px;
     }
 
-    .paket-grid {
-        flex-direction: row;
+
+    /* ----------------------------------------------------------------------
+       HEADER
+       ---------------------------------------------------------------------- */
+
+    .header {
+        padding: 10px 0;
     }
 
-    .paket-card {
-        flex: 1;
+    .header-container {
+        padding: 0 20px;
     }
 
-    .testi-grid {
-        flex-direction: row;
-    }
 
-    /* 4 kotak keunggulan */
-    .features-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
+    /* ----------------------------------------------------------------------
+       MOBILE NAVIGATION
+       ---------------------------------------------------------------------- */
 
-    /* Sembunyikan hamburger di desktop */
     .menu-toggle {
-        display: none;
+        display: block;
     }
 
-    /* Menu desktop */
-    .nav-menu {
-        position: static;
-        width: auto;
-        
+    .header .nav-menu {
+        display: none;
+        flex-direction: column;
+
+        position: absolute;
+
+        top: 100%;
+        left: 0;
+
+        width: 100%;
+
+        padding: 12px 0;
+
+        background: #ffffff;
+
+        box-shadow:
+            0 8px 20px rgba(15, 23, 42, 0.08);
+
+        text-align: center;
+    }
+
+    .header .nav-menu.active {
         display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 8px;
-        
-        background: transparent;
-        box-shadow: none;
-        
-        padding: 0;
-        
-        transform: none;
-        opacity: 1;
-        visibility: visible;
     }
 
     .nav-link {
-        width: auto;
-        padding: 8px 12px;
-        white-space: nowrap;
+        width: 100%;
+
+        padding: 11px 20px;
     }
 
-    .nav-link.btn-nav-order {
-        margin-top: 0;
-        min-width: auto;
-        padding: 9px 18px;
+
+    /* ----------------------------------------------------------------------
+       HERO
+       ---------------------------------------------------------------------- */
+
+    .hero {
+        padding-top: 1rem;
+        padding-bottom: 2.5rem;
     }
-}
-@media (max-width: 767px) {
+
+    .hero-container {
+        gap: 1.8rem;
+
+        text-align: center;
+    }
+
+    .hero-title {
+        max-width: 650px;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    .hero-subtitle {
+        max-width: 600px;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        font-size: 0.98rem;
+        line-height: 1.7;
+    }
+
+    .hero-cta-group {
+        flex-direction: column;
+
+        width: 100%;
+
+        gap: 10px;
+
+        margin-top: 1rem;
+    }
+
+    .hero-cta-group .btn {
+        width: 100%;
+    }
+
+    .hero-image-wrapper {
+        max-width: 100%;
+
+        margin: 1rem auto;
+    }
+
+    .hero-img {
+        height: 280px;
+    }
+
+
+    /* ----------------------------------------------------------------------
+       SECTION
+       ---------------------------------------------------------------------- */
+
+    .section {
+        padding: 1.5rem 0;
+    }
+
+    .section-title {
+        font-size: 1.7rem;
+
+        line-height: 1.3;
+    }
+
+    .section-subtitle {
+        font-size: 0.78rem;
+    }
+
+
+    /* ----------------------------------------------------------------------
+       PAKET
+       ---------------------------------------------------------------------- */
+
+    .paket-grid {
+        display: flex;
+        flex-direction: column;
+
+        gap: 1.5rem;
+    }
+
+    .paket-card {
+        width: 100%;
+    }
+
+
+    /* ----------------------------------------------------------------------
+       FEATURES
+       ---------------------------------------------------------------------- */
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 0.8rem;
+    }
+
+    .feature-item {
+        padding: 1rem 0.7rem;
+    }
+
+
+    /* ----------------------------------------------------------------------
+       TESTIMONI
+       ---------------------------------------------------------------------- */
+
+    .testi-grid {
+        flex-direction: column;
+
+        gap: 1.2rem;
+    }
+
+
+    /* ----------------------------------------------------------------------
+       SHIPPING
+       ---------------------------------------------------------------------- */
+
+    .shipping-card {
+        padding: 2.5rem 1.2rem;
+    }
+
+    .shipping-title {
+        font-size: 1.7rem;
+
+        line-height: 1.3;
+    }
+
+    .shipping-badge {
+        font-size: 0.85rem;
+
+        padding: 12px 16px;
+    }
+
+    .timer-box {
+        gap: 0.5rem;
+    }
+
+    .timer-segment {
+        padding: 1rem 0.25rem;
+
+        border-radius: 14px;
+    }
+
+    .timer-val {
+        font-size: 2.2rem;
+    }
+
+
+    /* ----------------------------------------------------------------------
+       FAQ
+       ---------------------------------------------------------------------- */
+
+    .faq-question {
+        padding: 1.1rem;
+
+        font-size: 0.9rem;
+    }
+
+    .faq-answer {
+        font-size: 0.85rem;
+    }
+
+
+    /* ----------------------------------------------------------------------
+       BLOG
+       ---------------------------------------------------------------------- */
+
+    .blog-grid {
+        grid-template-columns: 1fr;
+
+        gap: 1.2rem;
+    }
+
+    .blog-card {
+        padding: 1.5rem;
+    }
 
     .blog-article-section {
-        padding-top: 60px;
+        padding-top: 1rem;
+    }
+
+    .blog-article-container {
+        width: 100%;
     }
 
     .article-header h1 {
         font-size: 1.65rem;
+
+        line-height: 1.35;
     }
 
     .blog-content {
         font-size: 0.95rem;
+
         line-height: 1.8;
     }
 
@@ -114,163 +310,351 @@
 
     .article-navigation {
         flex-direction: column;
+
         text-align: center;
+
+        gap: 12px;
     }
 
-}
 
-/* ==========================================================================
-   BOTTOM NAVIGATION - MOBILE
-   ========================================================================== */
+    /* ----------------------------------------------------------------------
+       FOOTER
+       ---------------------------------------------------------------------- */
 
-@media (max-width: 767px) {
+    .footer {
+        padding-bottom: 30px;
+    }
+
+    .footer-container {
+        padding: 0 20px;
+    }
+
+    .footer-description {
+        font-size: 0.85rem;
+    }
+
+    .footer-nav {
+        gap: 12px 18px;
+    }
+
+
+    /* ----------------------------------------------------------------------
+       FLOATING WHATSAPP
+       ---------------------------------------------------------------------- */
+
+    .floating-wa {
+        right: 16px;
+
+        bottom: 88px;
+
+        width: 54px;
+        height: 54px;
+    }
+
+    .floating-wa svg {
+        width: 28px;
+        height: 28px;
+    }
+
+
+    /* ----------------------------------------------------------------------
+       BOTTOM NAVIGATION
+       ---------------------------------------------------------------------- */
 
     .bottom-nav {
         display: block;
-        position: fixed;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 9999;
-
-        background: #ffffff;
-        border-top: 1px solid #e5e7eb;
-        box-shadow: 0 -4px 18px rgba(15, 23, 42, 0.08);
-
-        padding: 6px 5px;
-        padding-bottom: calc(6px + env(safe-area-inset-bottom));
     }
 
     .bottom-nav-inner {
         width: 100%;
-        max-width: 600px;
-        margin: 0 auto;
 
-        display: grid;
         grid-template-columns: repeat(5, 1fr);
-        align-items: center;
     }
 
     .bottom-nav-item {
-        position: relative;
+        min-height: 58px;
 
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-        min-height: 56px;
         padding: 4px 2px;
 
-        color: #475569;
-        text-decoration: none;
-
         font-size: 0.65rem;
-        font-weight: 600;
-
-        transition: color 0.2s ease, transform 0.2s ease;
     }
 
-    /* UKURAN IKON */
     .bottom-nav-icon {
-        width: 23px !important;
-        height: 23px !important;
+        width: 23px;
+        height: 23px;
 
-        max-width: 23px !important;
-        max-height: 23px !important;
+        max-width: 23px;
+        max-height: 23px;
 
-        object-fit: contain;
-        display: block;
-
-        margin: 0 0 4px 0;
-
-        flex-shrink: 0;
+        margin-bottom: 4px;
     }
 
-    .bottom-nav-item span {
-        line-height: 1.2;
-        white-space: nowrap;
-    }
-
-    /* TOMBOL PESAN */
     .bottom-nav-order {
-        color: #16a34a;
-        font-weight: 700;
+        color: var(--primary-green);
     }
 
     .bottom-nav-order-icon {
-        width: 40px;
-        height: 40px;
+        width: 54px;
+        height: 54px;
 
-        margin-top: -18px;
+        margin-top: -20px;
         margin-bottom: 3px;
 
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        border: 3px solid #ffffff;
 
-        background: #16a34a;
-        border: 4px solid #ffffff;
-        border-radius: 50%;
+        background: var(--primary-green);
 
-        box-shadow: 0 4px 12px rgba(22, 163, 74, 0.30);
-
-        overflow: hidden;
+        box-shadow:
+            0 5px 14px rgba(22, 163, 74, 0.30);
     }
 
     .bottom-nav-order-icon .bottom-nav-icon {
-        width: 21px !important;
-        height: 21px !important;
+        width: 24px;
+        height: 24px;
 
-        max-width: 21px !important;
-        max-height: 21px !important;
+        max-width: 24px;
+        max-height: 24px;
 
         margin: 0;
     }
 
     .bottom-nav-item:hover {
-        color: #16a34a;
-    }
-
-    .bottom-nav-item:active {
-        transform: scale(0.94);
+        color: var(--primary-green);
     }
 
     .bottom-nav-item.active {
-        color: #16a34a;
+        color: var(--primary-green);
     }
 
     .bottom-nav-item.active::after {
-        content: "";
-
-        position: absolute;
         bottom: 1px;
-        left: 50%;
 
-        width: 22px;
+        width: 20px;
         height: 3px;
 
-        transform: translateX(-50%);
-
-        background: #16a34a;
-        border-radius: 10px;
+        background: var(--primary-green);
     }
 
-    /* Agar konten tidak tertutup navigasi bawah */
-    body {
-        padding-bottom: 76px;
+    .bottom-nav-order.active::after {
+        display: none;
     }
 }
 
 
 /* ==========================================================================
-   BOTTOM NAVIGATION - DESKTOP
+   EXTRA SMALL MOBILE
+   <= 360px
+   ========================================================================== */
+
+@media (max-width: 360px) {
+
+    .header-container {
+        padding: 0 15px;
+    }
+
+    .logo-name {
+        font-size: 1.35rem;
+    }
+
+    .logo-tagline {
+        font-size: 8px;
+    }
+
+    main {
+        padding-top: 100px;
+    }
+
+    .hero-title {
+        font-size: 1.75rem;
+    }
+
+    .hero-cta-group {
+        flex-direction: column;
+    }
+
+    .btn-lg {
+        width: 100%;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .shipping-card {
+        padding: 2.2rem 1rem;
+    }
+
+    .shipping-title {
+        font-size: 1.5rem;
+    }
+
+    .timer-val {
+        font-size: 2rem;
+    }
+
+    .bottom-nav-item {
+        font-size: 0.6rem;
+    }
+
+    .bottom-nav-order-icon {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+
+/* ==========================================================================
+   TABLET & DESKTOP
+   >= 768px
    ========================================================================== */
 
 @media (min-width: 768px) {
 
-    .bottom-nav {
+    /* ----------------------------------------------------------------------
+       GLOBAL
+       ---------------------------------------------------------------------- */
+
+    main {
+        padding-top: 90px;
+    }
+
+    body {
+        padding-bottom: 0;
+    }
+
+
+    /* ----------------------------------------------------------------------
+       HEADER
+       ---------------------------------------------------------------------- */
+
+    .menu-toggle {
         display: none;
     }
 
+    .header .nav-menu {
+        position: static;
+
+        display: flex;
+
+        flex-direction: row;
+
+        align-items: center;
+
+        gap: 8px;
+
+        width: auto;
+
+        padding: 0;
+
+        background: transparent;
+
+        box-shadow: none;
+
+        text-align: left;
+    }
+
+    .nav-link {
+        width: auto;
+
+        padding: 8px 12px;
+
+        white-space: nowrap;
+    }
+
+    .nav-link.btn-nav-order {
+        min-width: auto;
+
+        margin-top: 0;
+
+        padding: 9px 18px;
+    }
+
+
+    /* ----------------------------------------------------------------------
+       HERO
+       ---------------------------------------------------------------------- */
+
+    .hero-container {
+        flex-direction: row;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        text-align: left;
+    }
+
+    .hero-cta-group {
+        justify-content: flex-start;
+    }
+
+
+    /* ----------------------------------------------------------------------
+       PAKET
+       ---------------------------------------------------------------------- */
+
+    .paket-grid {
+        flex-direction: row;
+    }
+
+    .paket-card {
+        flex: 1;
+    }
+
+
+    /* ----------------------------------------------------------------------
+       FEATURES
+       ---------------------------------------------------------------------- */
+
+    .features-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+
+    /* ----------------------------------------------------------------------
+       TESTIMONI
+       ---------------------------------------------------------------------- */
+
+    .testi-grid {
+        flex-direction: row;
+    }
+
+
+    /* ----------------------------------------------------------------------
+       BOTTOM NAV
+       ---------------------------------------------------------------------- */
+
+    .bottom-nav {
+        display: none !important;
+    }
+
+
+    /* ----------------------------------------------------------------------
+       WHATSAPP
+       ---------------------------------------------------------------------- */
+
+    .floating-wa {
+        bottom: 24px;
+    }
+}
+
+
+/* ==========================================================================
+   REDUCED MOTION
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    [data-aos] {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .bottom-nav-item,
+    .bottom-nav-icon,
+    .floating-wa,
+    .nav-link {
+        transition: none;
+    }
 }
