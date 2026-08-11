@@ -1559,8 +1559,6 @@
 
     transition: filter 0.2s ease, transform 0.2s ease;
 
-    /* Warna default ikon (Abu-abu: #64748b) */
-    filter: invert(45%) sepia(10%) saturate(628%) hue-rotate(180deg) brightness(93%) contrast(88%);
 }
 
 /* Teks Navigasi */
@@ -1576,8 +1574,8 @@
 }
 
 .bottom-nav-order-icon {
-    width: 58px;
-    height: 58px;
+    width: 65px;
+    height: 65px;
 
     margin-top: -16px;
     margin-bottom: 3px;
@@ -1602,7 +1600,6 @@
     max-height: 22px;
     margin: 0;
 
-    filter: brightness(0) invert(1);
 }
 
 /* Status Hover & Aktif */
@@ -1610,20 +1607,12 @@
     color: var(--primary-green, #16a34a);
 }
 
-.bottom-nav-item:hover .bottom-nav-icon {
-    /* Mengubah ikon menjadi warna hijau saat di-hover */
-    filter: invert(42%) sepia(93%) saturate(1352%) hue-rotate(102deg) brightness(94%) contrast(93%);
-}
 
 .bottom-nav-item.active {
     color: var(--primary-green, #16a34a);
     font-weight: 700;
 }
 
-.bottom-nav-item.active .bottom-nav-icon {
-    /* Mengubah ikon menjadi warna hijau saat menu aktif */
-    filter: invert(42%) sepia(93%) saturate(1352%) hue-rotate(102deg) brightness(94%) contrast(93%);
-}
 
 /* Garis indikator kecil di bawah menu aktif */
 .bottom-nav-item.active::after {
