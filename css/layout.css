@@ -738,7 +738,7 @@
     padding: 3rem 1.5rem;
 
     background:
-        rgba(22, 163, 74, 0.10);
+        #16a34a;
         
     border:
         2px solid rgba(245, 158, 11, 0.25);
@@ -780,7 +780,7 @@
 .shipping-title {
     margin-bottom: 2rem;
 
-    color: #ffffff;
+    color: #000000;
 
     font-size: 2rem;
 
