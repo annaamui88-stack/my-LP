@@ -738,12 +738,8 @@
     padding: 3rem 1.5rem;
 
     background:
-        linear-gradient(
-            145deg,
-            #1e293b 0%,
-            #0f172a 100%
-        );
-
+        rgba(22, 163, 74, 0.10);
+        
     border:
         2px solid rgba(245, 158, 11, 0.25);
 
