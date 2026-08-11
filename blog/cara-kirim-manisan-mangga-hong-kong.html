@@ -49,15 +49,79 @@
 
 <link rel="icon" type="image/png" href="/favicon.png">
 
+
+<!-- =========================================================
+     FAQ SCHEMA - JSON-LD
+     ========================================================= -->
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Bagaimana cara kirim manisan mangga ke Hong Kong?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Pemesanan dilakukan melalui sistem pre-order Anna Amui. Pesanan yang masuk sebelum batas waktu akan dipersiapkan untuk jadwal pengiriman berikutnya."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Kapan batas pemesanan manisan mangga?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Batas pemesanan Anna Amui adalah Rabu pukul 24.00 WIB."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Kapan manisan mangga dikirim dari Indonesia?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Pengiriman manisan mangga dari Indonesia dilakukan setiap hari Kamis."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Kapan pesanan diperkirakan tiba di Hong Kong?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Berdasarkan jadwal pengiriman Anna Amui, pesanan diperkirakan tiba di Hong Kong pada hari Minggu. Waktu tersebut merupakan estimasi dan dapat dipengaruhi oleh proses perjalanan serta kondisi pengiriman."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Apakah waktu tiba dijamin hari Minggu?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Tidak. Hari Minggu merupakan estimasi waktu tiba. Waktu aktual dapat dipengaruhi oleh proses perjalanan dan kondisi pengiriman."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Bagaimana cara memesan manisan mangga?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Pelanggan dapat melakukan pemesanan melalui halaman checkout Anna Amui dengan memilih produk dan jumlah yang diinginkan."
+            }
+        }
+    ]
+}
+</script>
+
 </head><body><!-- =========================================================
      HEADER MODULAR
      ========================================================= -->
 
 <div data-include="../components/header.html"></div>
 
+
 <!-- MOBILE BOTTOM NAVIGATION -->
 
 <div data-include="../components/bottom-nav-blog.html"></div>
+
 
 
 <!-- =========================================================
@@ -88,6 +152,7 @@
             </div>
 
 
+
             <!-- =================================================
                  HEADER ARTIKEL
                  ================================================= -->
@@ -115,6 +180,7 @@
             </header>
 
 
+
             <!-- =================================================
                  GAMBAR UTAMA
                  ================================================= -->
@@ -129,6 +195,7 @@
             </div>
 
 
+
             <!-- =================================================
                  ISI ARTIKEL
                  ================================================= -->
@@ -136,9 +203,7 @@
             <article class="blog-content">
 
 
-                <!-- =================================================
-                     PEMBUKA
-                     ================================================= -->
+                <!-- PEMBUKA -->
 
                 <p>
 
@@ -169,9 +234,8 @@
                 </p>
 
 
-                <!-- =================================================
-                     RINGKASAN
-                     ================================================= -->
+
+                <!-- RINGKASAN -->
 
                 <div class="article-tip">
 
@@ -201,9 +265,8 @@
                 </div>
 
 
-                <!-- =================================================
-                     SISTEM PRE ORDER
-                     ================================================= -->
+
+                <!-- 1 -->
 
                 <h2>
                     1. Pemesanan Menggunakan Sistem Pre-Order
@@ -228,18 +291,8 @@
                 </p>
 
 
-                <p>
 
-                    Dengan sistem pre-order, pelanggan dapat mengetahui
-                    jadwal pemesanan dan pengiriman sebelum melakukan
-                    pembelian.
-
-                </p>
-
-
-                <!-- =================================================
-                     BATAS ORDER
-                     ================================================= -->
+                <!-- 2 -->
 
                 <h2>
                     2. Batas Pemesanan Manisan Mangga
@@ -272,9 +325,8 @@
                 </p>
 
 
-                <!-- =================================================
-                     PERSIAPAN
-                     ================================================= -->
+
+                <!-- 3 -->
 
                 <h2>
                     3. Pesanan Dipersiapkan Sebelum Dikirim
@@ -298,17 +350,8 @@
                 </p>
 
 
-                <p>
 
-                    Tahap ini dilakukan agar produk yang dikirim sesuai
-                    dengan jumlah dan pilihan yang dipesan.
-
-                </p>
-
-
-                <!-- =================================================
-                     PENGIRIMAN KAMIS
-                     ================================================= -->
+                <!-- 4 -->
 
                 <h2>
                     4. Pengiriman dari Indonesia Dilakukan Hari Kamis
@@ -360,9 +403,8 @@
                 </div>
 
 
-                <!-- =================================================
-                     ESTIMASI TIBA
-                     ================================================= -->
+
+                <!-- 5 -->
 
                 <h2>
                     5. Estimasi Manisan Mangga Tiba di Hong Kong
@@ -388,18 +430,8 @@
                 </p>
 
 
-                <p>
 
-                    Oleh karena itu, pelanggan sebaiknya menggunakan
-                    jadwal tersebut sebagai perkiraan dan tetap
-                    memperhatikan informasi terbaru mengenai pesanannya.
-
-                </p>
-
-
-                <!-- =================================================
-                     PENGAMBILAN
-                     ================================================= -->
+                <!-- 6 -->
 
                 <h2>
                     6. Pengambilan Pesanan di Hong Kong
@@ -424,9 +456,8 @@
                 </p>
 
 
-                <!-- =================================================
-                     CARA PESAN
-                     ================================================= -->
+
+                <!-- 7 -->
 
                 <h2>
                     7. Cara Pesan Manisan Mangga ke Hong Kong
@@ -461,9 +492,8 @@
                 </p>
 
 
-                <!-- =================================================
-                     INTERNAL LINK CHECKOUT
-                     ================================================= -->
+
+                <!-- CTA -->
 
                 <div class="article-cta">
 
@@ -493,9 +523,8 @@
                 </div>
 
 
-                <!-- =================================================
-                     PRODUK
-                     ================================================= -->
+
+                <!-- PRODUK -->
 
                 <h2>
                     Pilihan Manisan Mangga Anna Amui
@@ -531,9 +560,8 @@
                 </ul>
 
 
-                <!-- =================================================
-                     HARGA
-                     ================================================= -->
+
+                <!-- HARGA -->
 
                 <h2>
                     Harga Manisan Mangga untuk Pelanggan Hong Kong
@@ -608,9 +636,8 @@
                 </div>
 
 
-                <!-- =================================================
-                     PENYIMPANAN
-                     ================================================= -->
+
+                <!-- PENYIMPANAN -->
 
                 <h2>
                     Cara Menyimpan Manisan Mangga Setelah Diterima
@@ -670,6 +697,7 @@
                 </div>
 
 
+
                 <!-- =================================================
                      FAQ
                      ================================================= -->
@@ -694,13 +722,13 @@
 
 
                 <h3>
-                    Kapan batas pemesanannya?
+                    Kapan batas pemesanan manisan mangga?
                 </h3>
 
 
                 <p>
 
-                    Batas pemesanan adalah
+                    Batas pemesanan Anna Amui adalah
                     <strong>Rabu pukul 24.00 WIB</strong>.
 
                 </p>
@@ -713,7 +741,7 @@
 
                 <p>
 
-                    Pengiriman dari Indonesia dilakukan setiap
+                    Pengiriman manisan mangga dari Indonesia dilakukan setiap
                     <strong>hari Kamis</strong>.
 
                 </p>
@@ -726,8 +754,8 @@
 
                 <p>
 
-                    Berdasarkan jadwal yang digunakan Anna Amui,
-                    estimasi tiba di Hong Kong adalah
+                    Berdasarkan jadwal pengiriman Anna Amui, pesanan
+                    diperkirakan tiba di Hong Kong pada
                     <strong>hari Minggu</strong>.
 
                 </p>
@@ -761,6 +789,7 @@
                 </p>
 
 
+
                 <!-- =================================================
                      ARTIKEL TERKAIT
                      ================================================= -->
@@ -774,6 +803,7 @@
                         border: 1px solid #e2e8f0;
                         border-radius: 12px;
                     ">
+
 
                     <h3
                         style="
@@ -804,7 +834,8 @@
                                 line-height: 1.5;
                             ">
 
-                            🇭🇰 Jual Manisan di Hong Kong: Manisan Mangga Khas Indramayu
+                            🇭🇰 Jual Manisan di Hong Kong:
+                            Manisan Mangga Khas Indramayu
 
                         </a>
 
@@ -818,7 +849,8 @@
                                 line-height: 1.5;
                             ">
 
-                            💰 Harga Manisan Mangga di Hong Kong: Berapa Harganya?
+                            💰 Harga Manisan Mangga di Hong Kong:
+                            Berapa Harganya?
 
                         </a>
 
@@ -832,7 +864,8 @@
                                 line-height: 1.5;
                             ">
 
-                            💡 Cara Menyimpan Manisan Mangga Agar Tetap Nikmat
+                            💡 Cara Menyimpan Manisan Mangga
+                            Agar Tetap Nikmat
 
                         </a>
 
@@ -846,7 +879,8 @@
                                 line-height: 1.5;
                             ">
 
-                            🥭 Mengapa Mangga Indramayu Cocok Dijadikan Manisan?
+                            🥭 Mengapa Mangga Indramayu Cocok
+                            Dijadikan Manisan?
 
                         </a>
 
@@ -860,13 +894,15 @@
                                 line-height: 1.5;
                             ">
 
-                            🇮🇩 Manisan Mangga Khas Indonesia di Hong Kong
+                            🇮🇩 Manisan Mangga Khas Indonesia
+                            di Hong Kong
 
                         </a>
 
                     </div>
 
                 </div>
+
 
 
                 <!-- =================================================
@@ -904,6 +940,7 @@
 </main>
 
 
+
 <!-- =========================================================
      FOOTER MODULAR
      ========================================================= -->
@@ -916,6 +953,7 @@
      ========================================================= -->
 
 <div data-include="../components/floating-wa.html"></div>
+
 
 
 <!-- =========================================================
