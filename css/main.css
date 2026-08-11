@@ -1,27 +1,18 @@
 /* ==========================================================================
-   MAIN.CSS
-   Design System, Variables, Reset & Global
-   ANNA AMUI
+   MAIN.CSS - ANNA AMUI
+   Design System, Variables & Base Styles
    ========================================================================== */
 
 
 /* ==========================================================================
-   LOAD COMPONENT & RESPONSIVE CSS
-   ========================================================================== */
-
-@import url('layout.css');
-@import url('responsive.css');
-
-
-/* ==========================================================================
-   DESIGN SYSTEM
+   DESIGN TOKENS
    ========================================================================== */
 
 :root {
 
-    /* ----------------------------------------------------------------------
+    /* =========================
        BRAND COLORS
-       ---------------------------------------------------------------------- */
+       ========================= */
 
     --primary-green: #16a34a;
     --primary-green-hover: #15803d;
@@ -29,50 +20,43 @@
     --mango-orange: #f59e0b;
     --mango-orange-dark: #d97706;
 
-
-    /* ----------------------------------------------------------------------
+    /* =========================
        DARK COLORS
-       ---------------------------------------------------------------------- */
+       ========================= */
 
     --navy-dark: #0f172a;
     --navy-card: #1e293b;
 
+    --text-dark: #0f172a;
+    --text-muted: #64748b;
 
-    /* ----------------------------------------------------------------------
+    /* =========================
        BACKGROUND
-       ---------------------------------------------------------------------- */
+       ========================= */
 
     --bg-white: #ffffff;
+    --bg-light: #f8fafc;
+    --bg-soft: #f1f5f9;
 
     --bg-gradient:
         linear-gradient(
             180deg,
             #ffffff 0%,
-            #f8fafc 50%,
+            #f8fafc 55%,
             #f1f5f9 100%
         );
 
-
-    /* ----------------------------------------------------------------------
-       TEXT
-       ---------------------------------------------------------------------- */
-
-    --text-dark: #0f172a;
-    --text-muted: #64748b;
-
-
-    /* ----------------------------------------------------------------------
-       RADIUS
-       ---------------------------------------------------------------------- */
+    /* =========================
+       BORDER RADIUS
+       ========================= */
 
     --radius-lg: 24px;
     --radius-md: 16px;
     --radius-sm: 8px;
 
-
-    /* ----------------------------------------------------------------------
+    /* =========================
        SHADOW
-       ---------------------------------------------------------------------- */
+       ========================= */
 
     --shadow-soft:
         0 10px 30px rgba(15, 23, 42, 0.05);
@@ -83,20 +67,28 @@
     --shadow-glow:
         0 8px 25px rgba(22, 163, 74, 0.35);
 
-
-    /* ----------------------------------------------------------------------
+    /* =========================
        TRANSITION
-       ---------------------------------------------------------------------- */
+       ========================= */
 
     --transition:
         all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 
-
-    /* ----------------------------------------------------------------------
+    /* =========================
        FONT
-       ---------------------------------------------------------------------- */
+       ========================= */
 
     --font-main: 'Poppins', sans-serif;
+
+    /* =========================
+       LAYOUT
+       ========================= */
+
+    --container-width: 1140px;
+
+    --header-height: 72px;
+
+    --bottom-nav-height: 76px;
 }
 
 
@@ -109,7 +101,6 @@
 *::after {
     margin: 0;
     padding: 0;
-
     box-sizing: border-box;
 }
 
@@ -119,11 +110,8 @@
    ========================================================================== */
 
 html {
-    font-size: 16px;
-
     scroll-behavior: smooth;
-
-    -webkit-text-size-adjust: 100%;
+    font-size: 16px;
 }
 
 
@@ -132,8 +120,6 @@ html {
    ========================================================================== */
 
 body {
-    overflow-x: hidden;
-
     font-family: var(--font-main);
 
     color: var(--text-dark);
@@ -142,13 +128,38 @@ body {
 
     line-height: 1.6;
 
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+
+    min-height: 100vh;
+
+    padding-bottom: var(--bottom-nav-height);
 }
 
 
 /* ==========================================================================
-   ELEMENT DEFAULTS
+   TYPOGRAPHY
+   ========================================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--text-dark);
+
+    line-height: 1.3;
+
+    font-weight: 700;
+}
+
+p {
+    margin-bottom: 0;
+}
+
+
+/* ==========================================================================
+   LINKS
    ========================================================================== */
 
 a {
@@ -157,23 +168,10 @@ a {
     text-decoration: none;
 }
 
-button,
-input,
-textarea,
-select {
-    font: inherit;
-}
 
-button {
-    cursor: pointer;
-}
-
-img {
-    display: block;
-
-    max-width: 100%;
-    height: auto;
-}
+/* ==========================================================================
+   LIST
+   ========================================================================== */
 
 ul,
 ol {
@@ -182,13 +180,38 @@ ol {
 
 
 /* ==========================================================================
-   GLOBAL CONTAINER
+   IMAGES
+   ========================================================================== */
+
+img {
+    max-width: 100%;
+
+    height: auto;
+
+    display: block;
+}
+
+
+/* ==========================================================================
+   BUTTON
+   ========================================================================== */
+
+button,
+input,
+textarea,
+select {
+    font-family: inherit;
+}
+
+
+/* ==========================================================================
+   CONTAINER
    ========================================================================== */
 
 .container {
     width: 100%;
 
-    max-width: 1140px;
+    max-width: var(--container-width);
 
     margin: 0 auto;
 
@@ -198,18 +221,16 @@ ol {
 
 
 /* ==========================================================================
-   GLOBAL SECTION
+   SECTION
    ========================================================================== */
 
 .section {
-    width: 100%;
-
-    padding: 1rem 0;
+    padding: 4rem 0;
 }
 
 
 /* ==========================================================================
-   GLOBAL UTILITIES
+   UTILITY
    ========================================================================== */
 
 .text-center {
@@ -222,104 +243,68 @@ ol {
 
 
 /* ==========================================================================
-   COUNTDOWN TIMER
+   MAIN CONTENT
    ========================================================================== */
 
-.countdown-container {
-    width: 100%;
-
-    max-width: 450px;
-
-    margin: 20px auto;
-
-    padding: 20px;
-
-    background: #fdf2f8;
-
-    border: 1px solid #fbcfe8;
-
-    border-radius: 16px;
-
-    box-shadow:
-        0 4px 15px rgba(236, 72, 153, 0.08);
-
-    text-align: center;
-}
-
-.countdown-title {
-    margin-bottom: 12px;
-
-    color: #db2777;
-
-    font-size: 0.95rem;
-
-    font-weight: 600;
-}
-
-.countdown-boxes {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 8px;
-}
-
-.time-box {
-    min-width: 55px;
-
-    padding: 8px 12px;
-
-    background: #ffffff;
-
-    border-radius: 10px;
-
-    box-shadow:
-        0 2px 5px rgba(0, 0, 0, 0.05);
-}
-
-.time-box span {
-    display: block;
-
-    color: #1f2937;
-
-    font-size: 1.25rem;
-
-    font-weight: 700;
-
-    line-height: 1.2;
-}
-
-.time-box small {
-    display: block;
-
-    margin-top: 2px;
-
-    color: #6b7280;
-
-    font-size: 0.7rem;
-
-    text-transform: uppercase;
-}
-
-.separator {
-    color: #db2777;
-
-    font-size: 1.2rem;
-
-    font-weight: 700;
+main {
+    padding-top: var(--header-height);
 }
 
 
 /* ==========================================================================
-   ACCESSIBILITY
+   AOS ANIMATION
    ========================================================================== */
 
-:focus-visible {
-    outline: 3px solid rgba(22, 163, 74, 0.35);
+[data-aos] {
+    opacity: 0;
 
-    outline-offset: 3px;
+    transform: translateY(30px);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+[data-aos].aos-animate {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* ==========================================================================
+   FAQ BASE
+   ========================================================================== */
+
+.faq-answer {
+    max-height: 0;
+
+    overflow: hidden;
+
+    padding: 0 1.2rem;
+
+    transition:
+        max-height 0.3s ease,
+        padding 0.3s ease;
+
+    color: var(--text-muted);
+
+    font-size: 0.88rem;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px;
+
+    padding-bottom: 1.2rem;
+}
+
+.faq-icon {
+    transition:
+        transform 0.3s ease;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(45deg);
 }
 
 
@@ -332,4 +317,25 @@ ol {
     html {
         scroll-behavior: auto;
     }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* ==========================================================================
+   DESKTOP RESET
+   ========================================================================== */
+
+@media (min-width: 768px) {
+
+    body {
+        padding-bottom: 0;
+    }
+
 }
