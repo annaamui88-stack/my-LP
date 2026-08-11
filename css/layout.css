@@ -1806,8 +1806,8 @@
 }
 
 .bottom-nav-order-icon {
-    width: 65px;
-    height: 65px;
+    width: 62px;
+    height: 62px;
 
     display: flex;
 
@@ -1831,13 +1831,13 @@
 }
 
 .bottom-nav-order-icon .bottom-nav-icon {
-    width: 26px;
-    height: 26px;
+    width: 25px;
+    height: 25px;
 
     margin: 0;
 
-    max-width: 26px;
-    max-height: 26px;
+    max-width: 25px;
+    max-height: 25px;
 }
 
 
