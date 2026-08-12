@@ -5,435 +5,656 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Keranjang Belanja | Anna Amui</title>
+    <title>Keranjang | Anna Amui Shop</title>
 
-    <meta name="description"
-        content="Keranjang belanja Anna Amui. Periksa produk, jumlah pesanan, promo, dan lanjutkan ke checkout.">
+    <meta
+        name="description"
+        content="Keranjang belanja Anna Amui untuk manisan mangga khas Indramayu."
+    >
 
-    <meta name="theme-color" content="#16a34a">
+    <link rel="icon" type="image/png" href="favicon.png">
 
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- GOOGLE FONT -->
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
 
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+        rel="stylesheet"
+    >
 
-    <!-- Font Awesome -->
+    <!-- FONT AWESOME -->
     <link
         rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
 
-    <!-- Main CSS -->
+    <!-- CSS UTAMA -->
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/responsive.css">
 
-    <!-- Cart CSS -->
+    <!-- CSS CART -->
     <link rel="stylesheet" href="css/cart.css">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/favicon.png">
 </head>
 
 <body>
 
-    <!-- =========================================================
-         HEADER
-    ========================================================== -->
 
-    <header class="cart-header">
+<!-- =========================================================
+     HEADER
+========================================================= -->
 
-        <div class="cart-header-inner">
+<header class="header">
 
-            <!-- BACK -->
-            <a href="product.html"
-               class="cart-back"
-               aria-label="Kembali ke halaman produk">
+    <div class="container header-container">
 
-                <i class="fa-solid fa-arrow-left"></i>
+        <!-- LOGO -->
+        <a
+            href="index.html"
+            class="logo"
+            aria-label="Anna Amui Beranda"
+        >
+
+            <span class="logo-name">
+                Anna<span class="logo-amui">Amui</span>
+            </span>
+
+            <span class="logo-tagline">
+                Manisan Mangga Khas Indramayu
+            </span>
+
+        </a>
+
+
+        <!-- NAV -->
+        <nav
+            class="nav-menu"
+            id="navMenu"
+            aria-label="Navigasi utama"
+        >
+
+            <a href="index.html" class="nav-link">
+                Beranda
+            </a>
+
+            <a href="produk.html" class="nav-link">
+                Produk
+            </a>
+
+            <a href="tentang.html" class="nav-link">
+                Tentang Kami
+            </a>
+
+            <a href="blog.html" class="nav-link">
+                Blog
+            </a>
+
+            <a
+                href="checkout.html"
+                class="nav-link btn-nav-order"
+            >
+                Pesan Sekarang
+            </a>
+
+        </nav>
+
+
+        <!-- HEADER RIGHT -->
+        <div class="header-right">
+
+            <a
+                href="cart.html"
+                class="cart-header-button active"
+                aria-label="Keranjang"
+            >
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                <span
+                    id="cart-count"
+                    class="cart-count"
+                >
+                    0
+                </span>
 
             </a>
 
 
-            <!-- TITLE -->
-            <div class="cart-header-title">
+            <button
+                type="button"
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Buka menu"
+                aria-expanded="false"
+            >
 
-                <h1>Keranjang</h1>
+                <i class="fa-solid fa-bars"></i>
 
-                <span id="cart-item-count">
-                    0 Produk
-                </span>
-
-            </div>
-
-
-            <!-- CART ICON -->
-            <div class="cart-header-icon">
-
-                <i class="fa-solid fa-cart-shopping"></i>
-
-                <span id="cart-badge"
-                      class="cart-badge">
-                    0
-                </span>
-
-            </div>
+            </button>
 
         </div>
 
-    </header>
+    </div>
+
+</header>
 
 
 
-    <!-- =========================================================
-         MAIN
-    ========================================================== -->
+<!-- =========================================================
+     MAIN
+========================================================= -->
 
-    <main class="cart-main">
+<main>
 
-        <div class="container">
+
+<section class="section cart-section">
+
+    <div class="container">
+
+
+        <!-- =================================================
+             JUDUL
+        ================================================== -->
+
+        <div class="cart-heading text-center">
+
+            <span class="section-subtitle">
+                ANNA AMUI SHOP
+            </span>
+
+            <h1 class="section-title">
+                Keranjang Belanja
+            </h1>
+
+            <p>
+                Periksa kembali produk dan jumlah pesanan
+                Anda sebelum melanjutkan ke checkout.
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             LAYOUT CART
+        ================================================== -->
+
+        <div class="cart-layout">
 
 
             <!-- =================================================
-                 EMPTY CART
+                 DAFTAR PRODUK
             ================================================== -->
 
-            <section
-                id="empty-cart"
-                class="empty-cart"
-                style="display:none;">
-
-                <div class="empty-cart-icon">
-
-                    <i class="fa-solid fa-cart-shopping"></i>
-
-                </div>
-
-                <h2>Keranjang Masih Kosong</h2>
-
-                <p>
-                    Belum ada produk yang Anda pilih.
-                    Yuk pilih produk favorit Anda dari Anna Amui.
-                </p>
-
-                <a href="product.html"
-                   class="btn btn-primary">
-
-                    <i class="fa-solid fa-store"></i>
-
-                    Lihat Produk
-
-                </a>
-
-            </section>
-
-
-
-            <!-- =================================================
-                 CART CONTENT
-            ================================================== -->
-
-            <section
-                id="cart-content"
-                class="cart-content"
-                style="display:none;">
-
-
-                <!-- =============================================
-                     CART ITEMS
-                ============================================== -->
+            <div class="cart-products">
 
                 <div class="cart-card">
 
                     <div class="cart-card-header">
 
-                        <div>
-
-                            <span class="section-subtitle">
-                                Pesanan Anda
-                            </span>
-
-                            <h2>
-                                Produk dalam Keranjang
-                            </h2>
-
-                        </div>
+                        <h2>
+                            <i class="fa-solid fa-basket-shopping"></i>
+                            Pesanan Anda
+                        </h2>
 
                         <button
                             type="button"
                             id="clear-cart"
-                            class="clear-cart-btn">
-
+                            class="clear-cart-btn"
+                        >
                             <i class="fa-solid fa-trash"></i>
-
                             Kosongkan
-
                         </button>
 
                     </div>
 
 
-                    <!-- ITEM LIST -->
+                    <!--
+                        CART.JS AKAN MENGISI
+                        BAGIAN INI
+                    -->
 
-                    <div
-                        id="cart-items"
-                        class="cart-items">
+                    <div id="cart-items">
 
-                        <!--
-                            Produk akan dibuat otomatis
-                            oleh cart.js
-                        -->
+                        <div class="cart-loading">
+                            Memuat keranjang...
+                        </div>
 
                     </div>
 
                 </div>
 
+            </div>
 
 
-                <!-- =============================================
-                     PROMO
-                ============================================== -->
+
+            <!-- =================================================
+                 RINGKASAN
+            ================================================== -->
+
+            <aside class="cart-summary-card">
+
+                <h2>
+                    Ringkasan Pesanan
+                </h2>
+
+
+                <div class="cart-summary-row">
+
+                    <span>
+                        Total Pack
+                    </span>
+
+                    <strong id="cart-total-pack">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="cart-summary-row">
+
+                    <span>
+                        Harga / Pack
+                    </span>
+
+                    <strong id="cart-price-pack">
+                        HK$12
+                    </strong>
+
+                </div>
+
 
                 <div
                     id="cart-promo"
-                    class="cart-promo">
+                    class="cart-promo"
+                >
 
-                    <div class="promo-icon">
+                    <i class="fa-solid fa-tag"></i>
 
-                        <i class="fa-solid fa-tag"></i>
-
-                    </div>
-
-                    <div class="promo-content">
-
-                        <strong>
-                            Promo Anna Amui
-                        </strong>
-
-                        <p id="promo-message">
-                            Beli 3 pack atau lebih,
-                            harga otomatis menjadi HK$10 / pack.
-                        </p>
-
-                    </div>
+                    Beli 3 Pack lagi untuk mendapatkan
+                    harga promo HK$10 / Pack.
 
                 </div>
 
 
-
-                <!-- =============================================
-                     ORDER SUMMARY
-                ============================================== -->
-
-                <div class="cart-summary">
-
-                    <div class="cart-summary-header">
-
-                        <h2>
-                            Ringkasan Pesanan
-                        </h2>
-
-                        <i class="fa-solid fa-receipt"></i>
-
-                    </div>
+                <div class="cart-summary-divider"></div>
 
 
-                    <!-- ORIGINAL -->
+                <div class="cart-summary-total">
 
-                    <div class="summary-row">
+                    <span>
+                        Subtotal Barang
+                    </span>
 
-                        <span>
-                            Original
-                        </span>
-
-                        <strong id="summary-original">
-                            0 Pack
-                        </strong>
-
-                    </div>
-
-
-                    <!-- PEDAS -->
-
-                    <div class="summary-row">
-
-                        <span>
-                            Pedas
-                        </span>
-
-                        <strong id="summary-pedas">
-                            0 Pack
-                        </strong>
-
-                    </div>
-
-
-                    <!-- TOTAL PACK -->
-
-                    <div class="summary-row">
-
-                        <span>
-                            Total Pack
-                        </span>
-
-                        <strong id="summary-total-pack">
-                            0
-                        </strong>
-
-                    </div>
-
-
-                    <!-- HARGA -->
-
-                    <div class="summary-row">
-
-                        <span>
-                            Harga / Pack
-                        </span>
-
-                        <strong id="summary-price">
-                            HK$0
-                        </strong>
-
-                    </div>
-
-
-                    <div class="summary-divider"></div>
-
-
-                    <!-- SUBTOTAL -->
-
-                    <div class="summary-row summary-total">
-
-                        <span>
-                            Subtotal Barang
-                        </span>
-
-                        <strong id="summary-subtotal">
-                            HK$0
-                        </strong>
-
-                    </div>
-
-
-                    <!-- ESTIMASI BERAT -->
-
-                    <div class="summary-row">
-
-                        <span>
-                            <i class="fa-solid fa-weight-hanging"></i>
-                            Estimasi Berat
-                        </span>
-
-                        <strong id="summary-weight">
-                            0 Kg
-                        </strong>
-
-                    </div>
-
-
-                    <!-- ESTIMASI ONGKIR -->
-
-                    <div class="summary-row">
-
-                        <span>
-                            <i class="fa-solid fa-truck"></i>
-                            Estimasi Ongkir
-                        </span>
-
-                        <strong id="summary-shipping">
-                            HK$0
-                        </strong>
-
-                    </div>
-
-
-                    <div class="shipping-note">
-
-                        <i class="fa-solid fa-circle-info"></i>
-
-                        <span>
-                            Ongkir merupakan estimasi berdasarkan
-                            berat paket. Ongkir belum termasuk
-                            subtotal barang dan dibayar saat
-                            pengambilan paket.
-                        </span>
-
-                    </div>
-
+                    <strong id="cart-subtotal">
+                        HK$0
+                    </strong>
 
                 </div>
 
 
+                <p class="cart-summary-note">
 
-                <!-- =============================================
-                     CHECKOUT BUTTON
-                ============================================== -->
+                    Ongkir akan dihitung berdasarkan
+                    tujuan dan berat paket pada tahap
+                    berikutnya.
 
-                <div class="cart-actions">
-
-                    <a href="product.html"
-                       class="continue-shopping">
-
-                        <i class="fa-solid fa-arrow-left"></i>
-
-                        Lanjut Belanja
-
-                    </a>
+                </p>
 
 
-                    <a href="checkout.html"
-                       id="go-checkout"
-                       class="btn btn-primary checkout-btn">
+                <button
+                    type="button"
+                    id="cart-checkout"
+                    class="cart-checkout-btn"
+                >
 
-                        <i class="fa-solid fa-credit-card"></i>
+                    <i class="fa-solid fa-arrow-right"></i>
 
-                        Lanjut ke Checkout
+                    Lanjutkan ke Checkout
 
-                    </a>
-
-                </div>
+                </button>
 
 
-            </section>
+                <a
+                    href="produk.html"
+                    class="continue-shopping"
+                >
+
+                    <i class="fa-solid fa-arrow-left"></i>
+
+                    Lanjut Belanja
+
+                </a>
+
+            </aside>
 
         </div>
 
-    </main>
+    </div>
+
+</section>
+
+
+</main>
 
 
 
-    <!-- =========================================================
-         FOOTER
-    ========================================================== -->
+<!-- =========================================================
+     FOOTER
+========================================================= -->
 
-    <div data-include="components/footer.html"></div>
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-brand">
+
+            <a
+                href="index.html"
+                class="footer-logo"
+            >
+
+                <span class="footer-logo-anna">
+                    Anna
+                </span>
+
+                <span class="footer-logo-amui">
+                    Amui
+                </span>
+
+            </a>
+
+            <p class="footer-description">
+                Manisan Mangga Khas Indramayu.
+                Produk utama Anna Amui dengan cita rasa
+                khas dan pilihan rasa untuk pelanggan.
+            </p>
+
+        </div>
+
+
+        <div class="footer-social">
+
+            <a
+                href="#"
+                class="social-btn social-whatsapp"
+                aria-label="WhatsApp"
+            >
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+
+            <a
+                href="#"
+                class="social-btn social-instagram"
+                aria-label="Instagram"
+            >
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+
+            <a
+                href="#"
+                class="social-btn social-tiktok"
+                aria-label="TikTok"
+            >
+                <i class="fa-brands fa-tiktok"></i>
+            </a>
+
+            <a
+                href="#"
+                class="social-btn social-facebook"
+                aria-label="Facebook"
+            >
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+
+        </div>
+
+
+        <nav class="footer-nav">
+
+            <a href="index.html">
+                Beranda
+            </a>
+
+            <a href="produk.html">
+                Produk
+            </a>
+
+            <a href="tentang.html">
+                Tentang Kami
+            </a>
+
+            <a href="blog.html">
+                Blog
+            </a>
+
+            <a
+                href="checkout.html"
+                class="footer-order"
+            >
+                Pesan Sekarang
+            </a>
+
+        </nav>
+
+
+        <div class="footer-divider"></div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 Anna Amui. Semua hak dilindungi.
+            </p>
+
+            <p>
+                Manisan Mangga Khas Indramayu
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
 
 
 
-    <!-- =========================================================
-         FLOATING WHATSAPP
-    ========================================================== -->
+<!-- =========================================================
+     MOBILE BOTTOM NAV
+========================================================= -->
 
-    <div data-include="components/floating-wa.html"></div>
+<nav
+    class="bottom-nav"
+    aria-label="Navigasi utama"
+>
+
+    <div class="bottom-nav-inner">
+
+        <a
+            href="index.html"
+            class="bottom-nav-item"
+        >
+
+            <i class="fa-solid fa-house bottom-nav-icon"></i>
+
+            <span>
+                Beranda
+            </span>
+
+        </a>
+
+
+        <a
+            href="produk.html"
+            class="bottom-nav-item"
+        >
+
+            <i class="fa-solid fa-box-open bottom-nav-icon"></i>
+
+            <span>
+                Produk
+            </span>
+
+        </a>
+
+
+        <a
+            href="checkout.html"
+            class="bottom-nav-item bottom-nav-order"
+        >
+
+            <span class="bottom-nav-order-icon">
+
+                <i class="fa-solid fa-bag-shopping bottom-nav-icon"></i>
+
+            </span>
+
+            <span>
+                Pesan
+            </span>
+
+        </a>
+
+
+        <a
+            href="cart.html"
+            class="bottom-nav-item active"
+        >
+
+            <i class="fa-solid fa-cart-shopping bottom-nav-icon"></i>
+
+            <span>
+                Keranjang
+            </span>
+
+        </a>
+
+
+        <a
+            href="blog.html"
+            class="bottom-nav-item"
+        >
+
+            <i class="fa-solid fa-newspaper bottom-nav-icon"></i>
+
+            <span>
+                Blog
+            </span>
+
+        </a>
+
+    </div>
+
+</nav>
 
 
 
-    <!-- =========================================================
-         MOBILE BOTTOM NAVIGATION
-    ========================================================== -->
+<!-- =========================================================
+     CART JS
+========================================================= -->
 
-    <div data-include="components/bottom-nav.html"></div>
+<script src="js/cart.js"></script>
 
 
+<script>
 
-    <!-- =========================================================
-         JAVASCRIPT
-    ========================================================== -->
+/* =========================================================
+   MOBILE MENU
+========================================================= */
 
-    <script src="js/include.js"></script>
+const menuToggle =
+    document.getElementById("menuToggle");
 
-    <script src="js/cart.js"></script>
+const navMenu =
+    document.getElementById("navMenu");
+
+if (menuToggle && navMenu) {
+
+    menuToggle.addEventListener(
+        "click",
+        function () {
+
+            navMenu.classList.toggle("active");
+
+            const active =
+                navMenu.classList.contains("active");
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                active
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   CLEAR CART
+========================================================= */
+
+const clearCart =
+    document.getElementById("clear-cart");
+
+if (clearCart) {
+
+    clearCart.addEventListener(
+        "click",
+        function () {
+
+            const cart =
+                window.AnnaAmuiCart
+                    ? window.AnnaAmuiCart.getCart()
+                    : [];
+
+            if (!cart.length) {
+
+                return;
+
+            }
+
+
+            const yakin =
+                confirm(
+                    "Apakah Anda yakin ingin mengosongkan keranjang?"
+                );
+
+
+            if (!yakin) {
+
+                return;
+
+            }
+
+
+            if (
+                window.AnnaAmuiCart &&
+                typeof window.AnnaAmuiCart.clearCart ===
+                "function"
+            ) {
+
+                window.AnnaAmuiCart.clearCart();
+
+            }
+
+        }
+    );
+
+}
+
+</script>
 
 
 </body>
