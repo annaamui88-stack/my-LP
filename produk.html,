@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Produk Anna Amui | Manisan Mangga Khas Indramayu</title>
+
+    <meta name="description"
+          content="Lihat produk Anna Amui. Manisan mangga khas Indramayu dengan pilihan Original dan Pedas. Pilih produk, masukkan ke keranjang, atau langsung pesan sekarang.">
+
+    <meta name="theme-color"
+          content="#16a34a">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="css/main.css">
+
+    <link rel="stylesheet"
+          href="css/layout.css">
+
+    <link rel="stylesheet"
+          href="css/responsive.css">
+
+    <link rel="stylesheet"
+          href="css/product.css">
+
+    <!-- Favicon -->
+    <link rel="icon"
+          type="image/png"
+          href="/favicon.png">
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<div data-include="components/header.html"></div>
+
+
+<!-- =========================================================
+     HALAMAN PRODUK
+========================================================= -->
+
+<main class="product-page">
+
+    <section class="section products-section">
+
+        <div class="container">
+
+
+            <!-- HEADER PRODUK -->
+
+            <div class="product-page-header text-center">
+
+                <span class="section-subtitle">
+                    Produk Anna Amui
+                </span>
+
+                <h1 class="section-title">
+                    Pilihan Produk
+                </h1>
+
+                <p class="product-intro">
+                    Temukan berbagai produk khas Anna Amui.
+                    Manisan mangga menjadi produk utama kami,
+                    dibuat dari mangga pilihan khas Indramayu.
+                </p>
+
+            </div>
+
+
+            <!-- =================================================
+                 TOOLBAR
+            ================================================== -->
+
+            <div class="product-toolbar">
+
+                <div class="product-count">
+                    <i class="fa-solid fa-box-open"></i>
+                    <span>
+                        Produk Anna Amui
+                    </span>
+                </div>
+
+
+                <!-- CART -->
+
+                <a href="keranjang.html"
+                   class="cart-button"
+                   aria-label="Buka keranjang">
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                    <span>
+                        Keranjang
+                    </span>
+
+                    <b id="cart-count">
+                        0
+                    </b>
+
+                </a>
+
+            </div>
+
+
+            <!-- =================================================
+                 KATEGORI
+            ================================================== -->
+
+            <div class="product-category">
+
+                <button class="category-btn active"
+                        type="button"
+                        data-category="all">
+
+                    Semua
+
+                </button>
+
+                <button class="category-btn"
+                        type="button"
+                        data-category="manisan-mangga">
+
+                    Manisan Mangga
+
+                </button>
+
+            </div>
+
+
+            <!-- =================================================
+                 PRODUCT GRID
+            ================================================== -->
+
+            <div class="product-grid"
+                 id="product-grid">
+
+
+                <!-- =============================================
+                     PRODUK 1
+                ============================================== -->
+
+                <article class="product-card"
+                         data-category="manisan-mangga">
+
+
+                    <div class="product-image-wrapper">
+
+                        <span class="product-badge">
+                            Produk Utama
+                        </span>
+
+                        <img
+                            src="assets/img/manisan-mangga-paket-hemat-1-pack.png"
+                            alt="Manisan Mangga Khas Indramayu Anna Amui"
+                            class="product-image"
+                            loading="lazy">
+
+                    </div>
+
+
+                    <div class="product-content">
+
+                        <div class="product-category-label">
+                            Manisan Mangga
+                        </div>
+
+                        <h2 class="product-name">
+                            Manisan Mangga Anna Amui
+                        </h2>
+
+                        <p class="product-description">
+                            Manisan mangga khas Indramayu
+                            dengan rasa segar, manis, asam
+                            dan pilihan pedas.
+                        </p>
+
+
+                        <!-- VARIANT -->
+
+                        <div class="product-variant">
+
+                            <span>
+                                Pilihan rasa
+                            </span>
+
+                            <div class="variant-options">
+
+                                <button
+                                    type="button"
+                                    class="variant-btn active"
+                                    data-variant="Original">
+
+                                    Original
+
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="variant-btn"
+                                    data-variant="Pedas">
+
+                                    Pedas
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- HARGA -->
+
+                        <div class="product-price-row">
+
+                            <div>
+
+                                <span class="price-label">
+                                    Mulai dari
+                                </span>
+
+                                <strong class="product-price">
+                                    HK$12
+                                </strong>
+
+                                <span class="price-unit">
+                                    / Pack
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- ACTION -->
+
+                        <div class="product-actions">
+
+                            <button
+                                type="button"
+                                class="btn btn-outline add-cart-btn"
+                                data-product-id="AM-MANGGA-001">
+
+                                <i class="fa-solid fa-cart-plus"></i>
+
+                                Keranjang
+
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="btn btn-primary buy-now-btn"
+                                data-product-id="AM-MANGGA-001">
+
+                                Beli Sekarang
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =============================================
+                     PRODUK MENDATANG
+                     JANGAN DIHAPUS
+                ============================================== -->
+
+                <article class="product-card product-coming-soon">
+
+                    <div class="coming-soon-icon">
+
+                        <i class="fa-solid fa-plus"></i>
+
+                    </div>
+
+                    <div class="coming-soon-content">
+
+                        <span>
+                            Produk Berikutnya
+                        </span>
+
+                        <h2>
+                            Segera Hadir
+                        </h2>
+
+                        <p>
+                            Anna Amui akan terus menghadirkan
+                            produk pilihan khas Indonesia.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 INFORMASI
+            ================================================== -->
+
+            <div class="product-info-box">
+
+                <div class="product-info-icon">
+
+                    <i class="fa-solid fa-circle-info"></i>
+
+                </div>
+
+                <div>
+
+                    <h3>
+                        Belanja Lebih Mudah
+                    </h3>
+
+                    <p>
+                        Pilih produk dan tambahkan ke keranjang.
+                        Anda dapat memilih beberapa produk
+                        sebelum melanjutkan ke checkout.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<div data-include="components/footer.html"></div>
+
+
+<!-- FLOATING WHATSAPP -->
+
+<div data-include="components/floating-wa.html"></div>
+
+
+<!-- =========================================================
+     MOBILE BOTTOM NAVIGATION
+========================================================= -->
+
+<div data-include="components/bottom-nav.html"></div>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script src="js/include.js"></script>
+
+<script src="js/cart.js"></script>
+
+<script src="js/product.js"></script>
+
+
+</body>
+</html>
