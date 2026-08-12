@@ -1,7 +1,7 @@
 /* =========================================================
    CART.JS - ANNA AMUI
-   SISTEM KERANJANG UTAMA
-   ========================================================= */
+   Sistem Keranjang Terpadu
+========================================================= */
 
 (function () {
 
@@ -15,12 +15,14 @@
     const CART_KEY = "annaAmuiCart";
 
     const NORMAL_PRICE = 12;
+
     const PROMO_PRICE = 10;
+
     const PROMO_MIN_QTY = 3;
 
 
     /* =====================================================
-       CART
+       GET CART
     ===================================================== */
 
     function getCart() {
@@ -34,7 +36,8 @@
                 return [];
             }
 
-            const cart = JSON.parse(data);
+            const cart =
+                JSON.parse(data);
 
             return Array.isArray(cart)
                 ? cart
@@ -54,6 +57,10 @@
     }
 
 
+    /* =====================================================
+       SAVE CART
+    ===================================================== */
+
     function saveCart(cart) {
 
         localStorage.setItem(
@@ -67,13 +74,16 @@
 
 
     /* =====================================================
-       TOTAL PACK
+       TOTAL SEMUA PACK
     ===================================================== */
 
-    function getTotalQuantity(cart = getCart()) {
+    function getTotalQuantity(cart) {
+
+        cart =
+            cart || getCart();
 
         return cart.reduce(
-            (total, item) => {
+            function (total, item) {
 
                 return total +
                     Number(item.quantity || 0);
@@ -86,17 +96,27 @@
 
 
     /* =====================================================
-       HARGA
+       CEK PROMO
     ===================================================== */
 
-    function getPricePerPack(
-        cart = getCart()
-    ) {
+    function isPromoActive(cart) {
 
-        const total =
-            getTotalQuantity(cart);
+        return getTotalQuantity(cart)
+            >= PROMO_MIN_QTY;
 
-        return total >= PROMO_MIN_QTY
+    }
+
+
+    /* =====================================================
+       HARGA PACK
+    ===================================================== */
+
+    function getPricePerPack(cart) {
+
+        cart =
+            cart || getCart();
+
+        return isPromoActive(cart)
             ? PROMO_PRICE
             : NORMAL_PRICE;
 
@@ -107,9 +127,10 @@
        SUBTOTAL
     ===================================================== */
 
-    function getSubtotal(
-        cart = getCart()
-    ) {
+    function getSubtotal(cart) {
+
+        cart =
+            cart || getCart();
 
         const total =
             getTotalQuantity(cart);
@@ -124,95 +145,28 @@
 
     /* =====================================================
        TAMBAH PRODUK
+       quantity bisa 1, 2, 3, dst
     ===================================================== */
 
-    function addToCart(product) {
+    function addToCart(product, quantity) {
 
         if (!product || !product.id) {
 
             console.error(
-                "Produk tidak valid."
+                "Data produk tidak valid."
             );
 
             return;
 
         }
 
-
-        const cart =
-            getCart();
-
-
-        const existing =
-            cart.find(
-                item =>
-                    item.id === product.id
-            );
-
-
-        if (existing) {
-
-            existing.quantity += 1;
-
-        } else {
-
-            cart.push({
-
-                id:
-                    product.id,
-
-                name:
-                    product.name || "",
-
-                variant:
-                    product.variant || "",
-
-                price:
-                    Number(
-                        product.price || NORMAL_PRICE
-                    ),
-
-                image:
-                    product.image || "",
-
-                quantity:
-                    1
-
-            });
-
-        }
-
-
-        saveCart(cart);
-
-        showNotification(
-            `${product.name} ditambahkan ke keranjang`
-        );
-
-    }
-
-
-    /* =====================================================
-       TAMBAH BEBERAPA
-    ===================================================== */
-
-    function addMultipleToCart(
-        product,
-        quantity
-    ) {
 
         quantity =
-            Number(quantity);
+            Number(quantity || 1);
 
 
-        if (
-            !product ||
-            !product.id ||
-            quantity <= 0
-        ) {
-
-            return;
-
+        if (quantity < 1) {
+            quantity = 1;
         }
 
 
@@ -221,10 +175,11 @@
 
 
         const existing =
-            cart.find(
-                item =>
-                    item.id === product.id
-            );
+            cart.find(function (item) {
+
+                return item.id === product.id;
+
+            });
 
 
         if (existing) {
@@ -244,11 +199,6 @@
                 variant:
                     product.variant || "",
 
-                price:
-                    Number(
-                        product.price || NORMAL_PRICE
-                    ),
-
                 image:
                     product.image || "",
 
@@ -262,15 +212,19 @@
 
         saveCart(cart);
 
+
         showNotification(
-            `${quantity} Pack ${product.name} ditambahkan`
+            `${product.name} × ${quantity} ditambahkan`
         );
+
+
+        updateProductSummary();
 
     }
 
 
     /* =====================================================
-       TAMBAH JUMLAH
+       TAMBAH 1
     ===================================================== */
 
     function increaseQuantity(id) {
@@ -280,10 +234,11 @@
 
 
         const item =
-            cart.find(
-                product =>
-                    product.id === id
-            );
+            cart.find(function (product) {
+
+                return product.id === id;
+
+            });
 
 
         if (!item) {
@@ -293,7 +248,6 @@
 
         item.quantity++;
 
-
         saveCart(cart);
 
         renderCart();
@@ -302,7 +256,7 @@
 
 
     /* =====================================================
-       KURANG JUMLAH
+       KURANG 1
     ===================================================== */
 
     function decreaseQuantity(id) {
@@ -311,33 +265,25 @@
             getCart();
 
 
-        const item =
-            cart.find(
-                product =>
-                    product.id === id
-            );
+        const index =
+            cart.findIndex(function (product) {
+
+                return product.id === id;
+
+            });
 
 
-        if (!item) {
+        if (index === -1) {
             return;
         }
 
 
-        item.quantity--;
+        cart[index].quantity--;
 
 
-        if (item.quantity <= 0) {
+        if (cart[index].quantity <= 0) {
 
-            const index =
-                cart.findIndex(
-                    product =>
-                        product.id === id
-                );
-
-            cart.splice(
-                index,
-                1
-            );
+            cart.splice(index, 1);
 
         }
 
@@ -355,11 +301,16 @@
 
     function removeFromCart(id) {
 
-        const cart =
-            getCart().filter(
-                item =>
-                    item.id !== id
-            );
+        let cart =
+            getCart();
+
+
+        cart =
+            cart.filter(function (item) {
+
+                return item.id !== id;
+
+            });
 
 
         saveCart(cart);
@@ -370,7 +321,7 @@
 
 
     /* =====================================================
-       KOSONGKAN
+       CLEAR
     ===================================================== */
 
     function clearCart() {
@@ -387,7 +338,7 @@
 
 
     /* =====================================================
-       CART COUNT
+       UPDATE ICON CART
     ===================================================== */
 
     function updateCartCount() {
@@ -398,21 +349,17 @@
 
         document
             .querySelectorAll(
-                "#cart-count, .cart-count, #cart-summary-count"
+                "#cart-count, .cart-count"
             )
-            .forEach(
-                element => {
+            .forEach(function (element) {
 
-                    element.textContent =
-                        total;
+                element.textContent =
+                    total;
 
-                    element.classList.toggle(
-                        "has-items",
-                        total > 0
-                    );
+            });
 
-                }
-            );
+
+        updateProductSummary();
 
     }
 
@@ -421,69 +368,63 @@
        NOTIFICATION
     ===================================================== */
 
-    function showNotification(
-        message
-    ) {
+    function showNotification(message) {
 
-        let box =
+        let notification =
             document.getElementById(
                 "cart-notification"
             );
 
 
-        if (!box) {
+        if (!notification) {
 
-            box =
-                document.createElement(
-                    "div"
-                );
+            notification =
+                document.createElement("div");
 
-            box.id =
+            notification.id =
                 "cart-notification";
 
-            box.className =
+            notification.className =
                 "cart-notification";
 
             document.body.appendChild(
-                box
+                notification
             );
 
         }
 
 
-        box.innerHTML = `
+        notification.innerHTML = `
             <i class="fa-solid fa-check"></i>
             <span>${message}</span>
         `;
 
 
-        box.classList.add(
+        notification.classList.add(
             "show"
         );
 
 
         clearTimeout(
-            box.timer
+            notification.timer
         );
 
 
-        box.timer =
-            setTimeout(
-                function () {
+        notification.timer =
+            setTimeout(function () {
 
-                    box.classList.remove(
-                        "show"
-                    );
+                notification.classList.remove(
+                    "show"
+                );
 
-                },
-                2200
-            );
+            }, 2200);
 
     }
 
 
     /* =====================================================
        RENDER CART
+       Untuk cart.html
     ===================================================== */
 
     function renderCart() {
@@ -510,9 +451,7 @@
                 <div class="cart-empty">
 
                     <div class="cart-empty-icon">
-
                         <i class="fa-solid fa-cart-shopping"></i>
-
                     </div>
 
                     <h2>
@@ -520,19 +459,22 @@
                     </h2>
 
                     <p>
-                        Belum ada produk di keranjang Anda.
+                        Yuk pilih produk Anna Amui
+                        terlebih dahulu.
                     </p>
 
                     <a
                         href="produk.html"
-                        class="btn btn-primary"
-                    >
+                        class="btn btn-primary">
+
                         Lihat Produk
+
                     </a>
 
                 </div>
 
             `;
+
 
             updateCartSummary();
 
@@ -546,100 +488,102 @@
 
 
         container.innerHTML =
-            cart.map(
-                item => {
+            cart.map(function (item) {
 
-                    const total =
-                        item.quantity *
-                        price;
+                const total =
+                    item.quantity * price;
 
 
-                    return `
+                return `
 
-                        <article
-                            class="cart-item"
-                            data-id="${item.id}"
-                        >
+                    <div
+                        class="cart-item"
+                        data-id="${item.id}">
 
-                            <div class="cart-item-image">
+                        <div class="cart-item-image">
 
-                                <img
-                                    src="${item.image}"
-                                    alt="${item.name}"
-                                >
+                            <img
+                                src="${item.image}"
+                                alt="${item.name}">
 
-                            </div>
+                        </div>
 
 
-                            <div class="cart-item-info">
+                        <div class="cart-item-info">
 
-                                <span class="cart-item-variant">
-                                    ${item.variant}
-                                </span>
+                            <span class="cart-item-variant">
 
-                                <h3>
-                                    ${item.name}
-                                </h3>
+                                ${item.variant}
 
-                                <p>
-                                    HK$${price} / Pack
-                                </p>
+                            </span>
 
 
-                                <div class="cart-item-bottom">
-
-                                    <div class="cart-quantity">
-
-                                        <button
-                                            type="button"
-                                            class="cart-minus"
-                                            data-id="${item.id}"
-                                        >
-                                            −
-                                        </button>
-
-                                        <span>
-                                            ${item.quantity}
-                                        </span>
-
-                                        <button
-                                            type="button"
-                                            class="cart-plus"
-                                            data-id="${item.id}"
-                                        >
-                                            +
-                                        </button>
-
-                                    </div>
+                            <h3>
+                                ${item.name}
+                            </h3>
 
 
-                                    <strong>
-                                        HK$${total}
-                                    </strong>
+                            <p>
+                                HK$${price} / Pack
+                            </p>
+
+
+                            <div class="cart-item-bottom">
+
+                                <div class="cart-quantity">
+
+                                    <button
+                                        type="button"
+                                        class="cart-minus"
+                                        data-id="${item.id}">
+
+                                        −
+
+                                    </button>
+
+
+                                    <span>
+                                        ${item.quantity}
+                                    </span>
+
+
+                                    <button
+                                        type="button"
+                                        class="cart-plus"
+                                        data-id="${item.id}">
+
+                                        +
+
+                                    </button>
 
                                 </div>
 
 
-                                <button
-                                    type="button"
-                                    class="cart-remove"
-                                    data-id="${item.id}"
-                                >
-
-                                    <i class="fa-solid fa-trash"></i>
-
-                                    Hapus
-
-                                </button>
+                                <strong>
+                                    HK$${total}
+                                </strong>
 
                             </div>
 
-                        </article>
 
-                    `;
+                            <button
+                                type="button"
+                                class="cart-remove"
+                                data-id="${item.id}">
 
-                }
-            ).join("");
+                                <i class="fa-solid fa-trash"></i>
+
+                                Hapus
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+            }).join("");
 
 
         initCartButtons();
@@ -650,69 +594,63 @@
 
 
     /* =====================================================
-       CART BUTTON
+       BUTTON CART
     ===================================================== */
 
     function initCartButtons() {
 
         document
             .querySelectorAll(".cart-plus")
-            .forEach(
-                button => {
+            .forEach(function (button) {
 
-                    button.onclick =
-                        function () {
+                button.onclick =
+                    function () {
 
-                            increaseQuantity(
-                                this.dataset.id
-                            );
+                        increaseQuantity(
+                            button.dataset.id
+                        );
 
-                        };
+                    };
 
-                }
-            );
+            });
 
 
         document
             .querySelectorAll(".cart-minus")
-            .forEach(
-                button => {
+            .forEach(function (button) {
 
-                    button.onclick =
-                        function () {
+                button.onclick =
+                    function () {
 
-                            decreaseQuantity(
-                                this.dataset.id
-                            );
+                        decreaseQuantity(
+                            button.dataset.id
+                        );
 
-                        };
+                    };
 
-                }
-            );
+            });
 
 
         document
             .querySelectorAll(".cart-remove")
-            .forEach(
-                button => {
+            .forEach(function (button) {
 
-                    button.onclick =
-                        function () {
+                button.onclick =
+                    function () {
 
-                            removeFromCart(
-                                this.dataset.id
-                            );
+                        removeFromCart(
+                            button.dataset.id
+                        );
 
-                        };
+                    };
 
-                }
-            );
+            });
 
     }
 
 
     /* =====================================================
-       CART SUMMARY
+       SUMMARY CART
     ===================================================== */
 
     function updateCartSummary() {
@@ -783,21 +721,18 @@
 
         if (promo) {
 
-            if (
-                total >=
-                PROMO_MIN_QTY
-            ) {
+            if (total >= PROMO_MIN_QTY) {
 
                 promo.innerHTML = `
 
                     <i class="fa-solid fa-circle-check"></i>
 
                     Promo aktif!
-                    Harga
-                    <strong>HK$10 / Pack</strong>
 
-                    karena total pesanan
-                    ${total} Pack.
+                    Semua produk mendapat harga
+                    <strong>HK$10 / Pack</strong>.
+
+                    Total ${total} Pack.
 
                 `;
 
@@ -808,18 +743,15 @@
             } else {
 
                 const kurang =
-                    PROMO_MIN_QTY -
-                    total;
+                    PROMO_MIN_QTY - total;
 
 
                 promo.innerHTML = `
 
                     <i class="fa-solid fa-tag"></i>
 
-                    Tambah
-                    <strong>${kurang} Pack</strong>
-                    lagi untuk mendapatkan
-                    harga promo
+                    Tambah ${kurang} Pack lagi
+                    untuk mendapatkan harga promo
                     <strong>HK$10 / Pack</strong>.
 
                 `;
@@ -832,51 +764,54 @@
 
         }
 
-
-        updateCartCount();
-
     }
 
 
     /* =====================================================
-       CHECKOUT
+       PRODUCT PAGE SUMMARY
     ===================================================== */
 
-    function initCheckout() {
+    function updateProductSummary() {
 
-        const button =
+        const total =
+            getTotalQuantity();
+
+
+        const count =
             document.getElementById(
-                "cart-checkout"
+                "cart-summary-count"
             );
 
 
-        if (!button) {
-            return;
+        const text =
+            document.getElementById(
+                "cart-summary-text"
+            );
+
+
+        if (count) {
+
+            count.textContent =
+                total;
+
         }
 
 
-        button.addEventListener(
-            "click",
-            function () {
+        if (text) {
 
-                if (
-                    getCart().length === 0
-                ) {
+            if (total === 0) {
 
-                    showNotification(
-                        "Keranjang masih kosong"
-                    );
+                text.textContent =
+                    "Belum ada produk";
 
-                    return;
+            } else {
 
-                }
-
-
-                window.location.href =
-                    "checkout.html";
+                text.textContent =
+                    `${total} Pack di keranjang`;
 
             }
-        );
+
+        }
 
     }
 
@@ -891,8 +826,6 @@
 
         renderCart();
 
-        initCheckout();
-
     }
 
 
@@ -902,33 +835,44 @@
 
     window.AnnaAmuiCart = {
 
-        getCart,
+        getCart:
+            getCart,
 
-        saveCart,
+        saveCart:
+            saveCart,
 
-        addToCart,
+        addToCart:
+            addToCart,
 
-        addMultipleToCart,
+        increaseQuantity:
+            increaseQuantity,
 
-        increaseQuantity,
+        decreaseQuantity:
+            decreaseQuantity,
 
-        decreaseQuantity,
+        removeFromCart:
+            removeFromCart,
 
-        removeFromCart,
+        clearCart:
+            clearCart,
 
-        clearCart,
+        getTotalQuantity:
+            getTotalQuantity,
 
-        getTotalQuantity,
+        getPricePerPack:
+            getPricePerPack,
 
-        getPricePerPack,
+        getSubtotal:
+            getSubtotal,
 
-        getSubtotal,
+        isPromoActive:
+            isPromoActive,
 
-        updateCartCount,
+        updateCartCount:
+            updateCartCount,
 
-        renderCart,
-
-        updateCartSummary
+        renderCart:
+            renderCart
 
     };
 
@@ -938,8 +882,7 @@
     ===================================================== */
 
     if (
-        document.readyState ===
-        "loading"
+        document.readyState === "loading"
     ) {
 
         document.addEventListener(
@@ -952,6 +895,5 @@
         init();
 
     }
-
 
 })();
