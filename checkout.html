@@ -1,233 +1,120 @@
-<!DOCTYPE html>
-<html lang="id">
+<!-- =========================================================
+     PESANAN
+========================================================= -->
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout | Anna Amui Shop</title>
-    
-    <!-- CSS Utama Checkout -->
-    <link rel="stylesheet" href="css/checkout.css">
-    
-    <!-- FontAwesome untuk Ikon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-</head>
+<div class="card">
 
-<body>
-
-    <!-- HEADER -->
-    <header class="topbar">
-        <div class="topbar-left">
-            <a href="index.html" class="back-btn">
-                <i class="fa-solid fa-arrow-left"></i>
-            </a>
-            <h2>Checkout</h2>
-        </div>
-        <div class="logo"></div>
-    </header>
-
-    <!-- CONTENT -->
-    <div class="container">
-
-        <!-- INFORMASI PENERIMA -->
-        <div class="card">
-            <div class="card-title">
-                <i class="fa-solid fa-circle-info"></i>
-                <span>Informasi Penerima</span>
-            </div>
-            
-            <div class="form-group">
-                <label>Nama Penerima</label>
-                <input type="text" id="nama" placeholder="Masukkan nama penerima">
-            </div>
-
-            <div class="form-group">
-                <label>Nomor WhatsApp Hong Kong</label>
-                <input type="tel" id="nomor" placeholder="Contoh : 8525589312">
-            </div>
-
-            <div class="form-group">
-                <label>Tempat Pengambilan Paket</label>
-                <select id="pickup">
-                    <option value="">Pilih Lokasi</option>
-                    <option>CAUSEWAY BAY</option>
-                    <option>SHAM SHUI PO</option>
-                    <option>YUEN LONG</option>
-                    <option>CHAI WAN</option>
-                    <option>TSUEN WAN</option>
-                    <option>TUEN MUN</option>
-                    <option>TAI PO</option>
-                    <option>SAI YING PUN</option>
-                    <option>CHOI HUNG</option>
-                    <option>TSING YI</option>
-                    <option>TSZ WAN SHAN</option>
-                    <option>TSIM SHA SHUI</option>
-                    <option>NORTH POINT</option>
-                    <option>HANG HAU</option>
-                    <option>MEI FOO</option>
-                    <option>MONG KOK</option>
-                    <option>KWUN TONG</option>
-                    <option>TSEUNG KWAN O</option>
-                    <option>SOUTH HORIZON</option>
-                    <option>TO KWA WAN</option>
-                    <option>POLAM</option>
-                    <option>CHUNG ON</option>
-                    <option>MA ON SHAN</option>
-                    <option>WONG TAI SIN</option>
-                    <option>KOWLOON CITY</option>
-                    <option>JORDAN</option>
-                    <option>YAU TONG</option>
-                    <option>LAM TIN</option>
-                    <option>TAI WAI</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label>Catatan (Opsional)</label>
-                <textarea id="catatan" rows="3" placeholder="Contoh : Hubungi sebelum pengantaran"></textarea>
-            </div>
-        </div>
-          
-        <!-- PRODUK -->
-        <div class="card">
-            <div class="card-title">
-                <i class="fa-solid fa-box"></i>
-                <span>Pesanan Anda</span>
-            </div>
-
-            <div id="shipping-tips" class="shipping-tips"></div>
-
-            <!-- ORIGINAL -->
-            <div class="variant">
-                <div class="variant-info">
-                    <div class="variant-name">
-                        <div class="dot original"></div>
-                        <div>
-                            <h4>Original</h4>
-                            <p>HK$12 / HK$10</p>
-                        </div>
-                    </div>
-                    <div class="qty-box">
-                        <button id="minus-original" type="button">−</button>
-                        <span id="qty-original">0</span>
-                        <button id="plus-original" type="button">+</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PEDAS -->
-            <div class="variant">
-                <div class="variant-info">
-                    <div class="variant-name">
-                        <div class="dot pedas"></div>
-                        <div>
-                            <h4>Pedas</h4>
-                            <p>HK$12 / HK$10</p>
-                        </div>
-                    </div>
-                    <div class="qty-box">
-                        <button id="minus-pedas" type="button">−</button>
-                        <span id="qty-pedas">0</span>
-                        <button id="plus-pedas" type="button">+</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="promo-container">
-  <!-- Kotak Promo 1 -->
-  <div class="promo-box-item">
-    <div class="promo-icon">🏷️</div>
-    <div class="promo-content">
-      <div class="promo-text">
-        <b>Promo:</b> Beli <b>3 Pack</b> atau lebih, harga otomatis menjadi
-      </div>
-      <div class="promo-badge">HK$10 / Pack</div>
+    <div class="card-title">
+        <i class="fa-solid fa-box"></i>
+        <span>Pesanan Anda</span>
     </div>
-  </div>
 
-  <!-- Kotak Promo 2 (Pilih Paket Favorit) -->
-  <div class="promo-box-item paket-favorit">
-    <div class="promo-icon">📦</div>
-    <div class="promo-content">
-      <div class="promo-text">
-        <b>Pilih Paket Favorit:</b> Beli <b>5 Pack</b> pas untuk mencapai berat kirim
-      </div>
-      <div class="promo-badge">1 Kg, ongkir lebih efisien!</div>
+    <div id="checkout-product">
+
+        <!-- Diisi otomatis oleh checkout.js -->
+
     </div>
-  </div>
+
 </div>
 
 
-        <!-- RINGKASAN -->
-        <div class="card">
-            <div class="card-title">
-                <i class="fa-solid fa-receipt"></i>
-                <span>Ringkasan Pesanan</span>
-            </div>
+<!-- =========================================================
+     RINGKASAN
+========================================================= -->
 
-            <div class="summary-row">
-                <span>Original</span>
-                <span id="sum-original">0 Pack</span>
-            </div>
+<div class="card">
 
-            <div class="summary-row">
-                <span>Pedas</span>
-                <span id="sum-pedas">0 Pack</span>
-            </div>
-
-            <div class="summary-row">
-                <span>Total Pack</span>
-                <b id="total-pack">0</b>
-            </div>
-
-            <div class="summary-row">
-                <span>Harga / Pack</span>
-                <b id="harga-pack">HK$12</b>
-            </div>
-
-            <hr>
-
-            <div class="summary-row">
-                <span>Subtotal Barang</span>
-                <b id="total-harga">HK$0</b>
-            </div>
-
-            <div class="summary-row">
-                <span>📦 Estimasi Berat</span>
-                <b id="estimasi-berat">0 Kg</b>
-            </div>
-
-            <div class="summary-row">
-                <span>🚚 Estimasi Ongkir</span>
-                <b id="estimasi-ongkir">HK$0</b>
-            </div>
-            
-            <div class="summary-note">
-                Ongkir hanya estimasi berdasarkan berat paket (HK$33/Kg) dan belum termasuk subtotal barang.
-            </div>
-        </div>
-
-    </div> <!-- End Container -->
-
-    <!-- FOOTER / CHECKOUT BAR -->
-    <div class="checkout-bar">
-        <div>
-            <small>Subtotal Barang</small>
-            <h3 id="bottom-total">HK$0</h3>
-        </div>
-
-        <button id="checkoutBtn" type="button">
-            <i class="fa-brands fa-whatsapp"></i>
-            Lanjutkan ke WhatsApp
-        </button>
+    <div class="card-title">
+        <i class="fa-solid fa-receipt"></i>
+        <span>Ringkasan Pesanan</span>
     </div>
 
-    <!-- IFRAME RAHASIA UNTUK PROSES KE GOOGLE SHEETS -->
-    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
 
-    <!-- JAVASCRIPT CHECKOUT & SHIPPING -->
-    <script src="js/checkout.js?v=2"></script>
-    <script src="js/shipping.js"></script>
+    <div class="summary-row">
 
-</body>
-</html>
+        <span>Produk</span>
+
+        <span id="summary-product">
+            -
+        </span>
+
+    </div>
+
+
+    <div class="summary-row">
+
+        <span>Varian</span>
+
+        <span id="summary-variant">
+            -
+        </span>
+
+    </div>
+
+
+    <div class="summary-row">
+
+        <span>Total Pack</span>
+
+        <b id="summary-quantity">
+            0 Pack
+        </b>
+
+    </div>
+
+
+    <div class="summary-row">
+
+        <span>Harga / Pack</span>
+
+        <b id="summary-price">
+            HK$0
+        </b>
+
+    </div>
+
+
+    <hr>
+
+
+    <div class="summary-row">
+
+        <span>Subtotal Barang</span>
+
+        <b id="summary-total">
+            HK$0
+        </b>
+
+    </div>
+
+
+    <div class="summary-row">
+
+        <span>📦 Estimasi Berat</span>
+
+        <b id="estimasi-berat">
+            0 Kg
+        </b>
+
+    </div>
+
+
+    <div class="summary-row">
+
+        <span>🚚 Estimasi Ongkir</span>
+
+        <b id="estimasi-ongkir">
+            HK$0
+        </b>
+
+    </div>
+
+
+    <div class="summary-note">
+
+        Ongkir hanya estimasi berdasarkan berat
+        paket dan belum termasuk subtotal barang.
+
+    </div>
+
+</div>
