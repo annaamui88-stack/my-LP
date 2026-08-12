@@ -1,7 +1,7 @@
 /* =========================================================
    CHECKOUT.JS - ANNA AMUI
-   Produk → Checkout → WhatsApp
-   ========================================================= */
+   Direct Product → Checkout → WhatsApp
+========================================================= */
 
 "use strict";
 
@@ -21,292 +21,368 @@ const NORMAL_PRICE = 12;
 const PROMO_PRICE = 10;
 const PROMO_MIN_QTY = 3;
 
-const PACK_WEIGHT = 0.2;
-const SHIPPING_PER_KG = 33;
+
+/*
+ * Berat:
+ *
+ * 5 Pack = 1 Kg
+ * sehingga 1 Pack = 0.2 Kg
+ */
+
+const KG_PER_PACK = 0.2;
 
 
 /* =========================================================
-   AMBIL DATA PRODUK
+   JUMLAH PRODUK
 ========================================================= */
 
-let orderData = null;
+let original = 0;
+let pedas = 0;
 
 
-function getCheckoutData() {
+/* =========================================================
+   AMBIL DATA DARI URL
+========================================================= */
 
-    try {
+function getInitialQuantity() {
 
-        const data =
-            localStorage.getItem(
-                "annaAmuiCheckout"
-            );
-
-
-        if (!data) {
-
-            return null;
-
-        }
-
-
-        return JSON.parse(data);
-
-    } catch (error) {
-
-        console.error(
-            "Gagal membaca data checkout:",
-            error
+    const params =
+        new URLSearchParams(
+            window.location.search
         );
 
-        return null;
 
-    }
+    original =
+        Math.max(
+            0,
+            parseInt(
+                params.get("original") || "0",
+                10
+            )
+        );
+
+
+    pedas =
+        Math.max(
+            0,
+            parseInt(
+                params.get("pedas") || "0",
+                10
+            )
+        );
 
 }
 
 
-
 /* =========================================================
-   DATA PESANAN
+   ELEMENT
 ========================================================= */
 
-function loadOrder() {
+const qtyOriginal =
+    document.getElementById(
+        "qty-original"
+    );
 
-    orderData =
-        getCheckoutData();
+const qtyPedas =
+    document.getElementById(
+        "qty-pedas"
+    );
 
+const sumOriginal =
+    document.getElementById(
+        "sum-original"
+    );
 
-    if (!orderData) {
+const sumPedas =
+    document.getElementById(
+        "sum-pedas"
+    );
 
-        alert(
-            "Pesanan belum dipilih. Silakan pilih produk terlebih dahulu."
-        );
+const totalPack =
+    document.getElementById(
+        "total-pack"
+    );
 
+const hargaPack =
+    document.getElementById(
+        "harga-pack"
+    );
 
-        window.location.href =
-            "produk.html";
+const totalHarga =
+    document.getElementById(
+        "total-harga"
+    );
 
-        return false;
+const bottomTotal =
+    document.getElementById(
+        "bottom-total"
+    );
 
-    }
+const estimasiBerat =
+    document.getElementById(
+        "estimasi-berat"
+    );
 
-
-    return true;
-
-}
-
+const promoMessage =
+    document.getElementById(
+        "promo-message"
+    );
 
 
 /* =========================================================
    HARGA
 ========================================================= */
 
-function getPrice(quantity) {
+function getHarga(total) {
 
-    return quantity >= PROMO_MIN_QTY
-        ? PROMO_PRICE
-        : NORMAL_PRICE;
+    if (total >= PROMO_MIN_QTY) {
+
+        return PROMO_PRICE;
+
+    }
+
+    return NORMAL_PRICE;
 
 }
 
 
-
 /* =========================================================
-   UPDATE CHECKOUT
+   UPDATE SUMMARY
 ========================================================= */
 
-function updateCheckout() {
+function updateSummary() {
 
-    if (!orderData) {
-        return;
-    }
-
-
-    const quantity =
-        Number(orderData.quantity || 0);
+    const total =
+        original + pedas;
 
 
-    const variant =
-        orderData.variant || "original";
+    const harga =
+        getHarga(total);
 
 
-    const price =
-        getPrice(quantity);
-
-
-    const subtotal =
-        quantity * price;
+    const totalBayar =
+        total * harga;
 
 
     const berat =
-        quantity * PACK_WEIGHT;
+        total * KG_PER_PACK;
 
 
-    const ongkir =
-        berat * SHIPPING_PER_KG;
+    /* Quantity */
 
+    if (qtyOriginal) {
 
-
-    /* ==============================================
-       PRODUK
-    ============================================== */
-
-    const productContainer =
-        document.getElementById(
-            "checkout-product"
-        );
-
-
-    if (productContainer) {
-
-        const variantName =
-            variant === "pedas"
-                ? "Pedas"
-                : "Original";
-
-
-        productContainer.innerHTML = `
-
-            <div class="checkout-product-item">
-
-                <div class="checkout-product-info">
-
-                    <h3>
-                        Manisan Mangga Anna Amui
-                    </h3>
-
-                    <p>
-                        Varian:
-                        <strong>
-                            ${variantName}
-                        </strong>
-                    </p>
-
-                </div>
-
-                <div class="checkout-product-quantity">
-
-                    ${quantity} Pack
-
-                </div>
-
-            </div>
-
-        `;
+        qtyOriginal.textContent =
+            original;
 
     }
 
 
+    if (qtyPedas) {
 
-    /* ==============================================
-       SUMMARY
-    ============================================== */
-
-    const summaryProduct =
-        document.getElementById(
-            "summary-product"
-        );
-
-
-    const summaryVariant =
-        document.getElementById(
-            "summary-variant"
-        );
-
-
-    const summaryQuantity =
-        document.getElementById(
-            "summary-quantity"
-        );
-
-
-    const summaryPrice =
-        document.getElementById(
-            "summary-price"
-        );
-
-
-    const summaryTotal =
-        document.getElementById(
-            "summary-total"
-        );
-
-
-    const beratElement =
-        document.getElementById(
-            "estimasi-berat"
-        );
-
-
-    const ongkirElement =
-        document.getElementById(
-            "estimasi-ongkir"
-        );
-
-
-    if (summaryProduct) {
-
-        summaryProduct.textContent =
-            "Manisan Mangga";
+        qtyPedas.textContent =
+            pedas;
 
     }
 
 
-    if (summaryVariant) {
+    /* Summary */
 
-        summaryVariant.textContent =
-            variant === "pedas"
-                ? "Pedas"
-                : "Original";
+    if (sumOriginal) {
 
-    }
-
-
-    if (summaryQuantity) {
-
-        summaryQuantity.textContent =
-            quantity + " Pack";
+        sumOriginal.textContent =
+            original + " Pack";
 
     }
 
 
-    if (summaryPrice) {
+    if (sumPedas) {
 
-        summaryPrice.textContent =
-            "HK$" + price;
-
-    }
-
-
-    if (summaryTotal) {
-
-        summaryTotal.textContent =
-            "HK$" + subtotal;
+        sumPedas.textContent =
+            pedas + " Pack";
 
     }
 
 
-    if (beratElement) {
+    if (totalPack) {
 
-        beratElement.textContent =
+        totalPack.textContent =
+            total;
+
+    }
+
+
+    if (hargaPack) {
+
+        hargaPack.textContent =
+            "HK$" + harga;
+
+    }
+
+
+    if (totalHarga) {
+
+        totalHarga.textContent =
+            "HK$" + totalBayar;
+
+    }
+
+
+    if (bottomTotal) {
+
+        bottomTotal.textContent =
+            "HK$" + totalBayar;
+
+    }
+
+
+    if (estimasiBerat) {
+
+        estimasiBerat.textContent =
             berat.toFixed(1) + " Kg";
 
     }
 
 
-    if (ongkirElement) {
+    /* =====================================================
+       PROMO
+    ===================================================== */
 
-        ongkirElement.textContent =
-            "HK$" + ongkir.toFixed(0);
+    if (promoMessage) {
+
+        if (total >= PROMO_MIN_QTY) {
+
+            promoMessage.innerHTML =
+                '<i class="fa-solid fa-circle-check"></i> ' +
+                'Promo aktif! Semua pesanan mendapatkan ' +
+                '<strong>HK$10 / Pack</strong>.';
+
+            promoMessage.classList.add(
+                "active"
+            );
+
+        } else {
+
+            const kurang =
+                PROMO_MIN_QTY - total;
+
+            promoMessage.innerHTML =
+                '<i class="fa-solid fa-tag"></i> ' +
+                'Tambah <strong>' +
+                kurang +
+                ' Pack</strong> lagi untuk mendapatkan ' +
+                'harga promo HK$10 / Pack.';
+
+            promoMessage.classList.remove(
+                "active"
+            );
+
+        }
 
     }
 
 }
 
 
+/* =========================================================
+   TAMBAH / KURANG
+========================================================= */
+
+const plusOriginal =
+    document.getElementById(
+        "plus-original"
+    );
+
+const minusOriginal =
+    document.getElementById(
+        "minus-original"
+    );
+
+const plusPedas =
+    document.getElementById(
+        "plus-pedas"
+    );
+
+const minusPedas =
+    document.getElementById(
+        "minus-pedas"
+    );
+
+
+if (plusOriginal) {
+
+    plusOriginal.addEventListener(
+        "click",
+        function () {
+
+            original++;
+
+            updateSummary();
+
+        }
+    );
+
+}
+
+
+if (minusOriginal) {
+
+    minusOriginal.addEventListener(
+        "click",
+        function () {
+
+            if (original > 0) {
+
+                original--;
+
+                updateSummary();
+
+            }
+
+        }
+    );
+
+}
+
+
+if (plusPedas) {
+
+    plusPedas.addEventListener(
+        "click",
+        function () {
+
+            pedas++;
+
+            updateSummary();
+
+        }
+    );
+
+}
+
+
+if (minusPedas) {
+
+    minusPedas.addEventListener(
+        "click",
+        function () {
+
+            if (pedas > 0) {
+
+                pedas--;
+
+                updateSummary();
+
+            }
+
+        }
+    );
+
+}
+
 
 /* =========================================================
-   GENERATE ORDER ID
+   ORDER ID
 ========================================================= */
 
 function generateOrderId() {
@@ -338,10 +414,185 @@ function generateOrderId() {
         );
 
 
-    return `AA-${year}${month}${day}-${random}`;
+    return (
+        "AA-" +
+        year +
+        month +
+        day +
+        "-" +
+        random
+    );
 
 }
 
+
+/* =========================================================
+   KIRIM KE GOOGLE SHEETS
+========================================================= */
+
+function kirimOrder(
+    data,
+    orderId
+) {
+
+    let iframe =
+        document.getElementById(
+            "hidden_iframe"
+        );
+
+
+    if (!iframe) {
+
+        iframe =
+            document.createElement(
+                "iframe"
+            );
+
+        iframe.name =
+            "hidden_iframe";
+
+        iframe.id =
+            "hidden_iframe";
+
+        iframe.style.display =
+            "none";
+
+        document.body.appendChild(
+            iframe
+        );
+
+    }
+
+
+    const form =
+        document.createElement(
+            "form"
+        );
+
+
+    form.method =
+        "POST";
+
+
+    form.action =
+        API_URL;
+
+
+    form.target =
+        "hidden_iframe";
+
+
+    for (
+        const key in data
+    ) {
+
+        const input =
+            document.createElement(
+                "input"
+            );
+
+
+        input.type =
+            "hidden";
+
+
+        input.name =
+            key;
+
+
+        input.value =
+            data[key];
+
+
+        form.appendChild(
+            input
+        );
+
+    }
+
+
+    document.body.appendChild(
+        form
+    );
+
+
+    form.submit();
+
+
+    setTimeout(
+        function () {
+
+            if (
+                form.parentNode
+            ) {
+
+                form.parentNode.removeChild(
+                    form
+                );
+
+            }
+
+        },
+        1000
+    );
+
+
+    /* =====================================================
+       WHATSAPP
+    ===================================================== */
+
+    const pesanWA =
+`Halo Anna Amui,
+
+Saya ingin memesan Manisan Mangga.
+
+--------------------------------
+*ORDER ID: ${orderId}*
+--------------------------------
+
+Original : ${data.original} Pack
+Pedas : ${data.pedas} Pack
+
+--------------------------------
+
+Total : ${data.totalPack} Pack
+Harga : HK$${data.harga}/Pack
+Total Barang : HK$${data.totalBayar}
+
+Estimasi Berat : ${data.berat} Kg
+
+--------------------------------
+
+Nama : ${data.nama}
+Nomor WhatsApp : ${data.nomor}
+Tempat Pengambilan : ${data.lokasi}
+
+Catatan :
+${data.catatan || "-"}
+
+Terima kasih.`;
+
+
+    const url =
+        "https://wa.me/" +
+        WA_NUMBER +
+        "?text=" +
+        encodeURIComponent(
+            pesanWA
+        );
+
+
+    setTimeout(
+        function () {
+
+            window.location.href =
+                url;
+
+        },
+        500
+    );
+
+}
 
 
 /* =========================================================
@@ -360,35 +611,20 @@ if (checkoutBtn) {
         "click",
         function () {
 
-
-            if (!orderData) {
-
-                alert(
-                    "Data pesanan tidak ditemukan."
-                );
-
-                return;
-
-            }
-
-
             const namaInput =
                 document.getElementById(
                     "nama"
                 );
-
 
             const nomorInput =
                 document.getElementById(
                     "nomor"
                 );
 
-
             const lokasiInput =
                 document.getElementById(
                     "pickup"
                 );
-
 
             const catatanInput =
                 document.getElementById(
@@ -412,9 +648,24 @@ if (checkoutBtn) {
                 catatanInput.value.trim();
 
 
-            /* =========================================
+            const total =
+                original + pedas;
+
+
+            /* =================================================
                VALIDASI
-            ========================================= */
+            ================================================== */
+
+            if (total === 0) {
+
+                alert(
+                    "Silakan pilih minimal 1 Pack."
+                );
+
+                return;
+
+            }
+
 
             if (!nama) {
 
@@ -455,46 +706,31 @@ if (checkoutBtn) {
             }
 
 
+            /* =================================================
+               HITUNG
+            ================================================== */
 
-            /* =========================================
-               DATA PESANAN
-            ========================================= */
-
-            const quantity =
-                Number(
-                    orderData.quantity
-                );
-
-
-            const variant =
-                orderData.variant;
-
-
-            const price =
-                getPrice(quantity);
+            const harga =
+                getHarga(total);
 
 
             const totalBayar =
-                quantity * price;
+                total * harga;
 
 
             const berat =
-                quantity * PACK_WEIGHT;
-
-
-            const ongkir =
-                berat * SHIPPING_PER_KG;
+                total * KG_PER_PACK;
 
 
             const orderId =
                 generateOrderId();
 
 
+            /* =================================================
+               DATA
+            ================================================== */
 
             const data = {
-
-                idOrder:
-                    orderId,
 
                 nama:
                     nama,
@@ -502,246 +738,67 @@ if (checkoutBtn) {
                 nomor:
                     nomor,
 
-                produk:
-                    "Manisan Mangga Anna Amui",
+                original:
+                    original,
 
-                variant:
-                    variant,
-
-                quantity:
-                    quantity,
+                pedas:
+                    pedas,
 
                 totalPack:
-                    quantity,
+                    total,
 
                 harga:
-                    price,
+                    harga,
 
                 totalBayar:
                     totalBayar,
 
                 berat:
-                    berat,
-
-                estimasiOngkir:
-                    ongkir,
+                    berat.toFixed(1),
 
                 lokasi:
                     lokasi,
 
                 catatan:
-                    catatan
+                    catatan,
+
+                idOrder:
+                    orderId
 
             };
 
 
+            /* =================================================
+               BUTTON
+            ================================================== */
 
-            /* =========================================
-               SIMPAN KE GOOGLE SHEETS
-            ========================================= */
+            checkoutBtn.disabled =
+                true;
+
+
+            checkoutBtn.innerHTML =
+                '<i class="fa-solid fa-spinner fa-spin"></i> Memproses...';
+
+
+            /* =================================================
+               KIRIM
+            ================================================== */
 
             kirimOrder(
-                data
+                data,
+                orderId
             );
 
         }
     );
 
 }
-
-
-
-/* =========================================================
-   KIRIM ORDER
-========================================================= */
-
-function kirimOrder(
-    data
-) {
-
-
-    let iframe =
-        document.getElementById(
-            "hidden_iframe"
-        );
-
-
-    if (!iframe) {
-
-        iframe =
-            document.createElement(
-                "iframe"
-            );
-
-        iframe.name =
-            "hidden_iframe";
-
-        iframe.id =
-            "hidden_iframe";
-
-        iframe.style.display =
-            "none";
-
-        document.body.appendChild(
-            iframe
-        );
-
-    }
-
-
-
-    const form =
-        document.createElement(
-            "form"
-        );
-
-
-    form.method =
-        "POST";
-
-
-    form.action =
-        API_URL;
-
-
-    form.target =
-        "hidden_iframe";
-
-
-
-    for (
-        const key in data
-    ) {
-
-        const input =
-            document.createElement(
-                "input"
-            );
-
-
-        input.type =
-            "hidden";
-
-
-        input.name =
-            key;
-
-
-        input.value =
-            data[key];
-
-
-        form.appendChild(
-            input
-        );
-
-    }
-
-
-    document.body.appendChild(
-        form
-    );
-
-
-    form.submit();
-
-
-
-    /* =========================================
-       WHATSAPP
-    ========================================= */
-
-    const variantName =
-        data.variant === "pedas"
-            ? "Pedas"
-            : "Original";
-
-
-    const pesanWA = `Halo Anna Amui,
-
-Saya ingin memesan Manisan Mangga.
-
---------------------------------
-*ORDER ID: ${data.idOrder}*
---------------------------------
-
-Produk :
-Manisan Mangga Anna Amui
-
-Varian :
-${variantName}
-
-Jumlah :
-${data.quantity} Pack
-
-Harga :
-HK$${data.harga} / Pack
-
-Subtotal :
-HK$${data.totalBayar}
-
---------------------------------
-
-Estimasi Berat :
-${data.berat.toFixed(1)} Kg
-
-Estimasi Ongkir :
-HK$${data.estimasiOngkir.toFixed(0)}
-
---------------------------------
-
-Nama :
-${data.nama}
-
-Nomor WhatsApp :
-${data.nomor}
-
-Tempat Pengambilan :
-${data.lokasi}
-
-Catatan :
-${data.catatan || "-"}
-
-Terima kasih.`;
-
-
-
-    const url =
-        `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(
-            pesanWA
-        )}`;
-
-
-
-    setTimeout(
-        function () {
-
-            window.location.href =
-                url;
-
-        },
-        500
-    );
-
-}
-
 
 
 /* =========================================================
    INIT
 ========================================================= */
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
+getInitialQuantity();
 
-        if (
-            loadOrder()
-        ) {
-
-            updateCheckout();
-
-        }
-
-    }
-);
+updateSummary();
