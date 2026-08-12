@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Keranjang Belanja | Anna Amui</title>
+
+    <meta name="description"
+          content="Keranjang belanja Anna Amui untuk memilih dan memeriksa pesanan sebelum melanjutkan ke checkout.">
+
+    <meta name="theme-color"
+          content="#16a34a">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Favicon -->
+    <link rel="icon"
+          type="image/png"
+          href="/favicon.png">
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="css/main.css">
+
+    <link rel="stylesheet"
+          href="css/layout.css">
+
+    <link rel="stylesheet"
+          href="css/responsive.css">
+
+    <link rel="stylesheet"
+          href="css/product.css">
+
+    <link rel="stylesheet"
+          href="css/cart.css">
+</head>
+
+
+<body>
+
+    <!-- =========================================================
+         HEADER
+    ========================================================== -->
+
+    <div data-include="components/header.html"></div>
+
+
+    <!-- =========================================================
+         MAIN
+    ========================================================== -->
+
+    <main class="cart-page">
+
+        <div class="container">
+
+
+            <!-- =================================================
+                 PAGE HEADER
+            ================================================== -->
+
+            <section class="cart-header">
+
+                <span class="section-subtitle">
+                    Belanja Anda
+                </span>
+
+                <h1 class="cart-title">
+                    Keranjang Belanja
+                </h1>
+
+                <p class="cart-description">
+                    Periksa produk dan jumlah pesanan Anda
+                    sebelum melanjutkan ke checkout.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 EMPTY CART
+            ================================================== -->
+
+            <section id="empty-cart"
+                     class="cart-empty"
+                     style="display:none;">
+
+                <div class="empty-cart-icon">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
+
+                <h2>
+                    Keranjang Masih Kosong
+                </h2>
+
+                <p>
+                    Belum ada produk yang Anda masukkan
+                    ke keranjang.
+                </p>
+
+                <a href="product.html"
+                   class="btn btn-primary">
+
+                    <i class="fa-solid fa-store"></i>
+
+                    Lihat Produk
+
+                </a>
+
+            </section>
+
+
+            <!-- =================================================
+                 CART CONTENT
+            ================================================== -->
+
+            <section id="cart-content"
+                     class="cart-layout">
+
+
+                <!-- =============================================
+                     LEFT
+                ============================================== -->
+
+                <div class="cart-main">
+
+
+                    <!-- CART TOP -->
+                    <div class="cart-top">
+
+                        <div>
+
+                            <h2>
+                                Produk Anda
+                            </h2>
+
+                            <span id="cart-item-count">
+                                0 Produk
+                            </span>
+
+                        </div>
+
+
+                        <button type="button"
+                                id="clear-cart"
+                                class="clear-cart-btn">
+
+                            <i class="fa-solid fa-trash-can"></i>
+
+                            Kosongkan
+
+                        </button>
+
+                    </div>
+
+
+                    <!-- =========================================
+                         CART ITEMS
+                    ========================================== -->
+
+                    <div id="cart-items"
+                         class="cart-items">
+                    </div>
+
+
+                    <!-- =========================================
+                         PROMO
+                    ========================================== -->
+
+                    <div id="cart-promo"
+                         class="cart-promo">
+
+                        <div class="cart-promo-icon">
+                            🏷️
+                        </div>
+
+                        <div class="cart-promo-content">
+
+                            <strong>
+                                Promo Anna Amui
+                            </strong>
+
+                            <p id="cart-promo-text">
+                                Beli 3 Pack atau lebih
+                                untuk mendapatkan harga
+                                HK$10 / Pack.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =========================================
+                         CONTINUE SHOPPING
+                    ========================================== -->
+
+                    <a href="product.html"
+                       class="continue-shopping">
+
+                        <i class="fa-solid fa-arrow-left"></i>
+
+                        Lanjut Belanja
+
+                    </a>
+
+                </div>
+
+
+                <!-- =============================================
+                     RIGHT / SUMMARY
+                ============================================== -->
+
+                <aside class="cart-summary">
+
+
+                    <div class="summary-header">
+
+                        <h2>
+                            Ringkasan Pesanan
+                        </h2>
+
+                    </div>
+
+
+                    <!-- TOTAL PACK -->
+
+                    <div class="summary-row">
+
+                        <span>
+                            Total Pack
+                        </span>
+
+                        <strong id="summary-total-pack">
+                            0 Pack
+                        </strong>
+
+                    </div>
+
+
+                    <!-- HARGA PACK -->
+
+                    <div class="summary-row">
+
+                        <span>
+                            Harga / Pack
+                        </span>
+
+                        <strong id="summary-price">
+                            HK$12
+                        </strong>
+
+                    </div>
+
+
+                    <!-- PROMO -->
+
+                    <div class="summary-row promo-row">
+
+                        <span>
+                            Promo
+                        </span>
+
+                        <strong id="summary-promo">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <hr>
+
+
+                    <!-- SUBTOTAL -->
+
+                    <div class="summary-total">
+
+                        <span>
+                            Subtotal Barang
+                        </span>
+
+                        <strong id="summary-subtotal">
+                            HK$0
+                        </strong>
+
+                    </div>
+
+
+                    <!-- WEIGHT -->
+
+                    <div class="summary-row">
+
+                        <span>
+                            📦 Estimasi Berat
+                        </span>
+
+                        <strong id="summary-weight">
+                            0 Kg
+                        </strong>
+
+                    </div>
+
+
+                    <!-- SHIPPING -->
+
+                    <div class="summary-row">
+
+                        <span>
+                            🚚 Estimasi Ongkir
+                        </span>
+
+                        <strong id="summary-shipping">
+                            HK$0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-note">
+
+                        Ongkir merupakan estimasi berdasarkan
+                        berat paket. Ongkir dibayar sesuai
+                        ketentuan pengiriman.
+
+                    </div>
+
+
+                    <!-- CHECKOUT -->
+
+                    <button type="button"
+                            id="cart-checkout-btn"
+                            class="cart-checkout-btn">
+
+                        <span>
+                            Lanjutkan ke Checkout
+                        </span>
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+
+                    <div class="secure-note">
+
+                        <i class="fa-solid fa-shield-halved"></i>
+
+                        Pesanan aman dan mudah diproses
+
+                    </div>
+
+                </aside>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <div data-include="components/footer.html"></div>
+
+
+    <!-- =========================================================
+         MOBILE BOTTOM NAV
+    ========================================================== -->
+
+    <div data-include="components/bottom-nav.html"></div>
+
+
+    <!-- =========================================================
+         FLOATING WHATSAPP
+    ========================================================== -->
+
+    <div data-include="components/floating-wa.html"></div>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
+    <script src="js/include.js"></script>
+
+    <script src="js/cart.js"></script>
+
+</body>
+
+</html>
