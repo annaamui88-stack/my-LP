@@ -1,88 +1,40 @@
-/* ==========================================================================
+/* =========================================================
    CART.JS - ANNA AMUI
-   Shopping Cart System
-   ========================================================================== */
+   Sistem Keranjang Belanja
+   ========================================================= */
 
-document.addEventListener("DOMContentLoaded", function () {
+(function () {
 
-    /* =========================================================
-       CONFIG
-    ========================================================== */
+    "use strict";
+
+    /* =====================================================
+       KONFIGURASI
+       ===================================================== */
 
     const CART_KEY = "annaAmuiCart";
 
-    const PRICE_NORMAL = 12;
-    const PRICE_PROMO = 10;
-
-    // Berat 1 pack
-    const WEIGHT_PER_PACK = 0.2;
-
-    // Estimasi ongkir Hong Kong
-    const SHIPPING_PER_KG = 33;
+    const NORMAL_PRICE = 12;
+    const PROMO_PRICE = 10;
+    const PROMO_MIN_QTY = 3;
 
 
-    /* =========================================================
-       ELEMENTS
-    ========================================================== */
-
-    const cartContent = document.getElementById("cart-content");
-    const emptyCart = document.getElementById("empty-cart");
-
-    const cartItemsContainer =
-        document.getElementById("cart-items");
-
-    const cartItemCount =
-        document.getElementById("cart-item-count");
-
-    const clearCartBtn =
-        document.getElementById("clear-cart");
-
-    const checkoutBtn =
-        document.getElementById("cart-checkout-btn");
-
-    const promoText =
-        document.getElementById("cart-promo-text");
-
-    const summaryTotalPack =
-        document.getElementById("summary-total-pack");
-
-    const summaryPrice =
-        document.getElementById("summary-price");
-
-    const summaryPromo =
-        document.getElementById("summary-promo");
-
-    const summarySubtotal =
-        document.getElementById("summary-subtotal");
-
-    const summaryWeight =
-        document.getElementById("summary-weight");
-
-    const summaryShipping =
-        document.getElementById("summary-shipping");
-
-
-    /* =========================================================
-       LOAD CART
-    ========================================================== */
+    /* =====================================================
+       AMBIL CART
+       ===================================================== */
 
     function getCart() {
 
         try {
 
-            const savedCart =
-                localStorage.getItem(CART_KEY);
+            const cart = localStorage.getItem(CART_KEY);
 
-            if (!savedCart) {
+            if (!cart) {
                 return [];
             }
 
-            const cart =
-                JSON.parse(savedCart);
+            const parsed = JSON.parse(cart);
 
-            return Array.isArray(cart)
-                ? cart
-                : [];
+            return Array.isArray(parsed) ? parsed : [];
 
         } catch (error) {
 
@@ -92,538 +44,823 @@ document.addEventListener("DOMContentLoaded", function () {
             );
 
             return [];
+
         }
+
     }
 
 
-    /* =========================================================
-       SAVE CART
-    ========================================================== */
+    /* =====================================================
+       SIMPAN CART
+       ===================================================== */
 
     function saveCart(cart) {
 
-        localStorage.setItem(
-            CART_KEY,
-            JSON.stringify(cart)
-        );
+        try {
+
+            localStorage.setItem(
+                CART_KEY,
+                JSON.stringify(cart)
+            );
+
+            updateCartCount();
+
+        } catch (error) {
+
+            console.error(
+                "Gagal menyimpan keranjang:",
+                error
+            );
+
+        }
 
     }
 
 
-    /* =========================================================
-       TOTAL PACK
-    ========================================================== */
+    /* =====================================================
+       TOTAL ITEM
+       ===================================================== */
 
-    function getTotalPack(cart) {
+    function getTotalQuantity(cart = getCart()) {
 
         return cart.reduce(
-            (total, item) => {
-
-                return total +
-                    Number(item.quantity || 0);
-
-            },
+            (total, item) => total + Number(item.quantity || 0),
             0
         );
 
     }
 
 
-    /* =========================================================
-       GET PRICE
-    ========================================================== */
+    /* =====================================================
+       HARGA PER PACK
+       ===================================================== */
 
-    function getPrice(totalPack) {
+    function getPricePerPack(cart = getCart()) {
 
-        if (totalPack >= 3) {
-            return PRICE_PROMO;
-        }
+        const totalQty = getTotalQuantity(cart);
 
-        return PRICE_NORMAL;
+        return totalQty >= PROMO_MIN_QTY
+            ? PROMO_PRICE
+            : NORMAL_PRICE;
+
     }
 
 
-    /* =========================================================
-       FORMAT MONEY
-    ========================================================== */
+    /* =====================================================
+       SUBTOTAL
+       ===================================================== */
 
-    function formatMoney(value) {
+    function getSubtotal(cart = getCart()) {
 
-        return "HK$" +
-            Number(value).toLocaleString(
-                "en-US"
+        const totalQty = getTotalQuantity(cart);
+
+        const price = getPricePerPack(cart);
+
+        return totalQty * price;
+
+    }
+
+
+    /* =====================================================
+       TAMBAH PRODUK
+       ===================================================== */
+
+    function addToCart(product) {
+
+        if (!product || !product.id) {
+            console.error(
+                "Data produk tidak valid."
             );
-
-    }
-
-
-    /* =========================================================
-       FORMAT WEIGHT
-    ========================================================== */
-
-    function formatWeight(weight) {
-
-        if (weight <= 0) {
-            return "0 Kg";
-        }
-
-        return weight
-            .toFixed(1)
-            .replace(".0", "") +
-            " Kg";
-
-    }
-
-
-    /* =========================================================
-       RENDER CART
-    ========================================================== */
-
-    function renderCart() {
-
-        const cart = getCart();
-
-        const totalPack =
-            getTotalPack(cart);
-
-        /* -----------------------------------------
-           EMPTY CART
-        ----------------------------------------- */
-
-        if (cart.length === 0 || totalPack === 0) {
-
-            cartContent.style.display = "none";
-
-            emptyCart.style.display = "block";
-
-            updateCartBadge(0);
 
             return;
         }
 
 
-        /* -----------------------------------------
-           SHOW CART
-        ----------------------------------------- */
+        const cart = getCart();
 
-        cartContent.style.display = "grid";
 
-        emptyCart.style.display = "none";
+        const existingProduct = cart.find(
+            item => item.id === product.id
+        );
 
 
-        /* -----------------------------------------
-           CLEAR OLD ITEMS
-        ----------------------------------------- */
+        if (existingProduct) {
 
-        cartItemsContainer.innerHTML = "";
-
-
-        /* -----------------------------------------
-           PRICE
-        ----------------------------------------- */
-
-        const price =
-            getPrice(totalPack);
-
-
-        /* -----------------------------------------
-           RENDER EACH ITEM
-        ----------------------------------------- */
-
-        cart.forEach(function (item, index) {
-
-            const quantity =
-                Number(item.quantity || 0);
-
-            const itemSubtotal =
-                quantity * price;
-
-
-            const itemElement =
-                document.createElement("div");
-
-            itemElement.className =
-                "cart-item";
-
-
-            itemElement.innerHTML = `
-
-                <div class="cart-item-image">
-
-                    <img
-                        src="${item.image || "assets/img/manisan-mangga-paket-hemat-1-pack.png"}"
-                        alt="${item.name || "Manisan Mangga Anna Amui"}"
-                        loading="lazy"
-                    >
-
-                </div>
-
-
-                <div class="cart-item-content">
-
-                    <div class="cart-item-top">
-
-                        <div>
-
-                            <div class="cart-item-name">
-                                ${item.name || "Manisan Mangga"}
-                            </div>
-
-                            <div class="cart-item-variant">
-                                ${item.variant || ""}
-                            </div>
-
-                        </div>
-
-
-                        <button
-                            type="button"
-                            class="cart-item-delete"
-                            data-index="${index}"
-                            aria-label="Hapus produk"
-                        >
-
-                            <i class="fa-solid fa-trash-can"></i>
-
-                        </button>
-
-                    </div>
-
-
-                    <div class="cart-item-bottom">
-
-                        <div class="cart-quantity">
-
-                            <button
-                                type="button"
-                                class="cart-minus"
-                                data-index="${index}"
-                                aria-label="Kurangi jumlah"
-                            >
-                                −
-                            </button>
-
-                            <span>
-                                ${quantity}
-                            </span>
-
-                            <button
-                                type="button"
-                                class="cart-plus"
-                                data-index="${index}"
-                                aria-label="Tambah jumlah"
-                            >
-                                +
-                            </button>
-
-                        </div>
-
-
-                        <div class="cart-item-price">
-
-                            ${formatMoney(itemSubtotal)}
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            `;
-
-
-            cartItemsContainer.appendChild(
-                itemElement
-            );
-
-        });
-
-
-        /* -----------------------------------------
-           SUMMARY
-        ----------------------------------------- */
-
-        const subtotal =
-            totalPack * price;
-
-        const weight =
-            totalPack * WEIGHT_PER_PACK;
-
-        const shipping =
-            Math.ceil(weight) *
-            SHIPPING_PER_KG;
-
-
-        summaryTotalPack.textContent =
-            `${totalPack} Pack`;
-
-
-        summaryPrice.textContent =
-            formatMoney(price);
-
-
-        summarySubtotal.textContent =
-            formatMoney(subtotal);
-
-
-        summaryWeight.textContent =
-            formatWeight(weight);
-
-
-        summaryShipping.textContent =
-            formatMoney(shipping);
-
-
-        /* -----------------------------------------
-           PROMO
-        ----------------------------------------- */
-
-        if (totalPack >= 3) {
-
-            summaryPromo.textContent =
-                "HK$10 / Pack";
-
-            promoText.textContent =
-                `Promo aktif! Total ${totalPack} Pack mendapatkan harga HK$10 / Pack.`;
+            existingProduct.quantity += 1;
 
         } else {
 
-            const remaining =
-                3 - totalPack;
+            cart.push({
 
-            summaryPromo.textContent =
-                "-";
+                id: product.id,
 
-            promoText.textContent =
-                `Tambah ${remaining} Pack lagi untuk mendapatkan harga promo HK$10 / Pack.`;
+                name: product.name,
 
-        }
+                variant: product.variant || "",
 
+                price: Number(product.price || NORMAL_PRICE),
 
-        /* -----------------------------------------
-           ITEM COUNT
-        ----------------------------------------- */
+                image: product.image || "",
 
-        cartItemCount.textContent =
-            `${totalPack} Pack`;
+                quantity: 1
 
-
-        /* -----------------------------------------
-           BADGE
-        ----------------------------------------- */
-
-        updateCartBadge(totalPack);
-
-    }
-
-
-    /* =========================================================
-       PLUS
-    ========================================================== */
-
-    cartItemsContainer.addEventListener(
-        "click",
-        function (event) {
-
-            const plusButton =
-                event.target.closest(".cart-plus");
-
-            if (!plusButton) {
-                return;
-            }
-
-            const index =
-                Number(
-                    plusButton.dataset.index
-                );
-
-            const cart = getCart();
-
-            if (!cart[index]) {
-                return;
-            }
-
-            cart[index].quantity =
-                Number(cart[index].quantity || 0) + 1;
-
-            saveCart(cart);
-
-            renderCart();
+            });
 
         }
-    );
 
 
-    /* =========================================================
-       MINUS
-    ========================================================== */
-
-    cartItemsContainer.addEventListener(
-        "click",
-        function (event) {
-
-            const minusButton =
-                event.target.closest(".cart-minus");
-
-            if (!minusButton) {
-                return;
-            }
-
-            const index =
-                Number(
-                    minusButton.dataset.index
-                );
-
-            const cart = getCart();
-
-            if (!cart[index]) {
-                return;
-            }
-
-            cart[index].quantity =
-                Number(cart[index].quantity || 0) - 1;
+        saveCart(cart);
 
 
-            /* -----------------------------------------
-               REMOVE IF ZERO
-            ----------------------------------------- */
-
-            if (cart[index].quantity <= 0) {
-
-                cart.splice(index, 1);
-
-            }
-
-
-            saveCart(cart);
-
-            renderCart();
-
-        }
-    );
-
-
-    /* =========================================================
-       DELETE ITEM
-    ========================================================== */
-
-    cartItemsContainer.addEventListener(
-        "click",
-        function (event) {
-
-            const deleteButton =
-                event.target.closest(
-                    ".cart-item-delete"
-                );
-
-            if (!deleteButton) {
-                return;
-            }
-
-            const index =
-                Number(
-                    deleteButton.dataset.index
-                );
-
-            const cart = getCart();
-
-            if (!cart[index]) {
-                return;
-            }
-
-
-            cart.splice(index, 1);
-
-            saveCart(cart);
-
-            renderCart();
-
-        }
-    );
-
-
-    /* =========================================================
-       CLEAR CART
-    ========================================================== */
-
-    if (clearCartBtn) {
-
-        clearCartBtn.addEventListener(
-            "click",
-            function () {
-
-                const cart = getCart();
-
-                if (cart.length === 0) {
-                    return;
-                }
-
-
-                const confirmed =
-                    confirm(
-                        "Apakah Anda yakin ingin mengosongkan keranjang?"
-                    );
-
-
-                if (!confirmed) {
-                    return;
-                }
-
-
-                localStorage.removeItem(
-                    CART_KEY
-                );
-
-                renderCart();
-
-            }
+        showCartNotification(
+            `${product.name} ditambahkan ke keranjang`
         );
 
     }
 
 
-    /* =========================================================
+    /* =====================================================
+       TAMBAH JUMLAH
+       ===================================================== */
+
+    function increaseQuantity(productId) {
+
+        const cart = getCart();
+
+        const item = cart.find(
+            product => product.id === productId
+        );
+
+        if (!item) {
+            return;
+        }
+
+        item.quantity += 1;
+
+        saveCart(cart);
+
+        renderCart();
+
+    }
+
+
+    /* =====================================================
+       KURANG JUMLAH
+       ===================================================== */
+
+    function decreaseQuantity(productId) {
+
+        const cart = getCart();
+
+        const item = cart.find(
+            product => product.id === productId
+        );
+
+        if (!item) {
+            return;
+        }
+
+
+        item.quantity -= 1;
+
+
+        if (item.quantity <= 0) {
+
+            const index = cart.findIndex(
+                product => product.id === productId
+            );
+
+            cart.splice(index, 1);
+
+        }
+
+
+        saveCart(cart);
+
+        renderCart();
+
+    }
+
+
+    /* =====================================================
+       HAPUS PRODUK
+       ===================================================== */
+
+    function removeFromCart(productId) {
+
+        let cart = getCart();
+
+        cart = cart.filter(
+            item => item.id !== productId
+        );
+
+        saveCart(cart);
+
+        renderCart();
+
+    }
+
+
+    /* =====================================================
+       KOSONGKAN CART
+       ===================================================== */
+
+    function clearCart() {
+
+        localStorage.removeItem(CART_KEY);
+
+        updateCartCount();
+
+        renderCart();
+
+    }
+
+
+    /* =====================================================
+       UPDATE JUMLAH ICON CART
+       ===================================================== */
+
+    function updateCartCount() {
+
+        const cart = getCart();
+
+        const total = getTotalQuantity(cart);
+
+
+        const counters = document.querySelectorAll(
+            "#cart-count, .cart-count"
+        );
+
+
+        counters.forEach(counter => {
+
+            counter.textContent = total;
+
+            if (total > 0) {
+
+                counter.classList.add(
+                    "has-items"
+                );
+
+            } else {
+
+                counter.classList.remove(
+                    "has-items"
+                );
+
+            }
+
+        });
+
+    }
+
+
+    /* =====================================================
+       NOTIFIKASI
+       ===================================================== */
+
+    function showCartNotification(message) {
+
+        let notification =
+            document.getElementById(
+                "cart-notification"
+            );
+
+
+        if (!notification) {
+
+            notification =
+                document.createElement("div");
+
+            notification.id =
+                "cart-notification";
+
+            notification.className =
+                "cart-notification";
+
+            document.body.appendChild(
+                notification
+            );
+
+        }
+
+
+        notification.innerHTML = `
+            <i class="fa-solid fa-check"></i>
+            <span>${message}</span>
+        `;
+
+
+        notification.classList.add(
+            "show"
+        );
+
+
+        clearTimeout(
+            notification._timer
+        );
+
+
+        notification._timer =
+            setTimeout(() => {
+
+                notification.classList.remove(
+                    "show"
+                );
+
+            }, 2200);
+
+    }
+
+
+    /* =====================================================
+       DATA DARI TOMBOL PRODUK
+       ===================================================== */
+
+    function getProductFromButton(button) {
+
+        return {
+
+            id:
+                button.dataset.productId,
+
+            name:
+                button.dataset.productName,
+
+            variant:
+                button.dataset.productVariant,
+
+            price:
+                Number(
+                    button.dataset.productPrice ||
+                    NORMAL_PRICE
+                ),
+
+            image:
+                button.dataset.productImage || ""
+
+        };
+
+    }
+
+
+    /* =====================================================
+       TOMBOL TAMBAH KE KERANJANG
+       ===================================================== */
+
+    function initAddToCartButtons() {
+
+        const buttons =
+            document.querySelectorAll(
+                ".product-add-cart"
+            );
+
+
+        buttons.forEach(button => {
+
+            button.addEventListener(
+                "click",
+                function () {
+
+                    const product =
+                        getProductFromButton(
+                            this
+                        );
+
+                    addToCart(product);
+
+                }
+            );
+
+        });
+
+    }
+
+
+    /* =====================================================
+       BELI SEKARANG
+       ===================================================== */
+
+    function initBuyNowButtons() {
+
+        const buttons =
+            document.querySelectorAll(
+                ".product-buy-now"
+            );
+
+
+        buttons.forEach(button => {
+
+            button.addEventListener(
+                "click",
+                function () {
+
+                    const product =
+                        getProductFromButton(
+                            this
+                        );
+
+
+                    const cart =
+                        getCart();
+
+
+                    const existing =
+                        cart.find(
+                            item =>
+                                item.id ===
+                                product.id
+                        );
+
+
+                    if (existing) {
+
+                        existing.quantity += 1;
+
+                    } else {
+
+                        cart.push({
+
+                            id:
+                                product.id,
+
+                            name:
+                                product.name,
+
+                            variant:
+                                product.variant,
+
+                            price:
+                                product.price,
+
+                            image:
+                                product.image,
+
+                            quantity: 1
+
+                        });
+
+                    }
+
+
+                    saveCart(cart);
+
+
+                    window.location.href =
+                        "cart.html";
+
+                }
+            );
+
+        });
+
+    }
+
+
+    /* =====================================================
+       RENDER CART
+       ===================================================== */
+
+    function renderCart() {
+
+        const cartContainer =
+            document.getElementById(
+                "cart-items"
+            );
+
+
+        if (!cartContainer) {
+            return;
+        }
+
+
+        const cart = getCart();
+
+
+        if (cart.length === 0) {
+
+            cartContainer.innerHTML = `
+                <div class="cart-empty">
+
+                    <div class="cart-empty-icon">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+
+                    <h2>
+                        Keranjang Masih Kosong
+                    </h2>
+
+                    <p>
+                        Yuk pilih produk Anna Amui
+                        terlebih dahulu.
+                    </p>
+
+                    <a
+                        href="produk.html"
+                        class="btn btn-primary"
+                    >
+                        Lihat Produk
+                    </a>
+
+                </div>
+            `;
+
+            updateCartSummary();
+
+            return;
+
+        }
+
+
+        cartContainer.innerHTML =
+            cart.map(item => {
+
+                const itemTotal =
+                    item.quantity *
+                    getPricePerPack(cart);
+
+
+                return `
+
+                    <div
+                        class="cart-item"
+                        data-id="${item.id}"
+                    >
+
+                        <div class="cart-item-image">
+
+                            <img
+                                src="${item.image}"
+                                alt="${item.name}"
+                            >
+
+                        </div>
+
+
+                        <div class="cart-item-info">
+
+                            <span class="cart-item-variant">
+                                ${item.variant}
+                            </span>
+
+                            <h3>
+                                ${item.name}
+                            </h3>
+
+                            <p>
+                                HK$${getPricePerPack(cart)}
+                                / Pack
+                            </p>
+
+
+                            <div class="cart-item-bottom">
+
+                                <div class="cart-quantity">
+
+                                    <button
+                                        type="button"
+                                        class="cart-minus"
+                                        data-id="${item.id}"
+                                    >
+                                        −
+                                    </button>
+
+                                    <span>
+                                        ${item.quantity}
+                                    </span>
+
+                                    <button
+                                        type="button"
+                                        class="cart-plus"
+                                        data-id="${item.id}"
+                                    >
+                                        +
+                                    </button>
+
+                                </div>
+
+
+                                <strong>
+                                    HK$${itemTotal}
+                                </strong>
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                class="cart-remove"
+                                data-id="${item.id}"
+                            >
+                                <i class="fa-solid fa-trash"></i>
+                                Hapus
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+            }).join("");
+
+
+        initCartButtons();
+
+        updateCartSummary();
+
+    }
+
+
+    /* =====================================================
+       BUTTON CART
+       ===================================================== */
+
+    function initCartButtons() {
+
+        document
+            .querySelectorAll(".cart-plus")
+            .forEach(button => {
+
+                button.onclick = () => {
+
+                    increaseQuantity(
+                        button.dataset.id
+                    );
+
+                };
+
+            });
+
+
+        document
+            .querySelectorAll(".cart-minus")
+            .forEach(button => {
+
+                button.onclick = () => {
+
+                    decreaseQuantity(
+                        button.dataset.id
+                    );
+
+                };
+
+            });
+
+
+        document
+            .querySelectorAll(".cart-remove")
+            .forEach(button => {
+
+                button.onclick = () => {
+
+                    removeFromCart(
+                        button.dataset.id
+                    );
+
+                };
+
+            });
+
+    }
+
+
+    /* =====================================================
+       SUMMARY CART
+       ===================================================== */
+
+    function updateCartSummary() {
+
+        const cart = getCart();
+
+        const totalQty =
+            getTotalQuantity(cart);
+
+        const price =
+            getPricePerPack(cart);
+
+        const subtotal =
+            getSubtotal(cart);
+
+
+        const totalPack =
+            document.getElementById(
+                "cart-total-pack"
+            );
+
+        const pricePack =
+            document.getElementById(
+                "cart-price-pack"
+            );
+
+        const subtotalElement =
+            document.getElementById(
+                "cart-subtotal"
+            );
+
+
+        if (totalPack) {
+            totalPack.textContent =
+                totalQty;
+        }
+
+
+        if (pricePack) {
+
+            pricePack.textContent =
+                `HK$${price}`;
+
+        }
+
+
+        if (subtotalElement) {
+
+            subtotalElement.textContent =
+                `HK$${subtotal}`;
+
+        }
+
+
+        const promo =
+            document.getElementById(
+                "cart-promo"
+            );
+
+
+        if (promo) {
+
+            if (totalQty >= PROMO_MIN_QTY) {
+
+                promo.innerHTML = `
+                    <i class="fa-solid fa-circle-check"></i>
+                    Promo aktif! Harga
+                    <strong>HK$10 / Pack</strong>
+                    karena membeli ${totalQty} Pack.
+                `;
+
+                promo.classList.add(
+                    "active"
+                );
+
+            } else {
+
+                promo.innerHTML = `
+                    <i class="fa-solid fa-tag"></i>
+                    Beli ${PROMO_MIN_QTY - totalQty}
+                    Pack lagi untuk mendapatkan
+                    harga promo HK$10 / Pack.
+                `;
+
+                promo.classList.remove(
+                    "active"
+                );
+
+            }
+
+        }
+
+
+        updateCartCount();
+
+    }
+
+
+    /* =====================================================
        CHECKOUT
-    ========================================================== */
+       ===================================================== */
 
-    if (checkoutBtn) {
+    function initCheckoutButton() {
 
-        checkoutBtn.addEventListener(
+        const button =
+            document.getElementById(
+                "cart-checkout"
+            );
+
+
+        if (!button) {
+            return;
+        }
+
+
+        button.addEventListener(
             "click",
             function () {
 
                 const cart = getCart();
 
-                const totalPack =
-                    getTotalPack(cart);
-
 
                 if (
-                    cart.length === 0 ||
-                    totalPack === 0
+                    cart.length === 0
                 ) {
 
-                    alert(
-                        "Keranjang Anda masih kosong."
+                    showCartNotification(
+                        "Keranjang masih kosong"
                     );
 
                     return;
+
                 }
 
-
-                /*
-                 * Untuk sekarang langsung
-                 * menuju checkout.
-                 *
-                 * Kedepannya di sini kita
-                 * bisa menambahkan:
-                 *
-                 * negara tujuan
-                 * metode pengiriman
-                 * alamat
-                 * mata uang
-                 * ongkir negara
-                 */
 
                 window.location.href =
                     "checkout.html";
@@ -634,68 +871,77 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* =========================================================
-       CART BADGE
-    ========================================================== */
+    /* =====================================================
+       INIT
+       ===================================================== */
 
-    function updateCartBadge(total) {
+    function initCart() {
 
-        /*
-         * Mendukung beberapa kemungkinan
-         * nama badge agar mudah diintegrasikan
-         * dengan header/bottom navigation.
-         */
+        updateCartCount();
 
-        const badges =
-            document.querySelectorAll(
-                ".cart-count, .cart-badge, [data-cart-count]"
-            );
+        initAddToCartButtons();
 
+        initBuyNowButtons();
 
-        badges.forEach(function (badge) {
+        renderCart();
 
-            badge.textContent = total;
-
-
-            if (total > 0) {
-
-                badge.style.display =
-                    "flex";
-
-            } else {
-
-                badge.style.display =
-                    "none";
-
-            }
-
-        });
+        initCheckoutButton();
 
     }
 
 
-    /* =========================================================
-       GLOBAL CART UPDATE
-    ========================================================== */
+    /* =====================================================
+       PUBLIC API
+       ===================================================== */
 
-    window.addEventListener(
-        "storage",
-        function (event) {
+    window.AnnaAmuiCart = {
 
-            if (event.key === CART_KEY) {
+        getCart,
 
-                renderCart();
+        saveCart,
 
-            }
+        addToCart,
 
-        }
-    );
+        increaseQuantity,
+
+        decreaseQuantity,
+
+        removeFromCart,
+
+        clearCart,
+
+        getTotalQuantity,
+
+        getPricePerPack,
+
+        getSubtotal,
+
+        updateCartCount,
+
+        renderCart
+
+    };
 
 
-    /* =========================================================
-       INITIAL RENDER
-    ========================================================== */
+    /* =====================================================
+       DOCUMENT READY
+       ===================================================== */
 
-    renderCart();
+    if (
+        document.readyState ===
+        "loading"
+    ) {
 
-});
+        document.addEventListener(
+            "DOMContentLoaded",
+            initCart
+        );
+
+    } else {
+
+        initCart();
+
+    }
+
+
+})();
