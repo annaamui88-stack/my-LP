@@ -2,23 +2,24 @@
 <html lang="id">
 
 <head>
-
     <meta charset="UTF-8">
 
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-
-    <!-- =====================================================
-         SEO
-    ====================================================== -->
+    <!-- =========================================================
+         SEO UTAMA
+    ========================================================== -->
 
     <title>
-        Tentang Anna Amui | Manisan Mangga Khas Indramayu
+        Tentang Anna Amui | Manisan Mangga Khas Indramayu untuk WNI di Hong Kong
     </title>
 
     <meta name="description"
-          content="Kenali Anna Amui, penyedia manisan mangga khas Indramayu untuk WNI di Hong Kong. Dibuat dari mangga pilihan dengan rasa Original dan Pedas, menghadirkan cita rasa kampung halaman Indonesia.">
+          content="Kenali Anna Amui, penyedia manisan mangga khas Indramayu untuk WNI di Hong Kong. Dibuat dari mangga pilihan asal Indramayu dengan cita rasa kampung halaman dan dikirim ke Hong Kong.">
+
+    <meta name="keywords"
+          content="manisan mangga Indramayu, manisan mangga khas Indramayu, manisan mangga Hong Kong, manisan mangga untuk WNI Hong Kong, Anna Amui">
 
     <meta name="author"
           content="Anna Amui">
@@ -29,45 +30,18 @@
     <meta name="theme-color"
           content="#16a34a">
 
+
+    <!-- =========================================================
+         CANONICAL
+    ========================================================== -->
+
     <link rel="canonical"
           href="https://annaamui.shop/tentang.html">
 
 
-    <!-- =====================================================
-         FAVICON
-    ====================================================== -->
-
-    <link rel="icon"
-          type="image/png"
-          href="favicon.png">
-
-
-    <!-- =====================================================
-         OPEN GRAPH
-    ====================================================== -->
-
-    <meta property="og:type"
-          content="website">
-
-    <meta property="og:title"
-          content="Tentang Anna Amui | Manisan Mangga Khas Indramayu">
-
-    <meta property="og:description"
-          content="Kenali Anna Amui, manisan mangga khas Indramayu untuk WNI di Hong Kong dengan rasa Original dan Pedas.">
-
-    <meta property="og:url"
-          content="https://annaamui.shop/tentang.html">
-
-    <meta property="og:site_name"
-          content="Anna Amui">
-
-    <meta property="og:locale"
-          content="id_ID">
-
-
-    <!-- =====================================================
+    <!-- =========================================================
          GOOGLE FONTS
-    ====================================================== -->
+    ========================================================== -->
 
     <link rel="preconnect"
           href="https://fonts.googleapis.com">
@@ -80,17 +54,56 @@
           rel="stylesheet">
 
 
-    <!-- =====================================================
-         FONT AWESOME
-    ====================================================== -->
+    <!-- =========================================================
+         OPEN GRAPH
+         Untuk Facebook, WhatsApp, dll.
+    ========================================================== -->
 
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <meta property="og:type"
+          content="website">
+
+    <meta property="og:title"
+          content="Tentang Anna Amui | Manisan Mangga Khas Indramayu">
+
+    <meta property="og:description"
+          content="Kenali Anna Amui dan cerita di balik manisan mangga khas Indramayu untuk WNI di Hong Kong.">
+
+    <meta property="og:url"
+          content="https://annaamui.shop/tentang.html">
+
+    <meta property="og:site_name"
+          content="Anna Amui">
+
+    <meta property="og:locale"
+          content="id_ID">
 
 
-    <!-- =====================================================
-         CSS GLOBAL
-    ====================================================== -->
+    <!-- =========================================================
+         TWITTER / X
+    ========================================================== -->
+
+    <meta name="twitter:card"
+          content="summary">
+
+    <meta name="twitter:title"
+          content="Tentang Anna Amui | Manisan Mangga Khas Indramayu">
+
+    <meta name="twitter:description"
+          content="Manisan mangga khas Indramayu untuk WNI di Hong Kong dengan cita rasa kampung halaman.">
+
+
+    <!-- =========================================================
+         FAVICON
+    ========================================================== -->
+
+    <link rel="icon"
+          type="image/png"
+          href="favicon.png">
+
+
+    <!-- =========================================================
+         CSS
+    ========================================================== -->
 
     <link rel="stylesheet"
           href="css/main.css">
@@ -102,17 +115,37 @@
           href="css/responsive.css">
 
 
-    <!-- =====================================================
-         CSS KHUSUS TENTANG
-    ====================================================== -->
-
-    <link rel="stylesheet"
-          href="css/tentang.css">
-
-
-    <!-- =====================================================
+    <!-- =========================================================
          STRUCTURED DATA
-    ====================================================== -->
+         ABOUT PAGE
+    ========================================================== -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "name": "Tentang Anna Amui",
+        "url": "https://annaamui.shop/tentang.html",
+        "description": "Tentang Anna Amui, manisan mangga khas Indramayu untuk WNI di Hong Kong.",
+        "inLanguage": "id-ID",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "Anna Amui",
+            "url": "https://annaamui.shop/"
+        },
+        "about": {
+            "@type": "Brand",
+            "name": "Anna Amui",
+            "url": "https://annaamui.shop/"
+        }
+    }
+    </script>
+
+
+    <!-- =========================================================
+         STRUCTURED DATA
+         ORGANIZATION / BRAND
+    ========================================================== -->
 
     <script type="application/ld+json">
     {
@@ -120,14 +153,10 @@
         "@type": "Organization",
         "name": "Anna Amui",
         "url": "https://annaamui.shop/",
-        "description": "Anna Amui menyediakan manisan mangga khas Indramayu untuk WNI di Hong Kong.",
+        "description": "Anna Amui menghadirkan manisan mangga khas Indramayu untuk WNI di Hong Kong.",
         "brand": {
             "@type": "Brand",
             "name": "Anna Amui"
-        },
-        "areaServed": {
-            "@type": "Place",
-            "name": "Hong Kong"
         }
     }
     </script>
@@ -138,421 +167,483 @@
 <body>
 
 
-<!-- =========================================================
-     HEADER
-========================================================= -->
+    <!-- =========================================================
+         HEADER
+    ========================================================== -->
 
-<div data-include="components/header.html"></div>
+    <div data-include="components/header.html"></div>
 
 
+    <!-- =========================================================
+         MOBILE BOTTOM NAVIGATION
+    ========================================================== -->
 
-<!-- =========================================================
-     MOBILE BOTTOM NAVIGATION
-========================================================= -->
+    <div data-include="components/bottom-nav.html"></div>
 
-<div data-include="components/bottom-nav.html"></div>
 
+    <!-- =========================================================
+         MAIN CONTENT
+    ========================================================== -->
 
+    <main>
 
-<!-- =========================================================
-     MAIN CONTENT
-========================================================= -->
+        <section class="section"
+                 style="padding-top: 10px;">
 
-<main>
+            <div class="container">
 
-    <!-- =====================================================
-         ABOUT HEADER
-    ====================================================== -->
 
-    <section class="about-page">
+                <!-- =================================================
+                     PAGE HEADER
+                ================================================== -->
 
-        <div class="container">
-
-
-            <header class="about-header">
-
-                <span class="section-subtitle">
-                    CERITA KAMI
-                </span>
-
-                <h1 class="section-title">
-                    Tentang Anna Amui
-                </h1>
-
-                <p class="about-intro">
-                    Manisan mangga khas Indramayu untuk menghadirkan
-                    kembali cita rasa kampung halaman di Hong Kong.
-                </p>
-
-            </header>
-
-
-
-            <!-- =================================================
-                 CERITA ANNA AMUI
-            ================================================== -->
-
-            <article class="about-content">
-
-                <p>
-                    Halo WNI hebat di Hong Kong!
-                    <strong>Anna Amui</strong> hadir berawal dari
-                    kerinduan terhadap cita rasa jajanan khas
-                    kampung halaman di Indonesia, khususnya
-                    <strong>manisan mangga khas Indramayu</strong>.
-                </p>
-
-
-                <p>
-                    Kami memahami betapa rindunya menikmati camilan
-                    dengan cita rasa yang familiar ketika berada
-                    jauh dari rumah. Karena itu, Anna Amui hadir
-                    untuk membawa rasa khas Indonesia lebih dekat
-                    kepada Anda.
-                </p>
-
-
-                <p>
-                    Manisan mangga Anna Amui dibuat dari mangga
-                    pilihan asal <strong>Indramayu</strong>, salah
-                    satu daerah yang dikenal sebagai penghasil
-                    mangga di Indonesia.
-                </p>
-
-
-                <p>
-                    Kami menghadirkan pilihan rasa
-                    <strong>Original</strong> dan
-                    <strong>Pedas</strong>, sehingga Anda dapat
-                    memilih sesuai selera.
-                </p>
-
-
-                <p>
-                    Bagi kami, manisan mangga bukan hanya sekadar
-                    camilan. Ada rasa, kenangan, dan cerita
-                    kampung halaman di dalamnya.
-                </p>
-
-            </article>
-
-
-
-            <!-- =================================================
-                 KEUNGGULAN
-            ================================================== -->
-
-            <section class="about-features"
-                     aria-label="Keunggulan Anna Amui">
-
-
-                <!-- MANGGA -->
-
-                <article class="about-feature">
-
-                    <span class="about-feature-icon"
-                          aria-hidden="true">
-
-                        🥭
-
-                    </span>
-
-                    <h2>
-                        Mangga Pilihan
-                    </h2>
-
-                    <p>
-                        Menggunakan mangga berkualitas asal
-                        Indramayu dengan cita rasa khas.
-                    </p>
-
-                </article>
-
-
-
-                <!-- KHAS INDRAMAYU -->
-
-                <article class="about-feature">
-
-                    <span class="about-feature-icon"
-                          aria-hidden="true">
-
-                        🇮🇩
-
-                    </span>
-
-                    <h2>
-                        Khas Indramayu
-                    </h2>
-
-                    <p>
-                        Menghadirkan cita rasa manisan mangga
-                        khas kampung halaman Indonesia.
-                    </p>
-
-                </article>
-
-
-
-                <!-- HONG KONG -->
-
-                <article class="about-feature">
-
-                    <span class="about-feature-icon"
-                          aria-hidden="true">
-
-                        ✈️
-
-                    </span>
-
-                    <h2>
-                        Untuk WNI di Hong Kong
-                    </h2>
-
-                    <p>
-                        Memudahkan WNI di Hong Kong menikmati
-                        camilan khas Indonesia.
-                    </p>
-
-                </article>
-
-
-
-                <!-- KENANGAN -->
-
-                <article class="about-feature">
-
-                    <span class="about-feature-icon"
-                          aria-hidden="true">
-
-                        ❤️
-
-                    </span>
-
-                    <h2>
-                        Rasa Kampung Halaman
-                    </h2>
-
-                    <p>
-                        Menghadirkan rasa dan kenangan Indonesia
-                        saat berada jauh dari kampung halaman.
-                    </p>
-
-                </article>
-
-            </section>
-
-
-
-            <!-- =================================================
-                 PILIHAN RASA
-            ================================================== -->
-
-            <section class="about-varian"
-                     aria-labelledby="varian-title">
-
-                <div class="about-section-heading">
+                <header class="section-header text-center">
 
                     <span class="section-subtitle">
-                        PILIHAN RASA
+                        Cerita Kami
                     </span>
 
-                    <h2 id="varian-title">
-                        Nikmati Sesuai Selera
-                    </h2>
+                    <h1 class="section-title">
+                        Tentang Anna Amui
+                    </h1>
+
+                </header>
+
+
+                <!-- =================================================
+                     INTRODUCTION
+                ================================================== -->
+
+                <div style="
+                    max-width: 800px;
+                    margin: 0 auto;
+                    line-height: 1.8;
+                    font-size: 1.05rem;
+                    color: #333;
+                ">
+
+                    <p style="margin-bottom: 20px;">
+
+                        Halo WNI hebat di Hong Kong!
+
+                        <strong>Anna Amui</strong> hadir dari
+                        kerinduan terhadap cita rasa jajanan khas
+                        kampung halaman di Indonesia, khususnya
+                        <strong>manisan mangga khas Indramayu</strong>.
+
+                    </p>
+
+
+                    <p style="margin-bottom: 20px;">
+
+                        Kami memahami bahwa berada jauh dari Indonesia
+                        sering membuat kita merindukan makanan dan
+                        camilan dengan cita rasa yang familiar.
+
+                        Karena itu, Anna Amui hadir untuk membantu
+                        menghadirkan kembali rasa tersebut melalui
+                        <strong>manisan mangga pilihan asal
+                        Indramayu</strong>.
+
+                    </p>
+
+
+                    <p style="margin-bottom: 20px;">
+
+                        Dengan cita rasa manis dan pilihan rasa
+                        Original maupun Pedas, Anna Amui ditujukan
+                        bagi WNI di Hong Kong yang ingin menikmati
+                        <strong>manisan mangga khas Indonesia</strong>
+                        sebagai teman bersantai sekaligus pengingat
+                        akan kampung halaman.
+
+                    </p>
 
                 </div>
 
 
-                <div class="about-varian-grid">
+                <!-- =================================================
+                     KEUNGGULAN
+                ================================================== -->
+
+                <div class="features-grid"
+                     style="margin-top: 50px;">
 
 
-                    <!-- ORIGINAL -->
+                    <!-- MANGGA PILIHAN -->
 
-                    <article class="about-varian-card">
+                    <article class="feature-item">
 
-                        <div class="about-varian-icon original">
-                            <i class="fa-solid fa-lemon"
-                               aria-hidden="true"></i>
-                        </div>
+                        <span class="f-icon"
+                              aria-hidden="true">
+                            🥭
+                        </span>
 
-                        <div>
+                        <h2>
+                            Mangga Pilihan
+                        </h2>
+
+                        <p style="
+                            font-size: 0.9rem;
+                            color: #666;
+                            margin-top: 8px;
+                        ">
+
+                            Menggunakan mangga berkualitas
+                            asal Indramayu dengan cita rasa
+                            khas yang cocok diolah menjadi
+                            manisan.
+
+                        </p>
+
+                    </article>
+
+
+                    <!-- KHAS INDRAMAYU -->
+
+                    <article class="feature-item">
+
+                        <span class="f-icon"
+                              aria-hidden="true">
+                            🇮🇩
+                        </span>
+
+                        <h2>
+                            Khas Indramayu
+                        </h2>
+
+                        <p style="
+                            font-size: 0.9rem;
+                            color: #666;
+                            margin-top: 8px;
+                        ">
+
+                            Menghadirkan cita rasa manisan
+                            mangga yang terinspirasi dari
+                            kuliner khas kampung halaman.
+
+                        </p>
+
+                    </article>
+
+
+                    <!-- HONG KONG -->
+
+                    <article class="feature-item">
+
+                        <span class="f-icon"
+                              aria-hidden="true">
+                            ✈️
+                        </span>
+
+                        <h2>
+                            Untuk WNI di Hong Kong
+                        </h2>
+
+                        <p style="
+                            font-size: 0.9rem;
+                            color: #666;
+                            margin-top: 8px;
+                        ">
+
+                            Membantu WNI di Hong Kong menikmati
+                            camilan khas Indonesia tanpa harus
+                            jauh mencari rasa kampung halaman.
+
+                        </p>
+
+                    </article>
+
+
+                    <!-- RASA KAMPUNG HALAMAN -->
+
+                    <article class="feature-item">
+
+                        <span class="f-icon"
+                              aria-hidden="true">
+                            ❤️
+                        </span>
+
+                        <h2>
+                            Rasa Kampung Halaman
+                        </h2>
+
+                        <p style="
+                            font-size: 0.9rem;
+                            color: #666;
+                            margin-top: 8px;
+                        ">
+
+                            Menghadirkan rasa dan kenangan
+                            kampung halaman Indonesia di
+                            tengah kehidupan Anda di Hong Kong.
+
+                        </p>
+
+                    </article>
+
+                </div>
+
+
+                <!-- =================================================
+                     PILIHAN RASA
+                ================================================== -->
+
+                <section style="
+                    max-width: 800px;
+                    margin: 60px auto 0;
+                ">
+
+                    <div class="section-header">
+
+                        <span class="section-subtitle">
+                            Pilihan Rasa
+                        </span>
+
+                        <h2 class="section-title">
+                            Nikmati Sesuai Selera
+                        </h2>
+
+                    </div>
+
+
+                    <div style="
+                        display: grid;
+                        gap: 20px;
+                    ">
+
+
+                        <!-- ORIGINAL -->
+
+                        <article class="feature-item"
+                                 style="text-align: left;">
+
+                            <span class="f-icon"
+                                  aria-hidden="true">
+                                🥭
+                            </span>
 
                             <h3>
                                 Original
                             </h3>
 
-                            <p>
+                            <p style="
+                                font-size: 0.95rem;
+                                color: #666;
+                                margin-top: 8px;
+                                line-height: 1.7;
+                            ">
+
                                 Rasa manis dan segar dengan
                                 cita rasa khas manisan mangga.
+
                             </p>
 
-                        </div>
-
-                    </article>
+                        </article>
 
 
+                        <!-- PEDAS -->
 
-                    <!-- PEDAS -->
+                        <article class="feature-item"
+                                 style="text-align: left;">
 
-                    <article class="about-varian-card">
-
-                        <div class="about-varian-icon pedas">
-                            <i class="fa-solid fa-pepper-hot"
-                               aria-hidden="true"></i>
-                        </div>
-
-                        <div>
+                            <span class="f-icon"
+                                  aria-hidden="true">
+                                🌶️
+                            </span>
 
                             <h3>
                                 Pedas
                             </h3>
 
-                            <p>
+                            <p style="
+                                font-size: 0.95rem;
+                                color: #666;
+                                margin-top: 8px;
+                                line-height: 1.7;
+                            ">
+
                                 Perpaduan rasa manis dengan
-                                sensasi pedas yang menggugah selera.
+                                sensasi pedas yang menggugah
+                                selera.
+
                             </p>
 
-                        </div>
+                        </article>
 
-                    </article>
+                    </div>
 
-                </div>
-
-            </section>
+                </section>
 
 
+                <!-- =================================================
+                     LAYANAN PEMESANAN
+                ================================================== -->
 
-            <!-- =================================================
-                 PENGIRIMAN
-            ================================================== -->
+                <section style="
+                    max-width: 800px;
+                    margin: 60px auto 0;
+                ">
 
-            <section class="about-shipping"
-                     aria-labelledby="shipping-title">
+                    <div class="section-header">
 
-                <div class="about-shipping-icon">
+                        <span class="section-subtitle">
+                            Layanan Pemesanan
+                        </span>
 
-                    <i class="fa-solid fa-box"
-                       aria-hidden="true"></i>
+                        <h2 class="section-title">
+                            Manisan Mangga untuk WNI di Hong Kong
+                        </h2>
 
-                </div>
+                    </div>
 
 
-                <div class="about-shipping-content">
+                    <div style="
+                        line-height: 1.8;
+                        font-size: 1rem;
+                        color: #333;
+                    ">
+
+                        <p style="margin-bottom: 20px;">
+
+                            Pesanan Anna Amui dikirim secara rutin
+                            menuju Hong Kong. Jadwal pengiriman,
+                            lokasi pengambilan, dan informasi pesanan
+                            akan dikonfirmasi melalui WhatsApp.
+
+                        </p>
+
+
+                        <p>
+
+                            Untuk melihat pilihan manisan mangga,
+                            rasa Original dan Pedas, serta paket yang
+                            tersedia, silakan melihat halaman produk
+                            Anna Amui.
+
+                        </p>
+
+                    </div>
+
+
+                    <!-- BUTTON -->
+
+                    <div style="
+                        margin-top: 25px;
+                    ">
+
+                        <a href="produk.html"
+                           class="btn btn-primary btn-glow"
+                           style="
+                               padding: 14px 35px;
+                               font-size: 1.05rem;
+                           ">
+
+                            🛍️ Lihat Produk
+
+                        </a>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     CTA
+                ================================================== -->
+
+                <section style="
+                    max-width: 800px;
+                    margin: 60px auto 0;
+                ">
 
                     <span class="section-subtitle">
-                        LAYANAN PEMESANAN
+                        Anna Amui
                     </span>
 
-                    <h2 id="shipping-title">
-                        Manisan Mangga untuk WNI di Hong Kong
+                    <h2 class="section-title"
+                        style="margin-bottom: 15px;">
+
+                        Siap Menikmati Rasa
+                        Kampung Halaman?
+
                     </h2>
 
-                    <p>
-                        Pesanan Anna Amui dikirim secara rutin
-                        menuju Hong Kong. Jadwal pengiriman,
-                        lokasi pengambilan, dan informasi pesanan
-                        akan dikonfirmasi melalui WhatsApp.
+
+                    <p style="
+                        margin-bottom: 25px;
+                        color: #555;
+                        line-height: 1.8;
+                    ">
+
+                        Lihat pilihan manisan mangga Original
+                        dan Pedas, lalu pilih paket yang sesuai
+                        dengan kebutuhan Anda.
+
                     </p>
 
-                    <a href="produk.html"
-                       class="btn btn-primary">
 
-                        <i class="fa-solid fa-bag-shopping"
-                           aria-hidden="true"></i>
+                    <div style="
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 12px;
+                    ">
 
-                        Lihat Produk
+                        <a href="produk.html"
+                           class="btn btn-primary btn-glow"
+                           style="
+                               padding: 14px 30px;
+                           ">
 
-                    </a>
+                            🛒 Lihat Produk & Paket
 
-                </div>
-
-            </section>
-
-
-
-            <!-- =================================================
-                 CTA
-            ================================================== -->
-
-            <section class="about-cta"
-                     aria-labelledby="cta-title">
-
-                <span class="section-subtitle">
-                    ANNA AMUI
-                </span>
-
-                <h2 id="cta-title">
-                    Siap Menikmati Rasa Kampung Halaman?
-                </h2>
-
-                <p>
-                    Lihat pilihan manisan mangga Original dan Pedas,
-                    lalu pilih paket yang sesuai dengan kebutuhan Anda.
-                </p>
+                        </a>
 
 
-                <div class="about-cta-buttons">
+                        <a href="index.html"
+                           class="btn btn-outline"
+                           style="
+                               padding: 14px 30px;
+                           ">
 
-                    <a href="produk.html"
-                       class="btn btn-primary btn-glow">
+                            🏠 Kembali ke Beranda
 
-                        <i class="fa-solid fa-cart-shopping"
-                           aria-hidden="true"></i>
+                        </a>
 
-                        Lihat Produk & Paket
+                    </div>
 
-                    </a>
-
-
-                    <a href="index.html"
-                       class="btn btn-outline">
-
-                        <i class="fa-solid fa-house"
-                           aria-hidden="true"></i>
-
-                        Kembali ke Beranda
-
-                    </a>
-
-                </div>
-
-            </section>
+                </section>
 
 
-        </div>
+            </div>
 
-    </section>
+        </section>
 
-</main>
-
-
-
-<!-- =========================================================
-     FOOTER
-========================================================= -->
-
-<div data-include="components/footer.html"></div>
+    </main>
 
 
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
 
-<!-- =========================================================
-     FLOATING WHATSAPP
-========================================================= -->
-
-<div data-include="components/floating-wa.html"></div>
-
+    <div data-include="components/footer.html"></div>
 
 
-<!-- =========================================================
-     JAVASCRIPT INCLUDE
-========================================================= -->
+    <!-- =========================================================
+         FLOATING WHATSAPP
+    ========================================================== -->
 
-<script src="js/include.js"></script>
+    <div data-include="components/floating-wa.html"></div>
 
-<script src="js/main.js"></script>
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
+    <script src="js/include.js"></script>
+
+    <script src="js/main.js"></script>
 
 
 </body>
-
 </html>
