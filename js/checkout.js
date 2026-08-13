@@ -1,6 +1,7 @@
 /* =========================================================
    CHECKOUT.JS - ANNA AMUI
-   Direct Product → Checkout → WhatsApp
+   FINAL VERSION
+   Produk → Checkout → Google Sheets → WhatsApp
 ========================================================= */
 
 "use strict";
@@ -17,23 +18,25 @@ const WA_NUMBER =
     "6287862201153";
 
 
+/* =========================================================
+   HARGA PRODUK
+========================================================= */
+
 const NORMAL_PRICE = 12;
 const PROMO_PRICE = 10;
 const PROMO_MIN_QTY = 3;
 
 
-/*
- * Berat:
- *
- * 5 Pack = 1 Kg
- * sehingga 1 Pack = 0.2 Kg
- */
+/* =========================================================
+   BERAT PRODUK
+   5 PACK = 1 KG
+========================================================= */
 
 const KG_PER_PACK = 0.2;
 
 
 /* =========================================================
-   JUMLAH PRODUK
+   STATE
 ========================================================= */
 
 let original = 0;
@@ -41,7 +44,27 @@ let pedas = 0;
 
 
 /* =========================================================
-   AMBIL DATA DARI URL
+   HELPER
+========================================================= */
+
+function getElement(id) {
+    return document.getElementById(id);
+}
+
+
+function safeNumber(value) {
+    const number = parseInt(value, 10);
+
+    if (isNaN(number) || number < 0) {
+        return 0;
+    }
+
+    return number;
+}
+
+
+/* =========================================================
+   AMBIL JUMLAH DARI URL
 ========================================================= */
 
 function getInitialQuantity() {
@@ -53,122 +76,175 @@ function getInitialQuantity() {
 
 
     original =
-        Math.max(
-            0,
-            parseInt(
-                params.get("original") || "0",
-                10
-            )
+        safeNumber(
+            params.get("original")
         );
 
 
     pedas =
-        Math.max(
-            0,
-            parseInt(
-                params.get("pedas") || "0",
-                10
-            )
+        safeNumber(
+            params.get("pedas")
         );
 
 }
 
 
 /* =========================================================
-   ELEMENT
+   HITUNG TOTAL PACK
 ========================================================= */
 
-const qtyOriginal =
-    document.getElementById(
-        "qty-original"
-    );
+function getTotalPack() {
 
-const qtyPedas =
-    document.getElementById(
-        "qty-pedas"
-    );
-
-const sumOriginal =
-    document.getElementById(
-        "sum-original"
-    );
-
-const sumPedas =
-    document.getElementById(
-        "sum-pedas"
-    );
-
-const totalPack =
-    document.getElementById(
-        "total-pack"
-    );
-
-const hargaPack =
-    document.getElementById(
-        "harga-pack"
-    );
-
-const totalHarga =
-    document.getElementById(
-        "total-harga"
-    );
-
-const bottomTotal =
-    document.getElementById(
-        "bottom-total"
-    );
-
-const estimasiBerat =
-    document.getElementById(
-        "estimasi-berat"
-    );
-
-const promoMessage =
-    document.getElementById(
-        "promo-message"
-    );
-
-
-/* =========================================================
-   HARGA
-========================================================= */
-
-function getHarga(total) {
-
-    if (total >= PROMO_MIN_QTY) {
-
-        return PROMO_PRICE;
-
-    }
-
-    return NORMAL_PRICE;
+    return original + pedas;
 
 }
 
 
 /* =========================================================
-   UPDATE SUMMARY
+   HITUNG HARGA
+========================================================= */
+
+function getHarga(total) {
+
+    return total >= PROMO_MIN_QTY
+        ? PROMO_PRICE
+        : NORMAL_PRICE;
+
+}
+
+
+/* =========================================================
+   HITUNG TOTAL HARGA
+========================================================= */
+
+function getTotalHarga(total) {
+
+    return total * getHarga(total);
+
+}
+
+
+/* =========================================================
+   HITUNG BERAT
+========================================================= */
+
+function getBerat(total) {
+
+    return total * KG_PER_PACK;
+
+}
+
+
+/* =========================================================
+   UPDATE URL
+========================================================= */
+
+function updateUrl() {
+
+    const total =
+        getTotalPack();
+
+
+    const url =
+        new URL(
+            window.location.href
+        );
+
+
+    if (total > 0) {
+
+        url.searchParams.set(
+            "original",
+            original
+        );
+
+        url.searchParams.set(
+            "pedas",
+            pedas
+        );
+
+    } else {
+
+        url.searchParams.delete(
+            "original"
+        );
+
+        url.searchParams.delete(
+            "pedas"
+        );
+
+    }
+
+
+    window.history.replaceState(
+        {},
+        "",
+        url
+    );
+
+}
+
+
+/* =========================================================
+   UPDATE RINGKASAN
 ========================================================= */
 
 function updateSummary() {
 
     const total =
-        original + pedas;
+        getTotalPack();
 
 
     const harga =
         getHarga(total);
 
 
-    const totalBayar =
-        total * harga;
+    const totalHarga =
+        getTotalHarga(total);
 
 
     const berat =
-        total * KG_PER_PACK;
+        getBerat(total);
 
 
-    /* Quantity */
+    /* =====================================================
+       ELEMENT
+    ===================================================== */
+
+    const qtyOriginal =
+        getElement("qty-original");
+
+    const qtyPedas =
+        getElement("qty-pedas");
+
+    const sumOriginal =
+        getElement("sum-original");
+
+    const sumPedas =
+        getElement("sum-pedas");
+
+    const totalPack =
+        getElement("total-pack");
+
+    const hargaPack =
+        getElement("harga-pack");
+
+    const totalHargaElement =
+        getElement("total-harga");
+
+    const bottomTotal =
+        getElement("bottom-total");
+
+    const estimasiBerat =
+        getElement("estimasi-berat");
+
+    const promoMessage =
+        getElement("promo-message");
+
+
+    /* =====================================================
+       JUMLAH
+    ===================================================== */
 
     if (qtyOriginal) {
 
@@ -186,7 +262,9 @@ function updateSummary() {
     }
 
 
-    /* Summary */
+    /* =====================================================
+       RINGKASAN
+    ===================================================== */
 
     if (sumOriginal) {
 
@@ -220,10 +298,10 @@ function updateSummary() {
     }
 
 
-    if (totalHarga) {
+    if (totalHargaElement) {
 
-        totalHarga.textContent =
-            "HK$" + totalBayar;
+        totalHargaElement.textContent =
+            "HK$" + totalHarga;
 
     }
 
@@ -231,7 +309,7 @@ function updateSummary() {
     if (bottomTotal) {
 
         bottomTotal.textContent =
-            "HK$" + totalBayar;
+            "HK$" + totalHarga;
 
     }
 
@@ -245,12 +323,25 @@ function updateSummary() {
 
 
     /* =====================================================
-       PROMO
+       PESAN PROMO
     ===================================================== */
 
     if (promoMessage) {
 
-        if (total >= PROMO_MIN_QTY) {
+        if (total === 0) {
+
+            promoMessage.innerHTML =
+                '<i class="fa-solid fa-tag"></i> ' +
+                'Beli 3 Pack atau lebih untuk mendapatkan ' +
+                'harga <strong>HK$10 / Pack</strong>.';
+
+            promoMessage.classList.remove(
+                "active"
+            );
+
+        }
+
+        else if (total >= PROMO_MIN_QTY) {
 
             promoMessage.innerHTML =
                 '<i class="fa-solid fa-circle-check"></i> ' +
@@ -261,17 +352,20 @@ function updateSummary() {
                 "active"
             );
 
-        } else {
+        }
+
+        else {
 
             const kurang =
                 PROMO_MIN_QTY - total;
+
 
             promoMessage.innerHTML =
                 '<i class="fa-solid fa-tag"></i> ' +
                 'Tambah <strong>' +
                 kurang +
                 ' Pack</strong> lagi untuk mendapatkan ' +
-                'harga promo HK$10 / Pack.';
+                'harga <strong>HK$10 / Pack</strong>.';
 
             promoMessage.classList.remove(
                 "active"
@@ -281,32 +375,22 @@ function updateSummary() {
 
     }
 
+
+    /* =====================================================
+       SIMPAN JUMLAH DI URL
+    ===================================================== */
+
+    updateUrl();
+
 }
 
 
 /* =========================================================
-   TAMBAH / KURANG
+   TAMBAH ORIGINAL
 ========================================================= */
 
 const plusOriginal =
-    document.getElementById(
-        "plus-original"
-    );
-
-const minusOriginal =
-    document.getElementById(
-        "minus-original"
-    );
-
-const plusPedas =
-    document.getElementById(
-        "plus-pedas"
-    );
-
-const minusPedas =
-    document.getElementById(
-        "minus-pedas"
-    );
+    getElement("plus-original");
 
 
 if (plusOriginal) {
@@ -323,6 +407,14 @@ if (plusOriginal) {
     );
 
 }
+
+
+/* =========================================================
+   KURANG ORIGINAL
+========================================================= */
+
+const minusOriginal =
+    getElement("minus-original");
 
 
 if (minusOriginal) {
@@ -345,6 +437,14 @@ if (minusOriginal) {
 }
 
 
+/* =========================================================
+   TAMBAH PEDAS
+========================================================= */
+
+const plusPedas =
+    getElement("plus-pedas");
+
+
 if (plusPedas) {
 
     plusPedas.addEventListener(
@@ -359,6 +459,14 @@ if (plusPedas) {
     );
 
 }
+
+
+/* =========================================================
+   KURANG PEDAS
+========================================================= */
+
+const minusPedas =
+    getElement("minus-pedas");
 
 
 if (minusPedas) {
@@ -382,7 +490,7 @@ if (minusPedas) {
 
 
 /* =========================================================
-   ORDER ID
+   GENERATE ORDER ID
 ========================================================= */
 
 function generateOrderId() {
@@ -407,10 +515,22 @@ function generateOrderId() {
         ).padStart(2, "0");
 
 
+    const hours =
+        String(
+            now.getHours()
+        ).padStart(2, "0");
+
+
+    const minutes =
+        String(
+            now.getMinutes()
+        ).padStart(2, "0");
+
+
     const random =
         Math.floor(
-            1000 +
-            Math.random() * 9000
+            100 +
+            Math.random() * 900
         );
 
 
@@ -420,6 +540,9 @@ function generateOrderId() {
         month +
         day +
         "-" +
+        hours +
+        minutes +
+        "-" +
         random
     );
 
@@ -427,16 +550,51 @@ function generateOrderId() {
 
 
 /* =========================================================
-   KIRIM KE GOOGLE SHEETS
+   NORMALISASI NOMOR WHATSAPP
+========================================================= */
+
+function normalizePhone(phone) {
+
+    return phone
+        .replace(/\s+/g, "")
+        .replace(/-/g, "")
+        .replace(/\+/g, "");
+
+}
+
+
+/* =========================================================
+   VALIDASI NOMOR WHATSAPP
+========================================================= */
+
+function isValidPhone(phone) {
+
+    const normalized =
+        normalizePhone(phone);
+
+
+    /*
+     * Format Hong Kong:
+     * 8 digit
+     */
+
+    return /^\d{8}$/.test(
+        normalized
+    );
+
+}
+
+
+/* =========================================================
+   KIRIM DATA KE GOOGLE SHEETS
 ========================================================= */
 
 function kirimOrder(
-    data,
-    orderId
+    data
 ) {
 
     let iframe =
-        document.getElementById(
+        getElement(
             "hidden_iframe"
         );
 
@@ -482,33 +640,37 @@ function kirimOrder(
         "hidden_iframe";
 
 
-    for (
-        const key in data
-    ) {
+    /*
+     * Tambahkan semua data
+     */
 
-        const input =
-            document.createElement(
-                "input"
+    Object.keys(data).forEach(
+        function (key) {
+
+            const input =
+                document.createElement(
+                    "input"
+                );
+
+
+            input.type =
+                "hidden";
+
+
+            input.name =
+                key;
+
+
+            input.value =
+                data[key];
+
+
+            form.appendChild(
+                input
             );
 
-
-        input.type =
-            "hidden";
-
-
-        input.name =
-            key;
-
-
-        input.value =
-            data[key];
-
-
-        form.appendChild(
-            input
-        );
-
-    }
+        }
+    );
 
 
     document.body.appendChild(
@@ -519,12 +681,14 @@ function kirimOrder(
     form.submit();
 
 
+    /*
+     * Bersihkan form
+     */
+
     setTimeout(
         function () {
 
-            if (
-                form.parentNode
-            ) {
+            if (form.parentNode) {
 
                 form.parentNode.removeChild(
                     form
@@ -533,44 +697,67 @@ function kirimOrder(
             }
 
         },
-        1000
+        1500
     );
 
+}
 
-    /* =====================================================
-       WHATSAPP
-    ===================================================== */
 
-    const pesanWA =
-`Halo Anna Amui,
+/* =========================================================
+   BUAT PESAN WHATSAPP
+========================================================= */
+
+function buatPesanWhatsApp(
+    data
+) {
+
+    return `Halo Anna Amui,
 
 Saya ingin memesan Manisan Mangga.
 
---------------------------------
-*ORDER ID: ${orderId}*
---------------------------------
+━━━━━━━━━━━━━━━━━━━━
+*ORDER ID: ${data.idOrder}*
+━━━━━━━━━━━━━━━━━━━━
+
+*DETAIL PESANAN*
 
 Original : ${data.original} Pack
 Pedas : ${data.pedas} Pack
 
---------------------------------
-
 Total : ${data.totalPack} Pack
-Harga : HK$${data.harga}/Pack
-Total Barang : HK$${data.totalBayar}
+Harga : HK$${data.harga} / Pack
+
+*Total Barang : HK$${data.totalBayar}*
 
 Estimasi Berat : ${data.berat} Kg
 
---------------------------------
+━━━━━━━━━━━━━━━━━━━━
+*DATA PENERIMA*
+━━━━━━━━━━━━━━━━━━━━
 
 Nama : ${data.nama}
-Nomor WhatsApp : ${data.nomor}
+WhatsApp : ${data.nomor}
 Tempat Pengambilan : ${data.lokasi}
 
 Catatan :
 ${data.catatan || "-"}
 
 Terima kasih.`;
+}
+
+
+/* =========================================================
+   BUKA WHATSAPP
+========================================================= */
+
+function bukaWhatsApp(
+    data
+) {
+
+    const pesan =
+        buatPesanWhatsApp(
+            data
+        );
 
 
     const url =
@@ -578,19 +765,12 @@ Terima kasih.`;
         WA_NUMBER +
         "?text=" +
         encodeURIComponent(
-            pesanWA
+            pesan
         );
 
 
-    setTimeout(
-        function () {
-
-            window.location.href =
-                url;
-
-        },
-        500
-    );
+    window.location.href =
+        url;
 
 }
 
@@ -600,7 +780,7 @@ Terima kasih.`;
 ========================================================= */
 
 const checkoutBtn =
-    document.getElementById(
+    getElement(
         "checkoutBtn"
     );
 
@@ -611,50 +791,89 @@ if (checkoutBtn) {
         "click",
         function () {
 
+            /* =================================================
+               CEGAH DOUBLE CLICK
+            ================================================= */
+
+            if (
+                checkoutBtn.disabled
+            ) {
+
+                return;
+
+            }
+
+
+            /* =================================================
+               ELEMENT FORM
+            ================================================= */
+
             const namaInput =
-                document.getElementById(
+                getElement(
                     "nama"
                 );
 
             const nomorInput =
-                document.getElementById(
+                getElement(
                     "nomor"
                 );
 
             const lokasiInput =
-                document.getElementById(
+                getElement(
                     "pickup"
                 );
 
             const catatanInput =
-                document.getElementById(
+                getElement(
                     "catatan"
                 );
 
 
+            /* =================================================
+               AMBIL DATA
+            ================================================= */
+
             const nama =
-                namaInput.value.trim();
+                namaInput
+                    ? namaInput.value.trim()
+                    : "";
+
+
+            const nomorRaw =
+                nomorInput
+                    ? nomorInput.value.trim()
+                    : "";
 
 
             const nomor =
-                nomorInput.value.trim();
+                normalizePhone(
+                    nomorRaw
+                );
 
 
             const lokasi =
-                lokasiInput.value;
+                lokasiInput
+                    ? lokasiInput.value
+                    : "";
 
 
             const catatan =
-                catatanInput.value.trim();
-
-
-            const total =
-                original + pedas;
+                catatanInput
+                    ? catatanInput.value.trim()
+                    : "";
 
 
             /* =================================================
-               VALIDASI
-            ================================================== */
+               TOTAL
+            ================================================= */
+
+            const total =
+                getTotalPack();
+
+
+            /* =================================================
+               VALIDASI PRODUK
+            ================================================= */
 
             if (total === 0) {
 
@@ -667,39 +886,23 @@ if (checkoutBtn) {
             }
 
 
+            /* =================================================
+               VALIDASI NAMA
+            ================================================= */
+
             if (!nama) {
 
                 alert(
                     "Nama penerima belum diisi."
                 );
 
-                namaInput.focus();
 
-                return;
+                if (namaInput) {
 
-            }
+                    namaInput.focus();
 
+                }
 
-            if (!nomor) {
-
-                alert(
-                    "Nomor WhatsApp belum diisi."
-                );
-
-                nomorInput.focus();
-
-                return;
-
-            }
-
-
-            if (!lokasi) {
-
-                alert(
-                    "Silakan pilih tempat pengambilan."
-                );
-
-                lokasiInput.focus();
 
                 return;
 
@@ -707,19 +910,84 @@ if (checkoutBtn) {
 
 
             /* =================================================
-               HITUNG
-            ================================================== */
+               VALIDASI NOMOR
+            ================================================= */
+
+            if (!nomor) {
+
+                alert(
+                    "Nomor WhatsApp Hong Kong belum diisi."
+                );
+
+
+                if (nomorInput) {
+
+                    nomorInput.focus();
+
+                }
+
+
+                return;
+
+            }
+
+
+            if (!isValidPhone(nomor)) {
+
+                alert(
+                    "Nomor WhatsApp Hong Kong harus terdiri dari 8 digit."
+                );
+
+
+                if (nomorInput) {
+
+                    nomorInput.focus();
+
+                }
+
+
+                return;
+
+            }
+
+
+            /* =================================================
+               VALIDASI LOKASI
+            ================================================= */
+
+            if (!lokasi) {
+
+                alert(
+                    "Silakan pilih tempat pengambilan paket."
+                );
+
+
+                if (lokasiInput) {
+
+                    lokasiInput.focus();
+
+                }
+
+
+                return;
+
+            }
+
+
+            /* =================================================
+               HITUNG PESANAN
+            ================================================= */
 
             const harga =
                 getHarga(total);
 
 
             const totalBayar =
-                total * harga;
+                getTotalHarga(total);
 
 
             const berat =
-                total * KG_PER_PACK;
+                getBerat(total);
 
 
             const orderId =
@@ -727,10 +995,13 @@ if (checkoutBtn) {
 
 
             /* =================================================
-               DATA
-            ================================================== */
+               DATA ORDER
+            ================================================= */
 
             const data = {
+
+                idOrder:
+                    orderId,
 
                 nama:
                     nama,
@@ -760,33 +1031,46 @@ if (checkoutBtn) {
                     lokasi,
 
                 catatan:
-                    catatan,
-
-                idOrder:
-                    orderId
+                    catatan
 
             };
 
 
             /* =================================================
-               BUTTON
-            ================================================== */
+               LOCK BUTTON
+            ================================================= */
 
             checkoutBtn.disabled =
                 true;
 
 
             checkoutBtn.innerHTML =
-                '<i class="fa-solid fa-spinner fa-spin"></i> Memproses...';
+                '<i class="fa-solid fa-spinner fa-spin"></i> ' +
+                'Memproses...';
 
 
             /* =================================================
-               KIRIM
-            ================================================== */
+               KIRIM GOOGLE SHEETS
+            ================================================= */
 
             kirimOrder(
-                data,
-                orderId
+                data
+            );
+
+
+            /* =================================================
+               BUKA WHATSAPP
+            ================================================= */
+
+            setTimeout(
+                function () {
+
+                    bukaWhatsApp(
+                        data
+                    );
+
+                },
+                700
             );
 
         }
