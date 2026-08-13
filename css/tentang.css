@@ -1,0 +1,725 @@
+/* ==========================================================================
+   TENTANG.CSS - ANNA AMUI
+   Khusus halaman Tentang Kami
+   ========================================================================== */
+
+
+/* ==========================================================================
+   ABOUT PAGE
+   ========================================================================== */
+
+.about-page {
+    padding-top: 35px;
+    padding-bottom: 80px;
+}
+
+
+/* ==========================================================================
+   ABOUT HEADER
+   ========================================================================== */
+
+.about-header {
+    max-width: 760px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.about-header .section-subtitle {
+    margin-bottom: 8px;
+}
+
+.about-header .section-title {
+    margin-bottom: 15px;
+}
+
+.about-intro {
+    max-width: 680px;
+    margin: 0 auto;
+
+    color: var(--text-muted);
+
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+
+/* ==========================================================================
+   ABOUT CONTENT
+   ========================================================================== */
+
+.about-content {
+    max-width: 800px;
+
+    margin: 0 auto;
+
+    color: var(--text-dark);
+
+    font-size: 1rem;
+
+    line-height: 1.85;
+}
+
+.about-content p {
+    margin: 0 0 20px;
+}
+
+.about-content strong {
+    color: var(--primary-green);
+    font-weight: 700;
+}
+
+
+/* ==========================================================================
+   ABOUT FEATURES
+   ========================================================================== */
+
+.about-features {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+
+    max-width: 900px;
+
+    margin: 55px auto 0;
+}
+
+
+.about-feature {
+    padding: 28px 22px;
+
+    background: var(--bg-white);
+
+    border:
+        1px solid rgba(15, 23, 42, 0.07);
+
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-soft);
+
+    text-align: center;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.about-feature:hover {
+    transform: translateY(-5px);
+
+    box-shadow: var(--shadow-hover);
+}
+
+
+.about-feature-icon {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 58px;
+    height: 58px;
+
+    margin: 0 auto 15px;
+
+    background:
+        rgba(22, 163, 74, 0.09);
+
+    border-radius: 50%;
+
+    font-size: 1.8rem;
+}
+
+
+.about-feature h2 {
+    margin: 0 0 9px;
+
+    color: var(--navy-dark);
+
+    font-size: 1.15rem;
+
+    font-weight: 700;
+
+    line-height: 1.4;
+}
+
+
+.about-feature p {
+    margin: 0;
+
+    color: var(--text-muted);
+
+    font-size: 0.88rem;
+
+    line-height: 1.7;
+}
+
+
+/* ==========================================================================
+   ABOUT VARIAN
+   ========================================================================== */
+
+.about-varian {
+    max-width: 900px;
+
+    margin: 75px auto 0;
+}
+
+
+.about-section-heading {
+    margin-bottom: 28px;
+
+    text-align: center;
+}
+
+
+.about-section-heading .section-subtitle {
+    margin-bottom: 7px;
+}
+
+
+.about-section-heading h2 {
+    margin: 0;
+
+    color: var(--navy-dark);
+
+    font-size: 1.8rem;
+
+    font-weight: 800;
+
+    line-height: 1.3;
+}
+
+
+.about-varian-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+
+.about-varian-card {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 18px;
+
+    padding: 25px;
+
+    background: var(--bg-white);
+
+    border:
+        1px solid rgba(15, 23, 42, 0.07);
+
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-soft);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.about-varian-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow: var(--shadow-hover);
+}
+
+
+.about-varian-icon {
+    width: 50px;
+    height: 50px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    font-size: 1.3rem;
+}
+
+
+.about-varian-icon.original {
+    background:
+        rgba(245, 158, 11, 0.12);
+
+    color: var(--mango-orange);
+}
+
+
+.about-varian-icon.pedas {
+    background:
+        rgba(239, 68, 68, 0.10);
+
+    color: #ef4444;
+}
+
+
+.about-varian-card h3 {
+    margin: 0 0 7px;
+
+    color: var(--navy-dark);
+
+    font-size: 1.1rem;
+
+    font-weight: 700;
+}
+
+
+.about-varian-card p {
+    margin: 0;
+
+    color: var(--text-muted);
+
+    font-size: 0.88rem;
+
+    line-height: 1.7;
+}
+
+
+/* ==========================================================================
+   ABOUT SHIPPING
+   ========================================================================== */
+
+.about-shipping {
+    max-width: 900px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    margin: 70px auto 0;
+
+    padding: 32px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #1e293b 0%,
+            #0f172a 100%
+        );
+
+    border:
+        1px solid rgba(245, 158, 11, 0.25);
+
+    border-radius: var(--radius-lg);
+
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.16);
+
+    color: #ffffff;
+}
+
+
+.about-shipping-icon {
+    width: 65px;
+    height: 65px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        rgba(245, 158, 11, 0.12);
+
+    border:
+        1px solid rgba(245, 158, 11, 0.30);
+
+    border-radius: 18px;
+
+    color: var(--mango-orange);
+
+    font-size: 1.7rem;
+}
+
+
+.about-shipping-content {
+    flex: 1;
+}
+
+
+.about-shipping-content .section-subtitle {
+    margin-bottom: 8px;
+
+    color: #f59e0b;
+}
+
+
+.about-shipping-content h2 {
+    margin: 0 0 12px;
+
+    color: #ffffff;
+
+    font-size: 1.55rem;
+
+    font-weight: 800;
+
+    line-height: 1.35;
+}
+
+
+.about-shipping-content p {
+    margin: 0 0 20px;
+
+    color: #cbd5e1;
+
+    font-size: 0.92rem;
+
+    line-height: 1.8;
+}
+
+
+.about-shipping-content .btn {
+    margin-top: 3px;
+}
+
+
+/* ==========================================================================
+   ABOUT CTA
+   ========================================================================== */
+
+.about-cta {
+    max-width: 800px;
+
+    margin: 70px auto 0;
+
+    padding: 40px 25px;
+
+    text-align: center;
+
+    background:
+        rgba(22, 163, 74, 0.06);
+
+    border:
+        1px solid rgba(22, 163, 74, 0.15);
+
+    border-radius: var(--radius-lg);
+}
+
+
+.about-cta .section-subtitle {
+    margin-bottom: 8px;
+}
+
+
+.about-cta h2 {
+    margin: 0 0 12px;
+
+    color: var(--navy-dark);
+
+    font-size: 1.75rem;
+
+    font-weight: 800;
+
+    line-height: 1.35;
+}
+
+
+.about-cta p {
+    max-width: 650px;
+
+    margin: 0 auto 25px;
+
+    color: var(--text-muted);
+
+    font-size: 0.95rem;
+
+    line-height: 1.8;
+}
+
+
+.about-cta-buttons {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+}
+
+
+/* ==========================================================================
+   MOBILE
+   ========================================================================== */
+
+@media (max-width: 767px) {
+
+    .about-page {
+        padding-top: 20px;
+
+        /*
+         * Ruang bawah agar konten terakhir
+         * tidak tertutup bottom navigation.
+         */
+        padding-bottom: 105px;
+    }
+
+
+    .about-header {
+        margin-bottom: 35px;
+    }
+
+
+    .about-header .section-title {
+        font-size: 1.85rem;
+
+        line-height: 1.3;
+    }
+
+
+    .about-intro {
+        font-size: 0.92rem;
+
+        line-height: 1.7;
+    }
+
+
+    .about-content {
+        font-size: 0.92rem;
+
+        line-height: 1.8;
+    }
+
+
+    .about-content p {
+        margin-bottom: 17px;
+    }
+
+
+    /* FEATURES */
+
+    .about-features {
+        grid-template-columns: 1fr;
+
+        gap: 14px;
+
+        margin-top: 40px;
+    }
+
+
+    .about-feature {
+        display: grid;
+
+        grid-template-columns: 52px 1fr;
+
+        column-gap: 15px;
+
+        align-items: center;
+
+        padding: 20px;
+
+        text-align: left;
+    }
+
+
+    .about-feature-icon {
+        grid-row: span 2;
+
+        width: 52px;
+        height: 52px;
+
+        margin: 0;
+
+        font-size: 1.6rem;
+    }
+
+
+    .about-feature h2 {
+        margin-bottom: 4px;
+
+        font-size: 1rem;
+    }
+
+
+    .about-feature p {
+        font-size: 0.82rem;
+
+        line-height: 1.6;
+    }
+
+
+    /* VARIAN */
+
+    .about-varian {
+        margin-top: 55px;
+    }
+
+
+    .about-section-heading {
+        margin-bottom: 20px;
+    }
+
+
+    .about-section-heading h2 {
+        font-size: 1.45rem;
+    }
+
+
+    .about-varian-grid {
+        grid-template-columns: 1fr;
+
+        gap: 14px;
+    }
+
+
+    .about-varian-card {
+        padding: 20px;
+
+        gap: 15px;
+    }
+
+
+    .about-varian-icon {
+        width: 45px;
+        height: 45px;
+
+        border-radius: 12px;
+
+        font-size: 1.1rem;
+    }
+
+
+    .about-varian-card h3 {
+        font-size: 1rem;
+    }
+
+
+    .about-varian-card p {
+        font-size: 0.82rem;
+
+        line-height: 1.6;
+    }
+
+
+    /* SHIPPING */
+
+    .about-shipping {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 18px;
+
+        margin-top: 55px;
+
+        padding: 25px 20px;
+    }
+
+
+    .about-shipping-icon {
+        width: 52px;
+        height: 52px;
+
+        border-radius: 14px;
+
+        font-size: 1.35rem;
+    }
+
+
+    .about-shipping-content h2 {
+        font-size: 1.35rem;
+    }
+
+
+    .about-shipping-content p {
+        font-size: 0.88rem;
+
+        line-height: 1.7;
+    }
+
+
+    .about-shipping-content .btn {
+        width: 100%;
+    }
+
+
+    /* CTA */
+
+    .about-cta {
+        margin-top: 55px;
+
+        padding: 30px 20px;
+    }
+
+
+    .about-cta h2 {
+        font-size: 1.45rem;
+    }
+
+
+    .about-cta p {
+        font-size: 0.88rem;
+    }
+
+
+    .about-cta-buttons {
+        flex-direction: column;
+
+        width: 100%;
+    }
+
+
+    .about-cta-buttons .btn {
+        width: 100%;
+    }
+
+}
+
+
+/* ==========================================================================
+   SMALL MOBILE
+   ========================================================================== */
+
+@media (max-width: 380px) {
+
+    .about-header .section-title {
+        font-size: 1.65rem;
+    }
+
+
+    .about-content {
+        font-size: 0.88rem;
+    }
+
+
+    .about-feature {
+        grid-template-columns: 45px 1fr;
+
+        padding: 17px;
+    }
+
+
+    .about-feature-icon {
+        width: 45px;
+        height: 45px;
+    }
+
+
+    .about-shipping-content h2 {
+        font-size: 1.2rem;
+    }
+
+
+    .about-cta h2 {
+        font-size: 1.3rem;
+    }
+
+}
