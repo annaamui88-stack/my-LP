@@ -2,24 +2,102 @@
 <html lang="id">
 
 <head>
+
+    <!-- =========================================================
+         BASIC
+    ========================================================== -->
+
     <meta charset="UTF-8">
 
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>Produk | Anna Amui - Manisan Mangga Khas Indramayu</title>
+    <meta name="theme-color"
+          content="#16a34a">
 
-    <meta name="description"
-          content="Pilih manisan mangga khas Indramayu dari Anna Amui. Tersedia varian Original dan Pedas dengan harga promo mulai HK$10 per Pack.">
+    <meta name="robots"
+          content="index, follow, max-image-preview:large">
 
     <meta name="author"
           content="Anna Amui">
+
+
+    <!-- =========================================================
+         SEO
+    ========================================================== -->
+
+    <title>
+        Manisan Mangga Khas Indramayu | Anna Amui
+    </title>
+
+    <meta name="description"
+          content="Pesan manisan mangga khas Indramayu dari Anna Amui. Pilih rasa Original atau Pedas, tersedia promo HK$10 per Pack untuk pembelian minimal 3 Pack.">
+
+    <meta name="keywords"
+          content="manisan mangga Indramayu, manisan mangga khas Indramayu, manisan mangga Hong Kong, beli manisan mangga, manisan mangga Original, manisan mangga Pedas, Anna Amui">
+
+    <link rel="canonical"
+          href="https://annaamui.shop/produk.html">
+
+
+    <!-- =========================================================
+         OPEN GRAPH
+    ========================================================== -->
+
+    <meta property="og:type"
+          content="product">
+
+    <meta property="og:title"
+          content="Manisan Mangga Khas Indramayu | Anna Amui">
+
+    <meta property="og:description"
+          content="Manisan mangga khas Indramayu dengan pilihan rasa Original dan Pedas. Pesan online untuk pelanggan di Hong Kong.">
+
+    <meta property="og:url"
+          content="https://annaamui.shop/produk.html">
+
+    <meta property="og:site_name"
+          content="Anna Amui">
+
+    <meta property="og:image"
+          content="https://annaamui.shop/images/manisan-mangga.webp">
+
+    <meta property="og:image:alt"
+          content="Manisan Mangga Khas Indramayu Anna Amui">
+
+
+    <!-- =========================================================
+         TWITTER CARD
+    ========================================================== -->
+
+    <meta name="twitter:card"
+          content="summary_large_image">
+
+    <meta name="twitter:title"
+          content="Manisan Mangga Khas Indramayu | Anna Amui">
+
+    <meta name="twitter:description"
+          content="Pilih manisan mangga khas Indramayu rasa Original atau Pedas dari Anna Amui.">
+
+    <meta name="twitter:image"
+          content="https://annaamui.shop/images/manisan-mangga.webp">
+
+
+    <!-- =========================================================
+         FAVICON
+    ========================================================== -->
 
     <link rel="icon"
           type="image/png"
           href="favicon.png">
 
-    <!-- FONT -->
+    <link rel="apple-touch-icon"
+          href="favicon.png">
+
+
+    <!-- =========================================================
+         FONT
+    ========================================================== -->
 
     <link rel="preconnect"
           href="https://fonts.googleapis.com">
@@ -31,12 +109,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
           rel="stylesheet">
 
-    <!-- FONT AWESOME -->
+
+    <!-- =========================================================
+         FONT AWESOME
+    ========================================================== -->
 
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <!-- CSS UTAMA -->
+
+    <!-- =========================================================
+         CSS
+    ========================================================== -->
 
     <link rel="stylesheet"
           href="css/main.css">
@@ -47,10 +131,58 @@
     <link rel="stylesheet"
           href="css/responsive.css">
 
-    <!-- CSS PRODUK -->
-
     <link rel="stylesheet"
           href="css/product.css">
+
+
+    <!-- =========================================================
+         PRODUCT STRUCTURED DATA
+    ========================================================== -->
+
+    <script type="application/ld+json">
+
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+
+        "name": "Manisan Mangga Khas Indramayu Anna Amui",
+
+        "description": "Manisan mangga khas Indramayu dari Anna Amui dengan pilihan rasa Original dan Pedas.",
+
+        "image": [
+            "https://annaamui.shop/images/manisan-mangga.webp"
+        ],
+
+        "brand": {
+            "@type": "Brand",
+            "name": "Anna Amui"
+        },
+
+        "category": "Manisan Mangga",
+
+        "offers": {
+            "@type": "Offer",
+
+            "url": "https://annaamui.shop/produk.html",
+
+            "priceCurrency": "HKD",
+
+            "price": "12",
+
+            "priceValidUntil": "2026-12-31",
+
+            "availability": "https://schema.org/InStock",
+
+            "itemCondition": "https://schema.org/NewCondition",
+
+            "seller": {
+                "@type": "Organization",
+                "name": "Anna Amui"
+            }
+        }
+    }
+
+    </script>
 
 </head>
 
@@ -59,77 +191,10 @@
 
 
 <!-- =========================================================
-     HEADER
+     HEADER COMPONENT
 ========================================================= -->
 
-<header class="header">
-
-    <div class="container header-container">
-
-        <a href="index.html"
-           class="logo"
-           aria-label="Anna Amui">
-
-            <span class="logo-name">
-                Anna<span class="logo-amui">Amui</span>
-            </span>
-
-            <span class="logo-tagline">
-                Manisan Mangga Khas Indramayu
-            </span>
-
-        </a>
-
-
-        <nav class="nav-menu"
-             id="navMenu"
-             aria-label="Navigasi utama">
-
-            <a href="index.html"
-               class="nav-link">
-                Beranda
-            </a>
-
-            <a href="produk.html"
-               class="nav-link active">
-                Produk
-            </a>
-
-            <a href="tentang.html"
-               class="nav-link">
-                Tentang Kami
-            </a>
-
-            <a href="blog.html"
-               class="nav-link">
-                Blog
-            </a>
-
-            <a href="checkout.html"
-               class="nav-link btn-nav-order">
-                Pesan Sekarang
-            </a>
-
-        </nav>
-
-
-        <div class="header-right">
-
-            <button type="button"
-                    class="menu-toggle"
-                    id="menuToggle"
-                    aria-label="Buka menu"
-                    aria-expanded="false">
-
-                <i class="fa-solid fa-bars"></i>
-
-            </button>
-
-        </div>
-
-    </div>
-
-</header>
+<div data-include="components/header.html"></div>
 
 
 
@@ -140,531 +205,794 @@
 <main>
 
 
-<section class="section product-section">
+    <!-- =====================================================
+         PRODUCT HERO
+    ====================================================== -->
 
-    <div class="container">
+    <section class="product-hero"
+             aria-labelledby="product-title">
 
+        <div class="container">
 
-        <!-- HEADING -->
+            <div class="product-heading text-center">
 
-        <div class="product-heading text-center">
+                <span class="section-subtitle">
+                    PRODUK ANNA AMUI
+                </span>
 
-            <span class="section-subtitle">
-                PRODUK ANNA AMUI
-            </span>
+                <h1 id="product-title"
+                    class="section-title">
 
-            <h1 class="section-title">
-                Manisan Mangga Khas Indramayu
-            </h1>
+                    Manisan Mangga Khas Indramayu
 
-            <p class="product-intro">
+                </h1>
 
-                Pilih rasa favorit Anda dan tentukan
-                jumlah yang ingin dipesan.
+                <p class="product-intro">
 
-            </p>
+                    Manisan mangga khas Indramayu dengan cita rasa
+                    segar dan nikmat. Pilih rasa Original atau
+                    Pedas sesuai selera Anda.
+
+                </p>
+
+            </div>
 
         </div>
 
+    </section>
 
 
-        <!-- =================================================
-             PRODUCT CARD
-        ================================================== -->
 
-        <div class="product-card">
+    <!-- =====================================================
+         PRODUCT
+    ====================================================== -->
+
+    <section class="section product-section"
+             aria-labelledby="product-name">
+
+        <div class="container">
 
 
-            <!-- FOTO -->
+            <div class="product-card">
 
-            <div class="product-image-wrapper">
 
-                <img src="images/manisan-mangga.webp"
-                     alt="Manisan Mangga Anna Amui khas Indramayu"
-                     class="product-image">
+                <!-- =========================================
+                     PRODUCT IMAGE
+                ========================================== -->
+
+                <div class="product-image-column">
+
+                    <div class="product-image-wrapper">
+
+                        <img
+                            src="images/manisan-mangga.webp"
+                            alt="Manisan mangga khas Indramayu Anna Amui rasa Original dan Pedas"
+                            class="product-image"
+                            width="800"
+                            height="800"
+                            fetchpriority="high"
+                            decoding="async"
+                        >
+
+                    </div>
+
+
+                    <div class="product-image-caption">
+
+                        <i class="fa-solid fa-leaf"
+                           aria-hidden="true"></i>
+
+                        <span>
+                            Manisan Mangga Khas Indramayu
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =========================================
+                     PRODUCT INFORMATION
+                ========================================== -->
+
+                <div class="product-content">
+
+
+                    <span class="product-category">
+                        MANISAN MANGGA
+                    </span>
+
+
+                    <h2 id="product-name"
+                        class="product-name">
+
+                        Manisan Mangga Anna Amui
+
+                    </h2>
+
+
+                    <p class="product-description">
+
+                        Manisan mangga khas Indramayu yang dibuat
+                        untuk menghadirkan rasa mangga yang segar,
+                        manis, dan nikmat. Tersedia dalam pilihan
+                        rasa Original dan Pedas.
+
+                    </p>
+
+
+
+                    <!-- =====================================
+                         PRICE
+                    ====================================== -->
+
+                    <div class="product-price"
+                         aria-label="Harga produk">
+
+                        <strong>
+                            HK$12
+                        </strong>
+
+                        <span>
+                            / Pack
+                        </span>
+
+                    </div>
+
+
+                    <!-- =====================================
+                         PROMO
+                    ====================================== -->
+
+                    <div class="product-promo">
+
+                        <i class="fa-solid fa-tag"
+                           aria-hidden="true"></i>
+
+                        <span>
+
+                            Beli minimal 3 Pack dan dapatkan
+                            harga promo
+
+                            <strong>
+                                HK$10 / Pack
+                            </strong>
+
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- =====================================
+                         VARIANT ORIGINAL
+                    ====================================== -->
+
+                    <div class="variant-row">
+
+                        <div class="variant-info">
+
+                            <span class="variant-dot original"
+                                  aria-hidden="true"></span>
+
+                            <div>
+
+                                <strong>
+                                    Original
+                                </strong>
+
+                                <small>
+                                    Rasa manis dan segar
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="quantity-control"
+                             aria-label="Jumlah Original">
+
+                            <button
+                                type="button"
+                                class="quantity-btn"
+                                data-target="original"
+                                data-action="minus"
+                                aria-label="Kurangi jumlah Original">
+
+                                −
+
+                            </button>
+
+
+                            <span id="qty-original"
+                                  class="quantity-value"
+                                  aria-live="polite">
+
+                                0
+
+                            </span>
+
+
+                            <button
+                                type="button"
+                                class="quantity-btn"
+                                data-target="original"
+                                data-action="plus"
+                                aria-label="Tambah jumlah Original">
+
+                                +
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =====================================
+                         VARIANT PEDAS
+                    ====================================== -->
+
+                    <div class="variant-row">
+
+                        <div class="variant-info">
+
+                            <span class="variant-dot pedas"
+                                  aria-hidden="true"></span>
+
+                            <div>
+
+                                <strong>
+                                    Pedas
+                                </strong>
+
+                                <small>
+                                    Manis dengan sensasi pedas
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="quantity-control"
+                             aria-label="Jumlah Pedas">
+
+                            <button
+                                type="button"
+                                class="quantity-btn"
+                                data-target="pedas"
+                                data-action="minus"
+                                aria-label="Kurangi jumlah Pedas">
+
+                                −
+
+                            </button>
+
+
+                            <span id="qty-pedas"
+                                  class="quantity-value"
+                                  aria-live="polite">
+
+                                0
+
+                            </span>
+
+
+                            <button
+                                type="button"
+                                class="quantity-btn"
+                                data-target="pedas"
+                                data-action="plus"
+                                aria-label="Tambah jumlah Pedas">
+
+                                +
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =====================================
+                         ORDER TOTAL
+                    ====================================== -->
+
+                    <div class="product-total">
+
+                        <span>
+                            Total Pesanan
+                        </span>
+
+                        <strong id="product-total-pack">
+
+                            0 Pack
+
+                        </strong>
+
+                    </div>
+
+
+                    <!-- =====================================
+                         PROMO INFO
+                    ====================================== -->
+
+                    <div id="product-promo-info"
+                         class="product-promo-info"
+                         aria-live="polite">
+
+                        Pilih jumlah produk terlebih dahulu.
+
+                    </div>
+
+
+
+                    <!-- =====================================
+                         BUY BUTTON
+                    ====================================== -->
+
+                    <button
+                        type="button"
+                        id="buyButton"
+                        class="btn btn-primary btn-full product-buy-button">
+
+                        <i class="fa-solid fa-bag-shopping"
+                           aria-hidden="true"></i>
+
+                        <span>
+                            Beli Sekarang
+                        </span>
+
+                    </button>
+
+
+                    <p class="product-checkout-note">
+
+                        <i class="fa-solid fa-lock"
+                           aria-hidden="true"></i>
+
+                        Pesanan dilanjutkan ke halaman checkout
+                        untuk melengkapi data penerima.
+
+                    </p>
+
+                </div>
 
             </div>
 
 
-            <!-- CONTENT -->
+        </div>
 
-            <div class="product-content">
+    </section>
 
-                <span class="product-category">
-                    MANISAN MANGGA
+
+
+    <!-- =====================================================
+         PRODUCT BENEFITS
+    ====================================================== -->
+
+    <section class="section product-benefits"
+             aria-labelledby="benefit-title">
+
+        <div class="container">
+
+            <div class="text-center">
+
+                <span class="section-subtitle">
+                    KENAPA PILIH ANNA AMUI?
                 </span>
 
+                <h2 id="benefit-title"
+                    class="section-title">
 
-                <h2 class="product-name">
-                    Manisan Mangga Anna Amui
+                    Manisan Mangga untuk Teman di Hong Kong
+
+                </h2>
+
+            </div>
+
+
+            <div class="product-info-grid">
+
+
+                <!-- ITEM 1 -->
+
+                <article class="product-info-item">
+
+                    <div class="product-info-icon">
+
+                        <i class="fa-solid fa-leaf"
+                           aria-hidden="true"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Mangga Pilihan
+                        </h3>
+
+                        <p>
+
+                            Menggunakan mangga pilihan dari
+                            Indramayu yang dikenal sebagai salah
+                            satu daerah penghasil mangga di
+                            Indonesia.
+
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- ITEM 2 -->
+
+                <article class="product-info-item">
+
+                    <div class="product-info-icon">
+
+                        <i class="fa-solid fa-box"
+                           aria-hidden="true"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Dikemas dengan Rapi
+                        </h3>
+
+                        <p>
+
+                            Produk dikemas dengan rapi sebelum
+                            dipersiapkan untuk pengiriman kepada
+                            pelanggan.
+
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- ITEM 3 -->
+
+                <article class="product-info-item">
+
+                    <div class="product-info-icon">
+
+                        <i class="fa-solid fa-truck-fast"
+                           aria-hidden="true"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Pengiriman ke Hong Kong
+                        </h3>
+
+                        <p>
+
+                            Pesanan dipersiapkan sesuai jadwal
+                            pengiriman dan tujuan pelanggan.
+
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SEO CONTENT
+    ====================================================== -->
+
+    <section class="section product-seo"
+             aria-labelledby="seo-title">
+
+        <div class="container">
+
+            <div class="product-seo-content">
+
+                <span class="section-subtitle">
+                    TENTANG PRODUK
+                </span>
+
+                <h2 id="seo-title">
+
+                    Manisan Mangga Khas Indramayu Anna Amui
+
                 </h2>
 
 
-                <p class="product-description">
+                <p>
 
-                    Manisan mangga khas Indramayu dengan
-                    rasa segar dan nikmat. Tersedia dalam
-                    dua pilihan rasa untuk Anda.
+                    Manisan mangga Anna Amui merupakan produk
+                    olahan mangga dengan cita rasa khas yang
+                    terinspirasi dari Indramayu. Produk ini
+                    tersedia dalam dua pilihan rasa, yaitu
+                    <strong>Original</strong> dan
+                    <strong>Pedas</strong>.
 
                 </p>
 
 
+                <p>
 
-                <!-- HARGA -->
+                    Bagi Anda yang sedang berada di Hong Kong
+                    dan ingin menikmati cita rasa mangga khas
+                    Indonesia, Anna Amui menyediakan pilihan
+                    manisan mangga yang dapat dipesan secara
+                    online.
 
-                <div class="product-price">
-
-                    <strong>
-                        HK$12
-                    </strong>
-
-                    <span>
-                        / Pack
-                    </span>
-
-                </div>
+                </p>
 
 
-                <div class="product-promo">
-
-                    <i class="fa-solid fa-tag"></i>
-
-                    <span>
-                        Beli 3 Pack atau lebih →
-                        <strong>HK$10 / Pack</strong>
-                    </span>
-
-                </div>
+                <h3>
+                    Pilihan Rasa Manisan Mangga
+                </h3>
 
 
+                <p>
 
-                <!-- =================================================
-                     ORIGINAL
-                ================================================== -->
+                    Rasa <strong>Original</strong> cocok bagi
+                    Anda yang menyukai perpaduan rasa manis dan
+                    segar. Sementara itu, varian
+                    <strong>Pedas</strong> memberikan sensasi
+                    pedas yang berpadu dengan rasa manisan
+                    mangga.
 
-                <div class="variant-row">
-
-                    <div class="variant-info">
-
-                        <span class="variant-dot original"></span>
-
-                        <div>
-
-                            <strong>
-                                Original
-                            </strong>
-
-                            <small>
-                                Rasa manis & segar
-                            </small>
-
-                        </div>
-
-                    </div>
+                </p>
 
 
-                    <div class="quantity-control">
-
-                        <button type="button"
-                                class="quantity-btn"
-                                data-target="original"
-                                data-action="minus">
-
-                            −
-
-                        </button>
+                <h3>
+                    Cara Memesan Manisan Mangga Anna Amui
+                </h3>
 
 
-                        <span id="qty-original">
-                            0
+                <p>
+
+                    Pilih jumlah Pack rasa Original dan Pedas
+                    pada halaman produk ini. Setelah jumlah
+                    dipilih, tekan tombol
+                    <strong>Beli Sekarang</strong> untuk
+                    melanjutkan ke halaman checkout. Selanjutnya,
+                    isi informasi penerima dan lanjutkan pesanan
+                    melalui WhatsApp.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FAQ
+    ====================================================== -->
+
+    <section class="section product-faq"
+             aria-labelledby="faq-title">
+
+        <div class="container">
+
+            <div class="text-center">
+
+                <span class="section-subtitle">
+                    FAQ
+                </span>
+
+                <h2 id="faq-title"
+                    class="section-title">
+
+                    Pertanyaan Seputar Produk
+
+                </h2>
+
+            </div>
+
+
+            <div class="faq-list">
+
+
+                <!-- FAQ 1 -->
+
+                <article class="faq-item">
+
+                    <button
+                        type="button"
+                        class="faq-question"
+                        aria-expanded="false">
+
+                        <span>
+                            Apa saja pilihan rasa yang tersedia?
                         </span>
 
+                        <i class="fa-solid fa-plus faq-icon"
+                           aria-hidden="true"></i>
 
-                        <button type="button"
-                                class="quantity-btn"
-                                data-target="original"
-                                data-action="plus">
-
-                            +
-
-                        </button>
-
-                    </div>
-
-                </div>
+                    </button>
 
 
+                    <div class="faq-answer">
 
-                <!-- =================================================
-                     PEDAS
-                ================================================== -->
+                        <p>
 
-                <div class="variant-row">
+                            Anna Amui menyediakan dua pilihan
+                            rasa manisan mangga, yaitu
+                            Original dan Pedas.
 
-                    <div class="variant-info">
-
-                        <span class="variant-dot pedas"></span>
-
-                        <div>
-
-                            <strong>
-                                Pedas
-                            </strong>
-
-                            <small>
-                                Manis dengan sensasi pedas
-                            </small>
-
-                        </div>
+                        </p>
 
                     </div>
 
-
-                    <div class="quantity-control">
-
-                        <button type="button"
-                                class="quantity-btn"
-                                data-target="pedas"
-                                data-action="minus">
-
-                            −
-
-                        </button>
+                </article>
 
 
-                        <span id="qty-pedas">
-                            0
+
+                <!-- FAQ 2 -->
+
+                <article class="faq-item">
+
+                    <button
+                        type="button"
+                        class="faq-question"
+                        aria-expanded="false">
+
+                        <span>
+                            Berapa harga manisan mangga?
                         </span>
 
+                        <i class="fa-solid fa-plus faq-icon"
+                           aria-hidden="true"></i>
 
-                        <button type="button"
-                                class="quantity-btn"
-                                data-target="pedas"
-                                data-action="plus">
+                    </button>
 
-                            +
 
-                        </button>
+                    <div class="faq-answer">
+
+                        <p>
+
+                            Harga normal adalah
+                            <strong>HK$12 per Pack</strong>.
+                            Untuk pembelian minimal 3 Pack,
+                            tersedia harga promo
+                            <strong>HK$10 per Pack</strong>.
+
+                        </p>
 
                     </div>
 
-                </div>
+                </article>
 
 
 
-                <!-- TOTAL -->
+                <!-- FAQ 3 -->
 
-                <div class="product-total">
+                <article class="faq-item">
 
-                    <span>
-                        Total Pesanan
-                    </span>
+                    <button
+                        type="button"
+                        class="faq-question"
+                        aria-expanded="false">
 
-                    <strong id="product-total-pack">
-                        0 Pack
-                    </strong>
+                        <span>
+                            Bagaimana cara memesan?
+                        </span>
 
-                </div>
+                        <i class="fa-solid fa-plus faq-icon"
+                           aria-hidden="true"></i>
 
-
-                <div id="product-promo-info"
-                     class="product-promo-info">
-
-                    Pilih jumlah produk terlebih dahulu.
-
-                </div>
+                    </button>
 
 
+                    <div class="faq-answer">
 
-                <!-- BUY -->
+                        <p>
 
-                <button type="button"
-                        id="buyButton"
-                        class="btn btn-primary btn-full product-buy-button">
+                            Pilih jumlah Original dan Pedas,
+                            kemudian tekan
+                            <strong>Beli Sekarang</strong>.
+                            Anda akan diarahkan ke halaman
+                            checkout untuk mengisi data penerima
+                            sebelum melanjutkan pesanan melalui
+                            WhatsApp.
 
-                    <i class="fa-solid fa-bag-shopping"></i>
+                        </p>
 
-                    Beli Sekarang
+                    </div>
 
-                </button>
+                </article>
+
+
+
+                <!-- FAQ 4 -->
+
+                <article class="faq-item">
+
+                    <button
+                        type="button"
+                        class="faq-question"
+                        aria-expanded="false">
+
+                        <span>
+                            Apakah pengiriman sudah termasuk harga?
+                        </span>
+
+                        <i class="fa-solid fa-plus faq-icon"
+                           aria-hidden="true"></i>
+
+                    </button>
+
+
+                    <div class="faq-answer">
+
+                        <p>
+
+                            Harga yang ditampilkan merupakan harga
+                            produk. Biaya pengiriman dihitung
+                            secara terpisah berdasarkan tujuan
+                            dan berat paket.
+
+                        </p>
+
+                    </div>
+
+                </article>
 
 
             </div>
 
         </div>
 
+    </section>
 
-
-        <!-- INFO -->
-
-        <div class="product-info-grid">
-
-
-            <div class="product-info-item">
-
-                <div class="product-info-icon">
-
-                    <i class="fa-solid fa-leaf"></i>
-
-                </div>
-
-                <div>
-
-                    <h3>
-                        Mangga Pilihan
-                    </h3>
-
-                    <p>
-                        Menggunakan mangga pilihan dari
-                        Indramayu.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="product-info-item">
-
-                <div class="product-info-icon">
-
-                    <i class="fa-solid fa-box"></i>
-
-                </div>
-
-                <div>
-
-                    <h3>
-                        Dikemas Rapi
-                    </h3>
-
-                    <p>
-                        Produk dikemas dengan baik sebelum
-                        dikirim kepada pelanggan.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="product-info-item">
-
-                <div class="product-info-icon">
-
-                    <i class="fa-solid fa-truck-fast"></i>
-
-                </div>
-
-                <div>
-
-                    <h3>
-                        Pengiriman
-                    </h3>
-
-                    <p>
-                        Pengiriman disesuaikan dengan
-                        tujuan dan berat pesanan.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-</section>
 
 </main>
 
 
 
 <!-- =========================================================
-     FOOTER
+     FOOTER COMPONENT
 ========================================================= -->
 
-<footer class="footer">
-
-    <div class="footer-container">
-
-        <div class="footer-brand">
-
-            <a href="index.html"
-               class="footer-logo">
-
-                <span class="footer-logo-anna">
-                    Anna
-                </span>
-
-                <span class="footer-logo-amui">
-                    Amui
-                </span>
-
-            </a>
-
-            <p class="footer-description">
-
-                Manisan Mangga Khas Indramayu.
-                Produk utama Anna Amui dengan cita rasa
-                khas untuk pelanggan.
-
-            </p>
-
-        </div>
-
-
-        <div class="footer-social">
-
-            <a href="#"
-               class="social-btn social-whatsapp"
-               aria-label="WhatsApp">
-
-                <i class="fa-brands fa-whatsapp"></i>
-
-            </a>
-
-            <a href="#"
-               class="social-btn social-instagram"
-               aria-label="Instagram">
-
-                <i class="fa-brands fa-instagram"></i>
-
-            </a>
-
-            <a href="#"
-               class="social-btn social-tiktok"
-               aria-label="TikTok">
-
-                <i class="fa-brands fa-tiktok"></i>
-
-            </a>
-
-            <a href="#"
-               class="social-btn social-facebook"
-               aria-label="Facebook">
-
-                <i class="fa-brands fa-facebook-f"></i>
-
-            </a>
-
-        </div>
-
-
-        <nav class="footer-nav">
-
-            <a href="index.html">
-                Beranda
-            </a>
-
-            <a href="produk.html">
-                Produk
-            </a>
-
-            <a href="tentang.html">
-                Tentang Kami
-            </a>
-
-            <a href="blog.html">
-                Blog
-            </a>
-
-            <a href="checkout.html"
-               class="footer-order">
-                Pesan Sekarang
-            </a>
-
-        </nav>
-
-
-        <div class="footer-divider"></div>
-
-
-        <div class="footer-bottom">
-
-            <p>
-                © 2026 Anna Amui. Semua hak dilindungi.
-            </p>
-
-            <p>
-                Manisan Mangga Khas Indramayu
-            </p>
-
-        </div>
-
-    </div>
-
-</footer>
+<div data-include="components/footer.html"></div>
 
 
 
 <!-- =========================================================
-     BOTTOM NAV
+     BOTTOM NAVIGATION
 ========================================================= -->
 
-<nav class="bottom-nav"
-     aria-label="Navigasi utama">
-
-    <div class="bottom-nav-inner">
-
-        <a href="index.html"
-           class="bottom-nav-item">
-
-            <i class="fa-solid fa-house bottom-nav-icon"></i>
-
-            <span>
-                Beranda
-            </span>
-
-        </a>
+<div data-include="components/bottom-nav.html"></div>
 
 
-        <a href="produk.html"
-           class="bottom-nav-item active">
 
-            <i class="fa-solid fa-box-open bottom-nav-icon"></i>
+<!-- =========================================================
+     FLOATING WHATSAPP
+========================================================= -->
 
-            <span>
-                Produk
-            </span>
-
-        </a>
-
-
-        <a href="checkout.html"
-           class="bottom-nav-item bottom-nav-order">
-
-            <span class="bottom-nav-order-icon">
-
-                <i class="fa-solid fa-bag-shopping bottom-nav-icon"></i>
-
-            </span>
-
-            <span>
-                Pesan
-            </span>
-
-        </a>
-
-
-        <a href="blog.html"
-           class="bottom-nav-item">
-
-            <i class="fa-solid fa-newspaper bottom-nav-icon"></i>
-
-            <span>
-                Blog
-            </span>
-
-        </a>
-
-    </div>
-
-</nav>
+<div data-include="components/floating-wa.html"></div>
 
 
 
@@ -672,229 +1000,11 @@
      JAVASCRIPT
 ========================================================= -->
 
-<script>
-
-"use strict";
-
-
-/* =========================================================
-   MENU MOBILE
-========================================================= */
-
-const menuToggle =
-    document.getElementById("menuToggle");
-
-const navMenu =
-    document.getElementById("navMenu");
-
-
-if (menuToggle && navMenu) {
-
-    menuToggle.addEventListener("click", function () {
-
-        navMenu.classList.toggle("active");
-
-        const active =
-            navMenu.classList.contains("active");
-
-        menuToggle.setAttribute(
-            "aria-expanded",
-            active
-        );
-
-    });
-
-}
-
-
-/* =========================================================
-   JUMLAH PRODUK
-========================================================= */
-
-let original = 0;
-let pedas = 0;
-
-
-const qtyOriginal =
-    document.getElementById("qty-original");
-
-const qtyPedas =
-    document.getElementById("qty-pedas");
-
-const totalPack =
-    document.getElementById("product-total-pack");
-
-const promoInfo =
-    document.getElementById("product-promo-info");
-
-
-
-function updateProduct() {
-
-    const total =
-        original + pedas;
-
-
-    qtyOriginal.textContent =
-        original;
-
-    qtyPedas.textContent =
-        pedas;
-
-
-    totalPack.textContent =
-        total + " Pack";
-
-
-    if (total === 0) {
-
-        promoInfo.innerHTML =
-            "Pilih jumlah produk terlebih dahulu.";
-
-        promoInfo.classList.remove("active");
-
-        return;
-
-    }
-
-
-    if (total >= 3) {
-
-        promoInfo.innerHTML =
-            '<i class="fa-solid fa-circle-check"></i> ' +
-            'Promo aktif! <strong>HK$10 / Pack</strong>';
-
-        promoInfo.classList.add("active");
-
-    } else {
-
-        const kurang =
-            3 - total;
-
-        promoInfo.innerHTML =
-            '<i class="fa-solid fa-tag"></i> ' +
-            'Tambah <strong>' +
-            kurang +
-            ' Pack</strong> lagi untuk mendapatkan harga promo HK$10 / Pack.';
-
-        promoInfo.classList.remove("active");
-
-    }
-
-}
-
-
-/* =========================================================
-   TOMBOL + -
-========================================================= */
-
-document
-    .querySelectorAll(".quantity-btn")
-    .forEach(function (button) {
-
-        button.addEventListener(
-            "click",
-            function () {
-
-                const target =
-                    button.dataset.target;
-
-                const action =
-                    button.dataset.action;
-
-
-                if (target === "original") {
-
-                    if (action === "plus") {
-                        original++;
-                    }
-
-                    if (
-                        action === "minus" &&
-                        original > 0
-                    ) {
-                        original--;
-                    }
-
-                }
-
-
-                if (target === "pedas") {
-
-                    if (action === "plus") {
-                        pedas++;
-                    }
-
-                    if (
-                        action === "minus" &&
-                        pedas > 0
-                    ) {
-                        pedas--;
-                    }
-
-                }
-
-
-                updateProduct();
-
-            }
-        );
-
-    });
-
-
-
-/* =========================================================
-   BELI SEKARANG
-========================================================= */
-
-const buyButton =
-    document.getElementById("buyButton");
-
-
-buyButton.addEventListener(
-    "click",
-    function () {
-
-        const total =
-            original + pedas;
-
-
-        if (total === 0) {
-
-            alert(
-                "Silakan pilih minimal 1 Pack."
-            );
-
-            return;
-
-        }
-
-
-        /*
-         * Jumlah dikirim langsung ke checkout.
-         *
-         * Contoh:
-         * produk.html?original=1&pedas=2
-         */
-
-        const url =
-            "checkout.html" +
-            "?original=" +
-            original +
-            "&pedas=" +
-            pedas;
-
-
-        window.location.href = url;
-
-    }
-);
-
-
-updateProduct();
-
-</script>
+<script src="js/script.js"
+        defer></script>
+
+<script src="js/product.js"
+        defer></script>
 
 
 </body>
