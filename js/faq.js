@@ -1,21 +1,77 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // Ambil semua tombol pertanyaan
-    const faqQuestions = document.querySelectorAll(".faq-question");
+/* =========================================================
+   FAQ.JS - ANNA AMUI
+   FAQ Accordion
+========================================================= */
 
-    faqQuestions.forEach(question => {
+"use strict";
+
+
+document.addEventListener("componentsLoaded", function () {
+
+    const faqQuestions =
+        document.querySelectorAll(".faq-question");
+
+
+    if (!faqQuestions.length) {
+        return;
+    }
+
+
+    faqQuestions.forEach(function (question) {
+
         question.addEventListener("click", function () {
-            // Ambil div .faq-item yang membungkus tombol ini
-            const currentItem = this.parentElement;
 
-            // Tutup item lain jika ada yang sedang terbuka (opsional, agar rapi)
-            document.querySelectorAll(".faq-item").forEach(item => {
-                if (item !== currentItem) {
-                    item.classList.remove("active");
-                }
-            });
+            const currentItem =
+                this.closest(".faq-item");
 
-            // Buka atau tutup item yang sedang diklik
-            currentItem.classList.toggle("active");
+
+            if (!currentItem) {
+                return;
+            }
+
+
+            /* =================================================
+               TUTUP FAQ LAIN
+            ================================================== */
+
+            document
+                .querySelectorAll(".faq-item.active")
+                .forEach(function (item) {
+
+                    if (item !== currentItem) {
+
+                        item.classList.remove("active");
+
+                        const button =
+                            item.querySelector(".faq-question");
+
+                        if (button) {
+                            button.setAttribute(
+                                "aria-expanded",
+                                "false"
+                            );
+                        }
+
+                    }
+
+                });
+
+
+            /* =================================================
+               TOGGLE FAQ AKTIF
+            ================================================== */
+
+            const isActive =
+                currentItem.classList.toggle("active");
+
+
+            this.setAttribute(
+                "aria-expanded",
+                isActive ? "true" : "false"
+            );
+
         });
+
     });
+
 });
