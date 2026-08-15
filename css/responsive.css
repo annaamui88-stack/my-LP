@@ -1,1614 +1,1122 @@
 /* ==========================================================================
-   RESPONSIVE.CSS - ANNA AMUI
-   Mobile, Tablet & Desktop
-   Berdasarkan MAIN.CSS + LAYOUT.CSS + PRODUK.HTML
-   ========================================================================== */
-
+RESPONSIVE.CSS - ANNA AMUI
+Mobile, Tablet & Desktop
+========================================================================== */
 
 /* ==========================================================================
-   MOBILE
-   ≤ 767px
-   ========================================================================== */
-
-@media (max-width: 767px) {
-
-    /* =========================================================
-       GLOBAL
-    ========================================================== */
-
-    html {
-        font-size: 16px;
-    }
-
-    body {
-        padding-bottom: var(--bottom-nav-height);
-        overflow-x: hidden;
-    }
-
-    .container,
-    .header-container,
-    .hero-container,
-    .product-page-container,
-    .footer-container {
-        width: 100%;
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-
-    .section {
-        padding: 3rem 0;
-    }
-
-
-    /* =========================================================
-       HEADER
-    ========================================================== */
-
-    .header-container {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-
-    .logo-name {
-        font-size: 1.35rem;
-    }
-
-    .logo-tagline {
-        font-size: 8px;
-        letter-spacing: 0.9px;
-    }
-
-    .menu-toggle {
-        display: flex;
-        width: 42px;
-        height: 42px;
-    }
-
-
-    /* =========================================================
-       MOBILE NAVIGATION
-    ========================================================== */
-
-    .nav-menu {
-        max-height: calc(100vh - var(--header-height));
-
-        overflow-y: auto;
-
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .nav-link {
-        min-height: 48px;
-    }
-
-
-    /* =========================================================
-       MAIN
-    ========================================================== */
-
-    /*
-       main.css sudah memberikan:
-       padding-top: var(--header-height)
-
-       Jadi .product-page tidak boleh menambah
-       padding-top lagi.
-    */
-
-    .product-page {
-        padding-top: 0;
-    }
-
-
-    /* =========================================================
-       PRODUCT PAGE HEADER
-    ========================================================== */
-
-    .product-page-header {
-        padding: 1.8rem 0 1.5rem;
-    }
-
-    .product-breadcrumb {
-        gap: 7px;
-
-        margin-bottom: 1.2rem;
-
-        font-size: 0.78rem;
-    }
-
-    .product-page-label {
-        margin-bottom: 0.4rem;
-
-        font-size: 0.72rem;
-
-        letter-spacing: 1.3px;
-    }
-
-    .product-page-heading {
-        max-width: 100%;
-    }
-
-    .product-page-heading h1 {
-        margin-bottom: 0.65rem;
-
-        font-size: 1.75rem;
-
-        line-height: 1.25;
-    }
-
-    .product-page-heading p {
-        font-size: 0.86rem;
-
-        line-height: 1.65;
-    }
-
-
-    /* =========================================================
-       PRODUCT CATALOG
-    ========================================================== */
-
-    .product-catalog {
-        padding: 1.5rem 0 3.5rem;
-    }
-
-    .product-grid {
-        width: 100%;
-
-        grid-template-columns: 1fr;
-
-        gap: 1.5rem;
-    }
-
-
-    /* =========================================================
-       PRODUCT CARD
-    ========================================================== */
-
-    .shop-product-card {
-        display: flex;
-
-        flex-direction: column;
-
-        align-items: stretch;
-
-        gap: 1.4rem;
-
-        width: 100%;
-
-        padding: 1.2rem;
-
-        border-radius: var(--radius-lg);
-    }
-
-
-    /* =========================================================
-       PRODUCT IMAGE
-    ========================================================== */
-
-    .shop-product-image {
-        width: 100%;
-
-        min-height: 0;
-
-        padding: 0.5rem;
-
-        border-radius: var(--radius-md);
-    }
-
-    .shop-product-image img {
-        width: 100%;
-
-        max-width: 330px;
-
-        height: auto;
-
-        aspect-ratio: 1 / 1;
-
-        object-fit: contain;
-
-        margin: 0 auto;
-    }
-
-    .shop-product-badge {
-        top: 5px;
-        left: 5px;
-
-        padding: 6px 10px;
-
-        font-size: 0.68rem;
-    }
-
-
-    /* =========================================================
-       PRODUCT CONTENT
-    ========================================================== */
-
-    .shop-product-content {
-        width: 100%;
-
-        min-width: 0;
-    }
-
-    .shop-product-category {
-        margin-bottom: 0.4rem;
-
-        font-size: 0.7rem;
-
-        letter-spacing: 1px;
-    }
-
-    .shop-product-content h2 {
-        margin-bottom: 0.65rem;
-
-        font-size: 1.45rem;
-
-        line-height: 1.3;
-    }
-
-    .shop-product-description {
-        margin-bottom: 1rem;
-
-        font-size: 0.84rem;
-
-        line-height: 1.7;
-    }
-
-
-    /* =========================================================
-       PRODUCT PRICE
-    ========================================================== */
-
-    .shop-product-price {
-        margin-bottom: 0.9rem;
-
-        gap: 5px;
-    }
-
-    .shop-product-price strong {
-        font-size: 2rem;
-    }
-
-    .shop-product-price span {
-        font-size: 0.8rem;
-    }
-
-
-    /* =========================================================
-       PRODUCT PROMO
-    ========================================================== */
-
-    .shop-product-promo {
-        align-items: flex-start;
-
-        gap: 7px;
-
-        margin-bottom: 1.1rem;
-
-        padding: 0.7rem 0.75rem;
-
-        font-size: 0.76rem;
-
-        line-height: 1.5;
-    }
-
-    .shop-product-promo i {
-        margin-top: 2px;
-    }
-
-
-    /* =========================================================
-       VARIANT
-    ========================================================== */
-
-    .shop-product-variants {
-        margin-top: 0.8rem;
-    }
-
-    .shop-variant-header {
-        margin-bottom: 0.6rem;
-
-        font-size: 0.8rem;
-    }
-
-    .shop-variant-row {
-        min-height: 62px;
-
-        gap: 0.75rem;
-
-        margin-bottom: 0.6rem;
-
-        padding: 0.8rem 0.85rem;
-
-        border-radius: 10px;
-    }
-
-    .shop-variant-name {
-        gap: 8px;
-
-        min-width: 0;
-    }
-
-    .shop-variant-name strong {
-        font-size: 0.84rem;
-    }
-
-    .shop-variant-name small {
-        margin-top: 2px;
-
-        font-size: 0.7rem;
-    }
-
-    .variant-dot {
-        width: 11px;
-        height: 11px;
-    }
-
-
-    /* =========================================================
-       QUANTITY
-    ========================================================== */
-
-    .shop-quantity {
-        gap: 7px;
-    }
-
-    .quantity-btn {
-        width: 35px;
-        height: 35px;
-
-        border-radius: 8px;
-
-        font-size: 1.15rem;
-    }
-
-    .shop-quantity > span {
-        min-width: 22px;
-
-        font-size: 0.9rem;
-    }
-
-
-    /* =========================================================
-       TOTAL
-    ========================================================== */
-
-    .shop-product-total {
-        margin-top: 1rem;
-
-        padding: 0.9rem;
-    }
-
-    .shop-product-total span {
-        font-size: 0.8rem;
-    }
-
-    .shop-product-total strong {
-        font-size: 0.95rem;
-    }
-
-
-    /* =========================================================
-       PROMO INFO
-    ========================================================== */
-
-    .shop-product-promo-info {
-        gap: 7px;
-
-        margin-top: 0.7rem;
-
-        padding: 0.7rem 0.75rem;
-
-        font-size: 0.74rem;
-
-        line-height: 1.55;
-    }
-
-
-    /* =========================================================
-       BUY BUTTON
-    ========================================================== */
-
-    .shop-buy-button {
-        min-height: 50px;
-
-        margin-top: 0.9rem;
-
-        padding: 0.8rem 1rem;
-
-        border-radius: 10px;
-
-        font-size: 0.9rem;
-    }
-
-
-    /* =========================================================
-       HERO
-    ========================================================== */
-
-    .hero {
-        padding: 2.5rem 0;
-    }
-
-    .hero-container {
-        flex-direction: column;
-
-        gap: 2rem;
-
-        text-align: center;
-    }
-
-    .hero-content {
-        width: 100%;
-    }
-
-    .hero-title {
-        font-size: 2rem;
-    }
-
-    .hero-subtitle {
-        font-size: 0.9rem;
-
-        line-height: 1.7;
-    }
-
-    .hero-image-wrapper {
-        width: 100%;
-
-        max-width: 100%;
-
-        margin: 0 auto;
-    }
-
-    .hero-img {
-        width: 100%;
-
-        max-height: 350px;
-
-        object-fit: cover;
-    }
-
-    .hero-cta-group {
-        flex-wrap: wrap;
-
-        justify-content: center;
-
-        width: 100%;
-
-        gap: 10px;
-    }
-
-
-    /* =========================================================
-       SECTION TITLE
-    ========================================================== */
-
-    .section-subtitle {
-        font-size: 0.75rem;
-    }
-
-    .section-title {
-        font-size: 1.65rem;
-    }
-
-
-    /* =========================================================
-       BUTTON
-    ========================================================== */
-
-    .btn {
-        min-height: 44px;
-
-        padding: 0.7rem 1.2rem;
-    }
-
-    .btn-lg {
-        width: 100%;
-    }
-
-
-    /* =========================================================
-       PAKET
-    ========================================================== */
-
-    .paket-grid {
-        flex-direction: column;
-
-        gap: 1.2rem;
-    }
-
-    .paket-card {
-        width: 100%;
-
-        padding: 1.7rem 1.2rem;
-    }
-
-    .paket-price {
-        font-size: 2rem;
-    }
-
-
-    /* =========================================================
-       FEATURES
-    ========================================================== */
-
-    .features-grid {
-        grid-template-columns: repeat(2, 1fr);
-
-        gap: 1rem;
-    }
-
-
-    /* =========================================================
-       SHIPPING
-    ========================================================== */
-
-    .shipping-card {
-        padding: 2rem 1rem;
-    }
-
-    .shipping-title {
-        font-size: 1.4rem;
-    }
-
-    .shipping-badge {
-        padding: 10px 13px;
-
-        font-size: 0.78rem;
-    }
-
-    .timer-box {
-        gap: 0.45rem;
-    }
-
-    .timer-segment {
-        min-width: 58px;
-
-        padding: 0.8rem 0.35rem;
-
-        border-radius: 12px;
-    }
-
-    .timer-val {
-        font-size: 1.65rem;
-    }
-
-    .timer-unit {
-        font-size: 0.6rem;
-    }
-
-
-    /* =========================================================
-       BLOG
-    ========================================================== */
-
-    .blog-grid {
-        grid-template-columns: 1fr;
-
-        gap: 1.2rem;
-    }
-
-    .blog-card {
-        padding: 1.3rem;
-    }
-
-
-    /* =========================================================
-       ARTICLE
-    ========================================================== */
-
-    .blog-article-section {
-        padding: 50px 0 35px;
-    }
-
-    .article-header {
-        margin-bottom: 25px;
-    }
-
-    .article-header h1 {
-        font-size: 1.65rem;
-    }
-
-    .blog-content {
-        font-size: 0.9rem;
-
-        line-height: 1.8;
-    }
-
-    .blog-content h2 {
-        font-size: 1.2rem;
-    }
-
-    .article-cta {
-        padding: 22px 16px;
-    }
-
-    .article-navigation {
-        flex-direction: column;
-
-        text-align: center;
-    }
-
-
-    /* =========================================================
-       FAQ
-    ========================================================== */
-
-    .faq-question {
-        padding: 1rem;
-
-        font-size: 0.84rem;
-    }
-
-    .faq-answer {
-        font-size: 0.8rem;
-    }
-
-
-    /* =========================================================
-       FOOTER
-    ========================================================== */
-
-    .footer {
-        padding: 35px 0 20px;
-    }
-
-    .footer-container {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-
-    .footer-description {
-        font-size: 0.8rem;
-    }
-
-    .footer-nav {
-        gap: 10px 15px;
-    }
-
-
-    /* =========================================================
-       FLOATING WHATSAPP
-    ========================================================== */
-
-    .floating-wa {
-        right: 15px;
-
-        bottom:
-            calc(
-                var(--bottom-nav-height) + 12px
-            );
-
-        width: 52px;
-        height: 52px;
-    }
-
-    .floating-wa svg {
-        width: 27px;
-        height: 27px;
-    }
-
-
-    /* =========================================================
-       BOTTOM NAV
-    ========================================================== */
-
-    .bottom-nav {
-        display: block;
-    }
-
-    .bottom-nav-inner {
-        max-width: 600px;
-    }
-
-    .bottom-nav-item {
-        min-width: 52px;
-
-        font-size: 0.62rem;
-    }
-
-    .bottom-nav-icon {
-        width: 23px;
-        height: 23px;
-    }
-
-    .bottom-nav-order-icon {
-        width: 47px;
-        height: 47px;
-
-        margin-top: -13px;
-    }
-
-    .bottom-nav-order-icon .bottom-nav-icon {
-        width: 20px;
-        height: 20px;
-    }
-}
-
-
-/* ==========================================================================
-   SMALL MOBILE
-   ≤ 360px
-   ========================================================================== */
+SMALL MOBILE
+≤ 360px
+========================================================================== */
 
 @media (max-width: 360px) {
 
-    /* =========================================================
-       GLOBAL
-    ========================================================== */
+/* =========================================================  
+   GLOBAL  
+========================================================== */  
 
-    .container,
-    .header-container,
-    .hero-container,
-    .product-page-container,
-    .footer-container {
-        padding-left: 12px;
-        padding-right: 12px;
-    }
+.container {  
+    padding-left: 14px;  
+    padding-right: 14px;  
+}  
 
+.section {  
+    padding: 2.8rem 0;  
+}  
 
-    /* =========================================================
-       HEADER
-    ========================================================== */
 
-    .header-container {
-        padding-left: 12px;
-        padding-right: 12px;
-    }
+/* =========================================================  
+   HEADER  
+========================================================== */  
 
-    .logo-name {
-        font-size: 1.22rem;
-    }
+.header-container {  
+    padding: 0 14px;  
+}  
 
-    .logo-tagline {
-        font-size: 7px;
+.logo-name {  
+    font-size: 1.25rem;  
+}  
 
-        letter-spacing: 0.7px;
-    }
+.logo-tagline {  
+    font-size: 7px;  
+}  
 
-    .menu-toggle {
-        width: 40px;
-        height: 40px;
-    }
+.menu-toggle {  
+    width: 40px;  
+    height: 40px;  
+    font-size: 1.35rem;  
+}  
 
 
-    /* =========================================================
-       PRODUCT HEADER
-    ========================================================== */
+/* =========================================================  
+   HERO  
+========================================================== */  
 
-    .product-page-header {
-        padding: 1.5rem 0 1.2rem;
-    }
+.hero {  
+    padding-top: 0.8rem;  
+    padding-bottom: 2rem;  
+}  
 
-    .product-breadcrumb {
-        margin-bottom: 1rem;
+.hero-title {  
+    font-size: 1.75rem;  
+}  
 
-        font-size: 0.72rem;
-    }
+.hero-subtitle {  
+    font-size: 0.9rem;  
+}  
 
-    .product-page-heading h1 {
-        font-size: 1.55rem;
-    }
+.hero-cta-group {  
+    flex-direction: column;  
+    width: 100%;  
+}  
 
-    .product-page-heading p {
-        font-size: 0.8rem;
-    }
+.hero-cta-group .btn {  
+    width: 100%;  
+}  
 
+.hero-img {  
+    height: 240px;  
+}  
 
-    /* =========================================================
-       PRODUCT CARD
-    ========================================================== */
 
-    .shop-product-card {
-        gap: 1.1rem;
+/* =========================================================  
+   SECTION TITLE  
+========================================================== */  
 
-        padding: 1rem;
+.section-subtitle {  
+    font-size: 0.75rem;  
+    letter-spacing: 1.2px;  
+}  
 
-        border-radius: 18px;
-    }
+.section-title {  
+    font-size: 1.55rem;  
+}  
 
 
-    /* =========================================================
-       PRODUCT IMAGE
-    ========================================================== */
+/* =========================================================  
+   BUTTON  
+========================================================== */  
 
-    .shop-product-image {
-        padding: 0.25rem;
-    }
+.btn {  
+    padding: 0.75rem 1.3rem;  
+}  
 
-    .shop-product-image img {
-        max-width: 280px;
-    }
+.btn-lg {  
+    width: 100%;  
+}  
 
-    .shop-product-badge {
-        top: 3px;
-        left: 3px;
 
-        padding: 5px 9px;
+/* =========================================================  
+   PAKET  
+========================================================== */  
 
-        font-size: 0.64rem;
-    }
+.paket-card {  
+    padding: 2rem 1.2rem;  
+}  
 
+.paket-price {  
+    font-size: 2rem;  
+}  
 
-    /* =========================================================
-       PRODUCT CONTENT
-    ========================================================== */
 
-    .shop-product-category {
-        font-size: 0.66rem;
-    }
+/* =========================================================  
+   FEATURES  
+========================================================== */  
 
-    .shop-product-content h2 {
-        font-size: 1.3rem;
-    }
+.features-grid {  
+    grid-template-columns: 1fr;  
+}  
 
-    .shop-product-description {
-        font-size: 0.8rem;
-    }
 
+/* =========================================================  
+   SHIPPING  
+========================================================== */  
 
-    /* =========================================================
-       PRICE
-    ========================================================== */
+.shipping-card {  
+    padding: 2rem 0.9rem;  
+}  
 
-    .shop-product-price strong {
-        font-size: 1.85rem;
-    }
+.shipping-title {  
+    font-size: 1.35rem;  
+}  
 
-    .shop-product-price span {
-        font-size: 0.76rem;
-    }
+.shipping-badge {  
+    font-size: 0.78rem;  
+    padding: 10px 12px;  
+}  
 
+.timer-box {  
+    gap: 0.4rem;  
+}  
 
-    /* =========================================================
-       PROMO
-    ========================================================== */
+.timer-segment {  
+    padding: 0.9rem 0.2rem;  
+    border-radius: 14px;  
+}  
 
-    .shop-product-promo {
-        padding: 0.65rem 0.7rem;
+.timer-val {  
+    font-size: 1.75rem;  
+}  
 
-        font-size: 0.7rem;
-    }
+.timer-unit {  
+    font-size: 0.62rem;  
+}  
 
 
-    /* =========================================================
-       VARIANTS
-    ========================================================== */
+/* =========================================================  
+   PRODUCT  
+========================================================== */  
 
-    .shop-variant-row {
-        min-height: 58px;
+.product-card {  
+    padding: 1.1rem;  
+}  
 
-        padding: 0.7rem;
-    }
+.product-name {  
+    font-size: 1.35rem;  
+}  
 
-    .shop-variant-name {
-        gap: 7px;
-    }
+.product-description {  
+    font-size: 0.84rem;  
+}  
 
-    .shop-variant-name strong {
-        font-size: 0.8rem;
-    }
+.product-price strong {  
+    font-size: 2rem;  
+}  
 
-    .shop-variant-name small {
-        font-size: 0.66rem;
-    }
+.variant-row {  
+    padding: 0.9rem;  
+}  
 
-    .variant-dot {
-        width: 10px;
-        height: 10px;
-    }
+.variant-info small {  
+    font-size: 0.72rem;  
+}  
 
+.quantity-control {  
+    gap: 6px;  
+}  
 
-    /* =========================================================
-       QUANTITY
-    ========================================================== */
+.quantity-btn {  
+    width: 34px;  
+    height: 34px;  
+}  
 
-    .shop-quantity {
-        gap: 5px;
-    }
+.product-info-grid {  
+    grid-template-columns: 1fr;  
+}  
 
-    .quantity-btn {
-        width: 33px;
-        height: 33px;
 
-        font-size: 1.05rem;
-    }
+/* =========================================================  
+   BLOG  
+========================================================== */  
 
-    .shop-quantity > span {
-        min-width: 20px;
+.blog-grid {  
+    grid-template-columns: 1fr;  
+}  
 
-        font-size: 0.85rem;
-    }
 
+/* =========================================================  
+   FAQ  
+========================================================== */  
 
-    /* =========================================================
-       TOTAL
-    ========================================================== */
+.faq-question {  
+    padding: 1rem;  
+    font-size: 0.85rem;  
+}  
 
-    .shop-product-total {
-        padding: 0.8rem;
-    }
+.faq-answer {  
+    font-size: 0.8rem;  
+}  
 
-    .shop-product-total span {
-        font-size: 0.76rem;
-    }
 
-    .shop-product-total strong {
-        font-size: 0.9rem;
-    }
+/* =========================================================  
+   FOOTER  
+========================================================== */  
 
+.footer {  
+    padding: 32px 0 18px;  
+}  
 
-    /* =========================================================
-       PROMO INFO
-    ========================================================== */
+.footer-container {  
+    padding: 0 14px;  
+}  
 
-    .shop-product-promo-info {
-        padding: 0.65rem 0.7rem;
+.footer-description {  
+    font-size: 0.8rem;  
+}  
 
-        font-size: 0.69rem;
-    }
+.footer-nav {  
+    gap: 10px 14px;  
+}  
 
 
-    /* =========================================================
-       BUY BUTTON
-    ========================================================== */
+/* =========================================================  
+   WHATSAPP  
+========================================================== */  
 
-    .shop-buy-button {
-        min-height: 48px;
+.floating-wa {  
+    right: 12px;  
 
-        font-size: 0.85rem;
-    }
+    bottom:  
+        calc(  
+            var(--bottom-nav-height) + 10px  
+        );  
 
+    width: 48px;  
+    height: 48px;  
+}  
 
-    /* =========================================================
-       FEATURES
-    ========================================================== */
+.floating-wa svg {  
+    width: 25px;  
+    height: 25px;  
+}  
 
-    .features-grid {
-        grid-template-columns: 1fr;
-    }
 
+/* =========================================================  
+   BOTTOM NAV  
+========================================================== */  
 
-    /* =========================================================
-       SHIPPING
-    ========================================================== */
+.bottom-nav-item {  
+    font-size: 0.60rem;  
+}  
 
-    .shipping-card {
-        padding: 1.7rem 0.8rem;
-    }
+.bottom-nav-icon {  
+    width: 22px;  
+    height: 22px;  
+}  
 
-    .shipping-title {
-        font-size: 1.25rem;
-    }
+.bottom-nav-order-icon {  
+    width: 46px;  
+    height: 46px;  
 
-    .timer-box {
-        gap: 0.3rem;
-    }
+    margin-top: -14px;  
+}  
 
-    .timer-segment {
-        min-width: 52px;
-
-        padding: 0.7rem 0.2rem;
-    }
-
-    .timer-val {
-        font-size: 1.45rem;
-    }
-
-    .timer-unit {
-        font-size: 0.55rem;
-    }
-
-
-    /* =========================================================
-       WHATSAPP
-    ========================================================== */
-
-    .floating-wa {
-        right: 11px;
-
-        bottom:
-            calc(
-                var(--bottom-nav-height) + 10px
-            );
-
-        width: 48px;
-        height: 48px;
-    }
-
-    .floating-wa svg {
-        width: 25px;
-        height: 25px;
-    }
-
-
-    /* =========================================================
-       BOTTOM NAV
-    ========================================================== */
-
-    .bottom-nav-item {
-        min-width: 45px;
-
-        font-size: 0.57rem;
-    }
-
-    .bottom-nav-icon {
-        width: 21px;
-        height: 21px;
-    }
-
-    .bottom-nav-order-icon {
-        width: 44px;
-        height: 44px;
-
-        margin-top: -12px;
-    }
-
-    .bottom-nav-order-icon .bottom-nav-icon {
-        width: 19px;
-        height: 19px;
-    }
+.bottom-nav-order-icon .bottom-nav-icon {  
+    width: 20px;  
+    height: 20px;  
 }
 
-
-/* ==========================================================================
-   TABLET
-   768px – 1023px
-   ========================================================================== */
-
-@media (min-width: 768px) and (max-width: 1023px) {
-
-    /* =========================================================
-       GLOBAL
-    ========================================================== */
-
-    body {
-        padding-bottom: 0;
-    }
-
-    .container,
-    .header-container,
-    .hero-container,
-    .product-page-container,
-    .footer-container {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-
-    /* =========================================================
-       HEADER
-    ========================================================== */
-
-    .menu-toggle {
-        display: none;
-    }
-
-    .nav-menu {
-        position: static;
-
-        display: flex;
-
-        flex-direction: row;
-
-        align-items: center;
-
-        gap: 2px;
-
-        width: auto;
-
-        padding: 0;
-
-        background: transparent;
-
-        border: none;
-
-        box-shadow: none;
-
-        visibility: visible;
-
-        opacity: 1;
-
-        transform: none;
-
-        pointer-events: auto;
-    }
-
-    .nav-link {
-        width: auto;
-
-        min-height: 40px;
-
-        padding: 7px 9px;
-
-        font-size: 0.8rem;
-
-        white-space: nowrap;
-    }
-
-    .nav-link.btn-nav-order {
-        margin-left: 2px;
-
-        padding: 8px 11px;
-    }
-
-
-    /* =========================================================
-       MAIN
-    ========================================================== */
-
-    .product-page {
-        padding-top: 0;
-    }
-
-
-    /* =========================================================
-       HERO
-    ========================================================== */
-
-    .hero {
-        padding: 3.5rem 0;
-    }
-
-    .hero-container {
-        flex-direction: row;
-
-        align-items: center;
-
-        gap: 2rem;
-
-        text-align: left;
-    }
-
-    .hero-container > * {
-        flex: 1;
-    }
-
-    .hero-title {
-        font-size: 2.25rem;
-    }
-
-    .hero-subtitle {
-        font-size: 0.9rem;
-    }
-
-    .hero-image-wrapper {
-        max-width: 480px;
-    }
-
-
-    /* =========================================================
-       PRODUCT PAGE HEADER
-    ========================================================== */
-
-    .product-page-header {
-        padding: 2.2rem 0 1.7rem;
-    }
-
-    .product-page-heading h1 {
-        font-size: 2.1rem;
-    }
-
-    .product-page-heading p {
-        font-size: 0.9rem;
-    }
-
-
-    /* =========================================================
-       PRODUCT CATALOG
-    ========================================================== */
-
-    .product-catalog {
-        padding: 1.8rem 0 4rem;
-    }
-
-    .product-grid {
-        grid-template-columns: minmax(0, 1fr);
-
-        max-width: 760px;
-
-        margin: 0 auto;
-    }
-
-
-    /* =========================================================
-       PRODUCT CARD
-    ========================================================== */
-
-    .shop-product-card {
-        grid-template-columns:
-            minmax(0, 0.9fr)
-            minmax(0, 1.1fr);
-
-        gap: 1.8rem;
-
-        padding: 1.8rem;
-    }
-
-
-    /* =========================================================
-       PRODUCT IMAGE
-    ========================================================== */
-
-    .shop-product-image {
-        padding: 0.5rem;
-    }
-
-    .shop-product-image img {
-        max-width: 350px;
-    }
-
-
-    /* =========================================================
-       PRODUCT CONTENT
-    ========================================================== */
-
-    .shop-product-content h2 {
-        font-size: 1.55rem;
-    }
-
-    .shop-product-description {
-        font-size: 0.84rem;
-    }
-
-    .shop-product-price strong {
-        font-size: 2rem;
-    }
-
-    .shop-product-promo {
-        font-size: 0.76rem;
-    }
-
-
-    /* =========================================================
-       VARIANT
-    ========================================================== */
-
-    .shop-variant-row {
-        padding: 0.8rem;
-    }
-
-    .quantity-btn {
-        width: 34px;
-        height: 34px;
-    }
-
-
-    /* =========================================================
-       FEATURES
-    ========================================================== */
-
-    .features-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-
-    /* =========================================================
-       PAKET
-    ========================================================== */
-
-    .paket-grid {
-        flex-direction: row;
-
-        gap: 1.2rem;
-    }
-
-    .paket-card {
-        flex: 1;
-
-        padding: 1.5rem;
-    }
-
-
-    /* =========================================================
-       BLOG
-    ========================================================== */
-
-    .blog-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-
-    /* =========================================================
-       TESTIMONIAL
-    ========================================================== */
-
-    .testi-grid {
-        flex-direction: row;
-    }
-
-    .testi-card {
-        flex: 1;
-    }
-
-
-    /* =========================================================
-       FLOATING WHATSAPP
-    ========================================================== */
-
-    .floating-wa {
-        bottom: 24px;
-    }
-
-
-    /* =========================================================
-       BOTTOM NAV
-    ========================================================== */
-
-    .bottom-nav {
-        display: none;
-    }
 }
 
+/* ==========================================================================
+MOBILE
+361px – 767px
+========================================================================== */
+
+@media (max-width: 767px) {
+
+/* =========================================================  
+   GLOBAL  
+========================================================== */  
+
+body {  
+    padding-bottom: var(--bottom-nav-height);  
+}  
+
+.section {  
+    padding: 3rem 0;  
+}  
+
+
+/* =========================================================  
+   HEADER  
+========================================================== */  
+
+.header-container {  
+    padding: 0 15px;  
+}  
+
+.logo-name {  
+    font-size: 1.35rem;  
+}  
+
+.logo-tagline {  
+    font-size: 8px;  
+}  
+
+
+/* =========================================================  
+   MOBILE NAV  
+========================================================== */  
+
+.nav-menu {  
+    max-height: calc(100vh - var(--header-height));  
+
+    overflow-y: auto;  
+
+    -webkit-overflow-scrolling: touch;  
+}  
+
+.nav-link {  
+    min-height: 48px;  
+}  
+
+
+/* =========================================================  
+   HERO  
+========================================================== */  
+
+.hero {  
+    padding-top: 1rem;  
+    padding-bottom: 2rem;  
+}  
+
+.hero-container {  
+    gap: 2rem;  
+}  
+
+.hero-title {  
+    font-size: 2rem;  
+}  
+
+.hero-subtitle {  
+    font-size: 0.95rem;  
+}  
+
+.hero-cta-group {  
+    flex-wrap: wrap;  
+}  
+
+.hero-image-wrapper {  
+    max-width: 100%;  
+    margin: 1rem auto;  
+}  
+
+.hero-img {  
+    height: 280px;  
+}  
+
+
+/* =========================================================  
+   SECTION TITLE  
+========================================================== */  
+
+.section-subtitle {  
+    font-size: 0.8rem;  
+}  
+
+.section-title {  
+    margin-bottom: 1.5rem;  
+    font-size: 1.7rem;  
+}  
+
+
+/* =========================================================  
+   BUTTON  
+========================================================== */  
+
+.btn {  
+    min-height: 44px;  
+}  
+
+.btn-lg {  
+    padding: 0.85rem 1.5rem;  
+}  
+
+
+/* =========================================================  
+   PAKET  
+========================================================== */  
+
+.paket-grid {  
+    gap: 1.5rem;  
+}  
+
+.paket-card {  
+    padding: 2rem 1.4rem;  
+}  
+
+.paket-price {  
+    font-size: 2.2rem;  
+}  
+
+
+/* =========================================================  
+   SHIPPING  
+========================================================== */  
+
+.shipping-card {  
+    padding: 2.5rem 1.2rem;  
+}  
+
+.shipping-title {  
+    font-size: 1.5rem;  
+}  
+
+.shipping-badge {  
+    font-size: 0.84rem;  
+    padding: 12px 15px;  
+}  
+
+.timer-box {  
+    gap: 0.6rem;  
+}  
+
+.timer-segment {  
+    padding: 1rem 0.3rem;  
+    border-radius: 15px;  
+}  
+
+.timer-val {  
+    font-size: 2rem;  
+}  
+
+.timer-unit {  
+    font-size: 0.68rem;  
+}  
+
+
+/* =========================================================  
+   PRODUCT  
+========================================================== */  
+
+.product-section {  
+    padding-top: 2rem;  
+}  
+
+.product-heading {  
+    margin-bottom: 1.5rem;  
+}  
+
+.product-card {  
+    display: flex;  
+    flex-direction: column;  
+
+    padding: 1.2rem;  
+
+    gap: 1.5rem;  
+
+    border-radius: var(--radius-lg);  
+}  
+
+.product-image-wrapper {  
+    width: 100%;  
+    max-width: 420px;  
+
+    margin: 0 auto;  
+}  
+
+.product-image {  
+    width: 100%;  
+    height: auto;  
+
+    max-height: 360px;  
+
+    object-fit: contain;  
+}  
+
+.product-content {  
+    width: 100%;  
+}  
+
+.product-category {  
+    font-size: 0.75rem;  
+}  
+
+.product-name {  
+    font-size: 1.55rem;  
+}  
+
+.product-description {  
+    font-size: 0.88rem;  
+    line-height: 1.7;  
+}  
+
+.product-price strong {  
+    font-size: 2.2rem;  
+}  
+
+.product-price span {  
+    font-size: 0.85rem;  
+}  
+
+.product-promo {  
+    font-size: 0.8rem;  
+    padding: 0.75rem 0.9rem;  
+}  
+
+.variant-row {  
+    gap: 10px;  
+    padding: 1rem;  
+}  
+
+.variant-info {  
+    min-width: 0;  
+}  
+
+.variant-info strong {  
+    font-size: 0.9rem;  
+}  
+
+.variant-info small {  
+    font-size: 0.75rem;  
+}  
+
+.quantity-control {  
+    flex-shrink: 0;  
+}  
+
+.quantity-btn {  
+    width: 36px;  
+    height: 36px;  
+}  
+
+.product-total {  
+    padding: 1rem;  
+}  
+
+.product-promo-info {  
+    font-size: 0.8rem;  
+    line-height: 1.6;  
+}  
+
+.product-buy-button {  
+    min-height: 50px;  
+}  
+
+
+/* =========================================================  
+   PRODUCT INFORMATION  
+========================================================== */  
+
+.product-info-grid {  
+    grid-template-columns: 1fr;  
+
+    gap: 1rem;  
+
+    margin-top: 2rem;  
+}  
+
+.product-info-item {  
+    padding: 1.1rem;  
+}  
+
+.product-info-icon {  
+    width: 42px;  
+    height: 42px;  
+    flex-shrink: 0;  
+}  
+
+.product-info-item h2 {  
+    font-size: 0.95rem;  
+}  
+
+.product-info-item p {  
+    font-size: 0.8rem;  
+}  
+
+
+/* =========================================================  
+   PRODUCT SEO  
+========================================================== */  
+
+.product-seo-content {  
+    margin-top: 3rem;  
+}  
+
+.product-seo-inner {  
+    padding: 1.5rem 1.2rem;  
+}  
+
+.product-seo-inner h2 {  
+    font-size: 1.35rem;  
+}  
+
+.product-seo-inner p {  
+    font-size: 0.88rem;  
+    line-height: 1.75;  
+}  
+
+
+/* =========================================================  
+   PRODUCT FAQ  
+========================================================== */  
+
+.product-faq {  
+    margin-top: 3rem;  
+}  
+
+.faq-list {  
+    width: 100%;  
+}  
+
+.faq-question {  
+    padding: 1.1rem;  
+
+    font-size: 0.88rem;  
+}  
+
+
+/* =========================================================  
+   FEATURES  
+========================================================== */  
+
+.features-grid {  
+    grid-template-columns: repeat(2, 1fr);  
+}  
+
+
+/* =========================================================  
+   TESTIMONIAL  
+========================================================== */  
+
+.testi-grid {  
+    flex-direction: column;  
+}  
+
+
+/* =========================================================  
+   BLOG  
+========================================================== */  
+
+.blog-grid {  
+    grid-template-columns: 1fr;  
+    gap: 1.3rem;  
+}  
+
+.blog-card {  
+    padding: 1.4rem;  
+}  
+
+
+/* =========================================================  
+   ARTICLE  
+========================================================== */  
+
+.blog-article-section {  
+    padding-top: 50px;  
+}  
+
+.article-header {  
+    margin-bottom: 25px;  
+}  
+
+.article-header h1 {  
+    font-size: 1.65rem;  
+}  
+
+.blog-content {  
+    font-size: 0.95rem;  
+    line-height: 1.8;  
+}  
+
+.blog-content h2 {  
+    font-size: 1.2rem;  
+}  
+
+.article-cta {  
+    padding: 25px 18px;  
+}  
+
+.article-navigation {  
+    flex-direction: column;  
+    text-align: center;  
+}  
+
+
+/* =========================================================  
+   FOOTER  
+========================================================== */  
+
+.footer {  
+    padding: 35px 0 20px;  
+}  
+
+.footer-container {  
+    padding: 0 15px;  
+}  
+
+.footer-description {  
+    font-size: 0.82rem;  
+}  
+
+.footer-nav {  
+    gap: 12px 16px;  
+}  
+
+
+/* =========================================================  
+   WHATSAPP  
+========================================================== */  
+
+.floating-wa {  
+    right: 15px;  
+
+    bottom:  
+        calc(  
+            var(--bottom-nav-height) + 12px  
+        );  
+
+    width: 52px;  
+    height: 52px;  
+}  
+
+.floating-wa svg {  
+    width: 27px;  
+    height: 27px;  
+}  
+
+
+/* =========================================================  
+   BOTTOM NAV  
+========================================================== */  
+
+.bottom-nav {  
+    display: block;  
+}  
+
+.bottom-nav-inner {  
+    max-width: 600px;  
+}
+
+}
 
 /* ==========================================================================
-   DESKTOP
-   ≥ 1024px
-   ========================================================================== */
+TABLET
+768px – 1023px
+========================================================================== */
+
+@media (min-width: 768px) {
+
+/* =========================================================  
+   BODY  
+========================================================== */  
+
+body {  
+    padding-bottom: 0;  
+}  
+
+
+/* =========================================================  
+   HEADER  
+========================================================== */  
+
+.menu-toggle {  
+    display: none;  
+}  
+
+.nav-menu {  
+    position: static;  
+
+    display: flex;  
+
+    flex-direction: row;  
+
+    align-items: center;  
+
+    gap: 5px;  
+
+    width: auto;  
+
+    padding: 0;  
+
+    background: transparent;  
+
+    border: none;  
+
+    box-shadow: none;  
+}  
+
+.nav-link {  
+    min-height: auto;  
+
+    padding: 8px 10px;  
+
+    white-space: nowrap;  
+
+    font-size: 0.88rem;  
+}  
+
+.nav-link.btn-nav-order {  
+    min-width: auto;  
+
+    margin: 0;  
+
+    padding: 9px 15px;  
+}  
+
+
+/* =========================================================  
+   HERO  
+========================================================== */  
+
+.hero-container {  
+    flex-direction: row;  
+
+    justify-content: space-between;  
+
+    align-items: center;  
+
+    text-align: left;  
+}  
+
+.hero-container > * {  
+    flex: 1;  
+}  
+
+.hero-cta-group {  
+    justify-content: flex-start;  
+}  
+
+.hero-title {  
+    font-size: 2.3rem;  
+}  
+
+
+/* =========================================================  
+   PRODUCT  
+========================================================== */  
+
+.product-card {  
+    display: grid;  
+
+    grid-template-columns:  
+        minmax(0, 0.95fr)  
+        minmax(0, 1.05fr);  
+
+    align-items: center;  
+
+    gap: 2rem;  
+
+    padding: 2rem;  
+}  
+
+.product-image-wrapper {  
+    width: 100%;  
+}  
+
+.product-image {  
+    width: 100%;  
+    max-height: 480px;  
+
+    object-fit: contain;  
+}  
+
+.product-name {  
+    font-size: 1.7rem;  
+}  
+
+.product-info-grid {  
+    grid-template-columns: repeat(3, 1fr);  
+
+    gap: 1rem;  
+}  
+
+
+/* =========================================================  
+   PAKET  
+========================================================== */  
+
+.paket-grid {  
+    flex-direction: row;  
+
+    align-items: stretch;  
+}  
+
+.paket-card {  
+    flex: 1;  
+}  
+
+
+/* =========================================================  
+   FEATURES  
+========================================================== */  
+
+.features-grid {  
+    grid-template-columns: repeat(4, 1fr);  
+}  
+
+
+/* =========================================================  
+   TESTIMONIAL  
+========================================================== */  
+
+.testi-grid {  
+    flex-direction: row;  
+}  
+
+.testi-card {  
+    flex: 1;  
+}  
+
+
+/* =========================================================  
+   BLOG  
+========================================================== */  
+
+.blog-grid {  
+    grid-template-columns: repeat(2, 1fr);  
+}  
+
+
+/* =========================================================  
+   WHATSAPP  
+========================================================== */  
+
+.floating-wa {  
+    bottom: 24px;  
+}  
+
+
+/* =========================================================  
+   BOTTOM NAV  
+========================================================== */  
+
+.bottom-nav {  
+    display: none;  
+}
+
+}
+
+/* ==========================================================================
+LARGE DESKTOP
+≥ 1024px
+========================================================================== */
 
 @media (min-width: 1024px) {
 
-    /* =========================================================
-       GLOBAL
-    ========================================================== */
+/* =========================================================  
+   HEADER  
+========================================================== */  
 
-    body {
-        padding-bottom: 0;
-    }
+.header-container {  
+    max-width: var(--container-width);  
 
-    .container,
-    .header-container,
-    .hero-container,
-    .product-page-container,
-    .footer-container {
-        max-width: var(--container-width);
-    }
+    margin: 0 auto;  
 
+    padding-left: 20px;  
+    padding-right: 20px;  
+}  
 
-    /* =========================================================
-       HEADER
-    ========================================================== */
+.nav-menu {  
+    gap: 8px;  
+}  
 
-    .header-container {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
+.nav-link {  
+    padding: 8px 12px;  
 
-    .menu-toggle {
-        display: none;
-    }
-
-    .nav-menu {
-        position: static;
-
-        display: flex;
-
-        flex-direction: row;
-
-        align-items: center;
-
-        gap: 7px;
-
-        width: auto;
-
-        padding: 0;
-
-        background: transparent;
-
-        border: none;
-
-        box-shadow: none;
-
-        visibility: visible;
-
-        opacity: 1;
-
-        transform: none;
-
-        pointer-events: auto;
-    }
-
-    .nav-link {
-        width: auto;
-
-        min-height: 42px;
-
-        padding: 8px 12px;
-
-        font-size: 0.92rem;
-
-        white-space: nowrap;
-    }
+    font-size: 0.95rem;  
+}  
 
 
-    /* =========================================================
-       MAIN
-    ========================================================== */
+/* =========================================================  
+   HERO  
+========================================================== */  
 
-    .product-page {
-        padding-top: 0;
-    }
-
-
-    /* =========================================================
-       HERO
-    ========================================================== */
-
-    .hero-container {
-        flex-direction: row;
-
-        text-align: left;
-    }
-
-    .hero-title {
-        font-size: 2.6rem;
-    }
+.hero-title {  
+    font-size: 2.6rem;  
+}  
 
 
-    /* =========================================================
-       PRODUCT PAGE HEADER
-    ========================================================== */
+/* =========================================================  
+   SECTION  
+========================================================== */  
 
-    .product-page-header {
-        padding: 2.8rem 0 2.2rem;
-    }
-
-    .product-page-heading h1 {
-        font-size: 2.4rem;
-    }
+.section {  
+    padding: 5rem 0;  
+}  
 
 
-    /* =========================================================
-       PRODUCT CATALOG
-    ========================================================== */
+/* =========================================================  
+   PRODUCT  
+========================================================== */  
 
-    .product-catalog {
-        padding: 2.2rem 0 5rem;
-    }
+.product-card {  
+    grid-template-columns:  
+        minmax(0, 1fr)  
+        minmax(0, 1fr);  
 
-    .product-grid {
-        grid-template-columns: minmax(0, 900px);
+    gap: 3rem;  
 
-        justify-content: center;
-    }
+    padding: 2.5rem;  
+}  
 
+.product-image {  
+    max-height: 520px;  
+}  
 
-    /* =========================================================
-       PRODUCT CARD
-    ========================================================== */
+.product-name {  
+    font-size: 2rem;  
+}  
 
-    .shop-product-card {
-        grid-template-columns:
-            minmax(0, 0.95fr)
-            minmax(0, 1.05fr);
+.product-description {  
+    font-size: 0.95rem;  
+}  
 
-        gap: 3rem;
-
-        padding: 2.5rem;
-    }
-
-
-    /* =========================================================
-       PRODUCT IMAGE
-    ========================================================== */
-
-    .shop-product-image {
-        padding: 1rem;
-    }
-
-    .shop-product-image img {
-        max-width: 440px;
-    }
+.product-info-grid {  
+    gap: 1.5rem;  
+}  
 
 
-    /* =========================================================
-       PRODUCT CONTENT
-    ========================================================== */
+/* =========================================================  
+   BLOG  
+========================================================== */  
 
-    .shop-product-content h2 {
-        font-size: 1.9rem;
-    }
-
-    .shop-product-description {
-        font-size: 0.9rem;
-    }
-
-    .shop-product-price strong {
-        font-size: 2.25rem;
-    }
+.blog-grid {  
+    grid-template-columns: repeat(3, 1fr);  
+}  
 
 
-    /* =========================================================
-       BLOG
-    ========================================================== */
+/* =========================================================  
+   ARTICLE  
+========================================================== */  
 
-    .blog-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-
-    /* =========================================================
-       BOTTOM NAV
-    ========================================================== */
-
-    .bottom-nav {
-        display: none;
-    }
+.article-header h1 {  
+    font-size: 2.2rem;  
 }
 
+}
 
 /* ==========================================================================
-   LARGE DESKTOP
-   ≥ 1200px
-   ========================================================================== */
+EXTRA LARGE DESKTOP
+≥ 1200px
+========================================================================== */
 
 @media (min-width: 1200px) {
 
-    /* =========================================================
-       PRODUCT CARD
-    ========================================================== */
+.product-card {  
+    gap: 4rem;  
 
-    .product-grid {
-        grid-template-columns: minmax(0, 920px);
-    }
+    padding: 3rem;  
+}  
 
-    .shop-product-card {
-        gap: 4rem;
+.product-image {  
+    max-height: 560px;  
+}  
 
-        padding: 3rem;
-    }
-
-    .shop-product-image img {
-        max-width: 480px;
-    }
-
-    .shop-product-content h2 {
-        font-size: 2rem;
-    }
-
-
-    /* =========================================================
-       HERO
-    ========================================================== */
-
-    .hero-title {
-        font-size: 2.7rem;
-    }
+.product-name {  
+    font-size: 2.15rem;  
 }
 
+}
 
 /* ==========================================================================
-   TOUCH DEVICE
-   ========================================================================== */
+TOUCH DEVICE
+========================================================================== */
 
 @media (hover: none) {
 
-    .paket-card:hover,
-    .blog-card:hover,
-    .btn-primary:hover,
-    .btn-outline:hover,
-    .shop-buy-button:hover,
-    .quantity-btn:hover,
-    .floating-wa:hover {
-        transform: none;
-    }
+.paket-card:hover,  
+.blog-card:hover,  
+.btn-primary:hover,  
+.btn-outline:hover {  
+    transform: none;  
+}  
 
-    .nav-link:hover {
-        background: transparent;
-    }
+.floating-wa:hover {  
+    transform: none;  
 }
 
+}
 
 /* ==========================================================================
-   REDUCED MOTION
-   ========================================================================== */
+REDUCED MOTION
+========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
 
-    html {
-        scroll-behavior: auto;
-    }
+.floating-wa,  
+.wa-pulse {  
+    animation: none !important;  
+}
 
-    .floating-wa,
-    .wa-pulse {
-        animation: none !important;
-    }
 }
