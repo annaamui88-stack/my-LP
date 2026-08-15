@@ -193,6 +193,12 @@ body {
 
 }
 
+.checkout-brand-name-anna span {
+
+      color: var(--checkout-orange);
+
+}
+
 
 .checkout-brand small {
 
