@@ -1,24 +1,88 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const elements = document.querySelectorAll("[data-include]");
-    
-    let promises = Array.from(elements).map(el => {
-        const file = el.getAttribute("data-include");
-        return fetch(file)
-            .then(response => {
-                if (response.ok) return response.text();
-                throw new Error("Gagal memuat file: " + file);
-            })
-            .then(data => {
-                el.innerHTML = data;
-                el.removeAttribute("data-include");
-            });
-    });
+/* =========================================================
+   INCLUDE.JS - ANNA AMUI
+   Memuat Header, Footer, Bottom Navigation & Floating WA
+========================================================= */
 
-    // Memicu event setelah seluruh komponen (header, footer, dll) selesai dimuat
-    Promise.all(promises).then(() => {
-        const event = new Event('componentsLoaded');
-        document.dispatchEvent(event);
-    }).catch(error => {
-        console.error("Error:", error);
-    });
+"use strict";
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const elements =
+        document.querySelectorAll("[data-include]");
+
+    /* Tidak ada component */
+
+    if (!elements.length) {
+
+        document.dispatchEvent(
+            new Event("componentsLoaded")
+        );
+
+        return;
+    }
+
+
+    /* =====================================================
+       LOAD SEMUA COMPONENT
+    ===================================================== */
+
+    const promises =
+        Array.from(elements).map(function (element) {
+
+            const file =
+                element.getAttribute("data-include");
+
+
+            return fetch(file)
+
+                .then(function (response) {
+
+                    if (!response.ok) {
+
+                        throw new Error(
+                            "Gagal memuat: " + file
+                        );
+
+                    }
+
+                    return response.text();
+
+                })
+
+                .then(function (html) {
+
+                    element.innerHTML = html;
+
+                    element.removeAttribute(
+                        "data-include"
+                    );
+
+                });
+
+        });
+
+
+    /* =====================================================
+       COMPONENT SELESAI DIMUAT
+    ===================================================== */
+
+    Promise.all(promises)
+
+        .then(function () {
+
+            document.dispatchEvent(
+                new Event("componentsLoaded")
+            );
+
+        })
+
+        .catch(function (error) {
+
+            console.error(
+                "Anna Amui Include Error:",
+                error
+            );
+
+        });
+
 });
