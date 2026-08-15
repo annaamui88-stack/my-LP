@@ -22,7 +22,9 @@ function initMobileMenu() {
         document.getElementById("navMenu");
 
 
-    /* Jika elemen tidak ada, hentikan */
+    /* =====================================================
+       ELEMENT TIDAK DITEMUKAN
+    ===================================================== */
 
     if (!menuToggle || !navMenu) {
         return;
@@ -30,7 +32,7 @@ function initMobileMenu() {
 
 
     /* =====================================================
-       CEGAH EVENT TERPASANG DUA KALI
+       CEGAH INITIALIZE BERULANG
     ===================================================== */
 
     if (
@@ -38,7 +40,6 @@ function initMobileMenu() {
     ) {
         return;
     }
-
 
     menuToggle.dataset.menuInitialized = "true";
 
@@ -61,11 +62,12 @@ function initMobileMenu() {
 
     menuToggle.addEventListener(
         "click",
-        function () {
+        function (event) {
+
+            event.stopPropagation();
 
             const isActive =
                 navMenu.classList.toggle("active");
-
 
             menuToggle.setAttribute(
                 "aria-expanded",
@@ -77,38 +79,34 @@ function initMobileMenu() {
 
 
     /* =====================================================
-       TUTUP MENU SETELAH PILIH MENU
+       MENU LINK
     ===================================================== */
 
     const navLinks =
         navMenu.querySelectorAll(".nav-link");
 
 
-    navLinks.forEach(
-        function (link) {
+    navLinks.forEach(function (link) {
 
-            link.addEventListener(
-                "click",
-                function () {
+        link.addEventListener(
+            "click",
+            function () {
 
-                    navMenu.classList.remove(
-                        "active"
-                    );
+                navMenu.classList.remove("active");
 
-                    menuToggle.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
 
-                }
-            );
+            }
+        );
 
-        }
-    );
+    });
 
 
     /* =====================================================
-       TUTUP JIKA KLIK DI LUAR MENU
+       KLIK DI LUAR MENU
     ===================================================== */
 
     document.addEventListener(
@@ -120,9 +118,7 @@ function initMobileMenu() {
                 !menuToggle.contains(event.target)
             ) {
 
-                navMenu.classList.remove(
-                    "active"
-                );
+                navMenu.classList.remove("active");
 
                 menuToggle.setAttribute(
                     "aria-expanded",
@@ -136,7 +132,7 @@ function initMobileMenu() {
 
 
     /* =====================================================
-       TUTUP DENGAN TOMBOL ESC
+       TOMBOL ESC
     ===================================================== */
 
     document.addEventListener(
@@ -145,9 +141,7 @@ function initMobileMenu() {
 
             if (event.key === "Escape") {
 
-                navMenu.classList.remove(
-                    "active"
-                );
+                navMenu.classList.remove("active");
 
                 menuToggle.setAttribute(
                     "aria-expanded",
@@ -163,8 +157,12 @@ function initMobileMenu() {
 
 
 /* =========================================================
-   HALAMAN DENGAN HEADER LANGSUNG DI HTML
+   HALAMAN
 ========================================================= */
+
+/*
+   Jalankan langsung jika component sudah ada.
+*/
 
 document.addEventListener(
     "DOMContentLoaded",
@@ -176,9 +174,10 @@ document.addEventListener(
 );
 
 
-/* =========================================================
-   HALAMAN DENGAN COMPONENT LOADER
-========================================================= */
+/*
+   Jalankan kembali setelah component selesai
+   dimuat oleh include.js.
+*/
 
 document.addEventListener(
     "componentsLoaded",
