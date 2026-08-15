@@ -683,6 +683,8 @@
     grid-template-columns: 1fr;
 
     gap: 1rem;
+
+    padding-top: 1.5rem;
 }
 
 .product-info-item {
@@ -770,6 +772,8 @@
     max-width: 820px;
 
     margin: 0 auto;
+
+   padding-top: 1.5rem;
 }
 
 .product-seo-content .section-subtitle {
