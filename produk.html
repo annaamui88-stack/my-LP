@@ -2,6 +2,7 @@
 <html lang="id">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta name="viewport"
@@ -16,17 +17,18 @@
     <meta name="theme-color"
           content="#16a34a">
 
+
     <!-- =====================================================
          SEO
     ====================================================== -->
 
-    <title>Produk Manisan Mangga | Anna Amui</title>
+    <title>Produk Manisan Mangga Khas Indramayu | Anna Amui</title>
 
     <meta name="description"
-          content="Lihat pilihan produk manisan mangga khas Indramayu dari Anna Amui. Tersedia rasa Original dan Pedas untuk pelanggan di Hong Kong.">
+          content="Pilih manisan mangga khas Indramayu dari Anna Amui. Tersedia rasa Original dan Pedas untuk pelanggan di Hong Kong.">
 
     <meta name="keywords"
-          content="produk manisan mangga, manisan mangga Indramayu, manisan mangga Hong Kong, Anna Amui">
+          content="manisan mangga Indramayu, produk manisan mangga, manisan mangga Hong Kong, manisan mangga Original, manisan mangga Pedas">
 
 
     <!-- =====================================================
@@ -45,10 +47,10 @@
           content="website">
 
     <meta property="og:title"
-          content="Produk Manisan Mangga | Anna Amui">
+          content="Produk Manisan Mangga Khas Indramayu | Anna Amui">
 
     <meta property="og:description"
-          content="Pilihan manisan mangga khas Indramayu dari Anna Amui.">
+          content="Pilih manisan mangga khas Indramayu Anna Amui dengan rasa Original dan Pedas.">
 
     <meta property="og:url"
           content="https://annaamui.shop/produk.html">
@@ -105,9 +107,11 @@
     <link rel="stylesheet"
           href="css/main.css">
 
-    <!-- KHUSUS HALAMAN PRODUK -->
     <link rel="stylesheet"
-          href="css/product.css">
+          href="css/layout.css">
+
+    <link rel="stylesheet"
+          href="css/responsive.css">
 
 </head>
 
@@ -137,7 +141,8 @@
 
         <div class="product-page-container">
 
-            <div class="product-breadcrumb">
+            <nav class="product-breadcrumb"
+                 aria-label="Breadcrumb">
 
                 <a href="index.html">
                     Beranda
@@ -146,11 +151,11 @@
                 <i class="fa-solid fa-chevron-right"
                    aria-hidden="true"></i>
 
-                <span>
+                <span aria-current="page">
                     Produk
                 </span>
 
-            </div>
+            </nav>
 
 
             <div class="product-page-heading">
@@ -164,8 +169,8 @@
                 </h1>
 
                 <p>
-                    Pilih produk dan tentukan jumlah pesanan
-                    sesuai kebutuhan Anda.
+                    Manisan mangga khas Indramayu dengan pilihan
+                    rasa Original dan Pedas.
                 </p>
 
             </div>
@@ -180,9 +185,16 @@
          PRODUCT CATALOG
     ====================================================== -->
 
-    <section class="product-catalog">
+    <section class="product-catalog"
+             aria-labelledby="product-catalog-title">
 
         <div class="product-page-container">
+
+
+            <h2 id="product-catalog-title"
+                class="sr-only">
+                Daftar Produk Manisan Mangga
+            </h2>
 
 
             <!-- =================================================
@@ -199,13 +211,23 @@
                 <article class="shop-product-card">
 
 
-                    <!-- IMAGE -->
+                    <!-- =================================================
+                         PRODUCT IMAGE
+                    ================================================== -->
 
                     <div class="shop-product-image">
 
                         <span class="shop-product-badge">
+                            <i class="fa-solid fa-star"
+                               aria-hidden="true"></i>
+
                             Pilihan
                         </span>
+
+
+                        <div class="shop-product-image-glow"
+                             aria-hidden="true"></div>
+
 
                         <img
                             src="assets/img/manisan-mangga-paket-hemat-1-pack.png"
@@ -219,28 +241,34 @@
                     </div>
 
 
-                    <!-- CONTENT -->
+
+                    <!-- =================================================
+                         PRODUCT CONTENT
+                    ================================================== -->
 
                     <div class="shop-product-content">
 
 
-                        <div class="shop-product-category">
-                            MANISAN MANGGA
-                        </div>
+                        <span class="shop-product-category">
+                            MANISAN MANGGA KHAS INDRAMAYU
+                        </span>
 
 
-                        <h2>
+                        <h2 class="shop-product-title">
                             Manisan Mangga Anna Amui
                         </h2>
 
 
                         <p class="shop-product-description">
-                            Manisan mangga khas Indramayu
-                            dengan rasa manis, segar dan nikmat.
+                            Potongan mangga khas Indramayu dengan
+                            rasa manis, segar, dan nikmat. Tersedia
+                            dalam pilihan Original dan Pedas.
                         </p>
 
 
-                        <!-- PRICE -->
+                        <!-- =================================================
+                             PRICE
+                        ================================================== -->
 
                         <div class="shop-product-price">
 
@@ -255,24 +283,37 @@
                         </div>
 
 
-                        <!-- PROMO -->
+                        <!-- =================================================
+                             PROMO
+                        ================================================== -->
 
                         <div class="shop-product-promo">
 
-                            <i class="fa-solid fa-tags"
-                               aria-hidden="true"></i>
-
-                            <span>
-                                3 Pack atau lebih →
-                                <strong>HK$10 / Pack</strong>
+                            <span class="shop-product-promo-icon">
+                                <i class="fa-solid fa-tags"
+                                   aria-hidden="true"></i>
                             </span>
+
+                            <div>
+                                <strong>
+                                    Harga lebih hemat
+                                </strong>
+
+                                <span>
+                                    3 Pack atau lebih →
+                                    <b>HK$10 / Pack</b>
+                                </span>
+                            </div>
 
                         </div>
 
 
-                        <!-- VARIANT -->
+                        <!-- =================================================
+                             VARIANT
+                        ================================================== -->
 
                         <div class="shop-product-variants">
+
 
                             <div class="shop-variant-header">
 
@@ -287,14 +328,19 @@
                             </div>
 
 
-                            <!-- ORIGINAL -->
+                            <!-- =================================================
+                                 ORIGINAL
+                            ================================================== -->
 
                             <div class="shop-variant-row">
 
                                 <div class="shop-variant-name">
 
-                                    <span class="variant-dot original"
-                                          aria-hidden="true"></span>
+                                    <span
+                                        class="variant-dot original"
+                                        aria-hidden="true">
+                                    </span>
+
 
                                     <div>
 
@@ -303,7 +349,7 @@
                                         </strong>
 
                                         <small>
-                                            Manis & segar
+                                            Manis &amp; segar
                                         </small>
 
                                     </div>
@@ -311,7 +357,8 @@
                                 </div>
 
 
-                                <div class="shop-quantity">
+                                <div class="shop-quantity"
+                                     aria-label="Jumlah Original">
 
                                     <button
                                         type="button"
@@ -325,8 +372,9 @@
                                     </button>
 
 
-                                    <span id="qty-original"
-                                          aria-live="polite">
+                                    <span
+                                        id="qty-original"
+                                        aria-live="polite">
 
                                         0
 
@@ -349,14 +397,19 @@
                             </div>
 
 
-                            <!-- PEDAS -->
+                            <!-- =================================================
+                                 PEDAS
+                            ================================================== -->
 
                             <div class="shop-variant-row">
 
                                 <div class="shop-variant-name">
 
-                                    <span class="variant-dot pedas"
-                                          aria-hidden="true"></span>
+                                    <span
+                                        class="variant-dot pedas"
+                                        aria-hidden="true">
+                                    </span>
+
 
                                     <div>
 
@@ -365,7 +418,7 @@
                                         </strong>
 
                                         <small>
-                                            Manis & pedas
+                                            Manis &amp; pedas
                                         </small>
 
                                     </div>
@@ -373,7 +426,8 @@
                                 </div>
 
 
-                                <div class="shop-quantity">
+                                <div class="shop-quantity"
+                                     aria-label="Jumlah Pedas">
 
                                     <button
                                         type="button"
@@ -387,8 +441,9 @@
                                     </button>
 
 
-                                    <span id="qty-pedas"
-                                          aria-live="polite">
+                                    <span
+                                        id="qty-pedas"
+                                        aria-live="polite">
 
                                         0
 
@@ -413,12 +468,14 @@
                         </div>
 
 
-                        <!-- TOTAL -->
+                        <!-- =================================================
+                             TOTAL
+                        ================================================== -->
 
                         <div class="shop-product-total">
 
                             <span>
-                                Total
+                                Total Pesanan
                             </span>
 
                             <strong id="product-total-pack">
@@ -428,11 +485,15 @@
                         </div>
 
 
-                        <!-- PROMO MESSAGE -->
+                        <!-- =================================================
+                             PROMO INFO
+                        ================================================== -->
 
-                        <div id="product-promo-info"
-                             class="shop-product-promo-info"
-                             aria-live="polite">
+                        <div
+                            id="product-promo-info"
+                            class="shop-product-promo-info"
+                            aria-live="polite"
+                        >
 
                             <i class="fa-solid fa-circle-info"
                                aria-hidden="true"></i>
@@ -444,12 +505,15 @@
                         </div>
 
 
-                        <!-- BUY -->
+                        <!-- =================================================
+                             BUY BUTTON
+                        ================================================== -->
 
                         <button
                             type="button"
                             id="buyButton"
-                            class="shop-buy-button">
+                            class="shop-buy-button"
+                        >
 
                             <i class="fa-solid fa-bag-shopping"
                                aria-hidden="true"></i>
@@ -461,18 +525,110 @@
                         </button>
 
 
+                        <p class="shop-product-note">
+
+                            <i class="fa-solid fa-shield-heart"
+                               aria-hidden="true"></i>
+
+                            Pesanan akan dilanjutkan ke halaman checkout.
+
+                        </p>
+
                     </div>
 
                 </article>
 
+            </div>
+
+        </div>
+
+    </section>
 
 
-                <!-- =================================================
-                     TEMPAT PRODUK BERIKUTNYA
-                     
-                     Produk lain nanti bisa ditambahkan
-                     sebagai .shop-product-card baru.
-                ================================================== -->
+    <!-- =====================================================
+         PRODUCT INFORMATION
+    ====================================================== -->
+
+    <section class="product-info-section">
+
+        <div class="product-page-container">
+
+            <div class="product-info-grid">
+
+
+                <div class="product-info-item">
+
+                    <div class="product-info-icon">
+
+                        <i class="fa-solid fa-leaf"
+                           aria-hidden="true"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            Khas Indramayu
+                        </h2>
+
+                        <p>
+                            Menggunakan mangga dari daerah
+                            Indramayu.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="product-info-item">
+
+                    <div class="product-info-icon">
+
+                        <i class="fa-solid fa-box"
+                           aria-hidden="true"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            Pilihan Rasa
+                        </h2>
+
+                        <p>
+                            Tersedia Original dan Pedas sesuai
+                            selera Anda.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="product-info-item">
+
+                    <div class="product-info-icon">
+
+                        <i class="fa-solid fa-tag"
+                           aria-hidden="true"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            Harga Promo
+                        </h2>
+
+                        <p>
+                            Dapatkan harga HK$10 per Pack mulai
+                            3 Pack.
+                        </p>
+
+                    </div>
+
+                </div>
 
 
             </div>
@@ -480,6 +636,7 @@
         </div>
 
     </section>
+
 
 </main>
 
