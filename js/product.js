@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let pedas = 0;
 
     const MIN_PROMO = 3;
+
     const NORMAL_PRICE = 12;
     const PROMO_PRICE = 10;
 
@@ -32,6 +33,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const totalPack =
         document.getElementById("product-total-pack");
 
+    const productTotal =
+        document.getElementById("product-total");
+
     const promoInfo =
         document.getElementById("product-promo-info");
 
@@ -45,25 +49,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function updateProduct() {
 
-        const total =
-            original + pedas;
+        const total = original + pedas;
 
-
-        /* Jumlah Original */
+        /* =========================
+           JUMLAH ORIGINAL
+        ========================= */
 
         if (qtyOriginal) {
             qtyOriginal.textContent = original;
         }
 
 
-        /* Jumlah Pedas */
+        /* =========================
+           JUMLAH PEDAS
+        ========================= */
 
         if (qtyPedas) {
             qtyPedas.textContent = pedas;
         }
 
 
-        /* Total Pack */
+        /* =========================
+           TOTAL PACK
+        ========================= */
 
         if (totalPack) {
             totalPack.textContent =
@@ -71,19 +79,41 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
-        /* =================================================
-           PROMO
-        ================================================= */
+        /* =========================
+           TOTAL HARGA
+        ========================= */
+
+        if (productTotal) {
+
+            const price =
+                total >= MIN_PROMO
+                    ? PROMO_PRICE
+                    : NORMAL_PRICE;
+
+            const totalHarga =
+                total * price;
+
+            productTotal.textContent =
+                "HK$" + totalHarga;
+        }
+
+
+        /* =========================
+           PROMO INFO
+        ========================= */
 
         if (!promoInfo) {
             return;
         }
 
 
+        /* BELUM MEMILIH */
+
         if (total === 0) {
 
             promoInfo.innerHTML =
-                "Pilih jumlah produk terlebih dahulu.";
+                '<i class="fa-solid fa-tag"></i> ' +
+                'Pilih jumlah produk terlebih dahulu.';
 
             promoInfo.classList.remove("active");
 
@@ -91,29 +121,34 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
+        /* PROMO AKTIF */
+
         if (total >= MIN_PROMO) {
 
             promoInfo.innerHTML =
                 '<i class="fa-solid fa-circle-check"></i> ' +
-                'Promo aktif! <strong>HK$10 / Pack</strong>';
+                'Promo aktif! ' +
+                '<strong>HK$10 / Pack</strong>';
 
             promoInfo.classList.add("active");
 
-        } else {
-
-            const kurang =
-                MIN_PROMO - total;
-
-            promoInfo.innerHTML =
-                '<i class="fa-solid fa-tag"></i> ' +
-                'Tambah <strong>' +
-                kurang +
-                ' Pack</strong> lagi untuk mendapatkan ' +
-                'harga promo <strong>HK$10 / Pack</strong>.';
-
-            promoInfo.classList.remove("active");
+            return;
         }
 
+
+        /* BELUM MENCAPAI PROMO */
+
+        const kurang =
+            MIN_PROMO - total;
+
+        promoInfo.innerHTML =
+            '<i class="fa-solid fa-tag"></i> ' +
+            'Tambah <strong>' +
+            kurang +
+            ' Pack</strong> lagi untuk mendapatkan ' +
+            'harga promo <strong>HK$10 / Pack</strong>.';
+
+        promoInfo.classList.remove("active");
     }
 
 
@@ -152,7 +187,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 ) {
                     original--;
                 }
-
             }
 
 
@@ -172,14 +206,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 ) {
                     pedas--;
                 }
-
             }
 
 
             updateProduct();
-
         });
-
     });
 
 
@@ -195,7 +226,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 original + pedas;
 
 
-            /* Tidak boleh kosong */
+            /* =========================
+               VALIDASI
+            ========================= */
 
             if (total <= 0) {
 
@@ -207,9 +240,9 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
 
-            /* =================================================
-               BUAT URL CHECKOUT
-            ================================================= */
+            /* =========================
+               CHECKOUT URL
+            ========================= */
 
             const checkoutURL =
                 "checkout.html" +
@@ -219,9 +252,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 encodeURIComponent(pedas);
 
 
-            /* =================================================
-               ANIMASI BUTTON
-            ================================================= */
+            /* =========================
+               DISABLE BUTTON
+            ========================= */
 
             buyButton.disabled = true;
 
@@ -230,15 +263,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 'Membuka Checkout...';
 
 
-            /* =================================================
-               PINDAH KE CHECKOUT
-            ================================================= */
+            /* =========================
+               PINDAH CHECKOUT
+            ========================= */
 
             window.location.href =
                 checkoutURL;
-
         });
-
     }
 
 
