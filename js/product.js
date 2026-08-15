@@ -33,9 +33,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const totalPack =
         document.getElementById("product-total-pack");
 
-    const productTotal =
-        document.getElementById("product-total");
-
     const promoInfo =
         document.getElementById("product-promo-info");
 
@@ -44,19 +41,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       UPDATE TAMPILAN
+       UPDATE PRODUCT
     ===================================================== */
 
     function updateProduct() {
 
-        const total = original + pedas;
+        const total =
+            original + pedas;
+
 
         /* =========================
            JUMLAH ORIGINAL
         ========================= */
 
         if (qtyOriginal) {
-            qtyOriginal.textContent = original;
+
+            qtyOriginal.textContent =
+                original;
         }
 
 
@@ -65,7 +66,9 @@ document.addEventListener("DOMContentLoaded", function () {
         ========================= */
 
         if (qtyPedas) {
-            qtyPedas.textContent = pedas;
+
+            qtyPedas.textContent =
+                pedas;
         }
 
 
@@ -74,27 +77,9 @@ document.addEventListener("DOMContentLoaded", function () {
         ========================= */
 
         if (totalPack) {
+
             totalPack.textContent =
                 total + " Pack";
-        }
-
-
-        /* =========================
-           TOTAL HARGA
-        ========================= */
-
-        if (productTotal) {
-
-            const price =
-                total >= MIN_PROMO
-                    ? PROMO_PRICE
-                    : NORMAL_PRICE;
-
-            const totalHarga =
-                total * price;
-
-            productTotal.textContent =
-                "HK$" + totalHarga;
         }
 
 
@@ -112,8 +97,10 @@ document.addEventListener("DOMContentLoaded", function () {
         if (total === 0) {
 
             promoInfo.innerHTML =
-                '<i class="fa-solid fa-tag"></i> ' +
-                'Pilih jumlah produk terlebih dahulu.';
+                '<i class="fa-solid fa-circle-info"></i> ' +
+                '<span>' +
+                'Pilih jumlah produk terlebih dahulu.' +
+                '</span>';
 
             promoInfo.classList.remove("active");
 
@@ -127,8 +114,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
             promoInfo.innerHTML =
                 '<i class="fa-solid fa-circle-check"></i> ' +
+                '<span>' +
                 'Promo aktif! ' +
-                '<strong>HK$10 / Pack</strong>';
+                '<strong>HK$' +
+                PROMO_PRICE +
+                ' / Pack</strong>' +
+                '</span>';
 
             promoInfo.classList.add("active");
 
@@ -143,17 +134,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
         promoInfo.innerHTML =
             '<i class="fa-solid fa-tag"></i> ' +
+            '<span>' +
             'Tambah <strong>' +
             kurang +
             ' Pack</strong> lagi untuk mendapatkan ' +
-            'harga promo <strong>HK$10 / Pack</strong>.';
+            'harga promo <strong>HK$' +
+            PROMO_PRICE +
+            ' / Pack</strong>.' +
+            '</span>';
 
         promoInfo.classList.remove("active");
     }
 
 
     /* =====================================================
-       TOMBOL JUMLAH
+       QUANTITY BUTTON
     ===================================================== */
 
     const quantityButtons =
@@ -210,12 +205,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
             updateProduct();
+
         });
+
     });
 
 
     /* =====================================================
-       BELI SEKARANG
+       BUY NOW
     ===================================================== */
 
     if (buyButton) {
@@ -253,28 +250,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
             /* =========================
-               DISABLE BUTTON
+               BUTTON LOADING
             ========================= */
 
             buyButton.disabled = true;
 
             buyButton.innerHTML =
                 '<i class="fa-solid fa-spinner fa-spin"></i> ' +
-                'Membuka Checkout...';
+                '<span>Membuka Checkout...</span>';
 
 
             /* =========================
-               PINDAH CHECKOUT
+               GO TO CHECKOUT
             ========================= */
 
             window.location.href =
                 checkoutURL;
+
         });
+
     }
 
 
     /* =====================================================
-       INIT
+       INITIALIZE
     ===================================================== */
 
     updateProduct();
