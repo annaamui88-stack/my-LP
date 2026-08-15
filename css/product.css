@@ -784,13 +784,15 @@
 
     color: var(--primary-green);
 
-    font-size: 0.72rem;
+    font-size: 0.78rem;
 
     font-weight: 700;
 
-    letter-spacing: 0.1em;
+    letter-spacing: 0.12em;
 
     text-transform: uppercase;
+
+
 }
 
 .product-seo-content h2 {
