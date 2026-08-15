@@ -11,247 +11,281 @@
 
 @media (max-width: 360px) {
 
-    /* =========================================================
-       GLOBAL
-    ========================================================== */
-
-    .container {
+    .container,
+    .product-page-container {
         padding-left: 14px;
         padding-right: 14px;
     }
+
 
     .section {
         padding: 2.8rem 0;
     }
 
 
-    /* =========================================================
-       HEADER
-    ========================================================== */
+    /* HEADER */
 
     .header-container {
         padding: 0 14px;
     }
 
+
     .logo-name {
         font-size: 1.25rem;
     }
+
 
     .logo-tagline {
         font-size: 7px;
     }
 
+
     .menu-toggle {
         width: 40px;
         height: 40px;
+
         font-size: 1.35rem;
     }
 
 
-    /* =========================================================
-       HERO
-    ========================================================== */
+    /* HERO */
 
     .hero {
-        padding-top: 0.8rem;
+        padding-top: 1rem;
         padding-bottom: 2rem;
     }
+
 
     .hero-title {
         font-size: 1.75rem;
     }
 
+
     .hero-subtitle {
         font-size: 0.9rem;
     }
 
+
     .hero-cta-group {
         flex-direction: column;
+
         width: 100%;
     }
+
 
     .hero-cta-group .btn {
         width: 100%;
     }
+
 
     .hero-img {
         height: 240px;
     }
 
 
-    /* =========================================================
-       SECTION TITLE
-    ========================================================== */
+    /* SECTION */
 
     .section-subtitle {
         font-size: 0.75rem;
-        letter-spacing: 1.2px;
     }
+
 
     .section-title {
         font-size: 1.55rem;
     }
 
 
-    /* =========================================================
-       BUTTON
-    ========================================================== */
+    /* BUTTON */
 
     .btn {
         padding: 0.75rem 1.3rem;
     }
+
 
     .btn-lg {
         width: 100%;
     }
 
 
-    /* =========================================================
-       PAKET
-    ========================================================== */
+    /* PAKET */
 
     .paket-card {
-        padding: 2rem 1.2rem;
+        padding: 1.7rem 1.2rem;
     }
+
 
     .paket-price {
         font-size: 2rem;
     }
 
 
-    /* =========================================================
-       FEATURES
-    ========================================================== */
+    /* FEATURES */
 
     .features-grid {
         grid-template-columns: 1fr;
     }
 
 
-    /* =========================================================
-       SHIPPING
-    ========================================================== */
+    /* SHIPPING */
 
     .shipping-card {
         padding: 2rem 0.9rem;
     }
 
+
     .shipping-title {
         font-size: 1.35rem;
     }
 
-    .shipping-badge {
-        font-size: 0.78rem;
-        padding: 10px 12px;
-    }
 
     .timer-box {
         gap: 0.4rem;
     }
 
+
     .timer-segment {
+        min-width: 58px;
+
         padding: 0.9rem 0.2rem;
-        border-radius: 14px;
     }
+
 
     .timer-val {
         font-size: 1.75rem;
     }
+
 
     .timer-unit {
         font-size: 0.62rem;
     }
 
 
-    /* =========================================================
-       PRODUCT
-    ========================================================== */
+    /* PRODUCT PAGE */
 
-    .product-card {
-        padding: 1.1rem;
+    .product-page-header {
+        padding-top: 1.5rem;
     }
 
-    .product-name {
+
+    .product-page-heading h1 {
+        font-size: 1.7rem;
+    }
+
+
+    .product-page-heading p {
+        font-size: 0.85rem;
+    }
+
+
+    .product-catalog {
+        padding-top: 1rem;
+    }
+
+
+    .shop-product-card {
+        padding: 1.1rem;
+
+        gap: 1.3rem;
+    }
+
+
+    .shop-product-image {
+        padding: 0.3rem;
+    }
+
+
+    .shop-product-badge {
+        font-size: 0.65rem;
+
+        padding: 6px 9px;
+    }
+
+
+    .shop-product-content h2 {
         font-size: 1.35rem;
     }
 
-    .product-description {
-        font-size: 0.84rem;
+
+    .shop-product-description {
+        font-size: 0.82rem;
     }
 
-    .product-price strong {
+
+    .shop-product-price strong {
         font-size: 2rem;
     }
 
-    .variant-row {
-        padding: 0.9rem;
-    }
 
-    .variant-info small {
+    .shop-product-promo {
         font-size: 0.72rem;
     }
 
-    .quantity-control {
-        gap: 6px;
+
+    .shop-variant-row {
+        padding: 0.8rem;
+
+        gap: 7px;
     }
+
+
+    .shop-variant-name strong {
+        font-size: 0.82rem;
+    }
+
+
+    .shop-variant-name small {
+        font-size: 0.68rem;
+    }
+
 
     .quantity-btn {
-        width: 34px;
-        height: 34px;
-    }
-
-    .product-info-grid {
-        grid-template-columns: 1fr;
+        width: 33px;
+        height: 33px;
     }
 
 
-    /* =========================================================
-       BLOG
-    ========================================================== */
+    .shop-quantity {
+        gap: 5px;
+    }
+
+
+    .shop-product-promo-info {
+        font-size: 0.72rem;
+    }
+
+
+    .shop-buy-button {
+        min-height: 48px;
+
+        font-size: 0.85rem;
+    }
+
+
+    /* BLOG */
 
     .blog-grid {
         grid-template-columns: 1fr;
     }
 
 
-    /* =========================================================
-       FAQ
-    ========================================================== */
-
-    .faq-question {
-        padding: 1rem;
-        font-size: 0.85rem;
-    }
-
-    .faq-answer {
-        font-size: 0.8rem;
-    }
-
-
-    /* =========================================================
-       FOOTER
-    ========================================================== */
+    /* FOOTER */
 
     .footer {
         padding: 32px 0 18px;
     }
 
+
     .footer-container {
         padding: 0 14px;
     }
+
 
     .footer-description {
         font-size: 0.8rem;
     }
 
-    .footer-nav {
-        gap: 10px 14px;
-    }
 
-
-    /* =========================================================
-       WHATSAPP
-    ========================================================== */
+    /* WHATSAPP */
 
     .floating-wa {
         right: 12px;
@@ -265,35 +299,31 @@
         height: 48px;
     }
 
+
     .floating-wa svg {
         width: 25px;
         height: 25px;
     }
 
 
-    /* =========================================================
-       BOTTOM NAV
-    ========================================================== */
+    /* BOTTOM NAV */
 
     .bottom-nav-item {
         font-size: 0.60rem;
     }
+
 
     .bottom-nav-icon {
         width: 22px;
         height: 22px;
     }
 
+
     .bottom-nav-order-icon {
         width: 46px;
         height: 46px;
 
         margin-top: -14px;
-    }
-
-    .bottom-nav-order-icon .bottom-nav-icon {
-        width: 20px;
-        height: 20px;
     }
 }
 
@@ -305,439 +335,436 @@
 
 @media (max-width: 767px) {
 
-    /* =========================================================
-       GLOBAL
-    ========================================================== */
-
     body {
         padding-bottom: var(--bottom-nav-height);
     }
+
+
+    .container,
+    .product-page-container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
 
     .section {
         padding: 3rem 0;
     }
 
 
-    /* =========================================================
-       HEADER
-    ========================================================== */
+    /* HEADER */
 
     .header-container {
         padding: 0 15px;
     }
 
+
     .logo-name {
         font-size: 1.35rem;
     }
+
 
     .logo-tagline {
         font-size: 8px;
     }
 
 
-    /* =========================================================
-       MOBILE NAV
-    ========================================================== */
+    /* MOBILE NAV */
 
     .nav-menu {
-        max-height: calc(100vh - var(--header-height));
+        max-height:
+            calc(
+                100vh - var(--header-height)
+            );
 
         overflow-y: auto;
 
         -webkit-overflow-scrolling: touch;
     }
 
+
     .nav-link {
         min-height: 48px;
     }
 
 
-    /* =========================================================
-       HERO
-    ========================================================== */
+    /* HERO */
 
     .hero {
         padding-top: 1rem;
         padding-bottom: 2rem;
     }
 
+
     .hero-container {
+        flex-direction: column;
+
         gap: 2rem;
+
+        text-align: center;
     }
+
 
     .hero-title {
         font-size: 2rem;
     }
 
+
     .hero-subtitle {
         font-size: 0.95rem;
     }
 
+
     .hero-cta-group {
+        justify-content: center;
+
         flex-wrap: wrap;
     }
 
+
     .hero-image-wrapper {
+        width: 100%;
+
         max-width: 100%;
+
         margin: 1rem auto;
     }
+
 
     .hero-img {
         height: 280px;
     }
 
 
-    /* =========================================================
-       SECTION TITLE
-    ========================================================== */
+    /* SECTION */
 
     .section-subtitle {
         font-size: 0.8rem;
     }
 
+
     .section-title {
-        margin-bottom: 1.5rem;
         font-size: 1.7rem;
+
+        margin-bottom: 1.5rem;
     }
 
 
-    /* =========================================================
-       BUTTON
-    ========================================================== */
+    /* BUTTON */
 
     .btn {
         min-height: 44px;
     }
+
 
     .btn-lg {
         padding: 0.85rem 1.5rem;
     }
 
 
-    /* =========================================================
-       PAKET
-    ========================================================== */
+    /* PAKET */
 
     .paket-grid {
+        flex-direction: column;
+
         gap: 1.5rem;
     }
+
 
     .paket-card {
         padding: 2rem 1.4rem;
     }
+
 
     .paket-price {
         font-size: 2.2rem;
     }
 
 
-    /* =========================================================
-       SHIPPING
-    ========================================================== */
+    /* SHIPPING */
 
     .shipping-card {
         padding: 2.5rem 1.2rem;
     }
 
+
     .shipping-title {
         font-size: 1.5rem;
     }
 
+
     .shipping-badge {
         font-size: 0.84rem;
+
         padding: 12px 15px;
     }
+
 
     .timer-box {
         gap: 0.6rem;
     }
 
+
     .timer-segment {
         padding: 1rem 0.3rem;
+
         border-radius: 15px;
     }
+
 
     .timer-val {
         font-size: 2rem;
     }
 
-    .timer-unit {
-        font-size: 0.68rem;
-    }
-
 
     /* =========================================================
-       PRODUCT
+       PRODUCT PAGE
     ========================================================== */
 
-    .product-section {
-        padding-top: 2rem;
+    .product-page-header {
+        padding: 1.8rem 0 1.2rem;
     }
 
-    .product-heading {
-        margin-bottom: 1.5rem;
+
+    .product-breadcrumb {
+        margin-bottom: 1rem;
+
+        font-size: 0.78rem;
     }
 
-    .product-card {
-        display: flex;
-        flex-direction: column;
 
-        padding: 1.2rem;
+    .product-page-heading h1 {
+        font-size: 1.8rem;
+    }
+
+
+    .product-page-heading p {
+        font-size: 0.88rem;
+
+        line-height: 1.65;
+    }
+
+
+    .product-catalog {
+        padding: 1rem 0 3.5rem;
+    }
+
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* PRODUCT CARD */
+
+    .shop-product-card {
+        grid-template-columns: 1fr;
 
         gap: 1.5rem;
 
-        border-radius: var(--radius-lg);
+        padding: 1.2rem;
     }
 
-    .product-image-wrapper {
+
+    .shop-product-image {
         width: 100%;
+
         max-width: 420px;
 
         margin: 0 auto;
+
+        padding: 0.5rem;
     }
 
-    .product-image {
+
+    .shop-product-image img {
         width: 100%;
-        height: auto;
 
         max-height: 360px;
-
-        object-fit: contain;
     }
 
-    .product-content {
+
+    .shop-product-content {
         width: 100%;
     }
 
-    .product-category {
-        font-size: 0.75rem;
+
+    .shop-product-category {
+        font-size: 0.72rem;
     }
 
-    .product-name {
+
+    .shop-product-content h2 {
         font-size: 1.55rem;
     }
 
-    .product-description {
+
+    .shop-product-description {
         font-size: 0.88rem;
+
         line-height: 1.7;
     }
 
-    .product-price strong {
+
+    .shop-product-price strong {
         font-size: 2.2rem;
     }
 
-    .product-price span {
-        font-size: 0.85rem;
+
+    .shop-product-price span {
+        font-size: 0.82rem;
     }
 
-    .product-promo {
-        font-size: 0.8rem;
-        padding: 0.75rem 0.9rem;
+
+    .shop-product-promo {
+        font-size: 0.78rem;
+
+        padding: 0.75rem 0.85rem;
     }
 
-    .variant-row {
+
+    .shop-variant-row {
         gap: 10px;
+
         padding: 1rem;
     }
 
-    .variant-info {
+
+    .shop-variant-name {
         min-width: 0;
     }
 
-    .variant-info strong {
-        font-size: 0.9rem;
+
+    .shop-variant-name strong {
+        font-size: 0.88rem;
     }
 
-    .variant-info small {
-        font-size: 0.75rem;
+
+    .shop-variant-name small {
+        font-size: 0.74rem;
     }
 
-    .quantity-control {
+
+    .shop-quantity {
         flex-shrink: 0;
     }
+
 
     .quantity-btn {
         width: 36px;
         height: 36px;
     }
 
-    .product-total {
+
+    .shop-product-total {
         padding: 1rem;
     }
 
-    .product-promo-info {
-        font-size: 0.8rem;
-        line-height: 1.6;
+
+    .shop-product-promo-info {
+        font-size: 0.78rem;
+
+        line-height: 1.55;
     }
 
-    .product-buy-button {
+
+    .shop-buy-button {
         min-height: 50px;
     }
 
 
-    /* =========================================================
-       PRODUCT INFORMATION
-    ========================================================== */
-
-    .product-info-grid {
-        grid-template-columns: 1fr;
-
-        gap: 1rem;
-
-        margin-top: 2rem;
-    }
-
-    .product-info-item {
-        padding: 1.1rem;
-    }
-
-    .product-info-icon {
-        width: 42px;
-        height: 42px;
-        flex-shrink: 0;
-    }
-
-    .product-info-item h2 {
-        font-size: 0.95rem;
-    }
-
-    .product-info-item p {
-        font-size: 0.8rem;
-    }
-
-
-    /* =========================================================
-       PRODUCT SEO
-    ========================================================== */
-
-    .product-seo-content {
-        margin-top: 3rem;
-    }
-
-    .product-seo-inner {
-        padding: 1.5rem 1.2rem;
-    }
-
-    .product-seo-inner h2 {
-        font-size: 1.35rem;
-    }
-
-    .product-seo-inner p {
-        font-size: 0.88rem;
-        line-height: 1.75;
-    }
-
-
-    /* =========================================================
-       PRODUCT FAQ
-    ========================================================== */
-
-    .product-faq {
-        margin-top: 3rem;
-    }
-
-    .faq-list {
-        width: 100%;
-    }
-
-    .faq-question {
-        padding: 1.1rem;
-
-        font-size: 0.88rem;
-    }
-
-
-    /* =========================================================
-       FEATURES
-    ========================================================== */
+    /* FEATURES */
 
     .features-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
 
-    /* =========================================================
-       TESTIMONIAL
-    ========================================================== */
+    /* TESTIMONIAL */
 
     .testi-grid {
         flex-direction: column;
     }
 
 
-    /* =========================================================
-       BLOG
-    ========================================================== */
+    /* BLOG */
 
     .blog-grid {
         grid-template-columns: 1fr;
+
         gap: 1.3rem;
     }
+
 
     .blog-card {
         padding: 1.4rem;
     }
 
 
-    /* =========================================================
-       ARTICLE
-    ========================================================== */
+    /* ARTICLE */
 
     .blog-article-section {
         padding-top: 50px;
     }
 
+
     .article-header {
         margin-bottom: 25px;
     }
+
 
     .article-header h1 {
         font-size: 1.65rem;
     }
 
+
     .blog-content {
         font-size: 0.95rem;
+
         line-height: 1.8;
     }
+
 
     .blog-content h2 {
         font-size: 1.2rem;
     }
 
+
     .article-cta {
         padding: 25px 18px;
     }
 
+
     .article-navigation {
         flex-direction: column;
+
         text-align: center;
     }
 
 
-    /* =========================================================
-       FOOTER
-    ========================================================== */
+    /* FOOTER */
 
     .footer {
         padding: 35px 0 20px;
     }
 
+
     .footer-container {
         padding: 0 15px;
     }
 
+
     .footer-description {
         font-size: 0.82rem;
     }
+
 
     .footer-nav {
         gap: 12px 16px;
     }
 
 
-    /* =========================================================
-       WHATSAPP
-    ========================================================== */
+    /* WHATSAPP */
 
     .floating-wa {
         right: 15px;
@@ -751,19 +778,19 @@
         height: 52px;
     }
 
+
     .floating-wa svg {
         width: 27px;
         height: 27px;
     }
 
 
-    /* =========================================================
-       BOTTOM NAV
-    ========================================================== */
+    /* BOTTOM NAV */
 
     .bottom-nav {
         display: block;
     }
+
 
     .bottom-nav-inner {
         max-width: 600px;
@@ -778,22 +805,17 @@
 
 @media (min-width: 768px) {
 
-    /* =========================================================
-       BODY
-    ========================================================== */
-
     body {
         padding-bottom: 0;
     }
 
 
-    /* =========================================================
-       HEADER
-    ========================================================== */
+    /* HEADER */
 
     .menu-toggle {
         display: none;
     }
+
 
     .nav-menu {
         position: static;
@@ -815,7 +837,16 @@
         border: none;
 
         box-shadow: none;
+
+        opacity: 1;
+
+        visibility: visible;
+
+        transform: none;
+
+        pointer-events: auto;
     }
+
 
     .nav-link {
         min-height: auto;
@@ -827,6 +858,7 @@
         font-size: 0.88rem;
     }
 
+
     .nav-link.btn-nav-order {
         min-width: auto;
 
@@ -836,9 +868,7 @@
     }
 
 
-    /* =========================================================
-       HERO
-    ========================================================== */
+    /* HERO */
 
     .hero-container {
         flex-direction: row;
@@ -850,62 +880,46 @@
         text-align: left;
     }
 
+
     .hero-container > * {
         flex: 1;
     }
 
+
     .hero-cta-group {
         justify-content: flex-start;
     }
+
 
     .hero-title {
         font-size: 2.3rem;
     }
 
 
-    /* =========================================================
-       PRODUCT
-    ========================================================== */
+    /* PRODUCT */
 
-    .product-card {
-        display: grid;
-
+    .shop-product-card {
         grid-template-columns:
             minmax(0, 0.95fr)
             minmax(0, 1.05fr);
-
-        align-items: center;
 
         gap: 2rem;
 
         padding: 2rem;
     }
 
-    .product-image-wrapper {
-        width: 100%;
-    }
 
-    .product-image {
-        width: 100%;
+    .shop-product-image img {
         max-height: 480px;
-
-        object-fit: contain;
     }
 
-    .product-name {
+
+    .shop-product-content h2 {
         font-size: 1.7rem;
     }
 
-    .product-info-grid {
-        grid-template-columns: repeat(3, 1fr);
 
-        gap: 1rem;
-    }
-
-
-    /* =========================================================
-       PAKET
-    ========================================================== */
+    /* PAKET */
 
     .paket-grid {
         flex-direction: row;
@@ -913,54 +927,46 @@
         align-items: stretch;
     }
 
+
     .paket-card {
         flex: 1;
     }
 
 
-    /* =========================================================
-       FEATURES
-    ========================================================== */
+    /* FEATURES */
 
     .features-grid {
         grid-template-columns: repeat(4, 1fr);
     }
 
 
-    /* =========================================================
-       TESTIMONIAL
-    ========================================================== */
+    /* TESTIMONIAL */
 
     .testi-grid {
         flex-direction: row;
     }
+
 
     .testi-card {
         flex: 1;
     }
 
 
-    /* =========================================================
-       BLOG
-    ========================================================== */
+    /* BLOG */
 
     .blog-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
 
-    /* =========================================================
-       WHATSAPP
-    ========================================================== */
+    /* WHATSAPP */
 
     .floating-wa {
         bottom: 24px;
     }
 
 
-    /* =========================================================
-       BOTTOM NAV
-    ========================================================== */
+    /* BOTTOM NAV */
 
     .bottom-nav {
         display: none;
@@ -975,22 +981,18 @@
 
 @media (min-width: 1024px) {
 
-    /* =========================================================
-       HEADER
-    ========================================================== */
-
     .header-container {
         max-width: var(--container-width);
-
-        margin: 0 auto;
 
         padding-left: 20px;
         padding-right: 20px;
     }
 
+
     .nav-menu {
         gap: 8px;
     }
+
 
     .nav-link {
         padding: 8px 12px;
@@ -999,29 +1001,25 @@
     }
 
 
-    /* =========================================================
-       HERO
-    ========================================================== */
-
     .hero-title {
         font-size: 2.6rem;
     }
 
-
-    /* =========================================================
-       SECTION
-    ========================================================== */
 
     .section {
         padding: 5rem 0;
     }
 
 
-    /* =========================================================
-       PRODUCT
-    ========================================================== */
+    /* PRODUCT */
 
-    .product-card {
+    .product-grid {
+        grid-template-columns:
+            minmax(0, 900px);
+    }
+
+
+    .shop-product-card {
         grid-template-columns:
             minmax(0, 1fr)
             minmax(0, 1fr);
@@ -1031,35 +1029,30 @@
         padding: 2.5rem;
     }
 
-    .product-image {
+
+    .shop-product-image img {
         max-height: 520px;
     }
 
-    .product-name {
+
+    .shop-product-content h2 {
         font-size: 2rem;
     }
 
-    .product-description {
+
+    .shop-product-description {
         font-size: 0.95rem;
     }
 
-    .product-info-grid {
-        gap: 1.5rem;
-    }
 
-
-    /* =========================================================
-       BLOG
-    ========================================================== */
+    /* BLOG */
 
     .blog-grid {
         grid-template-columns: repeat(3, 1fr);
     }
 
 
-    /* =========================================================
-       ARTICLE
-    ========================================================== */
+    /* ARTICLE */
 
     .article-header h1 {
         font-size: 2.2rem;
@@ -1074,17 +1067,19 @@
 
 @media (min-width: 1200px) {
 
-    .product-card {
+    .shop-product-card {
         gap: 4rem;
 
         padding: 3rem;
     }
 
-    .product-image {
+
+    .shop-product-image img {
         max-height: 560px;
     }
 
-    .product-name {
+
+    .shop-product-content h2 {
         font-size: 2.15rem;
     }
 }
@@ -1099,10 +1094,9 @@
     .paket-card:hover,
     .blog-card:hover,
     .btn-primary:hover,
-    .btn-outline:hover {
-        transform: none;
-    }
-
+    .btn-outline:hover,
+    .shop-buy-button:hover,
+    .quantity-btn:hover,
     .floating-wa:hover {
         transform: none;
     }
@@ -1115,9 +1109,15 @@
 
 @media (prefers-reduced-motion: reduce) {
 
-    .floating-wa,
-    .wa-pulse {
-        animation: none !important;
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
     }
 
 }
