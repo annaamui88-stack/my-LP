@@ -271,8 +271,9 @@ HERO
 
 .hero {
 padding-top: 1rem;
-
 padding-bottom: 3rem;
+
+    background-image: url("assets/img/manisan-mangga-khas-indramayu-anna-amui.jpg");
 
 }
 
