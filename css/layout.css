@@ -283,7 +283,7 @@ transform: translateY(-1px);
     position: absolute;
     inset: 0;
     /* Nilai 0.6 dan 0.7 membuat overlay jauh lebih tipis dan transparan */
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(248, 250, 252, 0.7) 100%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(248, 250, 252, 0.4) 100%);
     z-index: 1;
 }
 
