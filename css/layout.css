@@ -329,7 +329,7 @@ transform: translateY(-1px);
 
 /* 3. SUBJUDUL */
 .hero-subtitle {
-    margin-bottom: 0.7rem;
+    margin-bottom: 0.2rem;
     color: var(--text-muted);
     font-size: 0.95rem;
     max-width: 520px;
@@ -384,7 +384,7 @@ transform: translateY(-1px);
     position: relative;
     width: 100%;
     margin-bottom: 1.5rem;
-    margin-top: 0.5rem; 
+    margin-top: 0.2rem; 
 }
 
 .hero-img {
