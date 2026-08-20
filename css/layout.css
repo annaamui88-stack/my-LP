@@ -278,13 +278,15 @@ transform: translateY(-1px);
     overflow: hidden;
 }
 
-/* Overlay transparan agar teks di atas background gambar tetap terbaca jelas */
+/* Turunkan angkanya menjadi 0.6 dan 0.7 agar lebih transparan */
 .hero-bg-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(248, 250, 252, 0.95) 100%);
+    /* Nilai 0.6 dan 0.7 membuat overlay jauh lebih tipis dan transparan */
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(248, 250, 252, 0.7) 100%);
     z-index: 1;
 }
+
 
 .hero-container {
     position: relative;
