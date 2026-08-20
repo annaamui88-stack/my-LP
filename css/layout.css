@@ -313,7 +313,7 @@ transform: translateY(-1px);
 /* 2. JUDUL */
 
 .hero-title {
-    color: var(--primary-green-hover);
+    color: var(--mango-orange);
 }
 
 .hero-title-sub {
