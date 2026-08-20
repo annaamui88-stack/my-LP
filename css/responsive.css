@@ -1,1466 +1,335 @@
 /* ==========================================================================
-   RESPONSIVE.CSS - ANNA AMUI
-   Mobile, Tablet & Desktop
-   ========================================================================== */
-
+MAIN.CSS - ANNA AMUI
+Design System, Variables & Base Styles
+========================================================================== */
 
 /* ==========================================================================
-   SMALL MOBILE
-   ≤ 360px
-   ========================================================================== */
+DESIGN TOKENS
+========================================================================== */
 
-@media (max-width: 360px) {
+:root {
 
+/* =========================  
+   BRAND COLORS  
+   ========================= */  
 
-    /* ======================================================================
-       GLOBAL
-       ====================================================================== */
+--primary-green: #16a34a;  
+--primary-green-hover: #15803d;  
 
-    .container {
-        padding-left: 14px;
-        padding-right: 14px;
-    }
+--mango-orange: #f59e0b;  
+--mango-orange-dark: #d97706;  
 
-    .section {
-        padding: 2.8rem 0;
-    }
+/* =========================  
+   DARK COLORS  
+   ========================= */  
 
+--navy-dark: #0f172a;  
+--navy-card: #1e293b;  
 
-    /* ======================================================================
-       HEADER
-       ====================================================================== */
+--text-dark: #0f172a;  
+--text-muted: #64748b;  
 
-    .header-container {
-        padding-left: 14px;
-        padding-right: 14px;
-    }
+/* =========================  
+   BACKGROUND  
+   ========================= */  
 
-    .logo-name {
-        font-size: 1.25rem;
-    }
+--bg-white: #ffffff;  
+--bg-light: #f8fafc;  
+--bg-soft: #f1f5f9;  
 
-    .logo-tagline {
-        font-size: 7px;
-    }
+--bg-gradient:  
+    linear-gradient(  
+        180deg,  
+        #ffffff 0%,  
+        #f8fafc 55%,  
+        #f1f5f9 100%  
+    );  
 
-    .menu-toggle {
-        width: 40px;
-        height: 40px;
+/* =========================  
+   BORDER RADIUS  
+   ========================= */  
 
-        font-size: 1.35rem;
-    }
+--radius-lg: 24px;  
+--radius-md: 16px;  
+--radius-sm: 8px;  
 
+/* =========================  
+   SHADOW  
+   ========================= */  
 
-    /* ======================================================================
-       HERO
-       ====================================================================== */
+--shadow-soft:  
+    0 10px 30px rgba(15, 23, 42, 0.05);  
 
-    .hero {
-        padding-top: 1.6rem;
-        padding-bottom: 2.4rem;
-    }
+--shadow-hover:  
+    0 20px 40px rgba(15, 23, 42, 0.12);  
 
-    .hero-container {
-        gap: 0.9rem;
-    }
+--shadow-glow:  
+    0 8px 25px rgba(22, 163, 74, 0.35);  
 
-    .badge-indonesia {
-        max-width: 95%;
+/* =========================  
+   TRANSITION  
+   ========================= */  
 
-        padding:
-            0.38rem
-            0.7rem;
+--transition:  
+    all 0.3s cubic-bezier(0.16, 1, 0.3, 1);  
 
-        font-size: 0.68rem;
-    }
+/* =========================  
+   FONT  
+   ========================= */  
 
-    .hero-title {
-        font-size: 1.65rem;
+--font-main: 'Poppins', sans-serif;  
 
-        line-height: 1.2;
-    }
+/* =========================  
+   LAYOUT  
+   ========================= */  
 
-    .hero-title-sub {
-        margin-bottom: 0.25rem;
+--container-width: 1140px;  
 
-        font-size: 0.86rem;
-    }
+--header-height: 72px;  
 
-    .hero-subtitle {
-        padding:
-            0 4px;
-
-        font-size: 0.78rem;
-
-        line-height: 1.65;
-    }
-
-    .hero-image-wrapper {
-        max-width: 330px;
-
-        min-height: 220px;
-    }
-
-    .hero-img {
-        height: 245px;
-
-        max-height: 245px;
-    }
-
-    .hero-cta-group {
-        max-width: 100%;
-
-        gap: 0.6rem;
-    }
-
-    .hero-cta-group .btn {
-        min-height: 44px;
-    }
-
-    .hero-features {
-        gap: 0.4rem;
-
-        margin-top: 0.35rem;
-    }
-
-    .feature-item {
-        min-height: 78px;
-
-        padding:
-            0.55rem
-            0.2rem;
-    }
-
-    .feature-icon {
-        margin-bottom: 0.25rem;
-
-        font-size: 1.1rem;
-    }
-
-    .feature-item p {
-        font-size: 0.59rem;
-
-        line-height: 1.3;
-    }
-
-
-    /* ======================================================================
-       SECTION TITLE
-       ====================================================================== */
-
-    .section-subtitle {
-        font-size: 0.75rem;
-
-        letter-spacing: 1.2px;
-    }
-
-    .section-title {
-        font-size: 1.55rem;
-    }
-
-
-    /* ======================================================================
-       BUTTON
-       ====================================================================== */
-
-    .btn {
-        padding:
-            0.75rem
-            1.3rem;
-    }
-
-    .btn-lg {
-        width: 100%;
-    }
-
-
-    /* ======================================================================
-       PAKET
-       ====================================================================== */
-
-    .paket-card {
-        padding:
-            2rem
-            1.2rem;
-    }
-
-    .paket-price {
-        font-size: 2rem;
-    }
-
-
-    /* ======================================================================
-       FEATURES
-       ====================================================================== */
-
-    .features-grid {
-        grid-template-columns: 1fr;
-    }
-
-
-    /* ======================================================================
-       SHIPPING
-       ====================================================================== */
-
-    .shipping-card {
-        padding:
-            2rem
-            0.9rem;
-    }
-
-    .shipping-title {
-        font-size: 1.35rem;
-    }
-
-    .shipping-badge {
-        padding:
-            10px
-            12px;
-
-        font-size: 0.78rem;
-    }
-
-    .timer-box {
-        gap: 0.4rem;
-    }
-
-    .timer-segment {
-        padding:
-            0.9rem
-            0.2rem;
-
-        border-radius: 14px;
-    }
-
-    .timer-val {
-        font-size: 1.75rem;
-    }
-
-    .timer-unit {
-        font-size: 0.62rem;
-    }
-
-
-    /* ======================================================================
-       PRODUCT
-       ====================================================================== */
-
-    .product-card {
-        padding: 1.1rem;
-    }
-
-    .product-name {
-        font-size: 1.35rem;
-    }
-
-    .product-description {
-        font-size: 0.84rem;
-    }
-
-    .product-price strong {
-        font-size: 2rem;
-    }
-
-    .variant-row {
-        padding: 0.9rem;
-    }
-
-    .variant-info small {
-        font-size: 0.72rem;
-    }
-
-    .quantity-control {
-        gap: 6px;
-    }
-
-    .quantity-btn {
-        width: 34px;
-        height: 34px;
-    }
-
-    .product-info-grid {
-        grid-template-columns: 1fr;
-    }
-
-
-    /* ======================================================================
-       BLOG
-       ====================================================================== */
-
-    .blog-grid {
-        grid-template-columns: 1fr;
-    }
-
-
-    /* ======================================================================
-       FAQ
-       ====================================================================== */
-
-    .faq-question {
-        padding: 1rem;
-
-        font-size: 0.85rem;
-    }
-
-    .faq-answer {
-        font-size: 0.8rem;
-    }
-
-
-    /* ======================================================================
-       FOOTER
-       ====================================================================== */
-
-    .footer {
-        padding:
-            32px
-            0
-            18px;
-    }
-
-    .footer-container {
-        padding:
-            0
-            14px;
-    }
-
-    .footer-description {
-        font-size: 0.8rem;
-    }
-
-    .footer-nav {
-        gap:
-            10px
-            14px;
-    }
-
-
-    /* ======================================================================
-       WHATSAPP
-       ====================================================================== */
-
-    .floating-wa {
-        right: 12px;
-
-        bottom:
-            calc(
-                var(--bottom-nav-height) + 10px
-            );
-
-        width: 48px;
-        height: 48px;
-    }
-
-    .floating-wa svg {
-        width: 25px;
-        height: 25px;
-    }
-
-
-    /* ======================================================================
-       BOTTOM NAVIGATION
-       ====================================================================== */
-
-    .bottom-nav-item {
-        font-size: 0.60rem;
-    }
-
-    .bottom-nav-icon {
-        width: 22px;
-        height: 22px;
-    }
-
-    .bottom-nav-order-icon {
-        width: 46px;
-        height: 46px;
-
-        margin-top: -14px;
-    }
-
-    .bottom-nav-order-icon .bottom-nav-icon {
-        width: 20px;
-        height: 20px;
-    }
+--bottom-nav-height: 76px;
 
 }
 
+/* ==========================================================================
+RESET
+========================================================================== */
+
+*,
+*::before,
+*::after {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
 
 /* ==========================================================================
-   MOBILE
-   361px – 767px
-   ========================================================================== */
+HTML
+========================================================================== */
 
-@media (min-width: 361px) and (max-width: 767px) {
+html {
+scroll-behavior: smooth;
+font-size: 16px;
+}
 
+/* ==========================================================================
+BODY
+========================================================================== */
 
-    /* ======================================================================
-       GLOBAL
-       ====================================================================== */
+body {
+font-family: var(--font-main);
 
-    body {
-        padding-bottom:
-            var(--bottom-nav-height);
-    }
+color: var(--text-dark);  
 
-    .section {
-        padding:
-            3rem
-            0;
-    }
+background: var(--bg-gradient);  
 
+line-height: 1.6;  
 
-    /* ======================================================================
-       HEADER
-       ====================================================================== */
+overflow-x: hidden;  
 
-    .header-container {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
+min-height: 100vh;  
 
-    .logo-name {
-        font-size: 1.35rem;
-    }
-
-    .logo-tagline {
-        font-size: 8px;
-    }
-
-
-    /* ======================================================================
-       MOBILE NAVIGATION
-       ====================================================================== */
-
-    .nav-menu {
-        max-height:
-            calc(
-                100vh -
-                var(--header-height)
-            );
-
-        overflow-y: auto;
-
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .nav-link {
-        min-height: 48px;
-    }
-
-
-    /* ======================================================================
-       HERO
-       ====================================================================== */
-
-    .hero {
-        padding-top: 1.8rem;
-        padding-bottom: 2.8rem;
-    }
-
-    .hero-container {
-        gap: 1rem;
-    }
-
-    .badge-indonesia {
-        font-size: 0.72rem;
-    }
-
-    .hero-title {
-        font-size: 1.85rem;
-
-        max-width: 95%;
-    }
-
-    .hero-title-sub {
-        font-size: 0.92rem;
-    }
-
-    .hero-subtitle {
-        max-width: 95%;
-
-        font-size: 0.82rem;
-
-        line-height: 1.7;
-    }
-
-    .hero-image-wrapper {
-        max-width: 390px;
-
-        min-height: 250px;
-    }
-
-    .hero-img {
-        height: 280px;
-
-        max-height: 280px;
-    }
-
-    .hero-cta-group {
-        max-width: 390px;
-    }
-
-    .hero-features {
-        gap: 0.5rem;
-
-        margin-top: 0.5rem;
-    }
-
-    .feature-item {
-        min-height: 84px;
-
-        padding:
-            0.65rem
-            0.3rem;
-    }
-
-    .feature-icon {
-        font-size: 1.2rem;
-    }
-
-    .feature-item p {
-        font-size: 0.63rem;
-    }
-
-
-    /* ======================================================================
-       SECTION TITLE
-       ====================================================================== */
-
-    .section-subtitle {
-        font-size: 0.8rem;
-    }
-
-    .section-title {
-        margin-bottom: 1.5rem;
-
-        font-size: 1.7rem;
-    }
-
-
-    /* ======================================================================
-       BUTTON
-       ====================================================================== */
-
-    .btn {
-        min-height: 44px;
-    }
-
-    .btn-lg {
-        padding:
-            0.85rem
-            1.5rem;
-    }
-
-
-    /* ======================================================================
-       PAKET
-       ====================================================================== */
-
-    .paket-grid {
-        gap: 1.5rem;
-    }
-
-    .paket-card {
-        padding:
-            2rem
-            1.4rem;
-    }
-
-    .paket-price {
-        font-size: 2.2rem;
-    }
-
-
-    /* ======================================================================
-       SHIPPING
-       ====================================================================== */
-
-    .shipping-card {
-        padding:
-            2.5rem
-            1.2rem;
-    }
-
-    .shipping-title {
-        font-size: 1.5rem;
-    }
-
-    .shipping-badge {
-        font-size: 0.84rem;
-
-        padding:
-            12px
-            15px;
-    }
-
-    .timer-box {
-        gap: 0.6rem;
-    }
-
-    .timer-segment {
-        padding:
-            1rem
-            0.3rem;
-
-        border-radius: 15px;
-    }
-
-    .timer-val {
-        font-size: 2rem;
-    }
-
-    .timer-unit {
-        font-size: 0.68rem;
-    }
-
-
-    /* ======================================================================
-       PRODUCT
-       ====================================================================== */
-
-    .product-section {
-        padding-top: 2rem;
-    }
-
-    .product-heading {
-        margin-bottom: 1.5rem;
-    }
-
-    .product-card {
-        display: flex;
-
-        flex-direction: column;
-
-        gap: 1.5rem;
-
-        padding: 1.2rem;
-
-        border-radius:
-            var(--radius-lg);
-    }
-
-    .product-image-wrapper {
-        width: 100%;
-
-        max-width: 420px;
-
-        margin: 0 auto;
-    }
-
-    .product-image {
-        width: 100%;
-
-        height: auto;
-
-        max-height: 360px;
-
-        object-fit: contain;
-    }
-
-    .product-content {
-        width: 100%;
-    }
-
-    .product-category {
-        font-size: 0.75rem;
-    }
-
-    .product-name {
-        font-size: 1.55rem;
-    }
-
-    .product-description {
-        font-size: 0.88rem;
-
-        line-height: 1.7;
-    }
-
-    .product-price strong {
-        font-size: 2.2rem;
-    }
-
-    .product-price span {
-        font-size: 0.85rem;
-    }
-
-    .product-promo {
-        font-size: 0.8rem;
-
-        padding:
-            0.75rem
-            0.9rem;
-    }
-
-    .variant-row {
-        gap: 10px;
-
-        padding: 1rem;
-    }
-
-    .variant-info {
-        min-width: 0;
-    }
-
-    .variant-info strong {
-        font-size: 0.9rem;
-    }
-
-    .variant-info small {
-        font-size: 0.75rem;
-    }
-
-    .quantity-control {
-        flex-shrink: 0;
-    }
-
-    .quantity-btn {
-        width: 36px;
-        height: 36px;
-    }
-
-    .product-total {
-        padding: 1rem;
-    }
-
-    .product-promo-info {
-        font-size: 0.8rem;
-
-        line-height: 1.6;
-    }
-
-    .product-buy-button {
-        min-height: 50px;
-    }
-
-
-    /* ======================================================================
-       PRODUCT INFORMATION
-       ====================================================================== */
-
-    .product-info-grid {
-        grid-template-columns: 1fr;
-
-        gap: 1rem;
-
-        margin-top: 2rem;
-    }
-
-    .product-info-item {
-        padding: 1.1rem;
-    }
-
-    .product-info-icon {
-        width: 42px;
-        height: 42px;
-
-        flex-shrink: 0;
-    }
-
-    .product-info-item h2 {
-        font-size: 0.95rem;
-    }
-
-    .product-info-item p {
-        font-size: 0.8rem;
-    }
-
-
-    /* ======================================================================
-       PRODUCT SEO
-       ====================================================================== */
-
-    .product-seo-content {
-        margin-top: 3rem;
-    }
-
-    .product-seo-inner {
-        padding:
-            1.5rem
-            1.2rem;
-    }
-
-    .product-seo-inner h2 {
-        font-size: 1.35rem;
-    }
-
-    .product-seo-inner p {
-        font-size: 0.88rem;
-
-        line-height: 1.75;
-    }
-
-
-    /* ======================================================================
-       PRODUCT FAQ
-       ====================================================================== */
-
-    .product-faq {
-        margin-top: 3rem;
-    }
-
-    .faq-list {
-        width: 100%;
-    }
-
-    .faq-question {
-        padding: 1.1rem;
-
-        font-size: 0.88rem;
-    }
-
-
-    /* ======================================================================
-       FEATURES
-       ====================================================================== */
-
-    .features-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
-
-    /* ======================================================================
-       TESTIMONIAL
-       ====================================================================== */
-
-    .testi-grid {
-        flex-direction: column;
-    }
-
-
-    /* ======================================================================
-       BLOG
-       ====================================================================== */
-
-    .blog-grid {
-        grid-template-columns: 1fr;
-
-        gap: 1.3rem;
-    }
-
-    .blog-card {
-        padding: 1.4rem;
-    }
-
-
-    /* ======================================================================
-       ARTICLE
-       ====================================================================== */
-
-    .blog-article-section {
-        padding-top: 50px;
-    }
-
-    .article-header {
-        margin-bottom: 25px;
-    }
-
-    .article-header h1 {
-        font-size: 1.65rem;
-    }
-
-    .blog-content {
-        font-size: 0.95rem;
-
-        line-height: 1.8;
-    }
-
-    .blog-content h2 {
-        font-size: 1.2rem;
-    }
-
-    .article-cta {
-        padding:
-            25px
-            18px;
-    }
-
-    .article-navigation {
-        flex-direction: column;
-
-        text-align: center;
-    }
-
-
-    /* ======================================================================
-       FOOTER
-       ====================================================================== */
-
-    .footer {
-        padding:
-            35px
-            0
-            20px;
-    }
-
-    .footer-container {
-        padding:
-            0
-            15px;
-    }
-
-    .footer-description {
-        font-size: 0.82rem;
-    }
-
-    .footer-nav {
-        gap:
-            12px
-            16px;
-    }
-
-
-    /* ======================================================================
-       WHATSAPP
-       ====================================================================== */
-
-    .floating-wa {
-        right: 15px;
-
-        bottom:
-            calc(
-                var(--bottom-nav-height) + 12px
-            );
-
-        width: 52px;
-        height: 52px;
-    }
-
-    .floating-wa svg {
-        width: 27px;
-        height: 27px;
-    }
-
-
-    /* ======================================================================
-       BOTTOM NAVIGATION
-       ====================================================================== */
-
-    .bottom-nav {
-        display: block;
-    }
-
-    .bottom-nav-inner {
-        max-width: 600px;
-    }
+padding-bottom: var(--bottom-nav-height);
 
 }
 
-
 /* ==========================================================================
-   TABLET
-   768px – 1023px
-   ========================================================================== */
-
-@media (min-width: 768px) and (max-width: 1023px) {
-
-
-    /* ======================================================================
-       BODY
-       ====================================================================== */
-
-    body {
-        padding-bottom: 0;
-    }
-
-
-    /* ======================================================================
-       HEADER
-       ====================================================================== */
-
-    .menu-toggle {
-        display: none;
-    }
-
-    .nav-menu {
-        position: static;
-
-        display: flex;
-
-        flex-direction: row;
-
-        align-items: center;
-
-        gap: 5px;
-
-        width: auto;
-
-        padding: 0;
-
-        background: transparent;
-
-        border: none;
-
-        box-shadow: none;
-    }
-
-    .nav-link {
-        min-height: auto;
-
-        padding:
-            8px
-            10px;
-
-        white-space: nowrap;
-
-        font-size: 0.88rem;
-    }
-
-    .nav-link.btn-nav-order {
-        min-width: auto;
-
-        margin: 0;
-
-        padding:
-            9px
-            15px;
-    }
-
-
-    /* ======================================================================
-       HERO
-       ====================================================================== */
-
-    .hero {
-        padding-top: 2.8rem;
-
-        padding-bottom: 3.8rem;
-    }
-
-    .hero-container {
-        gap: 1.4rem;
-    }
-
-    .hero-content {
-        max-width: 800px;
-    }
-
-    .badge-indonesia {
-        font-size: 0.8rem;
-    }
-
-    .hero-title {
-        max-width: 800px;
-
-        font-size: 2.35rem;
-    }
-
-    .hero-title-sub {
-        font-size: 1.08rem;
-    }
-
-    .hero-subtitle {
-        max-width: 650px;
-
-        font-size: 0.95rem;
-    }
-
-    .hero-image-wrapper {
-        max-width: 520px;
-
-        min-height: 330px;
-    }
-
-    .hero-img {
-        height: 350px;
-
-        max-height: 350px;
-    }
-
-    .hero-cta-group {
-        flex-direction: row;
-
-        max-width: 430px;
-    }
-
-    .hero-cta-group .btn {
-        width: auto;
-
-        flex: 1;
-    }
-
-    .hero-features {
-        max-width: 650px;
-
-        gap: 0.75rem;
-    }
-
-    .feature-item {
-        min-height: 96px;
-
-        padding:
-            0.85rem
-            0.5rem;
-    }
-
-    .feature-icon {
-        font-size: 1.4rem;
-    }
-
-    .feature-item p {
-        font-size: 0.75rem;
-    }
-
-
-    /* ======================================================================
-       PRODUCT
-       ====================================================================== */
-
-    .product-card {
-        display: grid;
-
-        grid-template-columns:
-            minmax(0, 0.95fr)
-            minmax(0, 1.05fr);
-
-        align-items: center;
-
-        gap: 2rem;
-
-        padding: 2rem;
-    }
-
-    .product-image-wrapper {
-        width: 100%;
-    }
-
-    .product-image {
-        width: 100%;
-
-        max-height: 480px;
-
-        object-fit: contain;
-    }
-
-    .product-name {
-        font-size: 1.7rem;
-    }
-
-    .product-info-grid {
-        grid-template-columns:
-            repeat(3, 1fr);
-
-        gap: 1rem;
-    }
-
-
-    /* ======================================================================
-       PAKET
-       ====================================================================== */
-
-    .paket-grid {
-        flex-direction: row;
-
-        align-items: stretch;
-    }
-
-    .paket-card {
-        flex: 1;
-    }
-
-
-    /* ======================================================================
-       FEATURES
-       ====================================================================== */
-
-    .features-grid {
-        grid-template-columns:
-            repeat(4, 1fr);
-    }
-
-
-    /* ======================================================================
-       TESTIMONIAL
-       ====================================================================== */
-
-    .testi-grid {
-        flex-direction: row;
-    }
-
-    .testi-card {
-        flex: 1;
-    }
-
-
-    /* ======================================================================
-       BLOG
-       ====================================================================== */
-
-    .blog-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
-
-    /* ======================================================================
-       WHATSAPP
-       ====================================================================== */
-
-    .floating-wa {
-        bottom: 24px;
-    }
-
-
-    /* ======================================================================
-       BOTTOM NAV
-       ====================================================================== */
-
-    .bottom-nav {
-        display: none;
-    }
+TYPOGRAPHY
+========================================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+color: var(--text-dark);
+
+line-height: 1.3;  
+
+font-weight: 700;
 
 }
 
+p {
+margin-bottom: 0;
+}
 
 /* ==========================================================================
-   LARGE DESKTOP
-   ≥ 1024px
-   ========================================================================== */
+LINKS
+========================================================================== */
 
-@media (min-width: 1024px) {
+a {
+color: inherit;
 
-
-    /* ======================================================================
-       HEADER
-       ====================================================================== */
-
-    .header-container {
-        max-width:
-            var(--container-width);
-
-        margin: 0 auto;
-
-        padding-left: 20px;
-
-        padding-right: 20px;
-    }
-
-    .nav-menu {
-        gap: 8px;
-    }
-
-    .nav-link {
-        padding:
-            8px
-            12px;
-
-        font-size: 0.95rem;
-    }
-
-
-    /* ======================================================================
-       HERO
-       ====================================================================== */
-
-    .hero {
-        padding-top: 3.2rem;
-
-        padding-bottom: 4.2rem;
-    }
-
-    .hero-container {
-        gap: 1.5rem;
-    }
-
-    .hero-content {
-        max-width: 900px;
-    }
-
-    .hero-title {
-        max-width: 900px;
-
-        font-size: 2.9rem;
-    }
-
-    .hero-title-sub {
-        font-size: 1.22rem;
-    }
-
-    .hero-subtitle {
-        max-width: 700px;
-
-        font-size: 1rem;
-    }
-
-    .hero-image-wrapper {
-        max-width: 620px;
-
-        min-height: 390px;
-    }
-
-    .hero-img {
-        height: 410px;
-
-        max-height: 410px;
-    }
-
-    .hero-cta-group {
-        max-width: 450px;
-    }
-
-    .hero-features {
-        max-width: 700px;
-
-        gap: 0.85rem;
-    }
-
-    .feature-item {
-        min-height: 102px;
-    }
-
-    .feature-item p {
-        font-size: 0.78rem;
-    }
-
-
-    /* ======================================================================
-       SECTION
-       ====================================================================== */
-
-    .section {
-        padding:
-            5rem
-            0;
-    }
-
-
-    /* ======================================================================
-       PRODUCT
-       ====================================================================== */
-
-    .product-card {
-        grid-template-columns:
-            minmax(0, 1fr)
-            minmax(0, 1fr);
-
-        gap: 3rem;
-
-        padding: 2.5rem;
-    }
-
-    .product-image {
-        max-height: 520px;
-    }
-
-    .product-name {
-        font-size: 2rem;
-    }
-
-    .product-description {
-        font-size: 0.95rem;
-    }
-
-    .product-info-grid {
-        gap: 1.5rem;
-    }
-
-
-    /* ======================================================================
-       BLOG
-       ====================================================================== */
-
-    .blog-grid {
-        grid-template-columns:
-            repeat(3, 1fr);
-    }
-
-
-    /* ======================================================================
-       ARTICLE
-       ====================================================================== */
-
-    .article-header h1 {
-        font-size: 2.2rem;
-    }
+text-decoration: none;
 
 }
 
+/* ==========================================================================
+LIST
+========================================================================== */
+
+ul,
+ol {
+list-style: none;
+}
 
 /* ==========================================================================
-   EXTRA LARGE DESKTOP
-   ≥ 1200px
-   ========================================================================== */
+IMAGES
+========================================================================== */
 
-@media (min-width: 1200px) {
+img {
+max-width: 100%;
 
+height: auto;  
 
-    /* ======================================================================
-       HERO
-       ====================================================================== */
-
-    .hero {
-        padding-top: 3.5rem;
-
-        padding-bottom: 4.5rem;
-    }
-
-    .hero-title {
-        font-size: 3.1rem;
-    }
-
-    .hero-image-wrapper {
-        max-width: 680px;
-
-        min-height: 430px;
-    }
-
-    .hero-img {
-        height: 450px;
-
-        max-height: 450px;
-    }
-
-
-    /* ======================================================================
-       PRODUCT
-       ====================================================================== */
-
-    .product-card {
-        gap: 4rem;
-
-        padding: 3rem;
-    }
-
-    .product-image {
-        max-height: 560px;
-    }
-
-    .product-name {
-        font-size: 2.15rem;
-    }
+display: block;
 
 }
 
+/* ==========================================================================
+BUTTON
+========================================================================== */
+
+button,
+input,
+textarea,
+select {
+font-family: inherit;
+}
 
 /* ==========================================================================
-   TOUCH DEVICES
-   ========================================================================== */
+CONTAINER
+========================================================================== */
 
-@media (hover: none) {
+.container {
+width: 100%;
 
-    .paket-card:hover,
-    .blog-card:hover,
-    .btn-primary:hover,
-    .btn-outline:hover,
-    .feature-item:hover,
-    .floating-wa:hover {
+max-width: var(--container-width);  
 
-        transform: none;
-    }
+margin: 0 auto;  
+
+padding-left: 20px;  
+padding-right: 20px;
 
 }
 
+/* ==========================================================================
+SECTION
+========================================================================== */
+
+.section {
+padding: 4rem 0;
+}
 
 /* ==========================================================================
-   REDUCED MOTION
-   ========================================================================== */
+UTILITY
+========================================================================== */
+
+.text-center {
+text-align: center;
+}
+
+.text-white {
+color: var(--bg-white);
+}
+
+/* ==========================================================================
+MAIN CONTENT
+========================================================================== */
+
+main {
+padding-top: var(--header-height);
+}
+
+/* ==========================================================================
+AOS ANIMATION
+========================================================================== */
+
+[data-aos] {
+opacity: 0;
+
+transform: translateY(30px);  
+
+transition:  
+    opacity 0.7s ease,  
+    transform 0.7s ease;
+
+}
+
+[data-aos].aos-animate {
+opacity: 1;
+
+transform: translateY(0);
+
+}
+
+/* ==========================================================================
+FAQ BASE
+========================================================================== */
+
+.faq-answer {
+max-height: 0;
+
+overflow: hidden;  
+
+padding: 0 1.2rem;  
+
+transition:  
+    max-height 0.3s ease,  
+    padding 0.3s ease;  
+
+color: var(--text-muted);  
+
+font-size: 0.88rem;
+
+}
+
+.faq-item.active .faq-answer {
+max-height: 500px;
+
+padding-bottom: 1.2rem;
+
+}
+
+.faq-icon {
+transition:
+transform 0.3s ease;
+}
+
+.faq-item.active .faq-icon {
+transform: rotate(45deg);
+}
+
+/* ==========================================================================
+REDUCED MOTION
+========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
 
-    .floating-wa,
-    .wa-pulse {
+html {  
+    scroll-behavior: auto;  
+}  
 
-        animation: none !important;
-    }
+*,  
+*::before,  
+*::after {  
+    animation-duration: 0.01ms !important;  
+    animation-iteration-count: 1 !important;  
+    transition-duration: 0.01ms !important;  
+}
+
+}
+
+/* ==========================================================================
+DESKTOP RESET
+========================================================================== */
+
+@media (min-width: 768px) {
+
+body {  
+    padding-bottom: 0;  
+}
 
 }
