@@ -311,29 +311,6 @@ transform: translateY(-1px);
 }
 
 /* 2. JUDUL */
-.hero-title {
-    margin-bottom: 0.8rem;
-    color: var(--primary-green-hover);
-    font-size: 1.3rem;
-    font-weight: 800;
-    line-height: 1.25;
-}
-
-.hero-title-sub {
-    display: block;
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--primary-green);
-    margin-bottom: 0.2rem;
-}
-
-/* 3. SUBJUDUL */
-.hero-subtitle {
-    margin-bottom: 0.2rem;
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    max-width: 520px;
-}
 
 .hero-subtitle strong {
     color: var(--primary-green);
