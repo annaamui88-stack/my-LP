@@ -312,6 +312,23 @@ transform: translateY(-1px);
 
 /* 2. JUDUL */
 
+.hero-title {
+    color: var(--primary-green-hover);
+}
+
+.hero-title-sub {
+    color: var(--primary-green);
+}
+
+/* 3. SUBJUDUL */
+.hero-subtitle {
+    margin-bottom: 0.2rem;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    max-width: 520px;
+}
+
+
 .hero-subtitle strong {
     color: var(--primary-green);
 }
