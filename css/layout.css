@@ -347,6 +347,9 @@ transform: translateY(-1px);
     gap: 10px;
     width: 100%;
     margin-bottom: 1.8rem;
+    margin-top: 2.5rem; 
+    
+    margin-bottom: 1.8rem;
 }
 
 .feature-item {
@@ -382,6 +385,7 @@ transform: translateY(-1px);
     position: relative;
     width: 100%;
     margin-bottom: 1.5rem;
+    margin-top: 1rem; 
 }
 
 .hero-img {
