@@ -266,64 +266,164 @@ transform: translateY(-1px);
 }
 
 /* ==========================================================================
-HERO
-========================================================================== */
+   HERO SECTION
+   ========================================================================== */
 
 .hero {
-padding-top: 1rem;
-padding-bottom: 3rem;
+    position: relative;
+    padding-top: 1.5rem;
+    padding-bottom: 3rem;
+    /* Ganti path gambar di bawah dengan background hero yang kamu mau */
+    background: url('assets/img/bg-hero.jpg') center top / cover no-repeat;
+    overflow: hidden;
+}
 
+/* Overlay transparan agar teks di atas background gambar tetap terbaca jelas */
+.hero-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(248, 250, 252, 0.95) 100%);
+    z-index: 1;
 }
 
 .hero-container {
-display: flex;
-
-flex-direction: column;  
-
-align-items: center;  
-
-gap: 2.5rem;  
-
-text-align: center;
-
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    text-align: center;
 }
 
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 680px;
+}
+
+/* 1. HEADER / BADGE */
+.badge-indonesia {
+    margin-bottom: 1rem;
+}
+
+/* 2. JUDUL */
 .hero-title {
-margin-bottom: 0.8rem;
-
-color: #2e7d32;  
-
-font-size: 2.2rem;  
-
-font-weight: 800;  
-
-line-height: 1.25;
-
+    margin-bottom: 0.8rem;
+    color: var(--primary-green-hover);
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.25;
 }
 
+.hero-title-sub {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--primary-green);
+    margin-bottom: 0.2rem;
+}
+
+/* 3. SUBJUDUL */
 .hero-subtitle {
-margin-bottom: 1.2rem;
-
-color: var(--text-muted);  
-
-font-size: 1rem;
-
+    margin-bottom: 1.5rem;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    max-width: 520px;
 }
 
+.hero-subtitle strong {
+    color: var(--primary-green);
+}
+
+/* 4. KEUNGGULAN PRODUK */
+.hero-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 1.8rem;
+}
+
+.feature-item {
+    background: var(--bg-white);
+    border: 1px solid #e2e8f0;
+    border-radius: var(--radius-md);
+    padding: 10px 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-soft);
+}
+
+.feature-icon {
+    font-size: 1.2rem;
+    margin-bottom: 4px;
+}
+
+.feature-item p {
+    font-size: 0.72rem;
+    line-height: 1.2;
+    color: var(--text-dark);
+}
+
+.feature-item strong {
+    color: var(--primary-green);
+    display: block;
+}
+
+/* 5. GAMBAR PRODUK */
+.hero-image-wrapper {
+    position: relative;
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.hero-img {
+    margin: 0 auto;
+    max-height: 360px;
+    object-fit: contain;
+}
+
+/* 6 & 7. TOMBOL BELI & PAKET */
 .hero-cta-group {
-width: 100%;
-
-display: flex;  
-
-align-items: center;  
-
-justify-content: center;  
-
-gap: 10px;  
-
-margin-top: 1.5rem;
-
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 0.5rem;
 }
+
+/* RESPONSIVE (DESKTOP) */
+@media (min-width: 768px) {
+    .hero {
+        padding-top: 3rem;
+        padding-bottom: 4rem;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .feature-item {
+        padding: 12px 10px;
+    }
+
+    .feature-item p {
+        font-size: 0.8rem;
+    }
+
+    .hero-cta-group {
+        flex-direction: row;
+    }
+}
+
 
 /* ==========================================================================
 HERO IMAGE
