@@ -274,7 +274,7 @@ transform: translateY(-1px);
     padding-top: 1.5rem;
     padding-bottom: 3rem;
     /* Ganti path gambar di bawah dengan background hero yang kamu mau */
-    background: url('assets/img/bg-hero.jpg') center top / cover no-repeat;
+    background: url('assets/img/bg-hero.png') center top / cover no-repeat;
     overflow: hidden;
 }
 
