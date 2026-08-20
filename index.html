@@ -32,26 +32,57 @@
 
     <main>
         <!-- HERO SECTION -->
-        <section class="hero" id="home">
-            <div class="container hero-container">
-                <div class="hero-content">
-                    <span class="badge badge-indonesia">🇮🇩 Asli Mangga Indramayu</span>
-                    <h1 class="hero-title">Rindu Cemilan Indonesia? Nikmati Manisan Mangga Khas Indramayu di Hong Kong</h1>
-                    <p class="hero-subtitle">Manisan Mangga Pedas Manis Asam dibuat fresh setelah order agar tetap nikmat saat sampai di Hong Kong.</p>
+<section class="hero" id="home">
+    <!-- Overlay Transparan untuk Gambar Background Hero -->
+    <div class="hero-bg-overlay"></div>
 
-                    <!-- Foto Produk Besar -->
-                    <div class="hero-image-wrapper">
-                        <div class="hero-image-glow"></div>
-                        <img src="assets/img/manisan-mangga-khas-indramayu-anna-amui.jpg" alt="Manisan Mangga Anna Amui Indramayu" class="hero-img" loading="eager" fetchpriority="high">
-                    </div>
+    <div class="container hero-container">
+        <div class="hero-content">
+            <!-- 1. HEADER / BADGE -->
+            <span class="badge badge-indonesia">🇮🇩 Asli Mangga Indramayu</span>
 
-                    <div class="hero-cta-group">
-                        <a href="checkout.html" class="btn btn-primary btn-full btn-glow">PESAN SEKARANG</a>
-                        <a href="produk.html" class="btn btn-outline btn-lg">Lihat Paket</a>
-                    </div>
+            <!-- 2. JUDUL -->
+            <h1 class="hero-title">
+                <span class="hero-title-sub">Rindu Cemilan Indonesia?</span>
+                Nikmati Manisan Mangga Khas Indramayu di Hong Kong
+            </h1>
+
+            <!-- 3. SUBJUDUL -->
+            <p class="hero-subtitle">
+                Manisan Mangga Pedas Manis Asam dibuat <strong>fresh</strong> setelah order agar tetap nikmat saat sampai di Hong Kong.
+            </p>
+
+            <!-- 4. KEUNGGULAN PRODUK -->
+            <div class="hero-features">
+                <div class="feature-item">
+                    <span class="feature-icon">🥭</span>
+                    <p><strong>100%</strong> Mangga Asli Indramayu</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🌿</span>
+                    <p><strong>Tanpa</strong> Pengawet</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🛡️</span>
+                    <p><strong>Higienis</strong> &amp; Aman</p>
                 </div>
             </div>
-        </section>
+
+            <!-- 5. GAMBAR PRODUK -->
+            <div class="hero-image-wrapper">
+                <div class="hero-image-glow"></div>
+                <img src="assets/img/manisan-mangga-khas-indramayu-anna-amui.jpg" alt="Manisan Mangga Anna Amui Indramayu" class="hero-img" loading="eager" fetchpriority="high">
+            </div>
+
+            <!-- 6 & 7. TOMBOL BELI & TOMBOL PAKET -->
+            <div class="hero-cta-group">
+                <a href="checkout.html" class="btn btn-primary btn-full btn-glow">PESAN SEKARANG</a>
+                <a href="produk.html" class="btn btn-outline btn-lg">Lihat Paket</a>
+            </div>
+        </div>
+    </div>
+</section>
+
         
         <!-- PAKET PEMBELIAN -->
         <section class="section paket-section" id="paket">
