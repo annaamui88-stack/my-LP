@@ -323,7 +323,7 @@ transform: translateY(-1px);
 /* 3. SUBJUDUL */
 .hero-subtitle {
     margin-bottom: 0.2rem;
-    color: var(--text-muted);
+    color: #000000;
     font-size: 0.95rem;
     max-width: 520px;
 }
