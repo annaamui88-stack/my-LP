@@ -1,0 +1,724 @@
+/* ==========================================================================
+   ANNA AMUI - REUSABLE UI COMPONENTS
+   File: assets/css/components.css
+   ========================================================================== */
+
+/* ==========================================================================
+   01. GLOBAL LAYOUT ADJUSTMENT
+   ========================================================================== */
+.mobile-container {
+  position: relative;
+  overflow-x: hidden;
+  padding-bottom: 84px; /* Mencegah konten tertutup bottom nav */
+}
+
+/* Header fixed membutuhkan ruang di bagian atas */
+.page-view {
+  padding-top: 76px;
+}
+
+/* ==========================================================================
+   02. APP HEADER
+   ========================================================================== */
+.app-header {
+  position: fixed !important;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  min-height: 64px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 10px 16px;
+  background: #FFFFFF;
+  border-bottom: 1px solid var(--border-light, #F0ECE5);
+  box-shadow: 0 2px 14px rgba(25, 39, 31, 0.055);
+}
+
+/* ==========================================================================
+   03. BRAND LOGO
+   ========================================================================== */
+.brand-logo {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  line-height: 1;
+}
+
+.brand-name {
+  color: var(--primary-green, #0F5B37);
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  white-space: nowrap;
+}
+
+.brand-name-amui {
+  color: var(--primary-orange, #f59e0b);
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+.brand-tagline {
+  margin-top: 5px;
+  color: rgb(0, 0, 0);
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.025em;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+/* ==========================================================================
+   04. MENU TOGGLE & DRAWER
+   ========================================================================== */
+.menu-toggle-btn {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-light, #F0ECE5);
+  border-radius: var(--radius-md, 12px);
+  background: #FFFFFF;
+  color: var(--text-main, #1D2A24);
+  cursor: pointer;
+  transition: background-color var(--transition-fast, 0.18s ease), 
+              border-color var(--transition-fast, 0.18s ease), 
+              transform var(--transition-fast, 0.18s ease);
+}
+
+.menu-toggle-btn:hover {
+  background-color: var(--primary-green-light, #EAF5EE);
+  border-color: rgba(15, 91, 55, 0.14);
+  color: var(--primary-green, #0F5B37);
+}
+
+.menu-toggle-btn:active {
+  transform: scale(0.95);
+}
+
+.menu-toggle-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Overlay Menu */
+.menu-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(17, 25, 21, 0.35);
+  z-index: 9998;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.menu-overlay.active {
+  display: block;
+}
+
+/* Drawer Menu */
+.header-menu-drawer {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 16px;
+  width: 210px;
+  background: #FFFFFF;
+  border: 1px solid var(--border-light, #F0ECE5);
+  border-radius: var(--radius-lg, 20px);
+  box-shadow: 0 14px 34px rgba(20, 31, 25, 0.14);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-5px) scale(0.98);
+  transform-origin: top right;
+  transition: max-height 0.25s ease, opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+  z-index: 9999;
+}
+
+.header-menu-drawer.open {
+  max-height: 360px;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  padding: 7px 0;
+}
+
+.header-menu-drawer a {
+  display: flex;
+  align-items: center;
+  min-height: 46px;
+  padding: 11px 16px;
+  color: var(--text-main, #1D2A24);
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 700;
+  border-bottom: 1px solid var(--border-light, #F0ECE5);
+  transition: background-color var(--transition-fast, 0.18s ease), color var(--transition-fast, 0.18s ease);
+}
+
+.header-menu-drawer a:last-child {
+  border-bottom: none;
+}
+
+.header-menu-drawer a:hover {
+  background: var(--primary-green-light, #EAF5EE);
+  color: var(--primary-green, #0F5B37);
+}
+
+/* ==========================================================================
+   05. TOP NAVIGATION TABS
+   ========================================================================== */
+.top-nav-tabs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 0;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+}
+
+.top-nav-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tab-btn {
+  flex: 0 0 auto;
+  min-height: 34px;
+  padding: 7px 15px;
+  border: 1px solid var(--border-color, #E7E3DC);
+  border-radius: var(--radius-full, 999px);
+  background: #FFFFFF;
+  color: var(--text-muted, #68736D);
+  font-size: 0.72rem;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color var(--transition-fast, 0.18s ease), 
+              color var(--transition-fast, 0.18s ease), 
+              border-color var(--transition-fast, 0.18s ease);
+}
+
+.tab-btn.active {
+  background: var(--primary-green, #0F5B37);
+  color: #FFFFFF;
+  border-color: var(--primary-green, #0F5B37);
+}
+
+/* ==========================================================================
+   06. SHARED BUTTONS
+   ========================================================================== */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 10px 20px;
+  background: var(--primary-green, #0F5B37);
+  color: var(--text-white, #FFFFFF);
+  border: 0;
+  border-radius: var(--radius-full, 999px);
+  font-size: 0.82rem;
+  font-weight: 800;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-brand, 0 6px 16px rgba(15, 91, 55, 0.18));
+  transition: background-color var(--transition-fast, 0.18s ease), 
+              transform var(--transition-fast, 0.18s ease), 
+              box-shadow var(--transition-fast, 0.18s ease);
+}
+
+.btn-primary:hover {
+  background: var(--primary-green-hover, #0A4328);
+  box-shadow: 0 8px 20px rgba(15, 91, 55, 0.22);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+  box-shadow: 0 4px 10px rgba(15, 91, 55, 0.16);
+}
+
+.btn-block {
+  width: 100%;
+  display: flex;
+  text-align: center;
+}
+
+/* ==========================================================================
+   07. VARIANT SELECTOR
+   ========================================================================== */
+.variant-selector {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 4px;
+  margin-bottom: 16px;
+  background: #FFFFFF;
+  border: 1px solid var(--border-color, #E7E3DC);
+  border-radius: var(--radius-full, 999px);
+}
+
+.variant-btn {
+  min-height: 38px;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-full, 999px);
+  background: transparent;
+  color: var(--text-muted, #68736D);
+  font-size: 0.78rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background-color var(--transition-fast, 0.18s ease), 
+              color var(--transition-fast, 0.18s ease), 
+              border-color var(--transition-fast, 0.18s ease);
+}
+
+.variant-btn.active-original {
+  background: var(--primary-green, #0F5B37);
+  color: #FFFFFF;
+  border-color: var(--primary-green, #0F5B37);
+}
+
+.variant-btn.active-pedas {
+  background: var(--chili-red, #DC2626);
+  color: #FFFFFF;
+  border-color: var(--chili-red, #DC2626);
+}
+
+/* ==========================================================================
+   08. BOTTOM NAVIGATION (MOBILE)
+   ========================================================================== */
+.bottom-nav {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  height: 68px;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+  padding: 6px 4px calc(6px + env(safe-area-inset-bottom));
+  background: #FFFFFF !important;
+  border-top: 1px solid var(--border-color, #E7E3DC);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+  z-index: 9999;
+}
+
+/* Item Navigasi Standar */
+.nav-item {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  padding: 4px 2px;
+  color: var(--text-light, #98A19C);
+  font-size: 0.65rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  background: #FFFFFF;
+  transition: color var(--transition-fast, 0.18s ease), transform var(--transition-fast, 0.18s ease);
+}
+
+.nav-item:hover,
+.nav-item.active {
+  color: var(--primary-green, #0F5B37);
+  font-weight: 800;
+}
+
+.nav-item:active {
+  transform: scale(0.95);
+}
+
+/* Indicator untuk Item Aktif */
+.nav-item.active::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  width: 28px;
+  height: 3px;
+  border-radius: 0 0 4px 4px;
+  background: var(--primary-green, #0F5B37);
+}
+
+.nav-icon {
+  width: 22px;
+  height: 22px;
+  stroke-width: 2;
+  flex-shrink: 0;
+}
+
+/* Cart Badge */
+.cart-icon-wrapper {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #FFFFFF;
+  border-radius: var(--radius-full, 999px);
+  background: var(--primary-green);
+  color: #FFFFFF;
+  font-size: 0.60rem;
+  font-weight: 800;
+  line-height: 1;
+  z-index: 2;
+}
+
+/* --------------------------------------------------------------------------
+   NAV ITEM HIGHLIGHT (FLOATING PESAN BUTTON) - PERBAIKAN LINGKARAN
+   -------------------------------------------------------------------------- */
+.nav-item-highlight {
+  position: relative;
+  top: -16px;
+  background: transparent !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 0 0 auto;
+}
+
+.highlight-circle {
+  width: 52px !important;
+  height: 52px !important;
+  min-width: 52px !important;
+  min-height: 52px !important;
+  aspect-ratio: 1 / 1;
+  border-radius: 50% !important;
+  flex-shrink: 0 !important;
+  background: linear-gradient(135deg, var(--accent-mango, #F4A51C), var(--accent-mango-hover, #E67E22));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid #FFFFFF;
+  box-shadow: var(--shadow-mango, 0 6px 16px rgba(230, 126, 34, 0.4));
+  position: relative;
+  transition: transform var(--transition-fast, 0.18s ease);
+  overflow: visible;
+}
+
+.nav-item-highlight .nav-icon {
+  width: 24px;
+  height: 24px;
+  stroke: #FFFFFF;
+  flex-shrink: 0;
+}
+
+.nav-item-highlight span {
+  margin-top: 2px;
+  color: var(--accent-mango-hover, #E67E22);
+  font-weight: 800;
+  font-size: 0.65rem;
+  white-space: nowrap;
+}
+
+.nav-item-highlight:active .highlight-circle {
+  transform: scale(0.92);
+}
+
+.nav-item-highlight .cart-badge {
+  top: -2px;
+  right: -2px;
+}
+
+/* ==========================================================================
+   09. FOOTER COMPONENT
+   ========================================================================== */
+.app-footer {
+  background-color: var(--bg-dark, #121824);
+  color: #A0AEC0;
+  padding: 40px 20px 90px 20px;
+  text-align: center;
+}
+
+.footer-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.footer-logo {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #2ECC71;
+  margin-bottom: 10px;
+}
+
+.footer-logo .highlight {
+  color: var(--accent-mango, #F4A51C);
+}
+
+.footer-description {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #CBD5E0;
+  margin-bottom: 24px;
+}
+
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.social-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md, 12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  text-decoration: none;
+  background-color: #1E293B;
+  transition: transform var(--transition-fast, 0.18s ease), background-color var(--transition-fast, 0.18s ease);
+}
+
+.social-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.social-icon.wa { background-color: #128C7E; }
+.social-icon.fb { background-color: #1877F2; }
+.social-icon.ig { background-color: #833AB4; }
+.social-icon.tt { background-color: #25F4EE; color: #000000; }
+
+.social-icon:active {
+  transform: scale(0.92);
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.footer-links a {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.footer-links a.highlight-link {
+  color: var(--accent-mango, #F4A51C);
+}
+
+.footer-divider {
+  height: 1px;
+  background-color: #2D3748;
+  margin: 20px 0;
+}
+
+.footer-copyright {
+  font-size: 0.75rem;
+  color: #718096;
+}
+
+.footer-copyright .location-text {
+  margin-top: 4px;
+}
+
+/* ==========================================================================
+   10. FLOATING WHATSAPP BUTTON
+   ========================================================================== */
+.floating-wa-btn {
+  position: fixed;
+  bottom: 80px;
+  right: 16px;
+  z-index: 999;
+  text-decoration: none;
+}
+
+.wa-icon-wrapper {
+  width: 52px;
+  height: 52px;
+  background-color: #25D366;
+  color: #FFFFFF;
+  border-radius: var(--radius-full, 999px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
+  transition: transform var(--transition-fast, 0.18s ease);
+}
+
+.wa-icon-wrapper svg {
+  width: 28px;
+  height: 28px;
+}
+
+.floating-wa-btn:active .wa-icon-wrapper {
+  transform: scale(0.92);
+}
+
+/* ==========================================================================
+   11. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+/* Small Mobile */
+@media (max-width: 359px) {
+  .app-header {
+    padding-left: 13px;
+    padding-right: 13px;
+  }
+  .brand-name {
+    font-size: 1.17rem;
+  }
+  .brand-tagline {
+    font-size: 0.52rem;
+  }
+  .menu-toggle-btn {
+    width: 36px;
+    height: 36px;
+    flex-basis: 36px;
+  }
+  .nav-item {
+    font-size: 0.52rem;
+  }
+  .nav-icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Tablet / Desktop */
+@media (min-width: 768px) {
+  .app-header {
+    max-width: 100%;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  .bottom-nav {
+    display: none;
+  }
+  .page-view {
+    padding-top: 84px;
+  }
+  .floating-wa-btn {
+    bottom: 24px;
+    right: 24px;
+  }
+  .app-footer {
+    padding-bottom: 40px;
+  }
+}
+
+/* Styling untuk Ikon Kustom Gambar */
+.nav-icon-img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Penyesuaian ikon di dalam tombol melayang (Pesan) */
+.highlight-circle .nav-icon-img {
+  width: 22px;
+  height: 22px;
+}
+
+
+/* ==========================================================================
+   FLOATING WHATSAPP BUTTON COMPONENT
+   ========================================================================== */
+
+.floating-wa {
+  position: fixed;
+  bottom: 80px; /* Diberi jarak agar tidak menutupi Bottom Navigation */
+  right: 16px;
+  z-index: 990;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #25D366;
+  color: #FFFFFF;
+  padding: 10px 16px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 700;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.floating-wa:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3);
+}
+
+.wa-icon-img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  display: block;
+}
+
+.wa-status-dot {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 10px;
+  height: 10px;
+  background-color: #4ADE80;
+  border: 2px solid #FFFFFF;
+  border-radius: 50%;
+}
+
+/* Sembunyikan teks pada layar HP yang sangat kecil */
+@media (max-width: 360px) {
+  .wa-text {
+    display: none;
+  }
+  .floating-wa {
+    padding: 12px;
+    border-radius: 50%;
+  }
+}
