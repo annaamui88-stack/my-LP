@@ -1,0 +1,295 @@
+/* ==========================================================================
+   ANNA AMUI - GLOBAL STYLES & DESIGN TOKENS
+   File: assets/css/global.css
+   ========================================================================== */
+
+/* ==========================================================================
+   01. DESIGN TOKENS
+   ========================================================================== */
+:root {
+  /* ------------------------------------------------------------------------
+     BRAND COLORS
+     ------------------------------------------------------------------------ */
+  --primary-green: #0F5B37;
+  --primary-green-hover: #0A4328;
+  --primary-green-dark: #083B25;
+  --primary-green-light: #EAF5EE;
+  --primary-orange: #f59e0b;
+  
+  --accent-mango: #F4A51C;
+  --accent-mango-hover: #E67E22;
+  --accent-mango-light: #FFF5DC;
+  --accent-mango-dark: #D98208;
+  
+  --chili-red: #DC2626;
+  --chili-red-light: #FEE2E2;
+
+  /* ------------------------------------------------------------------------
+     BACKGROUNDS
+     ------------------------------------------------------------------------ */
+  --bg-cream: #FAF8F4;
+  --bg-card: #FFFFFF;
+  --bg-subtle: #F4F1EB;
+  --bg-body: #EEEAE3;
+  --bg-dark: #121824;
+
+  /* ------------------------------------------------------------------------
+     TYPOGRAPHY & TEXT
+     ------------------------------------------------------------------------ */
+  --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --text-main: #1D2A24;
+  --text-dark: #17221D;
+  --text-muted: #68736D;
+  --text-light: #98A19C;
+  --text-white: #FFFFFF;
+
+  /* ------------------------------------------------------------------------
+     BORDERS
+     ------------------------------------------------------------------------ */
+  --border-color: #E7E3DC;
+  --border-light: #F0ECE5;
+  --border-green: rgba(15, 91, 55, 0.16);
+
+  /* ------------------------------------------------------------------------
+     BORDER RADIUS
+     ------------------------------------------------------------------------ */
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  /* Backwards compatibility aliases */
+  --border-radius-sm: var(--radius-sm);
+  --border-radius-md: var(--radius-md);
+  --border-radius-lg: var(--radius-lg);
+  --border-radius-full: var(--radius-full);
+
+  /* ------------------------------------------------------------------------
+     SHADOWS
+     ------------------------------------------------------------------------ */
+  --shadow-xs: 0 1px 3px rgba(20, 30, 24, 0.04);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.12);
+  --shadow-brand: 0 8px 22px rgba(15, 91, 55, 0.16);
+  --shadow-mango: 0 6px 16px rgba(230, 126, 34, 0.4);
+
+  /* ------------------------------------------------------------------------
+     LAYOUT & SPACING
+     ------------------------------------------------------------------------ */
+  --content-width: 1180px;
+  --page-padding-mobile: 20px;
+  --page-padding-tablet: 32px;
+  --page-padding-desktop: 40px;
+
+  /* ------------------------------------------------------------------------
+     TRANSITIONS
+     ------------------------------------------------------------------------ */
+  --transition-fast: 0.18s ease;
+  --transition-normal: 0.25s ease;
+  --transition-slow: 0.35s ease;
+}
+
+/* ==========================================================================
+   02. BASE RESET
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: var(--font-family);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-main);
+  background-color: var(--bg-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ==========================================================================
+   03. BASIC ELEMENTS
+   ========================================================================== */
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: inherit;
+  color: var(--text-dark);
+}
+
+p {
+  margin: 0;
+}
+
+/* ==========================================================================
+   04. FORM FOUNDATION
+   ========================================================================== */
+input,
+textarea,
+select {
+  color: var(--text-main);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-light);
+  opacity: 1;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* ==========================================================================
+   05. MAIN APP CONTAINER
+   ========================================================================== */
+.mobile-container {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-cream);
+  overflow-x: hidden;
+  /* Diberi padding cukup agar konten paling bawah tidak tertutup Bottom Nav & Floating WA */
+  padding-bottom: 90px;
+}
+
+/* ==========================================================================
+   06. GLOBAL CONTENT CONTAINER
+   ========================================================================== */
+.page-view {
+  width: 100%;
+  max-width: var(--content-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--page-padding-mobile);
+  padding-right: var(--page-padding-mobile);
+}
+
+/* ==========================================================================
+   07. UTILITIES & ACCESSIBILITY
+   ========================================================================== */
+/* Screen reader only utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+:focus-visible {
+  outline: 3px solid rgba(244, 165, 28, 0.6);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ==========================================================================
+   08. MEDIA QUERIES (RESPONSIVE)
+   ========================================================================== */
+/* Very Small Screens */
+@media (max-width: 359px) {
+  html {
+    font-size: 15px;
+  }
+  .page-view {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .mobile-container {
+    padding-bottom: 0;
+  }
+  .page-view {
+    padding-left: var(--page-padding-tablet);
+    padding-right: var(--page-padding-tablet);
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  body {
+    background-color: var(--bg-cream);
+  }
+  .page-view {
+    padding-left: var(--page-padding-desktop);
+    padding-right: var(--page-padding-desktop);
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1280px) {
+  .page-view {
+    max-width: 1240px;
+  }
+}
