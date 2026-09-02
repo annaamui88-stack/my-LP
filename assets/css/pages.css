@@ -127,7 +127,7 @@
   max-width: 360px;
   margin: 0 0 14px;
   color: var(--primary-green);
-  font-size: 2.3rem;
+  font-size: 2rem;
   line-height: 1.02;
   font-weight: 800;
   letter-spacing: -0.055em;
@@ -138,7 +138,7 @@
   max-width: 360px;
   margin: 0 0 14px;
   color: var(--primary-orange);
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   line-height: 1.02;
   font-weight: 800;
   letter-spacing: -0.055em;
@@ -149,7 +149,7 @@
   max-width: 350px;
   margin: 0 0 20px;
   color: #59635D;
-  font-size: 1.2rem;
+  font-size: 1rem;
   line-height: 1.65;
 }
 
@@ -177,7 +177,7 @@
   padding: 14px 24px;
   background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
   color: #FFFFFF !important;
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 700;
   text-decoration: none;
   border-radius: 50px;
@@ -311,7 +311,7 @@
 .home-section-title {
   margin: 5px 0 8px;
   color: var(--primary-green);
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   line-height: 1.15;
   font-weight: 800;
   letter-spacing: -0.035em;
