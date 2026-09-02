@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pesan & Data Diri - Anna Amui</title>
+  
+  <!-- FONT & CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/global.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/pages.css">
+  
+  <link rel="icon" type="image/png" href="/favicon.png">
+</head>
+<body>
+
+  <div class="mobile-container">
+    
+    <!-- MODULAR COMPONENT: Header -->
+    <div id="header-component"></div>
+
+    <main class="page-view">
+      
+      <!-- STEPPER (INDIKATOR LANGKAH) -->
+      <div class="checkout-steps">
+        <div class="step-item active" id="step-indicator-1">
+          <span class="step-number">1</span>
+          <span class="step-label">Pesanan</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step-item" id="step-indicator-2">
+          <span class="step-number">2</span>
+          <span class="step-label">Data Diri</span>
+        </div>
+      </div>
+
+      <!-- LANGKAH 1: KERANJANG PESANAN -->
+      <div id="step-1-content">
+        <section class="section-header">
+          <h3 class="section-title">Keranjang Pesanan</h3>
+          <p class="section-desc">Cek kembali varian rasa, jumlah manisan, dan tujuan pengirimanmu</p>
+        </section>
+
+        <!-- CONTAINER ITEM KERANJANG (DIRENDER VIA JS) -->
+        <div id="cart-items-container" class="cart-items-list">
+          <!-- Item keranjang dirender via JavaScript main.js -->
+        </div>
+
+        <!-- PILIH NEGARA TUJUAN DI KERANJANG (SEGMENTED PILL CONTROL) -->
+        <div class="form-group" style="margin-bottom: 20px;">
+          <label class="form-label" style="font-weight: 700; margin-bottom: 8px; display: block;">
+            🌏 Tujuan Pengiriman / Pengambilan
+          </label>
+
+          <div class="country-segmented-control">
+            <button type="button" class="country-pill-btn active" data-value="Hong Kong">
+              <span class="flag-icon">🇭🇰</span> Hong Kong
+            </button>
+            <button type="button" class="country-pill-btn" data-value="Taiwan">
+              <span class="flag-icon">🇹🇼</span> Taiwan
+            </button>
+            <button type="button" class="country-pill-btn" data-value="Indonesia">
+              <span class="flag-icon">🇮🇩</span> Indonesia
+            </button>
+          </div>
+
+          <!-- Hidden Native Select (Disinkronkan secara otomatis untuk JS) -->
+          <select id="select-country" name="country" style="display: none;">
+            <option value="Hong Kong" selected>Hong Kong</option>
+            <option value="Taiwan">Taiwan</option>
+            <option value="Indonesia">Indonesia</option>
+          </select>
+        </div>
+
+        <!-- INPUT CATATAN PESANAN -->
+        <div class="notes-input-card">
+          <label for="cart-notes" class="input-label">
+            <span>📝 Catatan Pesanan</span>
+            <span class="badge-optional">Opsional</span>
+          </label>
+          <textarea id="cart-notes" rows="2" placeholder="Contoh: Tolong bungkus terpisah, atau minta agak pedas..."></textarea>
+        </div>
+
+        <!-- RINGKASAN HARGA (SUMMARY CARD) -->
+        <div class="cart-summary-card">
+          <h4 class="summary-card-title">Ringkasan Pembayaran</h4>
+          
+          <!-- RINCIAN PER VARIAN (Original & Pedas) -->
+          <div id="summary-details-list" class="summary-breakdown">
+            <!-- Diisi otomatis oleh JS -->
+          </div>
+
+          <div class="summary-divider"></div>
+
+          <!-- SUBTOTAL PRODUK -->
+          <div class="summary-row">
+            <span>Subtotal Produk</span>
+            <span id="subtotal-text" style="font-weight: 600;">Rp0</span>
+          </div>
+
+          <!-- ESTIMASI BERAT -->
+          <div class="summary-row weight-info">
+            <span>📦 Estimasi Berat Total</span>
+            <strong id="total-weight-text" class="summary-val-weight">0 gram</strong>
+          </div>
+
+          <!-- ONGKOS KIRIM DINAMIS -->
+          <div class="summary-row">
+            <span>Ongkos Kirim</span>
+            <span id="shipping-cost-text" style="font-weight: 600; color: #d97706;">HK$33 (Bayar di Tempat)</span>
+          </div>
+
+          <div class="summary-divider"></div>
+
+          <!-- TOTAL PEMBAYARAN -->
+          <div class="summary-row total">
+            <span>Total Pembayaran</span>
+            <span class="total-amount" id="grandtotal-text">Rp0</span>
+          </div>
+        </div>
+
+        <!-- TOMBOL LANJUT -->
+        <button type="button" class="btn-primary btn-block btn-lg" id="btn-to-step-2">
+          <span>Lanjutkan ke Data Diri</span>
+          <span class="btn-arrow">→</span>
+        </button>
+      </div>
+
+      <!-- LANGKAH 2: FORM DATA DIRI -->
+      <div id="step-2-content" style="display: none;">
+        <section class="section-header">
+          <h3 class="section-title">Data Diri & Pengiriman</h3>
+          <p class="section-desc">Isi data lokasi untuk kemudahan koordinasi penyerahan/pengiriman</p>
+        </section>
+
+        <!-- MINI SUMMARY RECAP -->
+        <div class="checkout-mini-summary">
+          <div class="mini-summary-info">
+            <span>Total Tagihan Pesanan:</span>
+            <strong id="mini-grandtotal-text">Rp0</strong>
+          </div>
+          <button type="button" class="btn-link-edit" id="btn-edit-cart">Ubah Pesanan</button>
+        </div>
+
+        <form id="checkout-form">
+          <!-- NAMA LENGKAP -->
+          <div class="form-group">
+            <label class="form-label" for="cust-name">Nama Lengkap</label>
+            <input type="text" id="cust-name" class="form-input" placeholder="Masukkan nama Anda" required>
+          </div>
+
+          <!-- WHATSAPP -->
+          <div class="form-group">
+            <label class="form-label" for="cust-phone">No. WhatsApp / HP</label>
+            <input type="tel" id="cust-phone" class="form-input" placeholder="Contoh: 081234567890 atau +852 1234 5678" required>
+          </div>
+
+          <!-- FORM KHUSUS HONG KONG -->
+          <div id="form-hongkong" class="form-group">
+            <label class="form-label" for="cust-pickup">Tempat Pengambilan (Hong Kong)</label>
+            <select id="cust-pickup" class="form-input">
+              <option value="CAUSEWAY BAY">CAUSEWAY BAY</option>
+              <option value="SHAM SHUI PO">SHAM SHUI PO</option>
+              <option value="YUEN LONG">YUEN LONG</option>
+              <option value="CHAI WAN">CHAI WAN</option>
+              <option value="TSUEN WAN">TSUEN WAN</option>
+              <option value="TUEN MUN">TUEN MUN</option>
+              <option value="TAI PO">TAI PO</option>
+              <option value="SAI YING PUN">SAI YING PUN</option>
+              <option value="CHOI HUNG">CHOI HUNG</option>
+              <option value="TSING YI">TSING YI</option>
+              <option value="TSIM SHA TSUI">TSIM SHA TSUI</option>
+              <option value="NORTH POINT">NORTH POINT</option>
+              <option value="HANG HAU">HANG HAU</option>
+              <option value="MEI FOO">MEI FOO</option>
+              <option value="MONG KOK">MONG KOK</option>
+              <option value="KWUN TONG">KWUN TONG</option>
+              <option value="TSEUNG KWAN O">TSEUNG KWAN O</option>
+              <option value="SOUTH HORIZON">SOUTH HORIZON</option>
+              <option value="TO KWA WAN">TO KWA WAN</option>
+              <option value="POLAM">POLAM</option>
+              <option value="CHUNG ON">CHUNG ON</option>
+              <option value="MA ON SHAN">MA ON SHAN</option>
+              <option value="WONG TAI SIN">WONG TAI SIN</option>
+              <option value="KOWLOON CITY">KOWLOON CITY</option>
+              <option value="JORDAN">JORDAN</option>
+              <option value="YAU TONG">YAU TONG</option>
+              <option value="LAM TIN">LAM TIN</option>
+              <option value="TAI WAI">TAI WAI</option>
+            </select>
+          </div>
+
+          <!-- FORM KHUSUS TAIWAN -->
+          <div id="form-taiwan" class="form-group" style="display: none;">
+            <label class="form-label" for="cust-address-tw">Alamat Lengkap Pengiriman</label>
+            <textarea id="cust-address-tw" class="form-input" rows="3" placeholder="Tuliskan alamat lengkap beserta kode pos di Taiwan..."></textarea>
+          </div>
+
+          <!-- FORM KHUSUS INDONESIA -->
+          <div id="form-indonesia" class="form-group" style="display: none;">
+            <div class="form-group">
+              <label class="form-label" for="cust-courier-id">Pilihan Kurir Ekspedisi</label>
+              <select id="cust-courier-id" class="form-input">
+                <option value="SPX (Shopee Express)">SPX (Shopee Express)</option>
+                <option value="JNE Express">JNE Express</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="cust-district-id">Kecamatan & Kota / Kabupaten</label>
+              <input type="text" id="cust-district-id" class="form-input" placeholder="Contoh: Kec. Indramayu, Kab. Indramayu">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="cust-address-id">Alamat Lengkap (Jalan, No. Rumah, RT/RW & Kode Pos)</label>
+              <textarea id="cust-address-id" class="form-input" rows="3" placeholder="Contoh: Jl. Anggrek No. 12, RT 02/RW 01, Desa Margadadi (Kode Pos: 45211)"></textarea>
+            </div>
+          </div>
+
+          <!-- TOMBOL AKSI -->
+          <div class="checkout-actions">
+            <button type="button" class="btn-secondary" id="btn-back-to-step-1">Kembali</button>
+            <button type="submit" class="btn-primary btn-wa">
+              <span>Kirim ke WhatsApp</span>
+              <span class="wa-icon">💬</span>
+            </button>
+          </div>
+
+          <!-- TRUST BADGE -->
+          <div class="trust-badge-card">
+            <div class="trust-item">🔒 Data tersimpan aman</div>
+            <div class="trust-item">⚡ Respon cepat via WA</div>
+          </div>
+        </form>
+      </div>
+
+    </main>
+
+    <!-- MODULAR COMPONENT: Footer & Nav -->
+    <div id="footer-component"></div>
+    <div id="navigation-component"></div>
+
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
