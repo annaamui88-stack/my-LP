@@ -3,375 +3,416 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anna Amui - Manisan Mangga Khas Indramayu di Hong Kong</title>
-    
-    <!-- Meta SEO & Social -->
-    <meta name="description" content="Manisan Mangga Khas Indramayu asli Anna Amui. Segar, pedas manis, siap mengobati rindu kampung halaman untuk WNI di Hong Kong. Kirim Kamis, Tiba Minggu!">
-    <meta name="theme-color" content="#16a34a">
+    <title>Anna Amui | Manisan Mangga Khas Indramayu</title>
+    <meta name="description" content="Anna Amui menghadirkan manisan mangga khas Indramayu yang dibuat fresh setelah order untuk pelanggan Indonesia di Hong Kong dan Taiwan.">
+    <meta name="theme-color" content="#0F5B37">
+    <meta name="robots" content="index, follow">
 
-    <!-- Google Fonts: Poppins -->
+    <!-- Open Graph -->
+    <meta property="og:title" content="Anna Amui | Manisan Mangga Khas Indramayu">
+    <meta property="og:description" content="Manisan mangga khas Indramayu, dibuat fresh setelah order untuk kamu di Hong Kong & Taiwan.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/img/hero.png">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/responsive.css">
-
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/pages.css">
+    
     <link rel="icon" type="image/png" href="/favicon.png">
 </head>
 <body>
-
-    <!-- MODULAR HEADER -->
-    <div data-include="components/header.html"></div>
-
-    <!-- MOBILE BOTTOM NAVIGATION -->
-<div data-include="components/bottom-nav.html"></div>
-
-
-    <main>
-
-<!-- HERO SECTION -->  <section class="hero" id="home">  
-    <!-- Overlay Transparan untuk Gambar Background Hero -->  
-    <div class="hero-bg-overlay"></div>  <div class="container hero-container">  
-    <div class="hero-content">  
-        <!-- 1. HEADER / BADGE -->  
+    <div class="mobile-container">
         
+        <!-- MODULAR COMPONENT: Header -->
+        <div id="header-component"></div>
 
-        <!-- 2. JUDUL -->  
-        <h1 class="hero-title">  
-            <span class="hero-title-sub">Rindu Cemilan Indonesia?</span>  
-            Nikmati Manisan Mangga Khas Indramayu di Hong Kong  
-        </h1>  
-
-        <!-- 3. SUBJUDUL -->  
-        <p class="hero-subtitle">  
-            Manisan Mangga Pedas Manis Asam dibuat <strong>fresh</strong> setelah order agar tetap nikmat saat sampai di Hong Kong.  
-        </p>  
-
-        <!-- 4. GAMBAR PRODUK -->  
-        <div class="hero-image-wrapper">  
-            <div class="hero-image-glow"></div>  
-            <img src="assets/img/hero.png" alt="Manisan Mangga Anna Amui Indramayu" class="hero-img" loading="eager" fetchpriority="high">  
-        </div>  
-
-        <!-- 5. TOMBOL BELI & TOMBOL PAKET -->  
-        <div class="hero-cta-group">  
-            <a href="checkout.html" class="btn btn-primary btn-full btn-glow">PESAN SEKARANG</a>  
-            <a href="produk.html" class="btn btn-outline btn-lg">Lihat Paket</a>  
-        </div>  
-
-        <!-- 6. KEUNGGULAN PRODUK (Pindah ke paling bawah) -->  
-        <div class="hero-features">  
-            <div class="feature-item">  
-                  
-                <p><strong>100%</strong> Mangga Asli Indramayu</p>  
-            </div>  
-            <div class="feature-item">  
-                
-                <p><strong>Tanpa</strong> Pengawet</p>  
-            </div>  
-            <div class="feature-item">  
-                
-                <p><strong>Higienis</strong> &amp; Aman</p>  
-            </div>  
-        </div>  
-          
-    </div>  
-</div>
-
-</section>
-        
-        <!-- PAKET PEMBELIAN -->
-        <section class="section paket-section" id="paket">
-            <div class="container">
-                <div class="section-header text-center">
-                    <span class="section-subtitle">Pilihan Hemat</span>
-                    <h2 class="section-title">Paket Manisan Mangga</h2>
-                </div>
-
-                <div class="paket-grid">
-                    <!-- Paket 1 -->
-                    <div class="paket-card">
-                        <div class="paket-header">
-                            <h3 class="paket-name">Paket Hemat</h3>
-                            <div class="paket-price">HK$12</div>
-                            <span class="paket-qty">1 Pack</span>
-                            <img src="assets/img/manisan-mangga-paket-hemat-1-pack.png" alt="Manisan Mangga Paket Hemat" class="hero-img" loading="lazy">
-                        </div>
-                        <a href="checkout.html" class="btn btn-primary btn-full btn-glow">PESAN SEKARANG</a>             
-                    </div>
-                    
-                    <!-- Paket Favorit -->
-                    <div class="paket-card paket-favorit">
-                        <div class="badge-bestseller">BEST SELLER</div>
-                        <div class="paket-header">
-                            <h3 class="paket-name font-mango">Paket Favorit</h3>
-                            <div class="paket-price">HK$50</div>
-                            <span class="paket-qty">5 Pack</span>
-                            <img src="assets/img/manisan-mangga-paket-hemat-1-pack.png" alt="Manisan Mangga Paket Favorit" class="hero-img" loading="lazy">
-                        </div>
+        <!-- MAIN CONTENT -->
+        <main class="page-view home-page">
+            
+            <!-- 01. HERO -->
+            <section class="home-hero" aria-labelledby="home-hero-title">               
+                <h1 id="home-hero-title" class="home-hero-title">
+                    Rindu Cemilan Indonesia?
+                    <span class="home-hero-title2">Nikmati Manisan Mangga Khas Indramayu di Hong Kong dan Taiwan</span>
+                </h1> 
                         
-                        <div class="recommendation-text">
-                            ⭐⭐ PALING DIREKOMENDASIKAN ⭐⭐
-                        </div>
-
-                        <div class="weight-box">
-                            🔥 Pas untuk mencapai berat kirim ±1 Kg sehingga ongkir lebih efisien.
-                        </div>
-                        <a href="checkout.html" class="btn btn-primary btn-full btn-glow">PESAN SEKARANG</a>
-                    </div>
-
-                    <!-- Paket Keluarga -->
-                    <div class="paket-card">
-                        <div class="paket-header">
-                            <h3 class="paket-name">Paket Keluarga</h3>
-                            <div class="paket-price">HK$100</div>
-                            <span class="paket-qty">10 Pack</span>
-                            <img src="assets/img/manisan-mangga-paket-hemat-1-pack.png" alt="Manisan Mangga Paket Keluarga" class="hero-img" loading="lazy">
-                        </div>
-                        <a href="checkout.html" class="btn btn-primary btn-full btn-glow">PESAN SEKARANG</a>             
-                    </div>
+                <p class="home-hero-description">
+                    Nikmati manisan mangga khas Indramayu yang dibuat <strong>fresh setelah order</strong> untuk kamu di <strong>Hong Kong & Taiwan</strong>
+                </p>
+                <div class="home-hero-actions">
+                    <a href="paket.html" class="home-hero-button btn-primary">
+                        <span>Lihat Paket Manisan</span>
+                        <span class="btn-arrow" aria-hidden="true">→</span>
+                    </a>
+                    <a href="tentang.html" class="home-hero-secondary">Tentang Anna Amui</a>
                 </div>
-            </div>
-        </section>
+                <div class="home-hero-image">
+                    <div class="home-hero-image-glow" aria-hidden="true"></div>
+                    <img src="assets/img/hero-manisan-annaamui.png" alt="Manisan mangga Anna Amui khas Indramayu" loading="eager" fetchpriority="high">
+                </div>
+            </section>
 
-        <!-- CARA PEMESANAN -->
-        <section class="section timeline-section" id="cara-order">
-            <div class="container">
-                <div class="section-header text-center">
-                    <span class="section-subtitle">Alur Belanja</span>
-                    <h2 class="section-title">Cara Pemesanan</h2>
+            <!-- 02. KEUNGGULAN -->
+            <section class="home-trust-bar" aria-label="Keunggulan Anna Amui">
+                <div class="home-trust-item">
+                    <div class="home-trust-icon" aria-hidden="true">
+                        <img src="assets/icon/mangga.png" alt="Mangga Pilihan">
+                    </div>
+                    <span>Mangga<br>Pilihan</span>
                 </div>
 
-                <div class="v-timeline">
-                    <div class="v-step">
-                        <div class="v-number">1</div>
-                        <div class="v-content">
-                            <h3>Pesan Sekarang</h3>
-                            <p>Pilih varian manisan dan isi data diri</p>
+                <div class="home-trust-item">
+                    <div class="home-trust-icon" aria-hidden="true">
+                        <img src="assets/icon/fresh.png" alt="Fresh Setelah Order">
+                    </div>
+                    <span>Fresh Setelah<br>Order</span>
+                </div>
+
+                <div class="home-trust-item">
+                    <div class="home-trust-icon" aria-hidden="true">
+                        <img src="assets/icon/rasa.png" alt="Original dan Pedas">
+                    </div>
+                    <span>Original<br>& Pedas</span>
+                </div>
+
+                <div class="home-trust-item">
+                    <div class="home-trust-icon" aria-hidden="true">
+                        <img src="assets/icon/order.png" alt="Pre-Order Mingguan">
+                    </div>
+                    <span>Pre-Order<br>Mingguan</span>
+                </div>
+            </section>
+
+            <!-- 03. PAKET & HARGA -->
+            <section class="home-products" aria-labelledby="home-products-title">
+                <div class="home-section-heading">
+                    <span class="home-section-kicker">PILIH SESUAI KEBUTUHAN</span>
+                    <h2 id="home-products-title" class="home-section-title">Paket Manisan Mangga</h2>
+                    <p class="home-section-description">Mau coba dulu atau langsung stok untuk dinikmati bersama?</p>
+                </div>
+
+                <div class="home-product-list">
+                    <!-- CARD 1 -->
+                    <article class="home-product-card">
+                        <div class="home-product-image">
+                            <img src="assets/img/produk-manisan-annaamui.png" alt="Anna Amui Manisan Mangga 1 Pack" loading="lazy">
+                        </div>
+                        <div class="home-product-content">
+                            <span class="home-product-label">COBA DULU</span>
+                            <h3>1 Pack</h3>
+                            <p class="home-product-weight">±200g</p>
+                            <div class="home-product-price">Rp25.000</div>
+                        </div>
+                        <a href="paket.html?pack=1" class="home-product-button">Pilih Paket</a>
+                    </article>
+
+                    <!-- CARD 2 -->
+                    <article class="home-product-card home-product-card-featured">
+                        <span class="home-product-badge">HEMAT</span>
+                        <div class="home-product-image">
+                            <img src="assets/img/produk-manisan-annaamui.png" alt="Anna Amui Manisan Mangga 3 Pack" loading="lazy">
+                        </div>
+                        <div class="home-product-content">
+                            <span class="home-product-label">FAVORIT</span>
+                            <h3>3 Pack</h3>
+                            <p class="home-product-weight">±200g × 3</p>
+                            <div class="home-product-price">Rp60.000</div>
+                        </div>
+                        <a href="paket.html?pack=3" class="home-product-button">Pilih Paket</a>
+                    </article>
+
+                    <!-- CARD 3 -->
+                    <article class="home-product-card">
+                         <span class="home-product-badge">PALING HEMAT</span>
+                        <div class="home-product-image">
+                            <img src="assets/img/produk-manisan-annaamui.png" alt="Anna Amui Manisan Mangga 1 Kg isi 5 pack" loading="lazy">
+                        </div>
+                        <div class="home-product-content">
+                            <span class="home-product-label">Paket Hemat</span>
+                            <h3>1 Kg</h3>
+                            <p class="home-product-weight">±200g × 5 Pack</p>
+                            <div class="home-product-price">Rp100.000</div>
+                        </div>
+                        <a href="paket.html?pack=5" class="home-product-button">Pilih Paket</a>
+                    </article>
+                </div>
+                
+                <a href="paket.html" class="home-view-all">Lihat semua pilihan paket <span aria-hidden="true">→</span></a>
+            </section>
+
+            <!-- 04. KENAPA ANNA AMUI -->
+            <section class="home-why" aria-labelledby="home-why-title">
+                <div class="home-section-heading">
+                    <span class="home-section-kicker">KENAPA ANNA AMUI?</span>
+                    <h2 id="home-why-title" class="home-section-title">Bukan sekadar<br>manisan mangga</h2>
+                    <p class="home-section-description">Kami ingin menghadirkan kembali rasa cemilan Indonesia yang familiar untuk kamu yang sedang jauh dari rumah</p>
+                </div>
+
+                <div class="home-why-list">
+                    <article class="home-why-item">
+                        <div class="home-why-icon">
+                            <img src="assets/icon/mangga.png" alt="Mangga Pilihan">
+                        </div>
+                        <div class="home-why-content">
+                            <h3>Mangga Pilihan</h3>
+                            <p>Menggunakan mangga pilihan dari Indramayu, salah satu sentra mangga Indonesia</p>
+                        </div>
+                    </article>
+
+                    <article class="home-why-item">
+                        <div class="home-why-icon">
+                            <img src="assets/icon/fresh.png" alt="Dibuat Fresh">
+                        </div>
+                        <div class="home-why-content">
+                            <h3>Dibuat Fresh</h3>
+                            <p>Manisan dibuat berdasarkan pesanan agar rasa dan teksturnya tetap terjaga</p>
+                        </div>
+                    </article>
+
+                    <article class="home-why-item">
+                        <div class="home-why-icon">
+                            <img src="assets/icon/rasa.png" alt="Rasa Indonesia">
+                        </div>
+                        <div class="home-why-content">
+                            <h3>Rasa Indonesia</h3>
+                            <p>Perpaduan manis, asam dan pedas yang cocok untuk menemani waktu santai</p>
+                        </div>
+                    </article>
+
+                    <article class="home-why-item">
+                        <div class="home-why-icon">
+                            <img src="assets/icon/kemasan.png" alt="Dikemas dengan Baik">
+                        </div>
+                        <div class="home-why-content">
+                            <h3>Dikemas dengan Baik</h3>
+                            <p>Dikemas rapi dan aman agar kualitasnya terjaga hingga sampai ke tangan Anda</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- 05. PENGIRIMAN -->
+            <section class="home-delivery" aria-labelledby="home-delivery-title">
+                <div class="home-delivery-top">
+                    <div class="home-delivery-icon">
+                        <img src="assets/icon/kirim.png" alt="Pengiriman Internasional">
+                    </div>
+                    <span class="home-section-kicker">PENGIRIMAN</span>
+                </div>
+                <h2 id="home-delivery-title">Rasa Indonesia,<br>sampai ke tempatmu</h2>
+                <p class="home-delivery-description">Anna Amui melayani pengiriman produk Indonesia untuk wilayah <strong>Hong Kong & Taiwan</strong> dengan jadwal pengiriman yang teratur</p>
+                
+                <div class="home-delivery-countries">
+                    <div class="home-country-card">
+                        <div class="home-country-flag">
+                            <img src="assets/icon/hongkong.png" alt="Bendera Hong Kong">
+                        </div>
+                        <div>
+                            <strong>Hong Kong</strong>
+                            <span>Setiap Hari Kamis</span>
                         </div>
                     </div>
-                    <div class="v-step">
-                        <div class="v-number">2</div>
-                        <div class="v-content">
-                            <h3>Klik Tombol Lanjutkan ke WhatsApp</h3>
-                            <p>Akan otomatis hubungi admin kami secara langsung.</p>
+                    <div class="home-country-card">
+                        <div class="home-country-flag">
+                            <img src="assets/icon/taiwan.png" alt="Bendera Taiwan">
                         </div>
-                    </div>
-                    <div class="v-step">
-                        <div class="v-number">3</div>
-                        <div class="v-content">
-                            <h3>Bayar melalui Alipay HK</h3>
-                            <p>Transfer mudah & aman dengan e-wallet Hong Kong.</p>
-                        </div>
-                    </div>
-                    <div class="v-step">
-                        <div class="v-number">4</div>
-                        <div class="v-content">
-                            <h3>Kami kirim Hari Kamis</h3>
-                            <p>Produk segar dikirim langsung dari Indramayu, Indonesia.</p>
-                        </div>
-                    </div>
-                    <div class="v-step">
-                        <div class="v-number">5</div>
-                        <div class="v-content">
-                            <h3>Ambil paket Hari Minggu</h3>
-                            <p>Ambil di Agen AAN Express terdekat di Hong Kong.</p>
-                        </div>
-                    </div>
-                    <div class="v-step">
-                        <div class="v-number">6</div>
-                        <div class="v-content">
-                            <h3>Bayar ongkir di tempat</h3>
-                            <p>Bayar ongkos kirim saat mengambil barang di AAN Express.</p>
+                        <div>
+                            <strong>Taiwan</strong>
+                            <span>Setiap Hari (Kecuali Minggu)</span>
                         </div>
                     </div>
                 </div>
-
-                <div class="note-box">
-                    💡 <strong>Catatan Ongkir:</strong> Harga produk belum termasuk ongkir Hong Kong. Ongkir dibayar saat paket diambil di AAN Express.
-                </div>
-            </div>
-        </section>
-
-        <!-- BANNER JADWAL PENGIRIMAN & COUNTDOWN -->
-        <section class="section" id="jadwal">
-            <div class="container">
-                <div class="shipping-card text-center">
-                    <div class="shipping-badge">
-                        <div class="badge-title">
-                            ⚠️ PRE-ORDER DITUTUP SETIAP RABU JAM 24.00
-                        </div>
-                        <div class="badge-text">
-                            Pesanan yang masuk setelah batas waktu akan otomatis dijadwalkan untuk pengiriman minggu berikutnya.
-                        </div>
+                
+                <!-- Cut-off Hong Kong -->
+                <div class="home-delivery-note">
+                    <div class="home-delivery-note-icon">
+                        <img src="assets/icon/calendar.png" alt="Jadwal Cut-off Hong Kong">
                     </div>
-
-                    <h2 class="shipping-title">
-                        ⏳ Sisa Waktu Pre-Order
-                    </h2>
-
-                    <div class="timer-box">
-                        <div class="timer-segment">
-                            <div class="timer-val" id="days">0</div>
-                            <div class="timer-unit">Hari</div>
-                        </div>
-                        <div class="timer-segment">
-                            <div class="timer-val" id="hours">00</div>
-                            <div class="timer-unit">Jam</div>
-                        </div>
-                        <div class="timer-segment">
-                            <div class="timer-val" id="minutes">00</div>
-                            <div class="timer-unit">Menit</div>
-                        </div>
-                        <div class="timer-segment">
-                            <div class="timer-val" id="seconds">00</div>
-                            <div class="timer-unit">Detik</div>
-                        </div>
-                    </div>
-
-                    <p class="shipping-cta">
-                        🔥 Pesan sekarang agar ikut pengiriman minggu ini!
-                    </p>
-
-                    <p class="shipping-note">
-                        🚚 Pengiriman setiap hari Kamis<br>
-                        🇭🇰 Estimasi tiba di Hong Kong: Hari Minggu
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- KEUNGGULAN -->
-        <section class="section features-section" id="keunggulan">
-            <div class="container">
-                <div class="section-header text-center">
-                    <span class="section-subtitle">Alasan Memilih Kami</span>
-                    <h2 class="section-title">Keunggulan Anna Amui</h2>
-                </div>
-
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <span class="f-icon">✅</span>
-                        <h3>Fresh Dibuat Setelah Order</h3>
-                    </div>
-                    <div class="feature-item">
-                        <span class="f-icon">🇮🇩</span>
-                        <h3>Mangga Asli Indramayu</h3>
-                    </div>
-                    <div class="feature-item">
-                        <span class="f-icon">📦</span>
-                        <h3>Kemasan Higienis</h3>
-                    </div>
-                    <div class="feature-item">
-                        <span class="f-icon">✈️</span>
-                        <h3>Kirim Rutin Setiap Minggu</h3>
-                    </div>
-                    <div class="feature-item">
-                        <span class="f-icon">💬</span>
-                        <h3>Order Mudah Lewat WA</h3>
-                    </div>
-                    <div class="feature-item">
-                        <span class="f-icon">💳</span>
-                        <h3>Bayar Alipay HK</h3>
+                    <div>
+                        <strong>Ketentuan Order Hong Kong</strong>
+                        <p>Pemesanan dibuka hingga <strong>Rabu pukul 24.00 WIB</strong> untuk ikut pengiriman hari Kamis minggu tersebut</p>
                     </div>
                 </div>
-            </div>
-        </section>
+                
+                <!-- Cut-off Taiwan -->
+                <div class="home-delivery-note">
+                    <div class="home-delivery-note-icon">
+                        <img src="assets/icon/calendar.png" alt="Jadwal Cut-off Taiwan">
+                    </div>
+                    <div>
+                        <strong>Ketentuan Order Taiwan</strong>
+                        <p>Pengiriman dilakukan setiap hari kerja. Pesanan yang masuk pada hari Minggu akan diproses pada hari Senin</p>
+                    </div>
+                </div>
+            </section>
 
-        <!-- TESTIMONI -->
-        <section class="section testimoni-section" id="testimoni">
-            <div class="container">
-                <div class="section-header text-center">
-                    <span class="section-subtitle">Kata Pelanggan</span>
-                    <h2 class="section-title">Testimoni WNI Hong Kong</h2>
+            <!-- 06. CARA PESAN -->
+            <section class="home-how" aria-labelledby="home-how-title">
+                <div class="home-section-heading">
+                    <span class="home-section-kicker">CARA PESAN</span>
+                    <h2 id="home-how-title" class="home-section-title">Pesan dengan mudah</h2>
+                    <p class="home-section-description">Hanya beberapa langkah untuk menikmati manisan mangga dari Indramayu</p>
+                </div>
+                <div class="home-how-list">
+                    <div class="home-how-item">
+                        <div class="home-how-number">01</div>
+                        <div>
+                            <h3>Pilih Paket</h3>
+                            <p>Pilih jumlah dan varian Original atau Pedas</p>
+                        </div>
+                    </div>
+                    <div class="home-how-item">
+                        <div class="home-how-number">02</div>
+                        <div>
+                            <h3>Isi Data Penerima</h3>
+                            <p>Masukkan data dan alamat tujuan dengan lengkap</p>
+                        </div>
+                    </div>
+                    <div class="home-how-item">
+                        <div class="home-how-number">03</div>
+                        <div>
+                            <h3>Lakukan Pembayaran</h3>
+                            <p>Pembayaran dilakukan sesuai total pesanan</p>
+                        </div>
+                    </div>
+                    <div class="home-how-item">
+                        <div class="home-how-number">04</div>
+                        <div>
+                            <h3>Pesanan Dikirim</h3>
+                            <p>Pesanan diproses dan dikirim sesuai jadwal</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="paket.html" class="btn-primary home-how-button">Mulai Pilih Paket <span aria-hidden="true">→</span></a>
+            </section>
+            
+            <!-- 07. TESTIMONI -->
+            <section class="home-testimonial" aria-labelledby="home-testimonial-title">
+                <div class="home-section-heading">
+                    <span class="home-section-kicker">KATA MEREKA</span>
+                    <h2 id="home-testimonial-title" class="home-section-title">Cerita dari Pelanggan</h2>
+                    <p class="home-section-description">Respon jujur dari teman-teman yang sudah mengobati rindu cemilan Indonesia</p>
                 </div>
 
-                <div class="testi-grid">
-                    <div class="testi-card">
-                        <div class="testi-header">
-                            <img src="assets/img/testimoni-siti-rahmawati-causeway-bay.jpg" alt="Avatar Siti" class="testi-avatar">
-                            <div>
-                                <h4 class="testi-name">Siti Rahmawati</h4>
-                                <span class="testi-loc">Causeway Bay</span>
+                <div class="testimonial-list">
+                    <!-- Testimoni 1 (Hong Kong) -->
+                    <article class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">R</div>
+                            <div class="testimonial-info">
+                                <strong>Mbak Rina</strong>
+                                <span>Causeway Bay, Hong Kong</span>
                             </div>
+                            <div class="testimonial-stars">★★★★★</div>
                         </div>
-                        <div class="testi-stars">⭐⭐⭐⭐⭐</div>
-                        <p class="testi-text">"Mangganya renyah banget, pedas manisnya pas. Ngobatin kangen jajanan kampung saat libur hari Minggu di Hong Kong!"</p>
-                    </div>
+                        <p class="testimonial-text">"Obat kangen banget! Bumbunya pas, pedas manisnya segar. Nyampe Hong Kong kondisinya masih fresh banget."</p>
+                    </article>
 
-                    <div class="testi-card">
-                        <div class="testi-header">
-                            <img src="assets/img/avatar-pelanggan-default.jpeg" alt="Avatar Ani" class="testi-avatar">
-                            <div>
-                                <h4 class="testi-name">Ani Wijaya</h4>
-                                <span class="testi-loc">Mong Kok</span>
+                    <!-- Testimoni 2 (Taiwan) -->
+                    <article class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">S</div>
+                            <div class="testimonial-info">
+                                <strong>Siti N.</strong>
+                                <span>Taichung, Taiwan</span>
                             </div>
+                            <div class="testimonial-stars">★★★★★</div>
                         </div>
-                        <div class="testi-stars">⭐⭐⭐⭐⭐</div>
-                        <p class="testi-text">"Pesan Paket Favorit isi 5 pack paling hemat. Langsung ambil di agen AAN Express dekat tempat tinggal. Mantap!"</p>
-                    </div>
+                        <p class="testimonial-text">"Order yang kedua kalinya. Mangga Indramayunya kerasa banget kriuknya. Packing rapi dan nggak bocor sama sekali!"</p>
+                    </article>
 
-                    <div class="testi-card">
-                        <div class="testi-header">
-                            <img src="assets/img/avatar-pelanggan-default.jpeg" alt="Avatar Dewi" class="testi-avatar">
-                            <div>
-                                <h4 class="testi-name">Dewi Lestari</h4>
-                                <span class="testi-loc">Tsuen Wan</span>
+                    <!-- Testimoni 3 (Hong Kong) -->
+                    <article class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">E</div>
+                            <div class="testimonial-info">
+                                <strong>Eka Fitri</strong>
+                                <span>Yuen Long, Hong Kong</span>
                             </div>
+                            <div class="testimonial-stars">★★★★★</div>
                         </div>
-                        <div class="testi-stars">⭐⭐⭐⭐⭐</div>
-                        <p class="testi-text">"Bayar pakai Alipay HK praktis banget. Hari Minggu barang mendarat mulus dan masih super segar. Recommended seller!"</p>
+                        <p class="testimonial-text">"Pengiriman hari Kamis, Jumat langsung sampe. Pas dibuka harum mangganya juara. Bakal langganan tiap bulan ini sih."</p>
+                    </article>
+                </div>
+            </section>
+   
+            <!-- 08. FAQ (PERTANYAAN UMUM) -->
+            <section class="home-faq" aria-labelledby="home-faq-title">
+                <div class="home-section-heading">
+                    <span class="home-section-kicker">PERTANYAAN UMUM</span>
+                    <h2 id="home-faq-title" class="home-section-title">Sering Ditanyakan</h2>
+                    <p class="home-section-description">Informasi lengkap seputar produk, ketahanan, dan pengiriman manisan Anna Amui</p>
+                </div>
+
+                <div class="home-faq-list faq-container">
+                    <!-- FAQ Item 1 (Tertutup Rapi) -->
+                    <div class="home-faq-item faq-item">
+                        <button type="button" class="home-faq-question faq-trigger">
+                            <strong>Manisan mangga ini tahan berapa lama?</strong>
+                            <span class="faq-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="home-faq-answer faq-content">
+                            <p>Manisan tahan hingga <strong>2 minggu di suhu ruang</strong> dan hingga <strong>1–2 bulan di dalam kulkas</strong>. Disarankan langsung disimpan di kulkas saat tiba agar rasanya tetap segar dan nikmat.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="home-faq-item faq-item">
+                        <button type="button" class="home-faq-question faq-trigger">
+                            <strong>Apakah produk ini Halal dan aman dikonsumsi?</strong>
+                            <span class="faq-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="home-faq-answer faq-content">
+                            <p>Ya, 100% Halal. Dibuat menggunakan buah mangga Indramayu pilihan, gula murni, tanpa bahan pengawet berbahaya, dan diproses secara higienis.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="home-faq-item faq-item">
+                        <button type="button" class="home-faq-question faq-trigger">
+                            <strong>Bagaimana sistem pengirimannya?</strong>
+                            <span class="faq-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="home-faq-answer faq-content">
+                            <p>Untuk <strong>Hong Kong</strong>, pengiriman dilakukan setiap hari Kamis (cut-off order Rabu 24.00 WIB). Untuk <strong>Taiwan</strong>, pengiriman dilakukan setiap hari kerja (Senin–Sabtu).</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="home-faq-item faq-item">
+                        <button type="button" class="home-faq-question faq-trigger">
+                            <strong>Apakah ada minimal pembelian?</strong>
+                            <span class="faq-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="home-faq-answer faq-content">
+                            <p>Tidak ada minimal pembelian. Anda bisa mencoba mulai dari 1 pack (±200g). Namun, kami menyarankan Paket 3 Pack atau 1 Kg agar lebih hemat ongkos kirim.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- FAQ ACCORDION -->
-        <section class="section faq-section" id="faq">
-            <div class="container">
-                <div class="section-header text-center">
-                    <span class="section-subtitle">Tanya Jawab</span>
-                    <h2 class="section-title">Pertanyaan Sering Diajukan</h2>
-                </div>
+        </main>
+        
+        <!-- MODULAR COMPONENT: Floating WhatsApp -->
+        <div id="wa-component"></div>
 
-                <div class="faq-accordion">
-                    <div class="faq-item">
-                        <button class="faq-question">Apakah harus transfer ongkir? <span class="faq-icon">+</span></button>
-                        <div class="faq-answer">
-                            <p>Tidak. Ongkir tidak ditransfer bersama produk. Ongkos kirim dibayar langsung saat Anda mengambil paket di agen AAN Express Hong Kong.</p>
-                        </div>
-                    </div>
+        <!-- MODULAR COMPONENT: Footer -->
+        <div id="footer-component"></div>
 
-                    <div class="faq-item">
-                        <button class="faq-question">Bagaimana jadwal kirim? <span class="faq-icon">+</span></button>
-                        <div class="faq-answer">
-                            <p>Pengiriman rutin dari Indonesia setiap hari Kamis dan dijadwalkan tiba di Hong Kong setiap hari Minggu.</p>
-                        </div>
-                    </div>
+        <!-- MODULAR COMPONENT: Bottom Navigation -->
+        <div id="navigation-component"></div>
 
-                    <div class="faq-item">
-                        <button class="faq-question">Apakah bisa pilih rasa? <span class="faq-icon">+</span></button>
-                        <div class="faq-answer">
-                            <p>Bisa! Anda bebas memilih varian Original segar maupun Pedas Manis sesuai selera Anda.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+    </div>
 
-    <!-- MODULAR FOOTER & FLOATING WA -->
-    <div data-include="components/footer.html"></div>
-    <div data-include="components/floating-wa.html"></div>
-
-    <!-- SCRIPTS -->
-    <script src="js/include.js"></script>
-    <script src="js/main.js"></script>
-<script src="js/countdown.js"></script>
-  <script src="js/faq.js"></script>
-
+    <!-- JavaScript Loader -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/faq.js"></script>
+    
 </body>
 </html>
