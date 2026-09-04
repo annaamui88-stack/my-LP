@@ -3,12 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Blog & Cerita Anna Amui | Kuliner & Info HK & TW</title>
-  <meta name="description" content="Kumpulan cerita, resep, dan informasi seputar kehidupan serta kuliner khas Indonesia untuk kamu di Hong Kong dan Taiwan.">
+
+  <title>Blog Anna Amui | Kuliner, Manisan Mangga & Info Hong Kong Taiwan</title>
+
+  <meta name="description" content="Baca cerita, tips kuliner, manisan mangga khas Indramayu, serta informasi praktis untuk WNI di Hong Kong dan Taiwan dari Anna Amui.">
+
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Anna Amui">
   <meta name="theme-color" content="#0F5B37">
 
-  <!-- Font Family -->
+  <!-- CANONICAL -->
+  <link rel="canonical" href="https://annaamui.shop/blog.html">
+
+  <!-- OPEN GRAPH -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Blog Anna Amui | Kuliner, Manisan Mangga & Info Hong Kong Taiwan">
+  <meta property="og:description" content="Baca cerita, tips kuliner, manisan mangga khas Indramayu, serta informasi praktis untuk WNI di Hong Kong dan Taiwan dari Anna Amui.">
+  <meta property="og:url" content="https://annaamui.shop/blog.html">
+  <meta property="og:site_name" content="Anna Amui">
+  <meta property="og:locale" content="id_ID">
+  <meta property="og:image" content="https://annaamui.shop/assets/img/tentang.jpg">
+  <meta property="og:image:alt" content="Blog Anna Amui tentang kuliner dan manisan mangga khas Indramayu">
+
+  <!-- TWITTER / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Blog Anna Amui | Kuliner, Manisan Mangga & Info Hong Kong Taiwan">
+  <meta name="twitter:description" content="Baca cerita, tips kuliner, manisan mangga khas Indramayu, serta informasi praktis untuk WNI di Hong Kong dan Taiwan dari Anna Amui.">
+  <meta name="twitter:image" content="https://annaamui.shop/assets/img/tentang.jpg">
+
+  <!-- FONT FAMILY -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -17,11 +40,53 @@
   <link rel="stylesheet" href="assets/css/global.css">
   <link rel="stylesheet" href="assets/css/components.css">
   <link rel="stylesheet" href="assets/css/pages.css">
-  
+
+  <!-- FAVICON -->
   <link rel="icon" type="image/png" href="/favicon.png">
+
+  <!-- STRUCTURED DATA -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://annaamui.shop/#organization",
+        "name": "Anna Amui",
+        "url": "https://annaamui.shop/",
+        "logo": "https://annaamui.shop/favicon.png"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://annaamui.shop/#website",
+        "name": "Anna Amui",
+        "url": "https://annaamui.shop/",
+        "inLanguage": "id-ID",
+        "publisher": {
+          "@id": "https://annaamui.shop/#organization"
+        }
+      },
+      {
+        "@type": "CollectionPage",
+        "@id": "https://annaamui.shop/blog.html#webpage",
+        "url": "https://annaamui.shop/blog.html",
+        "name": "Blog Anna Amui | Kuliner, Manisan Mangga & Info Hong Kong Taiwan",
+        "description": "Kumpulan artikel Anna Amui tentang kuliner, manisan mangga khas Indramayu, pengiriman, serta kehidupan WNI di Hong Kong dan Taiwan.",
+        "isPartOf": {
+          "@id": "https://annaamui.shop/#website"
+        },
+        "about": {
+          "@id": "https://annaamui.shop/#organization"
+        },
+        "inLanguage": "id-ID"
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
+
   <div class="mobile-container">
 
     <!-- MODULAR COMPONENT: Header -->
@@ -32,224 +97,454 @@
 
       <!-- 01. INTRO / HEADER BLOG -->
       <section class="blog-intro">
-        <span class="section-kicker">Blog & Cerita</span>
+
+        <span class="section-kicker">
+          Blog & Cerita
+        </span>
+
         <h1 class="section-title">
-          Cerita, Rasa & Tips<br>Untuk Kamu di Luar Negeri
+          Cerita, Rasa & Tips<br>
+          Untuk Kamu di Luar Negeri
         </h1>
+
         <p class="section-description">
           Seputar kuliner khas Indramayu, info praktis pengiriman, dan kisah hangat dari tanah air.
         </p>
+
       </section>
 
       <!-- 02. CATEGORY TABS -->
       <section class="blog-tabs-section">
-        <div class="top-nav-tabs" role="tablist" aria-label="Kategori Blog">
-          <button class="tab-btn active" type="button" role="tab" aria-selected="true" data-category="all">Semua</button>
-          <button class="tab-btn" type="button" role="tab" aria-selected="false" data-category="info-hktw">Info HK & TW</button>
-          <button class="tab-btn" type="button" role="tab" aria-selected="false" data-category="resep">Resep & Kuliner</button>
-          <button class="tab-btn" type="button" role="tab" aria-selected="false" data-category="cerita">Cerita Indramayu</button>
+
+        <div
+          class="top-nav-tabs"
+          role="tablist"
+          aria-label="Kategori Blog"
+        >
+
+          <button
+            class="tab-btn active"
+            type="button"
+            role="tab"
+            aria-selected="true"
+            data-category="all"
+          >
+            Semua
+          </button>
+
+          <button
+            class="tab-btn"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-category="info-hktw"
+          >
+            Info HK & TW
+          </button>
+
+          <button
+            class="tab-btn"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-category="resep"
+          >
+            Resep & Kuliner
+          </button>
+
+          <button
+            class="tab-btn"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-category="cerita"
+          >
+            Cerita Indramayu
+          </button>
+
         </div>
+
       </section>
 
       <!-- 03. BLOG LISTING -->
-      <section class="blog-feed" id="blog-feed">
+      <section
+        class="blog-feed"
+        id="blog-feed"
+        aria-label="Daftar Artikel Anna Amui"
+      >
 
         <!-- ARTIKEL 1 -->
         <article class="blog-card" data-category="resep">
-          <a href="blog/rahasia-kesegaran-manisan-mangga.html" class="blog-img-wrapper">
-            <img src="assets/img/produk-manisan-annaamui.png" alt="Manisan Mangga khas Indramayu" class="blog-img" loading="lazy">
+
+          <a
+            href="blog/rahasia-kesegaran-manisan-mangga.html"
+            class="blog-img-wrapper"
+          >
+            <img
+              src="assets/img/tentang.jpg"
+              alt="Manisan mangga khas Indramayu Anna Amui"
+              class="blog-img"
+              loading="lazy"
+            >
           </a>
+
           <div class="blog-body">
-            <span class="blog-tag">RESEP & KULINER</span>
+
+            <span class="blog-tag">
+              RESEP & KULINER
+            </span>
+
             <h2 class="blog-title">
               <a href="blog/rahasia-kesegaran-manisan-mangga.html">
                 Rahasia Kesegaran Manisan Mangga Khas Indramayu yang Bikin Kangen
               </a>
             </h2>
-            <span class="blog-date">24 Ags 2026 • 3 mnt baca</span>
+
+            <span class="blog-date">
+              24 Ags 2026 • 3 mnt baca
+            </span>
+
             <br>
-            <a href="blog/rahasia-kesegaran-manisan-mangga.html" class="blog-link">Baca Selengkapnya →</a>
+
+            <a
+              href="blog/rahasia-kesegaran-manisan-mangga.html"
+              class="blog-link"
+            >
+              Baca Selengkapnya →
+            </a>
+
           </div>
+
         </article>
 
-                <!-- ARTIKEL 2 -->
-        <article class="blog-card" data-category="info-hktw">
-          <a href="blog/ide-jajanan-piknik-pmi.html" class="blog-img-wrapper">
-            <img src="assets/img/blog-2.jpg" alt="Piknik PMI di Victoria Park dan Taiwan" class="blog-img" loading="lazy">
-          </a>
-          <div class="blog-body">
-            <span class="blog-tag">INFO HK & TW</span>
-            <h2 class="blog-title">
-              <a href="blog/ide-jajanan-piknik-pmi.html">
-                Bikin Kumpul Liburan Makin Seru: Ide Jajanan Pedas Manis Buat Piknik PMI di Hong Kong & Taiwan
-              </a>
-            </h2>
-            <span class="blog-date">02 Sep 2026 • 3 mnt baca</span>
-            <br>
-            <a href="blog/ide-jajanan-piknik-pmi.html" class="blog-link">Baca Selengkapnya →</a>
-          </div>
-        </article>
+        <!-- ARTIKEL 2 -->
+<article class="blog-card" data-category="cerita">
 
+  <a
+    href="blog/kenapa-mangga-indramayu-terkenal.html"
+    class="blog-img-wrapper"
+  >
+    <img
+      src="assets/img/blog-2.jpg"
+      alt="Mangga Indramayu dan jenis mangga yang cocok untuk manisan"
+      class="blog-img"
+      loading="lazy"
+    >
+  </a>
+
+  <div class="blog-body">
+
+    <span class="blog-tag">
+      CERITA INDRAMAYU
+    </span>
+
+    <h2 class="blog-title">
+      <a href="blog/kenapa-mangga-indramayu-terkenal.html">
+        Kenapa Mangga Indramayu Terkenal? Mengenal Jenis Mangga yang Cocok untuk Manisan
+      </a>
+    </h2>
+
+    <span class="blog-date">
+      05 Sep 2026 • 7 mnt baca
+    </span>
+
+    <br>
+
+    <a
+      href="blog/kenapa-mangga-indramayu-terkenal.html"
+      class="blog-link"
+    >
+      Baca Selengkapnya →
+    </a>
+
+  </div>
+
+</article>
         <!-- ARTIKEL 3 -->
-        <article class="blog-card" data-category="info-hktw">
-          <a href="blog/cara-mudah-cod-hong-kong-dan-kirim-taiwan.html" class="blog-img-wrapper">
-            <img src="assets/img/blog-3.jpg" alt="Panduan COD Hong Kong dan Pengiriman Taiwan" class="blog-img" loading="lazy">
-          </a>
-          <div class="blog-body">
-            <span class="blog-tag">INFO HK & TW</span>
-            <h2 class="blog-title">
-              <a href="blog/cara-mudah-cod-hong-kong-dan-kirim-taiwan.html">
-                Bisa Bayar di Tempat! Panduan Pesan Manisan Mangga COD Hong Kong & Kirim Taiwan
-              </a>
-            </h2>
-            <span class="blog-date">02 Sep 2026 • 3 mnt baca</span>
-            <br>
-            <a href="blog/cara-mudah-cod-hong-kong-dan-kirim-taiwan.html" class="blog-link">Baca Selengkapnya →</a>
-          </div>
-        </article>
+<article class="blog-card" data-category="tips">
+  <a href="blog/cara-menyimpan-manisan-mangga.html" class="blog-img-wrapper">
+    <img
+      src="assets/img/blog-3.jpg"
+      alt="Cara menyimpan manisan mangga agar tetap renyah dan segar"
+      class="blog-img"
+      loading="lazy">
+  </a>
 
-        <!-- ARTIKEL 4 -->
-        <article class="blog-card" data-category="info-hktw">
-          <a href="blog/kirim-hadiah-manisan-ke-keluarga-di-indonesia.html" class="blog-img-wrapper">
-            <img src="assets/img/blog-4.jpg" alt="Kirim makanan dari luar negeri ke keluarga di Indonesia" class="blog-img" loading="lazy">
-          </a>
-          <div class="blog-body">
-            <span class="blog-tag">INFO HK & TW</span>
-            <h2 class="blog-title">
-              <a href="blog/kirim-hadiah-manisan-ke-keluarga-di-indonesia.html">
-                Kirim Kejutan Manisan Segar Buat Keluarga di Indonesia Langsung dari Hong Kong & Taiwan
-              </a>
-            </h2>
-            <span class="blog-date">02 Sep 2026 • 3 mnt baca</span>
-            <br>
-            <a href="blog/kirim-hadiah-manisan-ke-keluarga-di-indonesia.html" class="blog-link">Baca Selengkapnya →</a>
-          </div>
-        </article>
+  <div class="blog-body">
 
-              <!-- ARTIKEL 5 -->
-        <article class="blog-card" data-category="info-hktw">
-          <a href="blog/sajian-manisan-mangga-momen-hari-raya-pmi.html" class="blog-img-wrapper">
-            <img src="assets/img/blog-5.jpg" alt="Sajian manisan mangga momen hari raya PMI" class="blog-img" loading="lazy">
-          </a>
-          <div class="blog-body">
-            <span class="blog-tag">INFO HK & TW</span>
-            <h2 class="blog-title">
-              <a href="blog/sajian-manisan-mangga-momen-hari-raya-pmi.html">
-                Sajian Spesial Hari Raya & Momen Spesial: Manisan Mangga Segar Penawar Rindu Suasana Syukuran
-              </a>
-            </h2>
-            <span class="blog-date">02 Sep 2026 • 3 mnt baca</span>
-            <br>
-            <a href="blog/sajian-manisan-mangga-momen-hari-raya-pmi.html" class="blog-link">Baca Selengkapnya →</a>
-          </div>
-        </article>
+    <span class="blog-tag">
+      TIPS & INFO
+    </span>
 
+    <h2 class="blog-title">
+      <a href="blog/cara-menyimpan-manisan-mangga.html">
+        Cara Menyimpan Manisan Mangga Agar Tetap Renyah & Segar
+      </a>
+    </h2>
 
-      </section>
+    <span class="blog-date">
+      05 Sep 2026 • 6 mnt baca
+    </span>
 
+    <br>
+
+    <a
+      href="blog/cara-menyimpan-manisan-mangga.html"
+      class="blog-link">
+      Baca Selengkapnya →
+    </a>
+
+  </div>
+</article>
+
+       <!-- ARTIKEL #4 -->
+<article class="blog-card" data-category="info-hktw" id="hk3t8p">
+  <a href="blog/manisan-mangga-wni-hong-kong-taiwan.html" class="blog-img-wrapper">
+    <img
+      src="assets/img/blog-4.jpg"
+      alt="Manisan mangga untuk WNI di Hong Kong dan Taiwan"
+      class="blog-img"
+      loading="lazy"
+    >
+  </a>
+
+  <div class="blog-body">
+    <span class="blog-tag">INFO HONG KONG & TAIWAN</span>
+
+    <h2 class="blog-title">
+      <a href="blog/manisan-mangga-wni-hong-kong-taiwan.html">
+        Manisan Mangga untuk WNI di Hong Kong & Taiwan: Cara Pesan dan Pengiriman
+      </a>
+    </h2>
+
+    <span class="blog-date">05 Sep 2026 • 9 mnt baca</span>
+    <br>
+
+    <a href="blog/manisan-mangga-wni-hong-kong-taiwan.html" class="blog-link">
+      Baca Selengkapnya →
+    </a>
+  </div>
+</article>
+
+        <!-- ARTIKEL #5 -->
+<article class="blog-card" data-category="info-hktw" id="h5pmhk">
+  <a href="blog/cemilan-indonesia-untuk-pmi-hong-kong.html" class="blog-img-wrapper">
+    <img
+      src="assets/img/blog-5.jpg"
+      alt="Cemilan Indonesia untuk PMI di Hong Kong"
+      class="blog-img"
+      loading="lazy"
+    >
+  </a>
+
+  <div class="blog-body">
+    <span class="blog-tag">INFO HONG KONG</span>
+
+    <h2 class="blog-title">
+      <a href="blog/cemilan-indonesia-untuk-pmi-hong-kong.html">
+        Cemilan Indonesia untuk PMI di Hong Kong: Pilihan yang Bikin Kangen Rumah
+      </a>
+    </h2>
+
+    <span class="blog-date">05 Sep 2026 • 8 mnt baca</span>
+    <br>
+
+    <a href="blog/cemilan-indonesia-untuk-pmi-hong-kong.html" class="blog-link">
+      Baca Selengkapnya →
+    </a>
+  </div>
+</article>
+
+        <!-- ARTIKEL 6 -->
+        <article class="blog-card" data-category="info-hktw" id="c6hk92">
+  <a href="blog/cemilan-indonesia-di-hong-kong.html" class="blog-img-wrapper">
+    <img src="assets/img/blog-6.jpg"
+         alt="Cemilan Indonesia di Hong Kong untuk WNI dan PMI"
+         class="blog-img"
+         loading="lazy">
+  </a>
+
+  <div class="blog-body">
+    <span class="blog-tag">INFO HONG KONG</span>
+
+    <h2 class="blog-title">
+      <a href="blog/cemilan-indonesia-di-hong-kong.html">
+        Mencari Cemilan Indonesia di Hong Kong? Kenali Pilihan yang Cocok untuk WNI
+      </a>
+    </h2>
+
+    <span class="blog-date">05 Sep 2026 • 8 mnt baca</span>
+    <br>
+
+    <a href="blog/cemilan-indonesia-di-hong-kong.html" class="blog-link">
+      Baca Selengkapnya →
+    </a>
+  </div>
+</article>
+
+        <!-- ARTIKEL 7 -->
+        <article class="blog-card" data-category="info-hktw" id="tw7card">
+  <a href="blog/cemilan-indonesia-untuk-wni-taiwan.html" class="blog-img-wrapper">
+    <img
+      src="assets/img/blog-7.jpg"
+      alt="Cemilan Indonesia untuk WNI dan PMI di Taiwan"
+      class="blog-img"
+      loading="lazy">
+  </a>
+
+  <div class="blog-body">
+    <span class="blog-tag">INFO TAIWAN</span>
+
+    <h2 class="blog-title">
+      <a href="blog/cemilan-indonesia-untuk-wni-taiwan.html">
+        Cemilan Indonesia untuk WNI di Taiwan: Pilihan yang Bikin Kangen Rumah
+      </a>
+    </h2>
+
+    <span class="blog-date">05 Sep 2026 • 8 mnt baca</span>
+    <br>
+
+    <a href="blog/cemilan-indonesia-untuk-wni-taiwan.html" class="blog-link">
+      Baca Selengkapnya →
+    </a>
+  </div>
+</article>
+        <!-- ARTIKEL 8 -->
+       <article class="blog-card" data-category="info-hktw" id="tw8card">
+  <a href="blog/cara-mendapatkan-cemilan-indonesia-di-taiwan.html" class="blog-img-wrapper">
+    <img
+      src="assets/img/blog-8.jpg"
+      alt="Cara mendapatkan cemilan Indonesia di Taiwan"
+      class="blog-img"
+      loading="lazy">
+  </a>
+
+  <div class="blog-body">
+    <span class="blog-tag">INFO TAIWAN</span>
+
+    <h2 class="blog-title">
+      <a href="blog/cara-mendapatkan-cemilan-indonesia-di-taiwan.html">
+        Cara Mendapatkan Cemilan Indonesia Saat Tinggal di Taiwan
+      </a>
+    </h2>
+
+    <span class="blog-date">05 Sep 2026 • 8 mnt baca</span>
+    <br>
+
+    <a
+      href="blog/cara-mendapatkan-cemilan-indonesia-di-taiwan.html"
+      class="blog-link">
+      Baca Selengkapnya →
+    </a>
+  </div>
+</article>
+
+        <!-- ARTIKEL 9 -->
+        <article class="blog-card" data-category="resep" id="mm9card">
+  <a href="blog/manisan-mangga-pedas-manis-asam.html" class="blog-img-wrapper">
+    <img
+      src="assets/img/blog-9.jpg"
+      alt="Manisan mangga pedas manis dan asam khas Indramayu"
+      class="blog-img"
+      loading="lazy">
+  </a>
+
+  <div class="blog-body">
+    <span class="blog-tag">RESEP & KULINER</span>
+
+    <h2 class="blog-title">
+      <a href="blog/manisan-mangga-pedas-manis-asam.html">
+        Manisan Mangga Pedas, Manis & Asam: Mana yang Cocok untuk Kamu?
+      </a>
+    </h2>
+
+    <span class="blog-date">05 Sep 2026 • 7 mnt baca</span>
+    <br>
+
+    <a
+      href="blog/manisan-mangga-pedas-manis-asam.html"
+      class="blog-link">
+      Baca Selengkapnya →
+    </a>
+  </div>
+</article>
+
+        <!-- ARTIKEL 10 -->
+        <article class="blog-card" data-category="cerita" id="am10card">
+  <a
+    href="blog/dari-mangga-indramayu-menjadi-manisan.html"
+    class="blog-img-wrapper"
+  >
+    <img
+      src="assets/img/blog-10.jpg"
+      alt="Dari mangga Indramayu menjadi manisan mangga khas Indonesia"
+      class="blog-img"
+      loading="lazy"
+    >
+  </a>
+
+  <div class="blog-body">
+
+    <span class="blog-tag">
+      CERITA INDRAMAYU
+    </span>
+
+    <h2 class="blog-title">
+      <a href="blog/dari-mangga-indramayu-menjadi-manisan.html">
+        Dari Mangga Indramayu Menjadi Manisan: Kenapa Bikin Kangen Rumah?
+      </a>
+    </h2>
+
+    <span class="blog-date">
+      05 Sep 2026 • 9 mnt baca
+    </span>
+
+    <br>
+
+    <a
+      href="blog/dari-mangga-indramayu-menjadi-manisan.html"
+      class="blog-link"
+    >
+      Baca Selengkapnya →
+    </a>
+
+  </div>
+</article>
       <!-- 04. PAGINATION CONTROLLER -->
-      <div class="pagination-wrapper" id="pagination-wrapper" style="display:flex; justify-content:center; align-items:center; gap:8px; margin:30px 0;">
-        <!-- Tombol penomoran artikel (1, 2, 3) diproses oleh page-blog.js -->
+      <div
+        class="pagination-wrapper"
+        id="pagination-wrapper"
+        style="display:flex; justify-content:center; align-items:center; gap:8px; margin:30px 0;"
+      >
+        <!-- Tombol penomoran artikel diproses oleh page-blog.js -->
       </div>
 
       <!-- 05. BANNER CTA BELANJA -->
-      <section class="blog-cta-banner" style="background:#0F5B37; color:#ffffff; padding:24px 20px; border-radius:16px; text-align:center; margin:30px 16px;">
-        <h3 style="font-size:20px; font-weight:700; margin-bottom:8px;color:#f59e0b;">Kangen Rasa Manisan Asli Indramayu?</h3>
-        <p style="font-size:14px; opacity:0.9; margin-bottom:16px;">Pesan sekarang! Siap dikirim cepat ke tempatmu di Hong Kong & Taiwan</p>
-        <a href="paket.html" style="display:inline-block; background:#f59e0b; color:#ffffff; font-weight:700; font-size:14px; padding:10px 20px; border-radius:8px; text-decoration:none;">Pesan Manisan Sekarang →</a>
+      <section
+        class="blog-cta-banner"
+        style="background:#0F5B37; color:#ffffff; padding:24px 20px; border-radius:16px; text-align:center; margin:30px 16px;"
+      >
+
+        <h3
+          style="font-size:20px; font-weight:700; margin-bottom:8px; color:#f59e0b;"
+        >
+          Kangen Rasa Manisan Asli Indramayu?
+        </h3>
+
+        <p
+          style="font-size:14px; opacity:0.9; margin-bottom:16px;"
+        >
+          Pesan sekarang! Siap dikirim cepat ke tempatmu di Hong Kong & Taiwan
+        </p>
+
+        <a
+          href="paket.html"
+          style="display:inline-block; background:#f59e0b; color:#ffffff; font-weight:700; font-size:14px; padding:10px 20px; border-radius:8px; text-decoration:none;"
+        >
+          Pesan Manisan Sekarang →
+        </a>
+
       </section>
-      
-      
-        <!-- ARTIKEL 6 -->
-        <article class="blog-card" data-category="info-hktw">
-          <a href="blog/varian-pedas-serut-vs-original-manisan-mangga.html" class="blog-img-wrapper">
-            <img src="assets/img/blog-6.jpg" alt="Varian Manisan Mangga Pedas dan Original" class="blog-img" loading="lazy">
-          </a>
-          <div class="blog-body">
-            <span class="blog-tag">INFO HK & TW</span>
-            <h2 class="blog-title">
-              <a href="blog/varian-pedas-serut-vs-original-manisan-mangga.html">
-                Varian Pedas Serut vs Original: Mana Manisan Mangga Favorit PMI Hong Kong & Taiwan?
-              </a>
-            </h2>
-            <span class="blog-date">02 Sep 2026 • 3 mnt baca</span>
-            <br>
-            <a href="blog/varian-pedas-serut-vs-original-manisan-mangga.html" class="blog-link">Baca Selengkapnya →</a>
-          </div>
-        </article>
-        
-                <!-- ARTIKEL 7 -->
-        <article class="blog-card" data-category="info-hktw">
-          <a href="blog/tips-menyimpan-manisan-mangga-tetap-renyah-di-mess.html" class="blog-img-wrapper">
-            <img src="assets/img/blog-7.jpg" alt="Tips menyimpan manisan mangga di mess" class="blog-img" loading="lazy">
-          </a>
-          <div class="blog-body">
-            <span class="blog-tag">INFO HK & TW</span>
-            <h2 class="blog-title">
-              <a href="blog/tips-menyimpan-manisan-mangga-tetap-renyah-di-mess.html">
-                Berapa Lama Manisan Mangga Awet? Ini Tips Menyimpan Agar Tetap Renyah di Mess
-              </a>
-            </h2>
-            <span class="blog-date">02 Sep 2026 • 3 mnt baca</span>
-            <br>
-            <a href="blog/tips-menyimpan-manisan-mangga-tetap-renyah-di-mess.html" class="blog-link">Baca Selengkapnya →</a>
-          </div>
-        </article>
-        
-                <article class="blog-card" data-category="info-hktw">
-          <a href="blog/self-reward-pas-gajian-cemilan-kangen-rumah.html" class="blog-img-wrapper">
-            <img src="assets/img/blog-8.jpg" alt="Self-reward momen gajian PMI Hong Kong dan Taiwan" class="blog-img" loading="lazy">
-          </a>
-          <div class="blog-body">
-            <span class="blog-tag">INFO HK & TW</span>
-            <h2 class="blog-title">
-              <a href="blog/self-reward-pas-gajian-cemilan-kangen-rumah.html">
-                Self-Reward Pas Gajian: Manjakan Diri dengan Cemilan Kangen Rumah di Perantauan
-              </a>
-            </h2>
-            <span class="blog-date">02 Sep 2026 • 3 mnt baca</span>
-            <br>
-            <a href="blog/self-reward-pas-gajian-cemilan-kangen-rumah.html" class="blog-link">Baca Selengkapnya →</a>
-          </div>
-        </article>
-
-        <!-- ARTIKEL 9 -->
-        <article class="blog-card" data-category="info-hktw">
-          <a href="blog/kisah-pmi-hong-kong-melepas-penat.html" class="blog-img-wrapper">
-            <img src="assets/img/blog-9.jpg" alt="Kisah PMI Hong Kong dan Taiwan melepas penat" class="blog-img" loading="lazy">
-          </a>
-          <div class="blog-body">
-            <span class="blog-tag">INFO HK & TW</span>
-            <h2 class="blog-title">
-              <a href="blog/kisah-pmi-hong-kong-melepas-penat.html">
-                Kisah PMI Hong Kong: Cara Melepas Penat Setelah Seminggu Kerja Lewat Segarnya Manisan
-              </a>
-            </h2>
-            <span class="blog-date">02 Sep 2026 • 3 mnt baca</span>
-            <br>
-            <a href="blog/kisah-pmi-hong-kong-melepas-penat.html" class="blog-link">Baca Selengkapnya →</a>
-          </div>
-        </article>
-
-        <!-- ARTIKEL 10 -->
-        <article class="blog-card" data-category="info-hktw">
-          <a href="blog/lokasi-cod-populer-manisan-mangga-hong-kong.html" class="blog-img-wrapper">
-            <img src="assets/img/blog-10.jpg" alt="Lokasi COD Manisan Mangga di Hong Kong" class="blog-img" loading="lazy">
-          </a>
-          <div class="blog-body">
-            <span class="blog-tag">INFO HK & TW</span>
-            <h2 class="blog-title">
-              <a href="blog/lokasi-cod-populer-manisan-mangga-hong-kong.html">
-                Lokasi COD Populer di Hong Kong: Ambil Manisan Mangga Anna Amui Tanpa Ribet
-              </a>
-            </h2>
-            <span class="blog-date">02 Sep 2026 • 3 mnt baca</span>
-            <br>
-            <a href="blog/lokasi-cod-populer-manisan-mangga-hong-kong.html" class="blog-link">Baca Selengkapnya →</a>
-          </div>
-        </article>
-
-
 
     </main>
 
@@ -264,5 +559,6 @@
   <!-- JAVASCRIPT GLOBAL & PAGE SPECIFIC -->
   <script src="assets/js/main.js"></script>
   <script src="assets/js/page-blog.js"></script>
+
 </body>
 </html>
