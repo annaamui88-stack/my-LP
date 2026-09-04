@@ -1,4 +1,4 @@
-Anna Amui — Landing Page Premium
+🥭 Anna Amui — Landing Page Premium
 
 Website resmi Anna Amui, brand manisan mangga khas Indramayu yang ditujukan untuk masyarakat Indonesia di luar negeri, dengan fokus utama WNI/PMI di Hong Kong dan Taiwan.
 
