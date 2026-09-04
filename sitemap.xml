@@ -1,52 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+    <!-- HALAMAN UTAMA -->
     <url>
         <loc>https://annaamui.shop/</loc>
+    </url>
+
+    <url>
+        <loc>https://annaamui.shop/paket.html</loc>
+    </url>
+
+    <url>
+        <loc>https://annaamui.shop/tentang.html</loc>
     </url>
 
     <url>
         <loc>https://annaamui.shop/blog.html</loc>
     </url>
 
+
+    <!-- ARTIKEL BLOG -->
+
+    <!-- Artikel 1 -->
     <url>
-        <loc>https://annaamui.shop/blog/tips-penyimpanan.html</loc>
+        <loc>https://annaamui.shop/blog/rahasia-kesegaran-manisan-mangga.html</loc>
     </url>
 
+    <!-- Artikel 2 -->
     <url>
-        <loc>https://annaamui.shop/blog/mangga-indramayu.html</loc>
+        <loc>https://annaamui.shop/blog/kenapa-mangga-indramayu-terkenal.html</loc>
     </url>
 
-    
+    <!-- Artikel 3 -->
     <url>
-        <loc>https://annaamui.shop/blog/jenis-mangga-indramayu.html</loc>
+        <loc>https://annaamui.shop/blog/cara-menyimpan-manisan-mangga.html</loc>
     </url>
 
-    
+    <!-- Artikel 4 -->
     <url>
-        <loc>https://annaamui.shop/blog/mangga-cengkir.html</loc>
+        <loc>https://annaamui.shop/blog/manisan-mangga-wni-hong-kong-taiwan.html</loc>
     </url>
 
-    
+    <!-- Artikel 5 -->
     <url>
-        <loc>https://annaamui.shop/blog/harga-manisan-mangga-hong-kong.html</loc>
+        <loc>https://annaamui.shop/blog/cemilan-indonesia-untuk-pmi-hong-kong.html</loc>
     </url>
 
-
+    <!-- Artikel 6 -->
     <url>
-        <loc>https://annaamui.shop/blog/cara-kirim-manisan-mangga-hong-kong.html</loc>
+        <loc>https://annaamui.shop/blog/cemilan-indonesia-di-hong-kong.html</loc>
     </url>
 
-    
+    <!-- Artikel 7 -->
     <url>
-        <loc>https://annaamui.shop/blog/manisan-mangga-indonesia-hong-kong.html</loc>
+        <loc>https://annaamui.shop/blog/cemilan-indonesia-untuk-wni-taiwan.html</loc>
     </url>
 
-    
- 
+    <!-- Artikel 8 -->
     <url>
-        <loc>https://annaamui.shop/tentang.html</loc>
+        <loc>https://annaamui.shop/blog/cara-mendapatkan-cemilan-indonesia-di-taiwan.html</loc>
     </url>
-    
+
+    <!-- Artikel 9 -->
+    <url>
+        <loc>https://annaamui.shop/blog/manisan-mangga-pedas-manis-asam.html</loc>
+    </url>
+
+    <!-- Artikel 10 -->
+    <url>
+        <loc>https://annaamui.shop/blog/dari-mangga-indramayu-menjadi-manisan.html</loc>
+    </url>
 
 </urlset>
